@@ -9,6 +9,7 @@ public class Task {
     }
 
     public Task(String name) {
+
         this.name = name;
         this.completed = false;
     }
@@ -17,6 +18,8 @@ public class Task {
         return name;
     }
 
+    public void setName(String name){this.name = name;}
+
     public void toggleCompleted() {
         this.completed = !this.completed;
     }
@@ -24,4 +27,5 @@ public class Task {
     public boolean isCompleted() {
         return completed;
     }
+
 }

@@ -65,7 +65,7 @@ public class TodoList {
         Arrays.sort(names);
         for (int i = 0; i < names.length; i++) {
             for (Task todo : todos) {
-                if (Objects.equals(todo.getName(),names[i])){
+                if (Objects.equals(todo.getName(), names[i])) {
                     returningArray.add(todo);
                 }
             }
@@ -86,7 +86,7 @@ public class TodoList {
         Arrays.sort(names, Comparator.reverseOrder());
         for (int i = 0; i < names.length; i++) {
             for (Task todo : todos) {
-                if (Objects.equals(todo.getName(),names[i])){
+                if (Objects.equals(todo.getName(), names[i])) {
                     returningArray.add(todo);
                 }
             }
