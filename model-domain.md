@@ -1,11 +1,11 @@
 ## Core Requirments
 
 ## Task
-| Class | Attributes | Methods     | Scenario                 | Result                                      |
-|-------|------------|-------------|--------------------------|---------------------------------------------|
-| Task  | name       | name()      |                          | returns a String representation of the task |
-|       | completed  | completed() | if completed is true     | return true                                 |
-|       |            | completed() | if completed is not true | return false                                |
+| Class | Attributes | 
+|-------|------------|
+| Task  | name       |
+|       | completed  |
+|       |            |
 
 ## Todo List
 | Class    | Attributes  | Methods | Scenario | Result |
