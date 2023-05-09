@@ -8,13 +8,17 @@ public class Task {
     public Task() {
     }
 
-    public Task(String name, boolean completed) {
+    public Task(String name) {
         this.name = name;
-        this.completed = completed;
+        this.completed = false;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void toggleCompleted() {
+        this.completed = !this.completed;
     }
 
     public boolean isCompleted() {
