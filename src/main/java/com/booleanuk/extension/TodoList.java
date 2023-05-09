@@ -1,6 +1,7 @@
 package com.booleanuk.extension;
 
 import java.lang.reflect.Array;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -42,14 +43,14 @@ public class TodoList {
         return result;
     }
 
-    public boolean updateTask(String taskName) {
+    public boolean updateTask(String id) {
 
-        if(_searchTask(taskName) == null) {
+        if(searchByID(id) == null) {
             return false;
         }
 
         for (Task t : this.tasks) {
-            if (t.name.equals(taskName)) {
+            if (t.id.equals(id)) {
                 t.completed = !t.completed;
                 break;
             }
@@ -133,6 +134,31 @@ public class TodoList {
         task.name = name;
         this.tasks.set(index, task);
         return true;
+    }
+
+    public String displayAllTaskDetails() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        if (this.tasks.isEmpty()) {
+            return "No tasks were found.";
+        }
+
+        String result = "";
+        for (Task task: tasks) {
+            result += task.name + ", " + ((task.completed) ? "complete, " : "incomplete, ") + dtf.format(task.dateCreated) + "\n";
+        }
+        return result;
+    }
+
+
+    public String displayTaskDateTime(String id){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+        Task task = searchByID(id);
+
+        if(task == null) return "This task does not exist";
+
+        return dtf.format(task.dateCreated);
+
     }
 
 }
