@@ -3,6 +3,8 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 class TodoListTest {
     @Test
     public void exampleTest() {
@@ -55,6 +57,105 @@ class TodoListTest {
         Assertions.assertTrue(list.tasks.get(list.tasks.indexOf(task1)).completed);
     }
 
+    @Test
+    public void testGetCompleteTasks(){
+
+        TodoList list = new TodoList();
+
+        Assertions.assertArrayEquals(new ArrayList<Task>().toArray(), list.getCompletedTasks().toArray());
+
+        Task task1 = new Task("Go swimming", true);
+        Task task2 = new Task("Go for a walk", false);
+        Task task3 = new Task("Wash dishes", true);
+
+        list.tasks.add(task1);
+        list.tasks.add(task2);
+        list.tasks.add(task3);
+
+        ArrayList<Task> completedTasks = new ArrayList<>();
+        completedTasks.add(task1);
+        completedTasks.add(task3);
+
+        Assertions.assertArrayEquals(completedTasks.toArray(), list.getCompletedTasks().toArray());
+    }
+
+    @Test
+    public void testGetIncompleteTasks(){
+
+        TodoList list = new TodoList();
+
+        Assertions.assertArrayEquals(new ArrayList<Task>().toArray(), list.getIncompleteTasks().toArray());
+
+        Task task1 = new Task("Go swimming", true);
+        Task task2 = new Task("Go for a walk", false);
+        Task task3 = new Task("Wash dishes", true);
+
+        list.tasks.add(task1);
+        list.tasks.add(task2);
+        list.tasks.add(task3);
+
+        ArrayList<Task> incompleteTasks = new ArrayList<>();
+        incompleteTasks.add(task2);
+
+        Assertions.assertArrayEquals(incompleteTasks.toArray(), list.getIncompleteTasks().toArray());
+    }
+
+    @Test
+    public void testRemoveTask(){
+        TodoList list = new TodoList();
+
+        Task task1 = new Task("Go swimming", true);
+        Task task2 = new Task("Go for a walk", false);
+        Task task3 = new Task("Wash dishes", true);
+
+        list.tasks.add(task1);
+        list.tasks.add(task2);
+        list.tasks.add(task3);
+
+        list.removeTask("Go for a walk");
+        Assertions.assertFalse(list.tasks.contains(task2));
 
 
+        Assertions.assertFalse(list.removeTask("A task that does not exist"));
+    }
+
+    @Test
+    public void testDisplayTasksAlphabeticallyAscending() {
+        TodoList list = new TodoList();
+
+
+        Assertions.assertEquals("No tasks to be sorted", list.displayTasksAlphabeticallyAscending());
+
+
+        Task task1 = new Task("Go swimming", true);
+        Task task2 = new Task("Go for a walk", false);
+        Task task3 = new Task("Wash dishes", true);
+
+        list.tasks.add(task1);
+        list.tasks.add(task2);
+        list.tasks.add(task3);
+
+        String testResult = "Go for a walk, incomplete\nGo swimming, complete\nWash dishes, complete\n";
+        Assertions.assertEquals(testResult, list.displayTasksAlphabeticallyAscending());
+    }
+
+    @Test
+    public void testDisplayTasksAlphabeticallyDescending() {
+        TodoList list = new TodoList();
+
+
+        Assertions.assertEquals("No tasks to be sorted", list.displayTasksAlphabeticallyDescending());
+
+
+        Task task1 = new Task("Go swimming", true);
+        Task task2 = new Task("Go for a walk", false);
+        Task task3 = new Task("Wash dishes", true);
+
+        list.tasks.add(task1);
+        list.tasks.add(task2);
+        list.tasks.add(task3);
+
+        String testResult = "Wash dishes, complete\nGo swimming, complete\nGo for a walk, incomplete\n";
+        Assertions.assertEquals(testResult, list.displayTasksAlphabeticallyDescending());
+    }
 }
