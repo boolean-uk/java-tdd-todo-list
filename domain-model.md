@@ -25,3 +25,20 @@
 - I want to remove tasks from my list.
 - I want to see all the tasks in my list ordered alphabetically in ascending order.
 - I want to see all the tasks in my list ordered alphabetically in descending order.
+
+## Extension
+
+| Class     | Attributes                  | Methods                 | Scenarios                                                                  | Output                                      |
+|-----------|-----------------------------|-------------------------|----------------------------------------------------------------------------|---------------------------------------------|
+| TodoList	 | List<Task>                  |                         |                                                                            |                                             |
+|           |                             | getTaskById             | given a task ID                                                            | returns the task                            |
+|           |                             | updateTaskName          | given a task ID and a new name                                             | returns true if success or false if failure |
+|           |                             | setTaskStatus           | given a task ID and a new status (true for complete, false for incomplete) | returns true if success or false if failure |
+|           |                             | getTaskCreationDateTime | given a task ID                                                            | returns the creation date and time          |
+| Task      | id,Name, Date, isCompleted	 |                         |                                                                            |                                             |
+
+
+- I want to be able to get a task by a unique ID.
+- I want to update the name of a task by providing its ID and a new name.
+- I want to be able to change the status of a task by providing its ID.
+- I want to be able to see the date and time that I created each task.
