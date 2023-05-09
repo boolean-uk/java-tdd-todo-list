@@ -14,7 +14,7 @@
 | Tasks    | Name, Date, isCompleted |                                               |                      |                        |
 
 ## Core Requirements
-test
+
 
 - I want to add tasks to my todo list.
 - I want to see all the tasks in my todo list.
