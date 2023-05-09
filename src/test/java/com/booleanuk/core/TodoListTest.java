@@ -23,6 +23,7 @@ class TodoListTest {
     @Test
     void testAdd() {
         TodoList todoList = new TodoList();
+        //Some change
         Assertions.assertFalse(todoList.todos.contains(task0));
         todoList.add(task0);
         Assertions.assertTrue(todoList.todos.contains(task0));
