@@ -110,27 +110,4 @@ class TodoListTest {
         Assertions.assertEquals(task2.name, todoList.sortTasksDescending().get(1));
         Assertions.assertEquals(task3.name, todoList.sortTasksDescending().get(0));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

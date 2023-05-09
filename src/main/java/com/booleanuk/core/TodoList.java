@@ -70,7 +70,4 @@ public class TodoList {
         sortedTasks.sort(Collections.reverseOrder());
         return sortedTasks;
     }
-
-
 }
-
