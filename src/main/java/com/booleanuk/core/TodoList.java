@@ -30,7 +30,7 @@ public class TodoList {
         return tasks.stream().filter(x -> x.status == false).toList();
     }
 
-    public String searchTaskByName(String) {
+    public String searchTaskByName(String name) {
         return "Error not found";
     }
 }
