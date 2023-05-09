@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class TodoList {
@@ -31,6 +33,23 @@ public class TodoList {
     }
 
     public String searchTaskByName(String name) {
-        return "Error not found";
+        if (tasks.stream().anyMatch(x -> x.name.equals(name))) {
+            return "Task found!";
+        } else {
+            return "Error not found";
+        }
+    }
+
+    public List<Task> getTaskOrderedNameAsc() {
+        List<Task> orderedTasks = tasks;
+        orderedTasks.sort(Comparator.comparing(o -> o.name));
+        return orderedTasks;
+    }
+
+    public List<Task> getTaskOrderedNameDesc() {
+        List<Task> orderedTasks = tasks;
+        orderedTasks.sort(Comparator.comparing(o -> o.name));
+        Collections.reverse(orderedTasks);
+        return orderedTasks;
     }
 }
