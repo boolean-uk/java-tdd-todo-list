@@ -29,4 +29,8 @@ public class TodoList {
     public List<Task> getIncompleteTasks() {
         return tasks.stream().filter(x -> x.status == false).toList();
     }
+
+    public String searchTaskByName(String) {
+        return "Error not found";
+    }
 }

@@ -85,4 +85,10 @@ class TodoListTest {
         todoList.addTask(task);
         Assertions.assertEquals(1, todoList.getIncompleteTasks().size());
     }
+
+    @Test
+    public void searchTaskByNameShouldBe0() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("Error not found", todoList.searchTaskByName("Code"));
+    }
 }
