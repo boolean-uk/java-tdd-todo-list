@@ -14,22 +14,37 @@
 
 ## Domain Model
 
-| U.C. | Class      | Attributes               | Methods                                        | Scenario                                           | Outcome                                           |
-|------|------------|--------------------------|------------------------------------------------|----------------------------------------------------|---------------------------------------------------|
-|      | `Task`     | `id: int`                |                                                |                                                    |                                                   |
-|      |            | `name: String`           |                                                |                                                    |                                                   |
-|      |            | `completed: boolean`     |                                                |                                                    |                                                   |
-|      | `TodoList` | `tasks: Arraylist<Task>` |                                                |                                                    |                                                   |
-| 1    |            |                          | `add(String task): boolean`                    | Adding a new Task to the list                      | -                                                 |
-| 2    |            |                          | `getTasks(): Arraylist<Task>`                  | Task list is not empty                             | Arraylist<Task>                                   |
-|      |            |                          |                                                | Task list is empty                                 | null                                              |
-| 3    |            |                          | `toggleCompleted(int id): void`                | Changing a task's completed state                  | -                                                 |
-| 4, 5 |            |                          | `getTasks(boolean completed): Arraylist<Task>` | if completed = true and completed tasks exist      | Arraylist<Task>                                   |
-|      |            |                          |                                                | if completed = false and not completed tasks exist | Arraylist<Task>                                   |
-|      |            |                          |                                                | No tasks exist with the specified completed state  | null                                              |
-| 6    |            |                          | `getTask(int id): Task`                        | If Task exists                                     | Task                                              |
-|      |            |                          |                                                | if Task doesn't exist                              | Message: Task was not found                       |
-| 7    |            |                          | `remove(int id): void`                         | if Task exists, remove it from tasks list          | -                                                 |
-| 8    |            |                          | `sortAscending(): void`                        |                                                    | Sorts the tasks alphabetically in ascending order |
-| 9    |            |                          | `sortDescending(): void`                       |                                                    | Sorts the tasks descending in ascending order     |
-|      |            |                          |                                                | No tasks exist                                     | -                                                 |
+| U.C.     | Class      | Attributes               | Methods                                        | Scenario                                           | Outcome                                           |
+|----------|------------|--------------------------|------------------------------------------------|----------------------------------------------------|---------------------------------------------------|
+|          | `Task`     | `id: int`                |                                                |                                                    |                                                   |
+|          |            | `name: String`           |                                                |                                                    |                                                   |
+|          |            | `completed: boolean`     |                                                |                                                    |                                                   |
+|          | `TodoList` | `tasks: Arraylist<Task>` |                                                |                                                    |                                                   |
+| C.1      |            |                          | `add(String task): boolean`                    | Adding a new Task to the list                      | -                                                 |
+| C.2      |            |                          | `getTasks(): Arraylist<Task>`                  | Task list is not empty                             | Arraylist of Tasks                                |
+|          |            |                          |                                                | Task list is empty                                 | null                                              |
+| C.3      |            |                          | `toggleCompleted(int id): void`                | Changing a task's completed state                  | -                                                 |
+| C.4, C.5 |            |                          | `getTasks(boolean completed): Arraylist<Task>` | if completed = true and completed tasks exist      | Arraylist of Tasks                                |
+|          |            |                          |                                                | if completed = false and not completed tasks exist | Arraylist of Tasks                                |
+|          |            |                          |                                                | No tasks exist with the specified completed state  | null                                              |
+| C.6      |            |                          | `getTask(int id): Task`                        | If Task exists                                     | Task                                              |
+|          |            |                          |                                                | if Task doesn't exist                              | Message: Task was not found                       |
+| C.7      |            |                          | `remove(int id): void`                         | if Task exists, remove it from tasks list          | -                                                 |
+| C.8      |            |                          | `sortAscending(): void`                        |                                                    | Sorts the tasks alphabetically in ascending order |
+| C.9      |            |                          | `sortDescending(): void`                       |                                                    | Sorts the tasks descending in ascending order     |
+|          |            |                          |                                                | No tasks exist                                     | -                                                 |
+
+## Extensions Requirements - Use Cases
+1. I want to be able to get a task by a unique ID. ✔
+2. I want to update the name of a task by providing its ID and a new name.
+3. I want to be able to change the status of a task by providing its ID. ✔
+4. I want to be able to see the date and time that I created each task.
+
+
+| U.C. | Class              | Attributes                 | Methods                       | Scenario                    | Outcome               |
+|------|--------------------|----------------------------|-------------------------------|-----------------------------|-----------------------|
+| E.2  | `TodoListExtended` |                            | `updateTaskName(int id)`      | Task with id already exists | Update the tasks name |
+|      |                    |                            |                               | Task with id doesn't exist  | -                     |
+| E.4  |                    |                            | `getTaskCreationDate(int id)` | Task with id already exists | Return createdAt      |
+|      |                    |                            |                               | Task with id doesn't exist  | null                  |
+|      | `Task`             | `createdAt: LocalDateTime` |                               |                             |                       |

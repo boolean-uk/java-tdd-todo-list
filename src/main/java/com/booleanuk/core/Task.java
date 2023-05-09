@@ -1,9 +1,10 @@
 package com.booleanuk.core;
 
+
 public class Task implements Comparable<Task> {
 
-    static int id_counter = 0;
-    private int id;
+    public static int id_counter = 0;
+    private final int id;
     private String name;
     private boolean completed;
 
@@ -27,6 +28,10 @@ public class Task implements Comparable<Task> {
 
     public void toggleCompleted() {
         this.completed = !this.completed;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

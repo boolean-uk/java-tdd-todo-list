@@ -81,8 +81,8 @@ class TodoListTest {
         todoList.add("Work out");
         todoList.add("Study");
 
-        Assertions.assertTrue(todoList.getTask(1) != null);
-        Assertions.assertTrue(todoList.getTask(15) == null);
+        Assertions.assertNotNull(todoList.getTask(1));
+        Assertions.assertNull(todoList.getTask(15));
     }
 
     @Test

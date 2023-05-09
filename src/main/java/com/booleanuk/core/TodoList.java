@@ -1,6 +1,5 @@
 package com.booleanuk.core;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,7 +7,7 @@ import java.util.Optional;
 
 public class TodoList {
 
-    private List<Task> tasks;
+    private final List<Task> tasks;
 
     public TodoList() {
         tasks = new ArrayList<>();
@@ -24,9 +23,7 @@ public class TodoList {
 
     public void toggleCompleted(int id) {
         Optional<Task> selectedTask = tasks.stream().filter(task -> task.getId() == id).findFirst();
-        if (selectedTask.isPresent()) {
-            selectedTask.get().toggleCompleted();
-        }
+        selectedTask.ifPresent(Task::toggleCompleted);
     }
 
     public List<Task> getTasks(boolean completed) {
@@ -35,10 +32,10 @@ public class TodoList {
 
     public Task getTask(int id) {
         Optional<Task> selectedTask = tasks.stream().filter(task -> task.getId() == id).findFirst();
-        if (!selectedTask.isPresent()) {
+        if (selectedTask.isEmpty()) {
             System.out.println("Task not found");
         }
-        return selectedTask.isPresent() ? selectedTask.get() : null;
+        return selectedTask.orElse(null);
     }
 
     public void remove(int id) {
@@ -50,6 +47,6 @@ public class TodoList {
     }
 
     public void sortDescending() {
-        Collections.sort(tasks, Collections.reverseOrder());
+        tasks.sort(Collections.reverseOrder());
     }
 }
