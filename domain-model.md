@@ -1,3 +1,4 @@
+## Core part
 
 | Classes  | Attributes            | Methods                 | Scenario                        | Output                              |
 |----------|-----------------------|-------------------------|---------------------------------|-------------------------------------|
@@ -15,4 +16,20 @@
 |          |                       | removeTask(String name) |                                 | task is removed from the list       |
 |          |                       | getAscOrder()           |                                 | returns list in ascending order     |
 |          |                       | getDescOrder()          |                                 | returns list in descending order    |
+
+## Extension part
+
+| Classes  | Attributes                         | Methods                               | Output                                         |
+|----------|------------------------------------|---------------------------------------|------------------------------------------------|
+| Task     | long id                            |                                       |                                                |
+|          | String name                        |                                       |                                                |
+|          | bollean status                     |                                       |                                                |
+|          | LocaleDateTime creationDateAndTime |                                       |                                                |
+|          |                                    |                                       |                                                |
+| TodoList | List<Task> tasks                   |                                       |                                                |
+|          |                                    | getTaskById (long id)                 | Found retunrs task else null                   |
+|          |                                    | updateTaskNameByById(long id)         |                                                |
+|          |                                    | updateTaskStatusByById (long id)      |                                                |
+|          |                                    | getCreationDateTimeByTaskId (long id) | Retunrs string of date and time else not found |
+
 
