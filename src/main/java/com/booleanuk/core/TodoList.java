@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class TodoList {
     List<Task> todos = new ArrayList<>();
@@ -22,35 +20,79 @@ public class TodoList {
                 todo.toggleCompleted();
             }
         }
-
     }
 
     List<Task> getCompletedTasks() {
-        return new ArrayList<>();
-
+        List<Task> returningArray = new ArrayList<>();
+        for (Task todo : todos) {
+            if (todo.isCompleted()) {
+                returningArray.add(todo);
+            }
+        }
+        return returningArray;
     }
 
     List<Task> getIncompletedTasks() {
-        return new ArrayList<>();
-
+        List<Task> returningArray = new ArrayList<>();
+        for (Task todo : todos) {
+            if (!todo.isCompleted()) {
+                returningArray.add(todo);
+            }
+        }
+        return returningArray;
     }
 
     String search(Task task) {
-        return "hello";
+        if (todos.contains(task)) {
+            return "it was found";
+        }
+        return "it wasn't found";
 
     }
 
     void remove(List<Task> tasks) {
-
+        todos.removeAll(tasks);
     }
 
     List<Task> ascOrder() {
-        return new ArrayList<>();
+        List<Task> returningArray = new ArrayList<>();
+        String[] names = new String[todos.size()];
+        int counter = 0;
+        for (Task todo : todos) {
+            names[counter] = todo.getName();
+            counter++;
+        }
+        Arrays.sort(names);
+        for (int i = 0; i < names.length; i++) {
+            for (Task todo : todos) {
+                if (Objects.equals(todo.getName(),names[i])){
+                    returningArray.add(todo);
+                }
+            }
+        }
+
+        return returningArray;
 
     }
 
     List<Task> dscOrder() {
-        return new ArrayList<>();
+        List<Task> returningArray = new ArrayList<>();
+        String[] names = new String[todos.size()];
+        int counter = 0;
+        for (Task todo : todos) {
+            names[counter] = todo.getName();
+            counter++;
+        }
+        Arrays.sort(names, Comparator.reverseOrder());
+        for (int i = 0; i < names.length; i++) {
+            for (Task todo : todos) {
+                if (Objects.equals(todo.getName(),names[i])){
+                    returningArray.add(todo);
+                }
+            }
+        }
+
+        return returningArray;
 
     }
 }
