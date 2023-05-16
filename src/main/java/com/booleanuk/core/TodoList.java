@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class TodoList {
     List<Task> tasks;
@@ -22,11 +23,11 @@ public class TodoList {
     }
 
     public List<Task> getCompleteTasks() {
-        return tasks.stream().filter(x -> x.status == true).toList();
+        return tasks.stream().filter(x -> x.status == true).collect(Collectors.toList());
     }
 
     public List<Task> getIncompleteTasks() {
-        return tasks.stream().filter(x -> x.status == false).toList();
+        return tasks.stream().filter(x -> x.status == false).collect(Collectors.toList());
     }
 
     public String searchTaskByName(String name) {

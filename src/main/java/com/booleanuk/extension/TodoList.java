@@ -5,6 +5,7 @@ import com.booleanuk.extension.Task;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TodoList {
 
@@ -14,11 +15,11 @@ public class TodoList {
         tasks = new ArrayList<>();
     }
     public Task getById(int id) {
-        List<Task> list = tasks.stream().filter(x -> x.id == id).toList();
+        List<Task> list = tasks.stream().filter(x -> x.id == id).collect(Collectors.toList());
         if (list.isEmpty()) {
             return null;
         } else {
-            return tasks.stream().filter(x -> x.id == id).toList().get(0);
+            return tasks.stream().filter(x -> x.id == id).collect(Collectors.toList()).get(0);
         }
     }
 
