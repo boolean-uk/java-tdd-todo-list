@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class TodoList {
 
@@ -27,7 +28,7 @@ public class TodoList {
     }
 
     public List<Task> getTasks(boolean completed) {
-        return tasks.stream().filter(task -> task.getCompleted() == completed).toList();
+        return tasks.stream().filter(task -> task.getCompleted() == completed).collect(Collectors.toList());
     }
 
     public Task getTask(int id) {
