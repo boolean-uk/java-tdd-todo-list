@@ -13,10 +13,14 @@ public class Task {
 
     @Override
     public boolean equals(Object o) {
-        if (o == this) return true;
+        if (o == this) {
+            return true;
+        }
 
-        if (!(o instanceof Task aTask)) return false;
-
+        if (!(o instanceof Task)) {
+            return false;
+        }
+        Task aTask = (Task) o;
         return this.name.equals(aTask.name) && (this.completed == aTask.completed);
     }
 
