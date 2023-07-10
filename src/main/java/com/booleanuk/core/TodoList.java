@@ -12,7 +12,14 @@ public class TodoList {
 
     public void add(Task task) {
         this.tasks.add(task);
+    }
 
+    public List<Task> getCompletedTasks() {
+        return new ArrayList<>();
+    }
+
+    public List<Task> getIncompletedTasks() {
+        return new ArrayList<>();
     }
 
 }

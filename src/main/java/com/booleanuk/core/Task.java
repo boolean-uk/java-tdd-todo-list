@@ -1,12 +1,23 @@
 package com.booleanuk.core;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
 public class Task {
-    private String title;
-    private TaskStatus status = TaskStatus.INCOMPLETED;
+    private final String title;
+    private TaskStatus status;
 
+    public Task(String title, TaskStatus status) {
+        this.title = title;
+        this.status = status;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public TaskStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(TaskStatus status) {
+        this.status = status;
+    }
 }
