@@ -63,6 +63,7 @@ public class TodoList {
         return tasks;
     }
 
-    public void removeTask(int i) {
+    public boolean removeTask(int id) {
+        return tasks.removeIf(task -> task.getId() == id);
     }
 }
