@@ -21,4 +21,12 @@ class TodoListTest {
 
         Assertions.assertEquals(1, todoList.tasks.size());
     }
+
+    @Test
+    public void changeTaskStatusToCompleted() {
+        Task task = new Task("Task no. 2");
+        task.changeStatus(TaskStatus.COMPLETED);
+
+        Assertions.assertEquals(task.status, TaskStatus.COMPLETED);
+    }
 }
