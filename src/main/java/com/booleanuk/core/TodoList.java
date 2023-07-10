@@ -8,6 +8,8 @@ public class TodoList {
 
     ArrayList<TodoList> tasks = new ArrayList<TodoList>();
 
+    public TodoList(){}
+
     public TodoList(String task, boolean status) {
         this.task = task;
         this.status = status;
