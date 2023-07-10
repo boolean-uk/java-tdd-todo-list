@@ -22,7 +22,7 @@ public class TodoList {
 
 
     public boolean toggleTaskStatus(int id) {
-        return true;
+        return getById(id).toggleStatus();
     }
 
     public Task getById(int id) {

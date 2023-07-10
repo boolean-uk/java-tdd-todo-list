@@ -7,7 +7,7 @@
 |          | toggleTaskStatus(int id)               |                          | Toggle task status                  | boolean status                             |
 |          | getCompleteTasks()                     |                          | Get complete tasks                  | List<Task> with complete tasks             |
 |          | getIncompleteTasks()                   |                          | Get incomplete tasks                | List<Task> with incomplete tasks           |
-|          | findTask(int id)                       |                          | Search whether task exists          | String message with search result          |
+|          | taskExists(int id)                     |                          | Search whether task exists          | String message with search result          |
 |          | removeTask(int id)                     |                          | Remove task from list               | boolean whether succeeded                  |
 |          | getTasksAscending()                    |                          | Show all tasks in ascending order   | List<Task> with tasks in ascending order   |
 |          | getTasksDescending()                   |                          | Show all tasks in descending order  | List<Task> with tasks in descending order  |
