@@ -47,4 +47,16 @@ public class TaskExtension implements Comparable<TaskExtension>{
     public static void setCounterToZero(){
         counter = 0;
     }
+
+    public String getTaskName() {
+        return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public void setTaskExtensionId(String taskExtensionId) {
+        this.taskExtensionId = taskExtensionId;
+    }
 }
