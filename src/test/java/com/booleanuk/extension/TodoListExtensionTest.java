@@ -74,6 +74,20 @@ public class TodoListExtensionTest {
         assertEquals(expected,taskExtension.getTaskName());
 
     }
+    @Test
+    public void shouldChangeStatusByProvidedId(){
+        //given
+        TodoListExtension todoListExtension = new TodoListExtension();
+        TaskExtension taskExtension = new TaskExtension("Extended Task 1");
+        todoListExtension.addTask(taskExtension);
+        String id = "ID0";
+
+        //when
+        todoListExtension.changeStatusById(id, true);
+
+        //then
+        assertTrue(taskExtension.getStatus());
+    }
 
 
 }
