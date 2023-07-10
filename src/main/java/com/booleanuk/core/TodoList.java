@@ -66,4 +66,11 @@ public class TodoList {
         return completedTasks;
 
     }
+
+    public String findTask(Task task) {
+        if(tasks.contains(task)){
+            return "I found a message!";
+        }
+        return "I didn't find message";
+    }
 }

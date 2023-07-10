@@ -172,6 +172,46 @@ class TodoListTest {
         assertEquals("I found a message!", message);
 
     }
+    @Test
+    public void shouldReturnNegativeMessage(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",false);
+        todoList.addTask(task);
+        Task task2 = new Task("Exercise 2",false);
+        todoList.addTask(task2);
+        Task task3 = new Task("Exercise 3",false);
+        todoList.addTask(task3);
+        Task task4 = new Task("Exercise 4", true);
+
+        //when
+        String message = todoList.findTask(task4);
+
+        //then
+        assertEquals("I didn't find message", message);
+
+    }
+
+    @Test
+    public void shouldRemoveTaskFromList(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",false);
+        todoList.addTask(task);
+        Task task2 = new Task("Exercise 2",false);
+        todoList.addTask(task2);
+        Task task3 = new Task("Exercise 3",false);
+        todoList.addTask(task3);
+
+        //when
+       todoList.removeTask(task);
+
+       //then
+        assertEquals(2,todoList.getTasks().size());
+    }
+
+
+
 
 
 }
