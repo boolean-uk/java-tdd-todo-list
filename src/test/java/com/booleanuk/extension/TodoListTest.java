@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class TodoListTest {
     @Test
@@ -101,5 +102,25 @@ public class TodoListTest {
         }
 
         Assertions.assertEquals(message, "java.lang.Exception: Task not found");
+    }
+
+    @Test
+    public void getDateTest() {
+        String taskDescription = "Walk the dog";
+
+        TodoList todolist = new TodoList();
+        todolist.addTask(taskDescription);
+
+        try {
+            Task result = todolist.getTask(0).getDate();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        Assertions.assertEquals(result.getYear(), new Date().getYear());
+        Assertions.assertEquals(result.getMonth(), new Date().getMonth());
+        Assertions.assertEquals(result.getDay(), new Date().getDay());
+        Assertions.assertEquals(result.getHours(), new Date().getHours());
+        Assertions.assertEquals(result.getMinutes(), new Date().getMinutes());
     }
 }
