@@ -78,4 +78,16 @@ class TodoListTest {
 
         Assertions.assertEquals(todoList.search("Boxing"), "Task wasn't found");
     }
+
+    @Test
+    public void removeFromListTest() {
+        todoList.add("Running");
+        todoList.add("Swimming");
+        todoList.add("Cycling");
+        todoList.add("Walking");
+        Assertions.assertEquals(4, todoList.allTasks().size());
+
+        todoList.remove("Cycling");
+        Assertions.assertEquals(3, todoList.allTasks().size());
+    }
 }

@@ -46,4 +46,8 @@ public class TodoList {
         return "Task wasn't found";
     }
 
+    public void remove(String task) {
+        toDoList.remove(task);
+    }
+
 }
