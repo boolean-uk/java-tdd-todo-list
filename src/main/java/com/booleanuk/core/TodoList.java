@@ -54,7 +54,6 @@ public class TodoList {
         return result.toString();
     }
 
-<<<<<<< HEAD
     public boolean removeTask(String text) {
         return tasks.remove(text) != null;
     }
@@ -65,8 +64,7 @@ public class TodoList {
                 "There is no such task in the list.";
     }
 
-=======
->>>>>>> 3f28e48 (Creating method to display sorted tasks)
+
     public String displayAlphabeticallyAscending() {
         List<String> keys = new ArrayList(tasks.keySet());
         Collections.sort(keys);
@@ -97,7 +95,7 @@ public class TodoList {
                     .append(" | ")
                     .append(key)
                     .append("\n");
-
+        
         return result.toString();
     }
 }
