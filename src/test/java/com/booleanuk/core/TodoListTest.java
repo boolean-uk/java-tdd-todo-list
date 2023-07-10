@@ -48,4 +48,18 @@ class TodoListTest {
 
     }
 
+    @Test
+    public void statusShouldReturnTrueAfterChange(){
+        //when
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1");
+        todoList.addTask(task);
+
+        //given
+        todoList.changeStatus(task, true);
+        boolean isComplete = todoList.getTaskStatus(task, true);
+
+        assertTrue(isComplete);
+    }
+
 }
