@@ -18,4 +18,8 @@ public class TodoList {
     public String getAllTasks() {
         return tasks.toString();
     }
+
+    public String getAllTasks(boolean isCompleted){
+        return tasks.stream().filter(task -> task.isCompleted == isCompleted).toList().toString();
+    }
 }
