@@ -44,4 +44,20 @@ class TodoListTest {
 
         Assertions.assertFalse(todoList.getTasks().contains(task1));
     }
+
+    @Test
+    public void testSearchIfExist(){
+        Task task1 =new Task("Task no. 1");
+        todoList = new TodoList();
+        todoList.add(task1);
+        Assertions.assertEquals("Task found: Task no. 1", todoList.search(task1));
+    }
+
+    @Test
+    public void testSearchIfNotExist(){
+        Task task1 =new Task("Task no. 1");
+        todoList = new TodoList();
+        todoList.add(task1);
+        Assertions.assertEquals("Task not found", todoList.search(new Task("a")));
+    }
 }

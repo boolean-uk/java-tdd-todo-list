@@ -21,4 +21,9 @@ public class TodoList {
     public void removeTask(Task task){
         this.tasks.remove(task);
     }
+
+    public String search(Task task){
+        return "";
+    }
+
 }
