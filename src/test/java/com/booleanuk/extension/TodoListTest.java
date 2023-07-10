@@ -87,4 +87,21 @@ public class TodoListTest {
             assertTrue(TODOLIST.getTask(0).isCompleted);
         }
     }
+
+    @Nested
+    class DisplayTasks {
+        @Test
+        void shouldReturnThreeElements() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            TODOLIST.addTask(TASK3);
+            String result = """
+                    Tasks to do:\s
+                    0# Completed: false | Wash the dishes
+                    1# Completed: false | Walk the dog
+                    2# Completed: false | Drink a glass of water
+                    """;
+            assertEquals(result, TODOLIST.displayTasks());
+        }
+    }
 }
