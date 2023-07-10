@@ -33,13 +33,13 @@ public class TodoList {
     public void removeOneTaskByName(String name) {
         // TODO
     }
-
-    public void removeAllTasksByName(String... names) {
-        // TODO
-    }
-
+    
     public List<Task> getAllTasksSorted(SortingOrder sortingOrder) {
         // TODO
         return null;
+    }
+
+    public void clear() {
+        tasks.clear();
     }
 }
