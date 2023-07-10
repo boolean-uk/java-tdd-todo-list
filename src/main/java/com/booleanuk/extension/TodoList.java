@@ -1,13 +1,14 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.lang.reflect.Array;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 
 public class TodoList {
-//    HashMap <String, Boolean> tasks = new HashMap<>();
+    //    HashMap <String, Boolean> tasks = new HashMap<>();
     ArrayList<Task> tasks = new ArrayList<>();
     private Task _searchTask(String task) {
         for (Task t: tasks) {
@@ -42,14 +43,14 @@ public class TodoList {
         return result;
     }
 
-    public boolean updateTask(String taskName) {
+    public boolean updateTask(String id) {
 
-        if(_searchTask(taskName) == null) {
+        if(searchByID(id) == null) {
             return false;
         }
 
         for (Task t : this.tasks) {
-            if (t.name.equals(taskName)) {
+            if (t.id.equals(id)) {
                 t.completed = !t.completed;
                 break;
             }
@@ -112,6 +113,52 @@ public class TodoList {
             result += task.name + ", " + ((task.completed) ? "complete" : "incomplete") + "\n";
         }
         return result;
+    }
+
+
+    public Task searchByID(String id) {
+        for (Task task : this.tasks) {
+            if(task.id.equals(id)) {
+                return task;
+            }
+        }
+        return null;
+    }
+
+    public boolean updateTaskName(String id, String name) {
+        Task task = searchByID(id);
+        if(task == null) {
+            return false;
+        }
+        int index = this.tasks.indexOf(task);
+        task.name = name;
+        this.tasks.set(index, task);
+        return true;
+    }
+
+    public String displayAllTaskDetails() {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        if (this.tasks.isEmpty()) {
+            return "No tasks were found.";
+        }
+
+        String result = "";
+        for (Task task: tasks) {
+            result += task.name + ", " + ((task.completed) ? "complete, " : "incomplete, ") + dtf.format(task.dateCreated) + "\n";
+        }
+        return result;
+    }
+
+
+    public String displayTaskDateTime(String id){
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+
+        Task task = searchByID(id);
+
+        if(task == null) return "This task does not exist";
+
+        return dtf.format(task.dateCreated);
+
     }
 
 }
