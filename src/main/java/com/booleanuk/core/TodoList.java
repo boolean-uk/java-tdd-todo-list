@@ -5,11 +5,11 @@ import java.util.*;
 public class TodoList {
 
     private List<Task> tasks = new ArrayList<>();
-
+    private int lastId = 0;
 
 
     public int add(Task task) {
-
+        task.setId(++lastId);
         tasks.add(task);
         return task.getId();
     }

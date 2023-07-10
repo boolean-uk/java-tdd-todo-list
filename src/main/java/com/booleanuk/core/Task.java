@@ -8,13 +8,12 @@ public class Task{
     private boolean status;
     private LocalDateTime createTime;
 
-    private static int lastId = 0;
+
 
     public Task(String name, boolean status, LocalDateTime createTime) {
         this.name = name;
         this.status = status;
         this.createTime = createTime;
-        this.id = ++lastId;
     }
 
     public boolean toggleStatus(){
@@ -58,5 +57,9 @@ public class Task{
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
