@@ -34,4 +34,13 @@ class TodoListTest {
         todoList.add(new Task("clean",true, now()));
         assertEquals(2,todoList.getAll().size());
     }
+
+    @Test
+    public void testIfStatusChanged(){
+        TodoList todoList = new TodoList();
+        todoList.add(new Task("bla bla",false, now()));
+
+        assertTrue(todoList.toggleTaskStatus(1));
+        assertFalse(todoList.toggleTaskStatus(1));
+    }
 }

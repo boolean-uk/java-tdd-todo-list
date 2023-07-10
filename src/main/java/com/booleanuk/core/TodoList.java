@@ -19,4 +19,8 @@ public class TodoList {
     public List<String> getAll() {
         return tasks.stream().map(Task::toString).toList();
     }
+
+    public boolean toggleTaskStatus(int id) {
+
+    }
 }
