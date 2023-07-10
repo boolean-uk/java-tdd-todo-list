@@ -3,8 +3,7 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 class TodoListTest {
     @Test
@@ -89,5 +88,35 @@ class TodoListTest {
 
         todoList.remove("Cycling");
         Assertions.assertEquals(3, todoList.allTasks().size());
+    }
+
+    @Test
+    public void listInAscendingOrderTest() {
+        todoList.add("Running");
+        todoList.add("Swimming");
+        todoList.add("Walking");
+        todoList.add("Cycling");
+
+
+        todoList.sortTasksAsc();
+
+        List<String> expectedTasks = List.of("Cycling", "Running", "Swimming", "Walking");
+
+        Assertions.assertEquals(expectedTasks, todoList.sortTasksAsc());
+    }
+
+    @Test
+    public void listInDescendingOrderTest() {
+        todoList.add("Running");
+        todoList.add("Swimming");
+        todoList.add("Walking");
+        todoList.add("Cycling");
+
+
+        todoList.sortTasksDesc();
+
+        List<String> expectedTasks = List.of( "Walking", "Swimming", "Running", "Cycling");
+
+        Assertions.assertEquals(expectedTasks, todoList.sortTasksDesc());
     }
 }

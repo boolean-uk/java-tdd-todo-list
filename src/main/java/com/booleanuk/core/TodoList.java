@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TodoList {
@@ -49,5 +47,21 @@ public class TodoList {
     public void remove(String task) {
         toDoList.remove(task);
     }
+
+    public List<String> sortTasksAsc() {
+        List<String> listOfTasks = new ArrayList<>(toDoList.keySet());
+        Collections.sort(listOfTasks);
+        return listOfTasks;
+    }
+
+    public List<String> sortTasksDesc() {
+        List<String> listOfTasks = new ArrayList<>(toDoList.keySet());
+        Collections.sort(listOfTasks, Comparator.reverseOrder());
+        return listOfTasks;
+    }
+
+
+
+
 
 }
