@@ -20,7 +20,5 @@ class TodoListTest {
         todoList.add(new Task("Task no. 1"));
 
         Assertions.assertEquals(1, todoList.tasks.size());
-
-
     }
 }

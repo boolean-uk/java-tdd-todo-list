@@ -11,6 +11,6 @@ public class TodoList {
     }
 
     public void add(Task task) {
-
+        this.tasks.add(task);
     }
 }
