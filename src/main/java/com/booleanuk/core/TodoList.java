@@ -47,4 +47,22 @@ public class TodoList {
         if(taskList.size() == 0 || i < 0 || i >= taskList.size()) throw new Exception("Task not found");
         return taskList.get(i);
     }
+
+    public boolean removeTask(int id) {
+        try {
+            Task task = getTask(id);
+            taskList.remove(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean removeAllTasks() {
+        if(taskList.size() == 0) return false;
+        else {
+            taskList.removeAll(taskList);
+            return true;
+        }
+    }
 }
