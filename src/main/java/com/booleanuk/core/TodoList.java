@@ -66,7 +66,7 @@ public class TodoList {
 
 
     public String displayAlphabeticallyAscending() {
-        List<String> keys = new ArrayList(tasks.keySet());
+        List<String> keys = new ArrayList<>(tasks.keySet());
         Collections.sort(keys);
         StringBuilder result = new StringBuilder();
         result.append("Tasks sorted Ascending: \n");
@@ -82,7 +82,7 @@ public class TodoList {
     }
 
     public String displayAlphabeticallyDescending() {
-        List<String> keys = new ArrayList(tasks.keySet());
+        List<String> keys = new ArrayList<>(tasks.keySet());
         Collections.sort(keys);
         Collections.reverse(keys);
 

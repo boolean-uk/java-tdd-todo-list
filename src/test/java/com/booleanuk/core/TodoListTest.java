@@ -2,8 +2,6 @@ package com.booleanuk.core;
 
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TodoListTest {
@@ -47,10 +45,12 @@ class TodoListTest {
             TODOLIST.addTask(TASK1);
             TODOLIST.addTask(TASK2);
             TODOLIST.addTask(TASK3);
-            String result = "Tasks to do: \n" +
-                    "Completed: false | Wash the dishes\n" +
-                    "Completed: false | Drink a glass of water\n" +
-                    "Completed: false | Walk the dog\n";
+            String result = """
+                    Tasks to do:\s
+                    Completed: false | Wash the dishes
+                    Completed: false | Drink a glass of water
+                    Completed: false | Walk the dog
+                    """;
             assertEquals(result, TODOLIST.displayTasks());
         }
     }
@@ -83,9 +83,11 @@ class TodoListTest {
             assertTrue(TODOLIST.changeTaskStatus(TASK1));
             assertTrue(TODOLIST.changeTaskStatus(TASK2));
 
-            String result = "Completed tasks: \n" +
-                    "Wash the dishes\n" +
-                    "Walk the dog\n";
+            String result = """
+                    Completed tasks:\s
+                    Wash the dishes
+                    Walk the dog
+                    """;
             assertEquals(result, TODOLIST.displayCompletedTasks());
         }
     }
@@ -99,9 +101,11 @@ class TodoListTest {
             TODOLIST.addTask(TASK3);
             assertTrue(TODOLIST.changeTaskStatus(TASK1));
 
-            String result = "InCompleted tasks: \n" +
-                    "Drink a glass of water\n" +
-                    "Walk the dog\n";
+            String result = """
+                    InCompleted tasks:\s
+                    Drink a glass of water
+                    Walk the dog
+                    """;
             assertEquals(result, TODOLIST.displayInCompletedTasks());
         }
     }
@@ -150,10 +154,12 @@ class TodoListTest {
             TODOLIST.addTask(TASK1);
             TODOLIST.addTask(TASK2);
             TODOLIST.addTask(TASK3);
-            String result = "Tasks sorted Ascending: \n" +
-                    "Completed: false | Drink a glass of water\n" +
-                    "Completed: false | Walk the dog\n" +
-                    "Completed: false | Wash the dishes\n";
+            String result = """
+                    Tasks sorted Ascending:\s
+                    Completed: false | Drink a glass of water
+                    Completed: false | Walk the dog
+                    Completed: false | Wash the dishes
+                    """;
             assertEquals(result, TODOLIST.displayAlphabeticallyAscending());
         }
     }
@@ -165,10 +171,12 @@ class TodoListTest {
             TODOLIST.addTask(TASK1);
             TODOLIST.addTask(TASK2);
             TODOLIST.addTask(TASK3);
-            String result = "Tasks sorted Descending: \n" +
-                    "Completed: false | Wash the dishes\n" +
-                    "Completed: false | Walk the dog\n" +
-                    "Completed: false | Drink a glass of water\n";
+            String result = """
+                    Tasks sorted Descending:\s
+                    Completed: false | Wash the dishes
+                    Completed: false | Walk the dog
+                    Completed: false | Drink a glass of water
+                    """;
             assertEquals(result, TODOLIST.displayAlphabeticallyDescending());
 
         }
