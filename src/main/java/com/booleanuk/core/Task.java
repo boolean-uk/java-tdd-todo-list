@@ -1,6 +1,6 @@
 package com.booleanuk.core;
 
-public class Task {
+public class Task implements Comparable<Task> {
     private int id;
     private String description;
     private boolean isComplete;
@@ -25,5 +25,11 @@ public class Task {
 
     public void changeTaskStatus() {
         isComplete = !isComplete;
+    }
+
+
+    @Override
+    public int compareTo(Task o) {
+        return this.getDescription().compareTo(o.getDescription());
     }
 }

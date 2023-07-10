@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TodoList {
     ArrayList<Task> taskList = new ArrayList<Task>();
@@ -64,5 +66,15 @@ public class TodoList {
             taskList.removeAll(taskList);
             return true;
         }
+    }
+
+    public ArrayList<Task> sortTasksAsc() {
+        Collections.sort(taskList);
+        return taskList;
+    }
+
+    public ArrayList<Task> sortTasksDsc() {
+        Collections.sort(taskList, Comparator.reverseOrder());
+        return taskList;
     }
 }
