@@ -1,9 +1,6 @@
 package com.booleanuk.core;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -26,10 +23,11 @@ class TodoListTest {
         @Test
         void shouldReturnTrueIfTaskIsNotInTodoList() {
             assertTrue(TODOLIST.addTask(TASK1));
+            assertTrue(TODOLIST.addTask(TASK2));
+            assertTrue(TODOLIST.addTask(TASK3));
         }
         @Test
         void shouldReturnFalseIfTaskIsInTodoList() {
-            TODOLIST.addTask(TASK1);
             assertFalse(TODOLIST.addTask(TASK1));
         }
     }
