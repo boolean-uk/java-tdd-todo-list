@@ -96,6 +96,7 @@ public class TodoListTestExtension {
 
     @Test
     public void testShowTasks() {
+        Task.resetCount();
         Task task1 = new Task("Task 1");
         Task task2 = new Task("Task 2");
         task1.setTimeCreated(LocalDateTime.parse("2023-07-10T10:00:00"));
