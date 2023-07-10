@@ -4,18 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodoList {
-    private List<Task> tasks = new ArrayList<>();
+    public List<Task> tasks = new ArrayList<>();
 
-    private boolean addTask(){
+    public boolean addTask(Task newTaskName){
+        if (!tasks.contains(newTaskName)){
+            tasks.add(tasks.size(),newTaskName);
+            return true;
+        }
+        else{
+            return false;
+        }
 
     }
 
-    private String[] displayAll(){
-
-    }
-    private boolean changeStatus(){
-
-    }
+    //private String[] displayAll(){}
+    //private boolean changeStatus(){}
 
 
 

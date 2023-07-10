@@ -1,8 +1,8 @@
 package com.booleanuk.core;
 
 public class Task {
-    private String name;
-    private Boolean status;
+    public String name;
+    public Boolean status;
 
     public Task(String name) {
         this.name = name;
@@ -21,11 +21,5 @@ public class Task {
         return status;
     }
 
-    public boolean changeStatus(String task) {
-        return true;
-    }
 
-    public void addTask(String taskName){}
-
-    public void displayAll(){}
 }
