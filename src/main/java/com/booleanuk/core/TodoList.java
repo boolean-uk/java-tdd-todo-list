@@ -14,7 +14,7 @@ public class TodoList {
 
     public void addTask(String name) {
         var isPresent = tasks.stream()
-                .map(Task::name)
+                .map(Task::getName)
                 .toList()
                 .contains(name);
 
@@ -35,18 +35,18 @@ public class TodoList {
 
         task.toggleStatus();
 
-        System.err.println("Status has been changed: " + task.status());
+        System.err.println("Status has been changed: " + task.getStatus());
     }
 
     public List<Task> getAllTasksByStatus(TaskStatus status) {
         return tasks.stream()
-                .filter(t -> t.status().equals(status))
+                .filter(t -> t.getStatus().equals(status))
                 .toList();
     }
 
     public Optional<Task> getOneTaskByName(String name) {
         for (var t : tasks) {
-            if (t.name().equals(name)) {
+            if (t.getName().equals(name)) {
                 return Optional.of(t);
             }
         }
@@ -66,8 +66,8 @@ public class TodoList {
 
     public List<Task> getAllTasksSorted(SortingOrder sortingOrder) {
         var comparator = switch (sortingOrder) {
-            case Ascending -> Comparator.comparing(Task::name);
-            case Descending -> Comparator.comparing(Task::name).reversed();
+            case Ascending -> Comparator.comparing(Task::getName);
+            case Descending -> Comparator.comparing(Task::getName).reversed();
         };
 
         tasks.sort(comparator);
