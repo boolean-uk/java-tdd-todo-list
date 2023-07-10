@@ -84,4 +84,12 @@ class TodoListTest {
 
         Assertions.assertEquals(todoList.search(taskComplete), "Dishes");
     }
+
+    @Test
+    public void removeTaskReturnTrue() {
+        todoList.add(taskComplete);
+        Assertions.assertTrue(todoList.remove(taskComplete));
+    }
+
+
 }
