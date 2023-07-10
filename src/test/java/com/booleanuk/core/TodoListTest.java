@@ -56,6 +56,11 @@ class TodoListTest {
     @Test
     void getAllTasks_shouldReturnNonEmptyListForTasksPresent() {
         TODO_LIST.addTask(CLEAN_DISHES);
+        TODO_LIST.addTask(BUY_GROCERIES);
+
+        var expectedTasks = List.of(Task.of(CLEAN_DISHES), Task.of(BUY_GROCERIES));
+
+        assertEquals(expectedTasks, TODO_LIST.getAllTasks());
     }
 
     @Test

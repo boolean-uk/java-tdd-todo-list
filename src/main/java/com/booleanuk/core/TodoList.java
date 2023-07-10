@@ -8,12 +8,20 @@ public class TodoList {
     private final List<Task> tasks = new ArrayList<>();
 
     public void addTask(String name) {
-        // TODO
+        var isPresent = tasks.stream()
+                .map(Task::name)
+                .toList()
+                .contains(name);
+
+        if (isPresent) {
+            throw new IllegalStateException(String.format("[%s]:\tTask already exists", name));
+        }
+
+        tasks.add(Task.of(name));
     }
 
     public List<Task> getAllTasks() {
-        // TODO
-        return null;
+        return tasks;
     }
 
     public void toggleTaskStatus(String name) {
@@ -33,7 +41,7 @@ public class TodoList {
     public void removeOneTaskByName(String name) {
         // TODO
     }
-    
+
     public List<Task> getAllTasksSorted(SortingOrder sortingOrder) {
         // TODO
         return null;
