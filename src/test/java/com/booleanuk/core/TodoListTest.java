@@ -1,6 +1,9 @@
 package com.booleanuk.core;
 
 import org.junit.jupiter.api.*;
+
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TodoListTest {
@@ -17,6 +20,11 @@ class TodoListTest {
         TASK3 = "Drink a glass of water";
     }
 
+    @AfterEach
+    void clearTODOList() {
+        TODOLIST.tasks.clear();
+    }
+
     @Nested
     class AddTask {
         @Test
@@ -27,6 +35,7 @@ class TodoListTest {
         }
         @Test
         void shouldReturnFalseIfTaskIsInTodoList() {
+            assertTrue(TODOLIST.addTask(TASK1));
             assertFalse(TODOLIST.addTask(TASK1));
         }
     }
