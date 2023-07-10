@@ -73,4 +73,8 @@ public class TodoList {
         }
         return "I didn't find message";
     }
+
+    public void removeTask(Task task) {
+        tasks.remove(task);
+    }
 }
