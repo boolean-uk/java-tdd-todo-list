@@ -18,7 +18,7 @@ public class TodoList {
         return this.tasks;
     }
 
-    public String removeTask(Task task){
-        return "";
+    public void removeTask(Task task){
+        this.tasks.remove(task);
     }
 }

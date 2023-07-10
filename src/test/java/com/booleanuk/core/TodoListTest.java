@@ -38,6 +38,8 @@ class TodoListTest {
         Task task1 =new Task("Task no. 1");
         todoList = new TodoList();
         todoList.add(task1);
+        Assertions.assertTrue(todoList.getTasks().contains(task1));
+
         todoList.removeTask(task1);
 
         Assertions.assertFalse(todoList.getTasks().contains(task1));
