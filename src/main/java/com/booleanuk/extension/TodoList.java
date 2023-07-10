@@ -15,4 +15,11 @@ public class TodoList {
     public Task getTask(int id) {
         return tasks.getOrDefault(id, null);
     }
+
+    public boolean updateTaskName(int id, String text) {
+        if (!tasks.containsKey(id))
+            return false;
+        tasks.get(id).text = text;
+        return true;
+    }
 }
