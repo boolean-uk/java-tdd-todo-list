@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 class TodoListTest {
     TodoList todoList;
@@ -73,7 +74,14 @@ class TodoListTest {
     }
 
     @Test
+    public void searchTaskReturnFalseIfNotFound() {
+        Assertions.assertEquals(todoList.search(taskComplete), "Task not found!");
+    }
+
+    @Test
     public void searchTaskReturnTaskIfFound() {
-        todoList.search(taskComplete);
+        todoList.add(taskComplete);
+
+        Assertions.assertEquals(todoList.search(taskComplete), "Dishes");
     }
 }
