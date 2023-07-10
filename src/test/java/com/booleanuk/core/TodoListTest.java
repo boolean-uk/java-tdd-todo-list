@@ -35,12 +35,11 @@ class TodoListTest {
     void addTask_shouldAddTaskToListWhenNotAlreadyOnList() {
         TODO_LIST.addTask(CLEAN_DISHES);
 
-        assertTrue(
-                TODO_LIST.getAllTasks().stream()
-                        .map(Task::name)
-                        .toList()
-                        .contains(CLEAN_DISHES)
-        );
+        var addedTaskName = TODO_LIST
+                .getAllTasks().get(0)
+                .name();
+
+        assertEquals(CLEAN_DISHES, addedTaskName);
     }
 
     @Test
@@ -71,10 +70,8 @@ class TodoListTest {
 
         TODO_LIST.toggleTaskStatus(CLEAN_DISHES);
 
-        var actualStatus = TODO_LIST.getAllTasks().stream()
-                .filter(t -> t.name().equals(CLEAN_DISHES))
-                .findFirst()
-                .orElseThrow(NoSuchElementException::new)
+        var actualStatus = TODO_LIST.getAllTasks()
+                .get(0)
                 .status();
 
         assertEquals(TaskStatus.Complete, actualStatus);
@@ -131,12 +128,7 @@ class TodoListTest {
 
         TODO_LIST.removeOneTaskByName(BUY_GROCERIES);
 
-        assertFalse(
-                TODO_LIST.getAllTasks().stream()
-                        .map(Task::name)
-                        .toList()
-                        .contains(BUY_GROCERIES)
-        );
+        assertTrue(TODO_LIST.getAllTasks().isEmpty());
     }
 
     @Test
@@ -145,12 +137,12 @@ class TodoListTest {
 
         TODO_LIST.removeOneTaskByName(CLEAN_DISHES);
 
-        assertTrue(
-                TODO_LIST.getAllTasks().stream()
-                        .map(Task::name)
-                        .toList()
-                        .contains(BUY_GROCERIES)
-        );
+        var firstTask = TODO_LIST
+                .getAllTasks()
+                .get(0);
+
+        assertFalse(TODO_LIST.getAllTasks().isEmpty());
+        assertEquals(Task.of(BUY_GROCERIES), firstTask);
     }
 
     @Test
