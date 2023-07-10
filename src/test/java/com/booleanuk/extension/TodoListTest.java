@@ -144,7 +144,5 @@ class TodoListTest {
         assertEquals(secondDate, todoList.getTasksByDate().get(1).getCreateTime());
         assertEquals(thirdDate, todoList.getTasksByDate().get(2).getCreateTime());
         assertEquals(3,todoList.getTasksDescending().size());
-
-        System.out.println(todoList.getTasksByDate());
     }
 }
