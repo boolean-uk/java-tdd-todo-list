@@ -9,6 +9,11 @@ public class Task {
         this.status = false;
     }
 
+    @Override
+    public String toString() {
+        return name + (status ? " Completed" : " Uncompleted");
+    }
+
     public String getName() {
         return name;
     }
