@@ -9,7 +9,7 @@ public class TodoList {
     public List<Task> tasks = new ArrayList<>();
 
     public boolean addTask(String newTaskName){
-        if (!tasks.contains(newTaskName)){
+        if (tasks.stream().noneMatch(o -> newTaskName.equals(o.getName()))){
             Task task = new Task (newTaskName);
             tasks.add(task);
             return true;
