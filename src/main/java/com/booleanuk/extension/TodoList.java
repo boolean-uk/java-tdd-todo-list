@@ -22,4 +22,10 @@ public class TodoList {
         tasks.get(id).text = text;
         return true;
     }
+
+    public void changeTaskStatus(int id) {
+        if (!tasks.containsKey(id))
+            return;
+        tasks.get(id).isCompleted = !tasks.get(id).isCompleted;
+    }
 }
