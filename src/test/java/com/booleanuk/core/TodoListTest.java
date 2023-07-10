@@ -36,8 +36,8 @@ class TodoListTest {
     public void getCompletedTasks() {
 
         todoList = new TodoList();
-        todoList.add(new Task("Completed task no.1"));
-        todoList.add(new Task("Completed task no.2"));
+        todoList.add(new Task("Completed task no.1", TaskStatus.COMPLETED));
+        todoList.add(new Task("Completed task no.2", TaskStatus.COMPLETED));
         todoList.add(new Task("Incompleted task no. 1 "));
 
         List<Task> completedTasks = todoList.getCompletedTasks();
@@ -51,8 +51,8 @@ class TodoListTest {
     @Test
     public void getIncompletedTasks() {
         todoList = new TodoList();
-        todoList.add(new Task("Completed task no.1"));
-        todoList.add(new Task("Completed task no.2"));
+        todoList.add(new Task("Completed task no.1", TaskStatus.COMPLETED));
+        todoList.add(new Task("Completed task no.2", TaskStatus.COMPLETED));
         todoList.add(new Task("Incompleted task no. 1 "));
 
         List<Task> incompletedTasks = todoList.getIncompletedTasks();

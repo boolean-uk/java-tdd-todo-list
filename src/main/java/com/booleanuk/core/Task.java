@@ -9,6 +9,11 @@ public class Task {
         this.status = TaskStatus.INCOMPLETED;
     }
 
+    public Task(String title, TaskStatus taskStatus) {
+        this.title = title;
+        this.status = taskStatus;
+    }
+
     public String getTitle() {
         return title;
     }
