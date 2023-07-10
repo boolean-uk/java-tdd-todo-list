@@ -28,4 +28,14 @@ public class TodoList {
             throw new Exception("Task not found");
         }
     }
+
+    public Task changeTaskStatusById(int i) throws Exception {
+        try {
+            Task newTask = taskList.get(i);
+            newTask.changeTaskStatus();
+            return newTask;
+        } catch(Exception e){
+            throw new Exception("Task not found");
+        }
+    }
 }
