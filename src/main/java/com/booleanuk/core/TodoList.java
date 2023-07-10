@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TodoList {
@@ -44,4 +42,13 @@ public class TodoList {
 
     }
 
+    public List<Task> getTaskInAscOrder() {
+        Collections.sort(tasks, new Comparator<Task>() {
+            @Override
+            public int compare(Task o1, Task o2) {
+                return o1.description.compareTo(o2.description);
+            }
+        });
+        return tasks;
+    }
 }

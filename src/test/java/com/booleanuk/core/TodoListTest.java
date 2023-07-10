@@ -100,12 +100,12 @@ class TodoListTest {
         todoList.add(new Task("A"));
         todoList.add(new Task("C"));
         todoList.add(new Task("B"));
-        todoList = todoList.getTaskInAscOrder();
+        List<Task> listInOrder = todoList.getTaskInAscOrder();
 
 
-        Assertions.assertEquals("A", todoList.getTasks().get(0));
-        Assertions.assertEquals("B", todoList.getTasks().get(1));
-        Assertions.assertEquals("C", todoList.getTasks().get(2));
+        Assertions.assertEquals("A", listInOrder.get(0).description);
+        Assertions.assertEquals("B", listInOrder.get(1).description);
+        Assertions.assertEquals("C", listInOrder.get(2).description);
     }
 
 
