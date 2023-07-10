@@ -107,6 +107,26 @@ class TodoListTest {
     }
 
     @Nested
+    class GetTask {
+        @Test
+        void shouldReturnStringDescribingTaskIfTaskInTodoList() {
+            TODOLIST.addTask(TASK1);
+            String result = "Completed: false | Wash the dishes";
+
+            assertEquals(result, TODOLIST.getTask(TASK1));
+        }
+
+        @Test
+        void shouldReturnStringThatSaysThereIsNoSuchTaskInTodoList() {
+            TODOLIST.addTask(TASK1);
+            String result = "There is no such task in the list.";
+
+            assertEquals(result, TODOLIST.getTask(TASK1));
+        }
+    }
+
+
+    @Nested
     class RemoveTask {
         @Test
         void shouldReturnTrueWhenTaskInTodoList() {
