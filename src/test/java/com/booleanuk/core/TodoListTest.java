@@ -55,11 +55,12 @@ class TodoListTest {
     public void shouldChangeTheStatusToCompleted() {
         TodoList todoList = new TodoList();
         String task = "grocery shopping";
+        todoList.add(task);
         todoList.statusChange(task);
 
-        ArrayList<String> incompletedTasks = todoList.incompletedTasks();
+        ArrayList<String> completedTasks = todoList.completedTasks();
 
-        Assertions.assertTrue(incompletedTasks.contains(task));
+        Assertions.assertTrue(completedTasks.contains(task));
     }
 
     @Test
@@ -122,7 +123,7 @@ class TodoListTest {
         expected.add("grocery shopping");
         expected.add("laundry");
 
-        ArrayList<String> actual = todoList.taskList();
+        ArrayList<String> actual = todoList.tasksAsc();
 
         Assertions.assertEquals(expected,actual);
     }
@@ -139,7 +140,7 @@ class TodoListTest {
         expected.add("grocery shopping");
         expected.add("cook dinner");
 
-        ArrayList<String> actual = todoList.taskList();
+        ArrayList<String> actual = todoList.tasksDesc();
 
         Assertions.assertEquals(expected,actual);
     }
