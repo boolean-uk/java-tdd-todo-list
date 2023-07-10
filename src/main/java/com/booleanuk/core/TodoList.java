@@ -1,7 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TodoList {
     HashMap<String, Boolean> tasks = new HashMap<>();
@@ -63,5 +62,39 @@ public class TodoList {
         return tasks.containsKey(text) ?
                 "Completed: " + tasks.get(text) + " | " + text :
                 "There is no such task in the list.";
+    }
+
+    public String displayAlphabeticallyAscending() {
+        List<String> keys = new ArrayList(tasks.keySet());
+        Collections.sort(keys);
+        StringBuilder result = new StringBuilder();
+        result.append("Tasks sorted Ascending: \n");
+
+        for (String key: keys)
+            result.append("Completed: ")
+                    .append(tasks.get(key))
+                    .append(" | ")
+                    .append(key)
+                    .append("\n");
+
+        return result.toString();
+    }
+
+    public String displayAlphabeticallyDescending() {
+        List<String> keys = new ArrayList(tasks.keySet());
+        Collections.sort(keys);
+        Collections.reverse(keys);
+
+        StringBuilder result = new StringBuilder();
+        result.append("Tasks sorted Descending: \n");
+
+        for (String key: keys)
+            result.append("Completed: ")
+                    .append(tasks.get(key))
+                    .append(" | ")
+                    .append(key)
+                    .append("\n");
+
+        return result.toString();
     }
 }

@@ -142,4 +142,35 @@ class TodoListTest {
             assertFalse(TODOLIST.removeTask(TASK1));
         }
     }
+
+    @Nested
+    class DisplayAlphabeticallyAscending {
+        @Test
+        void shouldReturnTasksSortedAscending () {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            TODOLIST.addTask(TASK3);
+            String result = "Tasks sorted Ascending: \n" +
+                    "Completed: false | Drink a glass of water\n" +
+                    "Completed: false | Walk the dog\n" +
+                    "Completed: false | Wash the dishes\n";
+            assertEquals(result, TODOLIST.displayAlphabeticallyAscending());
+        }
+    }
+
+    @Nested
+    class DisplayAlphabeticallyDescending {
+        @Test
+        void shouldReturnTasksSortedDescending () {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            TODOLIST.addTask(TASK3);
+            String result = "Tasks sorted Descending: \n" +
+                    "Completed: false | Wash the dishes\n" +
+                    "Completed: false | Walk the dog\n" +
+                    "Completed: false | Drink a glass of water\n";
+            assertEquals(result, TODOLIST.displayAlphabeticallyDescending());
+
+        }
+    }
 }
