@@ -73,4 +73,18 @@ class TodoListTest {
         boolean result2 = todolist.removeTask(task2);
         Assertions.assertFalse(result2);
     }
+
+    @Test
+    public void listSortedTasks() {
+        todolist.addTask(task);
+        todolist.addTask(task2);
+
+        String ascTasks = todolist.listTasks("ascending");
+        String descTasks = todolist.listTasks("descending");
+        String defaultTasks = todolist.listTasks("");
+
+        Assertions.assertEquals("[Task{name='Do homework', isCompleted=false}, Task{name='Wash dishes', isCompleted=true}]", ascTasks);
+        Assertions.assertEquals("[Task{name='Wash dishes', isCompleted=true}, Task{name='Do homework', isCompleted=false}]", descTasks);
+        Assertions.assertEquals("[Task{name='Do homework', isCompleted=false}, Task{name='Wash dishes', isCompleted=true}]", defaultTasks);
+    }
 }

@@ -19,7 +19,7 @@
 |           |                                  |                                         | Task not found               | returns 'not found'                               |
 |           |                                  | boolean removeTask(Task task)           | Task removed                 | true                                              |
 |           |                                  |                                         | Task not found               | false                                             |
-|           |                                  | ArrayList<Task> listTasks(String order) | order = ascending            | lists tasks in asc order                          |
+|           |                                  | String listTasks(String order)          | order = ascending            | lists tasks in asc order                          |
 |           |                                  |                                         | order = descending           | lists tasks in desc order                         |
 |           |                                  |                                         | order is anything else       | lists tasks in asc order (default)                |
 |           |                                  | boolean changeStatus(String name)       |                              | changes status to opposite                        |
