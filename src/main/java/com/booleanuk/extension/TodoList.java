@@ -70,4 +70,10 @@ public class TodoList {
             tasks.stream().filter(t -> t.ID.equals(id)).findFirst().get().description = newDescription;
         }
     }
+
+    public void changeStatus(String id) {
+        if (tasks.stream().anyMatch(t -> t.ID.equals(id))) {
+            tasks.stream().filter(t -> t.ID.equals(id)).findFirst().get().changeStatus();
+        }
+    }
 }

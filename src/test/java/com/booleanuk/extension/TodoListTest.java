@@ -7,7 +7,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class TodoListTest {
-
     TodoList todoList;
     Task taskComplete;
     Task taskIncomplete;
@@ -45,6 +44,17 @@ public class TodoListTest {
 
         Assertions.assertNotEquals(beforeUpdateTaskDescription, afterUpdateTaskDescription);
         Assertions.assertEquals("New description", afterUpdateTaskDescription);
+    }
+
+    @Test
+    public void changeStatusWithIdTest() {
+        todoList.add(taskComplete);
+
+        Assertions.assertEquals(Status.COMPLETE, taskComplete.status);
+
+        todoList.changeStatus(taskComplete.ID);
+
+        Assertions.assertEquals(Status.INCOMPLETE, taskComplete.status);
     }
 
 
