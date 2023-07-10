@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TodoList {
     List<Task> tasks;
@@ -23,7 +24,11 @@ public class TodoList {
     }
 
     public String search(Task task){
-        return "";
+        Optional<Task> foundTask = tasks.stream()
+                .filter(t -> t.getTitle().equals(task.getTitle()))
+                .findFirst();
+        return foundTask.map(t -> "Task found: " + t.getTitle())
+                .orElse("Task not found");
     }
 
 }
