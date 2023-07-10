@@ -19,7 +19,8 @@ class TodoListTest {
     public void testIfAddsTask(){
         TodoList todoList = new TodoList();
 
-        assertTrue(todoList.add(new Task(1,"Clean bedroom",false, LocalDateTime.now())));
-        assertFalse(todoList.add(new Task(1,"Cook dinner", false, LocalDateTime.now())));
+        int id = todoList.add(new Task("Clean room",false,LocalDateTime.now()));
+        Assertions.assertEquals(1,id);
+
     }
 }

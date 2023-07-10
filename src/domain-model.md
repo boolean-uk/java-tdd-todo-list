@@ -2,7 +2,7 @@
 
 | Classes  | Methods                                | Fields                   | Scenario                            | Outcome                                    |
 |----------|----------------------------------------|--------------------------|-------------------------------------|--------------------------------------------|
-| TodoList | add(Task task)                         | List<Task> tasks         | Add task to todo list               | boolean whether succeeded                  |
+| TodoList | add(Task task)                         | List<Task> tasks         | Add task to todo list               | int id of new task                         |
 |          | getAll()                               |                          | Show all tasks                      | String with all tasks                      |
 |          | toggleStatus(int id)                   |                          | Toggle task status                  | boolean status                             |
 |          | getCompleteTasks()                     |                          | Get complete tasks                  | List<Task> with complete tasks             |
