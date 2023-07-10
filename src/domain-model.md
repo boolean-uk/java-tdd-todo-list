@@ -17,6 +17,6 @@
 |          | getTaskByDate()                        |                          | Show all tasks sorted by createTime | List<Task> with tasks sorted by createTime |
 | Task     |                                        | int id                   |                                     |                                            |
 |          |                                        | String name              |                                     |                                            |
-|          |                                        | boolean status           |                                     |                                            |
+|          |                                        | boolean isComplete       |                                     |                                            |
 |          |                                        | LocalDateTime createTime |                                     |                                            |
 |          | toggleStatus()                         |                          | Toggle task status                  | boolean whether succeeded                  |

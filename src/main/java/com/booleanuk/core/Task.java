@@ -5,20 +5,20 @@ import java.time.LocalDateTime;
 public class Task{
     private int id;
     private String name;
-    private boolean status;
+    private boolean isComplete;
     private LocalDateTime createTime;
 
 
 
-    public Task(String name, boolean status, LocalDateTime createTime) {
+    public Task(String name, boolean isComplete, LocalDateTime createTime) {
         this.name = name;
-        this.status = status;
+        this.isComplete = isComplete;
         this.createTime = createTime;
     }
 
     public boolean toggleStatus(){
-        this.status = !this.status;
-        return this.status;
+        this.isComplete = !this.isComplete;
+        return this.isComplete;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Task{
         return "Task{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", status=" + status +
+                ", status=" + isComplete +
                 ", createTime=" + createTime +
                 '}';
     }
@@ -39,12 +39,12 @@ public class Task{
         this.name = name;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean isComplete() {
+        return isComplete;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setComplete(boolean complete) {
+        this.isComplete = complete;
     }
 
     public LocalDateTime getCreateTime() {
