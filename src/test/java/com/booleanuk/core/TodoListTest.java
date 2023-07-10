@@ -52,5 +52,17 @@ class TodoListTest {
         Assertions.assertEquals(todo.tasks.get(1), todo.getIncomplete().get(0));
     }
 
+    @Test
+    public void SearchForTaskTest(){
+        TodoList todo = new TodoList();
+        todo.add("First task", false);
+        todo.add("Second task", true);
+        todo.add("Third task", false);
+        Assertions.assertEquals("Task was found", todo.search("Second task"));
+    }
+
+    @Test
+
+
 
 }
