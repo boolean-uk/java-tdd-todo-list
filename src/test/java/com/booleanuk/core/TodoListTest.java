@@ -76,4 +76,22 @@ class TodoListTest {
         assertFalse(isComplete);
     }
 
+    @Test
+    public void shouldReturnAllIncompleteTasksInList(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",true);
+        todoList.addTask(task);
+        Task task2 = new Task("Exercise 2",false);
+        todoList.addTask(task2);
+        Task task3 = new Task("Exercise 3",false);
+        todoList.addTask(task3);
+
+        //when
+        String allIncompleteTask = todoList.getIncompleteTasks();
+
+        //then
+        assertEquals("Exercise 2\n"+"Exercise 3\n",allIncompleteTask);
+    }
+
 }
