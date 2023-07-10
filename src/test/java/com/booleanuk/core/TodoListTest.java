@@ -17,10 +17,9 @@ class TodoListTest {
     public void searchTaskByNameTest() {
         TodoList todoList = new TodoList();
         Task task1 = new Task("Make dinner");
-        Task task2 = new Task("Buy bread");
         todoList.addTask(task1);
-        Assertions.assertEquals(task1, todoList.searchTask("Make dinner"));
-        Assertions.assertEquals("Task not found", todoList.searchTask("Buy bread"));
+        Assertions.assertEquals(task1.toString(), todoList.searchTaskByName("Make dinner"));
+        Assertions.assertEquals("Task not found", todoList.searchTaskByName("Buy bread"));
     }
 
     @Test
@@ -28,8 +27,8 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Task task1 = new Task("Make dinner");
         todoList.addTask(task1);
-        Assertions.assertTrue(todoList.removeTask("Make dinner"));
-        Assertions.assertFalse(todoList.removeTask("Buy bread"));
+        Assertions.assertEquals("Task removed", todoList.removeTask("Make dinner"));
+        Assertions.assertEquals("Task not found", todoList.removeTask("Buy bread"));
     }
 
     @Test
@@ -49,7 +48,7 @@ class TodoListTest {
     }
 
     @Test
-    public void displayInAlphabeticalOrderTest() {
+    public void displayInReverseAlphabeticalOrderTest() {
         TodoList todoList = new TodoList();
         Task task1 = new Task("Make dinner");
         Task task2 = new Task("Buy bread");
