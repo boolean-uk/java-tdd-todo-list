@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -64,5 +65,17 @@ class TodoListTest {
 
         boolean result2 = todolist.changeStatus(UUID.randomUUID());
         Assertions.assertFalse(result2);
+    }
+
+
+    @Test
+    public void getDateOfTaskTest(){
+        todolist.addTask(task);
+        Optional<LocalDateTime> result1 = todolist.getDateOfTask(task);
+        Assertions.assertEquals(task.dateOfCreation, result1.get());
+
+        Optional<LocalDateTime> result12= todolist.getDateOfTask(task2);
+        Assertions.assertTrue(result12.isEmpty());
+
     }
 }
