@@ -47,4 +47,8 @@ public class TodoList {
     public List<Task> getCompleteTasks() {
         return tasks.stream().filter(Task::isStatus).toList();
     }
+
+    public List<Task> getIncompleteTasks() {
+        return tasks.stream().filter(task -> !task.isStatus()).toList();
+    }
 }

@@ -101,6 +101,6 @@ class TodoListTest {
         todoList.add(new Task("task two", true, now()));
         todoList.add(new Task("task three", true, now()));
 
-        assertEquals(1, todoList.getCompleteTasks().size());
+        assertEquals(1, todoList.getIncompleteTasks().size());
     }
 }
