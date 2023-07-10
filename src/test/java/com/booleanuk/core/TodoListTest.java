@@ -23,6 +23,15 @@ class TodoListTest {
     public void addTest() {
         todoList.add("Running for 5km");
 
-        Assertions.assertTrue(todoList.getToDoList().containsKey("Running for 5km"));
+        Assertions.assertTrue(todoList.allTasks().containsKey("Running for 5km"));
+    }
+
+    @Test
+    public void printingAllTasksTest() {
+        todoList.add("Running for 5km ");
+        todoList.add("Swimming for 30min ");
+        todoList.add("Cycling for 10km ");
+
+        Assertions.assertEquals(3, todoList.allTasks().size());
     }
 }

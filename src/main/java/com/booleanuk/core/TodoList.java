@@ -11,12 +11,12 @@ public class TodoList {
         toDoList = new HashMap<>();
     }
 
-    public Map<String, String> getToDoList() {
-        return toDoList;
-    }
-
     public void add(String task) {
         toDoList.put(task, "incomplete");
+    }
+
+    public Map<String, String> allTasks() {
+        return toDoList;
     }
 
 }
