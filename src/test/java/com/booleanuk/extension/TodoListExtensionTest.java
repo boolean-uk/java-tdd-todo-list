@@ -1,11 +1,9 @@
 package com.booleanuk.extension;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoListExtensionTest {
 
@@ -41,10 +39,24 @@ public class TodoListExtensionTest {
         todoListExtension.addTask(taskExtension);
         //When
         String id = "ID0";
-        TaskExtension taskExtension1 = todoListExtension.getTaskbyId(id);
+        TaskExtension taskExtension1 = todoListExtension.getTaskById(id);
 
         //then
         assertEquals(taskExtension, taskExtension1);
+    }
+
+    @Test
+    public void shouldReturnNullForNotExistingId(){
+
+        //given
+        TodoListExtension todoListExtension = new TodoListExtension();
+
+        //When
+        String id = "ID99";
+        TaskExtension taskExtension1 = todoListExtension.getTaskById(id);
+
+        //then
+        assertNull(taskExtension1);
     }
 
 

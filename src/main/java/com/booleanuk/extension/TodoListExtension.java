@@ -1,7 +1,5 @@
 package com.booleanuk.extension;
 
-import com.booleanuk.core.Task;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -91,7 +89,7 @@ public class TodoListExtension {
 
     }
 
-    public TaskExtension getTaskbyId(String id) {
+    public TaskExtension getTaskById(String id) {
         for (TaskExtension task :
                 tasks) {
             if (task.getTaskExtensionId().equals(id)) {
@@ -100,4 +98,6 @@ public class TodoListExtension {
         }
         return null;
     }
+
+
 }
