@@ -4,7 +4,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoListTest {
     private static TodoList TODOLIST;
@@ -33,15 +33,35 @@ public class TodoListTest {
     }
 
     @Nested
-    class getTask {
+    class GetTask {
         @Test
         public void shouldReturnTask() {
             TODOLIST.addTask(TASK1);
             TODOLIST.addTask(TASK2);
             Task task1 = TODOLIST.getTask(0);
             Task task2 = TODOLIST.getTask(1);
+            Task task3 = TODOLIST.getTask(3);
             assertEquals(TASK1, task1.text);
             assertEquals(TASK2, task2.text);
+        }
+    }
+
+    @Nested
+    class UpdateTaskName {
+        @Test
+        public void shouldReturnTrue() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            assertTrue(TODOLIST.updateTaskName(0, TASK3));
+            Task task1 = TODOLIST.getTask(0);
+            assertEquals(TASK3, task1.text);
+        }
+
+        @Test
+        public void shouldReturnFalse() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            assertFalse(TODOLIST.updateTaskName(3, TASK3));
         }
     }
 
