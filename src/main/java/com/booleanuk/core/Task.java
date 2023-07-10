@@ -25,9 +25,4 @@ public class Task {
     public Boolean getStatus() {
         return status;
     }
-
-    @Override
-    public String toString() {
-        return name + (status ? " Completed" : " Uncompleted");
-    }
 }
