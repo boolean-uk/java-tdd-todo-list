@@ -5,14 +5,14 @@ import java.util.UUID;
 
 public class Task {
     String name;
-    UUID id;
+    int id;
     boolean status;
     LocalDateTime time;
 
-    public Task(String name, boolean status) {
+    public Task(String name, int id) {
         this.name = name;
-        this.id = UUID.randomUUID();
-        this.status = status;
+        this.id = id;
+        this.status = false;
         this.time = LocalDateTime.now();;
     }
 }
