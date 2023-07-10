@@ -57,4 +57,14 @@ public class TodoList {
     public Optional<Task> getTaskByUUID(UUID uuid) {
         return tasks.stream().filter(task -> task.uuid == uuid).findFirst();
     }
+
+    public boolean updateTaskByUUID(UUID uuid, String name) {
+        Optional<Task> task = getTaskByUUID(uuid);
+        if(task.isPresent()){
+            task.get().name = name;
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
