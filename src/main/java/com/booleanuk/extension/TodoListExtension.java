@@ -104,4 +104,9 @@ public class TodoListExtension {
         TaskExtension taskExtension = getTaskById(id);
         taskExtension.setTaskName(newName);
     }
+
+    public void changeStatusById(String id, boolean status) {
+        TaskExtension taskExtension = getTaskById(id);
+        taskExtension.setStatus(status);
+    }
 }
