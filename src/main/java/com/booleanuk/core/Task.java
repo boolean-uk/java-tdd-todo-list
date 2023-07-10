@@ -21,5 +21,8 @@ public class Task {
         return status;
     }
 
-
+    @Override
+    public String toString() {
+        return name + (status ? " Completed" : " Uncompleted");
+    }
 }

@@ -6,9 +6,10 @@ import java.util.List;
 public class TodoList {
     public List<Task> tasks = new ArrayList<>();
 
-    public boolean addTask(Task newTaskName){
+    public boolean addTask(String newTaskName){
         if (!tasks.contains(newTaskName)){
-            tasks.add(tasks.size(),newTaskName);
+            Task task = new Task (newTaskName);
+            tasks.add(task);
             return true;
         }
         else{
@@ -17,7 +18,20 @@ public class TodoList {
 
     }
 
-    //private String[] displayAll(){}
+    public String[] display(List<Task> arrayTasks){
+        String[] returnTaskList = new String[arrayTasks.size()];
+        for(int i=0; i < arrayTasks.size(); i++){
+            returnTaskList[i] = arrayTasks.get(i).toString();
+        }
+        return returnTaskList;
+    }
+    /*
+    private String[] displayAll(){
+        return display(tasks);
+    }
+
+     */
+
     //private boolean changeStatus(){}
 
 
