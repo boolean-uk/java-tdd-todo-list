@@ -230,6 +230,27 @@ class TodoListTest {
         assertEquals(todoList.getTasks().get(1), task3);
         assertEquals(todoList.getTasks().get(2), task);
     }
+    @Test
+    public void shouldReturnTaskAlphabeticallyInDescendingOrder(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("ccc",false);
+        todoList.addTask(task);
+        Task task2 = new Task("AAA",false);
+        todoList.addTask(task2);
+        Task task3 = new Task("bbb",false);
+        todoList.addTask(task3);
+
+        //when
+        todoList.alphabeticallyInDescendingOrder();
+
+
+        //then
+        assertEquals(todoList.getTasks().get(0), task);
+        assertEquals(todoList.getTasks().get(1), task3);
+        assertEquals(todoList.getTasks().get(2), task2);
+    }
+
 
 
 
