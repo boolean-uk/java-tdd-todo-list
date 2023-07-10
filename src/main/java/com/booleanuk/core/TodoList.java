@@ -51,4 +51,8 @@ public class TodoList {
     public List<Task> getIncompleteTasks() {
         return tasks.stream().filter(task -> !task.isComplete()).toList();
     }
+
+    public boolean taskExists(int id) {
+        return tasks.stream().anyMatch(task -> task.getId() == id);
+    }
 }
