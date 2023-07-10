@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -30,13 +31,14 @@ public class TodoList {
                 .orElseThrow(() -> new NoSuchElementException(String.format("[%s]: task not found", name)));
 
         task.toggleStatus();
-        
+
         System.err.println("Status has been changed: " + task.status());
     }
 
     public List<Task> getAllTasksByStatus(TaskStatus status) {
-        // TODO
-        return null;
+        return tasks.stream()
+                .filter(t -> t.status().equals(status))
+                .toList();
     }
 
     public Optional<Task> getOneTaskByName(String name) {
@@ -50,12 +52,24 @@ public class TodoList {
     }
 
     public void removeOneTaskByName(String name) {
-        // TODO
+        var taskOpt = getOneTaskByName(name);
+
+        if (taskOpt.isEmpty()) {
+            return;
+        }
+
+        tasks.remove(taskOpt.get());
     }
 
     public List<Task> getAllTasksSorted(SortingOrder sortingOrder) {
-        // TODO
-        return null;
+        var comparator = switch (sortingOrder) {
+            case Ascending -> Comparator.comparing(Task::name);
+            case Descending -> Comparator.comparing(Task::name).reversed();
+        };
+
+        tasks.sort(comparator);
+
+        return tasks;
     }
 
     public void clear() {
