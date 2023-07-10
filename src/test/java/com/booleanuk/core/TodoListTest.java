@@ -109,4 +109,18 @@ class TodoListTest {
     }
 
 
+    @Test
+    public void getTasksInDescendingOrderReturnListInDescendingOrder(){
+        todoList.add(new Task("A"));
+        todoList.add(new Task("C"));
+        todoList.add(new Task("B"));
+        List<Task> listInOrder = todoList.getTaskInDescOrder();
+
+
+        Assertions.assertEquals("C", listInOrder.get(0).description);
+        Assertions.assertEquals("B", listInOrder.get(1).description);
+        Assertions.assertEquals("A", listInOrder.get(2).description);
+    }
+
+
 }
