@@ -81,9 +81,12 @@ class TodoListTest {
 
     @Test
     public void getAllTasksAscendingTest() {
+        todoList.addTask("A", "Wash the clothes");
+        todoList.addTask("B", "Wash the clothes");
         todoList.addTask("Laundry", "Wash the clothes");
         todoList.addTask("Cooking", "Cook");
         todoList.addTask("Washing", "Wash the clothes");
+        todoList.addTask("Z", "Wash the clothes");
         ArrayList<String> sortedKeys = todoList.getAllTasksAscending();
         boolean sorted = true;
         for (int i = 0; i < sortedKeys.size() - 1; i++) {
@@ -91,6 +94,7 @@ class TodoListTest {
             String next = sortedKeys.get(i + 1);
             if (current.compareTo(next) > 0) {
                 sorted = false;
+                break;
             }
         }
         Assertions.assertTrue(sorted);
@@ -98,9 +102,12 @@ class TodoListTest {
 
     @Test
     public void getAllTasksDescendingTest() {
+        todoList.addTask("A", "Wash the clothes");
+        todoList.addTask("B", "Wash the clothes");
         todoList.addTask("Laundry", "Wash the clothes");
         todoList.addTask("Cooking", "Cook");
         todoList.addTask("Washing", "Wash the clothes");
+        todoList.addTask("Z", "Wash the clothes");
         ArrayList<String> sortedKeys = todoList.getAllTasksDescending();
         boolean sorted = true;
         for (int i = 0; i < sortedKeys.size() - 1; i++) {
@@ -108,6 +115,7 @@ class TodoListTest {
             String next = sortedKeys.get(i + 1);
             if (current.compareTo(next) < 0) {
                 sorted = false;
+                break;
             }
         }
         Assertions.assertTrue(sorted);
