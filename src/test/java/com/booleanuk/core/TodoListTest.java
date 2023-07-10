@@ -66,4 +66,19 @@ class TodoListTest {
         assertEquals(task2,todoList.getTasksAscending().get(0));
         assertEquals(task3,todoList.getTasksAscending().get(2));
     }
+
+    @Test
+    public void testGettingAllTasksInDescendingOrder(){
+        TodoList todoList = new TodoList();
+        Task task1 = new Task("cla bla",false,LocalDateTime.now());
+        Task task2 = new Task("bla bla",false,LocalDateTime.now());
+        Task task3 = new Task("cza bla",false,LocalDateTime.now());
+        todoList.add(task1);
+        todoList.add(task2);
+        todoList.add(task3);
+
+        assertEquals(task1,todoList.getTasksDescending().get(1));
+        assertEquals(task2,todoList.getTasksDescending().get(2));
+        assertEquals(task3,todoList.getTasksDescending().get(0));
+    }
 }
