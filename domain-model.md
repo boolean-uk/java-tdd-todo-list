@@ -14,5 +14,5 @@
 |            | `sortTasksDsc()`         | tasks are getting sorted   dsc       | List<Task> |
 |            |                          |                                      |            |
 | Classes    | Methods                  | Scenario                             | Outputs    |
-| `Task`     | `changeTaskStatus()`     | task status is changed to complete   | task       |
-|            |                          | task status is changed to incomplete | task       |
+| `Task`     | `changeTaskStatus()`     | task status is changed to complete   |            |
+|            |                          | task status is changed to incomplete |            |

@@ -23,7 +23,7 @@ public class Task {
         return isComplete;
     }
 
-    public void setComplete(boolean complete) {
-        isComplete = complete;
+    public void changeTaskStatus() {
+        isComplete = !isComplete;
     }
 }

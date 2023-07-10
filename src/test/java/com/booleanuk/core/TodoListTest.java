@@ -47,9 +47,9 @@ class TodoListTest {
 
         TodoList todolist = new TodoList();
         Task newTask = todolist.addTask(taskDescription1);
-        Task results = newTask.changeTaskStatus();
+        newTask.changeTaskStatus();
 
-        Assertions.assertTrue(results.isComplete());
+        Assertions.assertTrue(newTask.isComplete());
     }
     @Test
     public void changeTaskStatusToIncomplete() {
@@ -58,9 +58,9 @@ class TodoListTest {
         TodoList todolist = new TodoList();
         Task newTask = todolist.addTask(taskDescription1);
         newTask.changeTaskStatus(); //change status to complete
-        Task results = newTask.changeTaskStatus();
+        newTask.changeTaskStatus();
 
-        Assertions.assertFalse(results.isComplete());
+        Assertions.assertFalse(newTask.isComplete());
 
     }
 
