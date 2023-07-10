@@ -54,4 +54,8 @@ public class TodoList {
 
         return result.toString();
     }
+
+    public boolean removeTask(String text) {
+        return tasks.remove(text) != null;
+    }
 }
