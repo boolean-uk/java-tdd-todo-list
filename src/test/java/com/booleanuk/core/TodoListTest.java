@@ -3,6 +3,8 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 class TodoListTest {
     @Test
     public void exampleTest() {
@@ -114,4 +116,37 @@ class TodoListTest {
         Assertions.assertEquals(mytodo.search("Test6"), "Task not found");
     }
 
+    @Test
+    public void testRemove(){
+        TodoList mytodo = new TodoList();
+
+        mytodo.add("Test");
+        mytodo.add("Test2");
+        mytodo.add("Test3");
+        Assertions.assertEquals(3, mytodo.getTodoList().size());
+        mytodo.remove("Test");
+        Assertions.assertEquals(2, mytodo.getTodoList().size());
+    }
+
+    @Test
+    public void getTasksInAscendingOrder(){
+        TodoList mytodo = new TodoList();
+
+        mytodo.add("Test9");
+        mytodo.add("Test5");
+        mytodo.add("Test2");
+        List<String> sortedKeys = mytodo.getTasksInAscendingOrder();
+        Assertions.assertEquals(List.of("Test2", "Test5", "Test9"), sortedKeys);
+    }
+
+    @Test
+    public void getTasksInDescendingOrder(){
+        TodoList mytodo = new TodoList();
+
+        mytodo.add("Test1");
+        mytodo.add("Test2");
+        mytodo.add("Test3");
+        List<String> sortedKeys = mytodo.getTasksInDescendingOrder();
+        Assertions.assertEquals(List.of("Test3", "Test2", "Test1"), sortedKeys);
+    }
 }

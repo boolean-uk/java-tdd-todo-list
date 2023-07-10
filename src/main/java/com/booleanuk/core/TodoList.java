@@ -1,7 +1,9 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class TodoList {
 
@@ -65,5 +67,19 @@ public class TodoList {
         }
         return "Task not found";
     }
+    public void remove(String item){
+        if (todoList.containsKey(item)) todoList.remove(item);
+    }
+
+    public List<String> getTasksInAscendingOrder() {
+        List<String> sortedKeys = new ArrayList<>(todoList.keySet());
+        Collections.sort(sortedKeys);
+        return sortedKeys;
+    }
+    public List<String> getTasksInDescendingOrder() {
+    List<String> sortedKeys = new ArrayList<>(todoList.keySet());
+    Collections.sort(sortedKeys, Collections.reverseOrder());
+    return sortedKeys;
+}
 
 }
