@@ -28,4 +28,14 @@ public class TodoList {
                 .append("\n"));
         return result.toString();
     }
+
+    public boolean changeTaskStatus(String text) {
+        return tasks.stream().anyMatch(task -> {
+            if(task.text.equals(text)) {
+                task.isCompleted = !task.isCompleted;
+                return true;
+            }
+            return false;
+        });
+    }
 }
