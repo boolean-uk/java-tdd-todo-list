@@ -55,4 +55,8 @@ public class TodoList {
     public boolean taskExists(int id) {
         return tasks.stream().anyMatch(task -> task.getId() == id);
     }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
 }
