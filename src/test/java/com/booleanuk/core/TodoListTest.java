@@ -55,7 +55,7 @@ class TodoListTest {
         todoList.add(new Task("Completed task no.2", TaskStatus.COMPLETED));
         todoList.add(new Task("Incompleted task no. 1 ", TaskStatus.INCOMPLETED));
 
-        List<Task> incompletedTasks = todoList.getCompletedTasks();
+        List<Task> incompletedTasks = todoList.getIncompletedTasks();
 
         Assertions.assertEquals(1, incompletedTasks.size());
         Assertions.assertTrue(incompletedTasks.stream().allMatch(o -> o.getStatus().equals(TaskStatus.INCOMPLETED)));

@@ -15,11 +15,19 @@ public class TodoList {
     }
 
     public List<Task> getCompletedTasks() {
-        return new ArrayList<>();
+        return this.tasks
+                .stream()
+                .filter(
+                        task -> task.getStatus().equals(TaskStatus.COMPLETED))
+                .toList();
     }
 
     public List<Task> getIncompletedTasks() {
-        return new ArrayList<>();
+        return this.tasks
+                .stream()
+                .filter(
+                        task -> task.getStatus().equals(TaskStatus.INCOMPLETED))
+                .toList();
     }
 
 }
