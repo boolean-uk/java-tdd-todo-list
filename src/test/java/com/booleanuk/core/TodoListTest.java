@@ -23,6 +23,9 @@ class TodoListTest {
     @Test
     public void seeAllTest(){
         TodoList todo = new TodoList();
+        todo.add("First todo", false);
+        todo.add("Second task", true);
+        todo.add("Third task", true);
         Assertions.assertEquals(todo.tasks, todo.seeAll());
     }
 
@@ -38,17 +41,15 @@ class TodoListTest {
         TodoList todo = new TodoList();
         todo.add("First todo", false);
         todo.add("Second task", true);
-        todo.add("Third task", true);
-        Assertions.assertEquals("All complete tasks", todo.getComplete());
+        Assertions.assertEquals(todo.tasks.get(1), todo.getComplete().get(0));
     }
 
     @Test
     public void getIncompleteTest(){
         TodoList todo = new TodoList();
-        todo.add("First todo", false);
         todo.add("Second task", true);
-        todo.add("Third task", true);
-        Assertions.assertEquals("All complete tasks", todo.getIncomplete());
+        todo.add("First todo", false);
+        Assertions.assertEquals(todo.tasks.get(1), todo.getIncomplete().get(0));
     }
 
 
