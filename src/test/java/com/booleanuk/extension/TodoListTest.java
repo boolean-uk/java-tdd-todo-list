@@ -3,6 +3,8 @@ package com.booleanuk.extension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 public class TodoListTest {
     @Test
     public void testIsResultASpecificTask() throws Exception {
@@ -61,6 +63,35 @@ public class TodoListTest {
 
         try {
             todolist.updateDescription(1, taskDescription2);
+        } catch(Exception e){
+            message = e.toString();
+        }
+
+        Assertions.assertEquals(message, "java.lang.Exception: Task not found");
+    }
+
+    @Test
+    public void changeTaskStatusByIdIfTaskExists() {
+        String taskDescription = "Walk the dog";
+
+        TodoList todolist = new TodoList();
+        Task newTask = todolist.addTask(taskDescription);
+
+        Task result = todolist.changeTaskStatusById(0);
+
+        Assertions.assertTrue(result.isComplete());
+    }
+    @Test
+    public void testGetIncompleteTasks() {
+        String taskDescription = "Walk the dog";
+
+        TodoList todolist = new TodoList();
+        todolist.addTask(taskDescription);
+
+        String message = "";
+
+        try {
+            todolist.changeTaskStatusById(1);
         } catch(Exception e){
             message = e.toString();
         }
