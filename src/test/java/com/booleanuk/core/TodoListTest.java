@@ -43,4 +43,12 @@ class TodoListTest {
         assertTrue(todoList.toggleTaskStatus(1));
         assertFalse(todoList.toggleTaskStatus(1));
     }
+
+    @Test
+    public void testGettingById(){
+        TodoList todoList = new TodoList();
+        Task task = new Task("bla bla",false, now());
+        todoList.add(task);
+        assertEquals(task, todoList.getById(1));
+    }
 }

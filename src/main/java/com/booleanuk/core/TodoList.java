@@ -20,7 +20,12 @@ public class TodoList {
         return tasks.stream().map(Task::toString).toList();
     }
 
-    public boolean toggleTaskStatus(int id) {
 
+    public boolean toggleTaskStatus(int id) {
+        return true;
+    }
+
+    public Task getById(int id) {
+        return tasks.stream().filter(task -> task.getId() == id).findFirst().orElseThrow();
     }
 }

@@ -17,6 +17,11 @@ public class Task{
         this.id = ++lastId;
     }
 
+    public boolean toggleStatus(){
+        this.status = !this.status;
+        return this.status;
+    }
+
     @Override
     public String toString() {
         return "Task{" +
