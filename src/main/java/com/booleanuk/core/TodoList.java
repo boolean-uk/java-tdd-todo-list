@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class TodoList {
@@ -13,5 +14,9 @@ public class TodoList {
 
         tasks.add(task);
         return task.getId();
+    }
+
+    public List<String> getAll() {
+
     }
 }
