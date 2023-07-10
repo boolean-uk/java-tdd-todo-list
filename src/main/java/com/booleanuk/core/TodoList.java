@@ -44,4 +44,8 @@ public class TodoList {
 
         return tasks.toString();
     }
+
+    public void changeStatus(Task task){
+        task.isCompleted = !task.isCompleted;
+    }
 }
