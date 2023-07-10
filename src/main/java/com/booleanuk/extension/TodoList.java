@@ -1,5 +1,6 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -75,5 +76,15 @@ public class TodoList {
             return true;
         }
         return false;
+    }
+
+
+    public Optional<LocalDateTime> getDateOfTask(Task task) {
+        if(tasks.contains(task)){
+            return Optional.of(task.dateOfCreation);
+        }
+        else{
+            return Optional.empty();
+        }
     }
 }
