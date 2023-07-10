@@ -17,16 +17,16 @@
 
 EXTENSION
 
-| Classes             | Members                     | Methods                         | Scenario                                        | Outputs                     |
-|---------------------|-----------------------------|---------------------------------|-------------------------------------------------|-----------------------------|
-| `TodoListExtention` | `List<TaskExtension> tasks` | `getTaskById(UUID id)`          | Get task by id                                  | `TaskExtension`             |
-|                     |                             | `renameTaskById(UUID id)`       | Rename task name                                | -                           |
-|                     |                             | `changeTaskStatusById(UUID id)` | Change status to opposite (COMPLETE-INCOMPLETE) | -                           |
-|                     |                             | `timesOfCreation()`             | Get list of tasks with creation `DateTime`      | `HashMap<String, DateTime>` |
+| Classes             | Members                     | Methods                         | Scenario                                        | Outputs                          |
+|---------------------|-----------------------------|---------------------------------|-------------------------------------------------|----------------------------------|
+| `TodoListExtention` | `List<TaskExtension> tasks` | `getTaskById(UUID id)`          | Get task by id                                  | `TaskExtension`                  |
+|                     |                             | `renameTaskById(UUID id)`       | Rename task name                                | -                                |
+|                     |                             | `changeTaskStatusById(UUID id)` | Change status to opposite (COMPLETE-INCOMPLETE) | -                                |
+|                     |                             | `timesOfCreation()`             | Get list of tasks with creation `LocalDateTime` | `HashMap<String, LocalDateTime>` |
 
-| Classes | Members             | Methods     | Scenario           | Outputs  |
-|---------|---------------------|-------------|--------------------|----------|
-| `Task`  | `String title`      | `setStatus` | Change task status | -        |
-|         | `TaskStatus status` | `getStatus` | Get task status    | Enum     |
-|         | `LocalDate date`    | `getTitle`  | Get task title     | String   |
-|         |                     | `getDate`   | Get creation date  | DateTime |
+| Classes | Members              | Methods     | Scenario           | Outputs  |
+|---------|----------------------|-------------|--------------------|----------|
+| `Task`  | `String title`       | `setStatus` | Change task status | -        |
+|         | `TaskStatus status`  | `getStatus` | Get task status    | Enum     |
+|         | `LocalDateTime date` | `getTitle`  | Get task title     | String   |
+|         |                      | `getDate`   | Get creation date  | DateTime |
