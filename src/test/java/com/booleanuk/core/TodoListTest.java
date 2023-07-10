@@ -53,4 +53,15 @@ class TodoListTest {
         String tasks2 = todolist.getAllTasks(false);
         Assertions.assertEquals("[Task{name='Do homework', isCompleted=false}]",tasks2);
     }
+
+    @Test
+    public void searchTask() {
+        todolist.addTask(task);
+
+        String task = todolist.search("Wash dishes");
+        Assertions.assertEquals("not found", task);
+
+        String task2 = todolist.search("Do homework");
+        Assertions.assertEquals("found", task2);
+    }
 }
