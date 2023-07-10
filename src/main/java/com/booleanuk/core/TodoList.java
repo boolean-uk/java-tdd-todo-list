@@ -17,6 +17,4 @@ public class TodoList {
 
         return tasks.add(new Task(text));
     }
-
-
 }

@@ -31,4 +31,19 @@ class TodoListTest {
             assertFalse(TODOLIST.addTask(TASK1));
         }
     }
+
+    @Nested
+    class DisplayTasks {
+        @Test
+        void shouldReturnThreeElements() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            TODOLIST.addTask(TASK3);
+            String result = "Tasks to do: \n" +
+                    "Completed: false | Wash the dishes\n" +
+                    "Completed: false | Walk the dog\n" +
+                    "Completed: false | Drink a glass of water\n";
+            assertEquals(result, TODOLIST.displayTasks());
+        }
+    }
 }
