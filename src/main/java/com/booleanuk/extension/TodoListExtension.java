@@ -100,4 +100,8 @@ public class TodoListExtension {
     }
 
 
+    public void changeName(String id, String newName) {
+        TaskExtension taskExtension = getTaskById(id);
+        taskExtension.setTaskName(newName);
+    }
 }
