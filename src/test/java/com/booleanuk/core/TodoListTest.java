@@ -89,4 +89,16 @@ class TodoListTest {
         Assertions.assertEquals(result.size(), 1);
     }
 
+    @Test
+    public Task testIsResultASpecificTask() {
+        String taskDescription = "Walk the dog";
+
+        TodoList todolist = new TodoList();
+        Task newTask = todolist.addTask(taskDescription);
+
+        Task result = newTask.getTask(0);
+
+        Assertions.assertEquals(result.getDescription(), taskDescription);
+    }
+
 }
