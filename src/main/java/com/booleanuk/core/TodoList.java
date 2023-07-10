@@ -45,7 +45,11 @@ public class TodoList {
         return tasks.toString();
     }
 
-    public void changeStatus(Task task){
-        task.isCompleted = !task.isCompleted;
+    public boolean changeStatus(Task task) {
+        if (tasks.contains(task)) {
+            task.isCompleted = !task.isCompleted;
+            return true;
+        }
+        return false;
     }
 }
