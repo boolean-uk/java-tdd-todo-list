@@ -35,12 +35,15 @@ class TodoListTest {
         Task task = new Task("Exercise 1");
         Task task2 = new Task("Exercise 2");
         Task task3 = new Task("Exercise 3");
+        todoList.addTask(task);
+        todoList.addTask(task2);
+        todoList.addTask(task3);
 
         //when
         String printedTasks = todoList.showTasks();
 
         //then
-        assertEquals(printedTasks,"Exercise 1\n"+"Exercise 2\n"+"Exercise 3");
+        assertEquals("Exercise 1\n"+"Exercise 2\n"+"Exercise 3\n",printedTasks);
 
 
     }

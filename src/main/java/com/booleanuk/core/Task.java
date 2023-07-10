@@ -11,5 +11,10 @@ public class Task {
     }
 
 
+    public String printTaskName(){
+        return taskName;
+    }
+
+
 
 }

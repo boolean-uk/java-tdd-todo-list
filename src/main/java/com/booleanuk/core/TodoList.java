@@ -19,4 +19,15 @@ public class TodoList {
     public ArrayList<Task> getTasks() {
         return tasks;
     }
+
+    public String showTasks() {
+        StringBuilder tasksInString = new StringBuilder();
+
+        for (Task task :
+                tasks) {
+            tasksInString.append(task.printTaskName()).append("\n");
+        }
+
+        return tasksInString.toString();
+    }
 }
