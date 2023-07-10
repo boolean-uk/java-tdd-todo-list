@@ -22,6 +22,10 @@ public class Task {
         return new Task(idCounter++, name, TaskStatus.InProgress, ZonedDateTime.now());
     }
 
+    public static long getCurrentIdCounter() {
+        return idCounter;
+    }
+
     public void toggleStatus() {
         switch (status) {
             case InProgress -> status = TaskStatus.Complete;
