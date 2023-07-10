@@ -31,11 +31,11 @@ public class TodoList {
     public boolean changeStatus(Task taskName){
         boolean state = false;
 
-        if (taskName.getStatus() == true){
+        if (taskName.getStatus()){
             taskName.status =false;
             state = false;
         }
-        else if (taskName.getStatus() == false) {
+        else if (!taskName.getStatus()) {
             taskName.status = true;
             state =true;
         }
