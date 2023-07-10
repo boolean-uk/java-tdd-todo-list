@@ -103,4 +103,13 @@ class TodoListTest {
 
         assertEquals(1, todoList.getIncompleteTasks().size());
     }
+
+    @Test
+    public void testFindingIfTaskExists() {
+        TodoList todoList = new TodoList();
+        Task task = new Task("task one", false, now());
+
+        assertTrue(todoList.taskExists(1));
+        assertFalse(todoList.taskExists(2));
+    }
 }
