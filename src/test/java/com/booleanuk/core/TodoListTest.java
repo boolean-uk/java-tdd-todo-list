@@ -12,10 +12,12 @@ class TodoListTest {
 
     private static TodoList todolist;
     private static Task task;
+    private static Task task2;
 
     @BeforeAll
     public static void createTasks(){
         task = new Task("Do homework", false);
+        task2 = new Task("Wash dishes", true);
     }
     @BeforeEach
     public void create(){
@@ -40,4 +42,15 @@ class TodoListTest {
         Assertions.assertEquals("[Task{name='Do homework', isCompleted=false}]", tasks2);
     }
 
+    @Test
+    public void getAllTasksWithStatus(){
+        todolist.addTask(task);
+        todolist.addTask(task2);
+
+        String tasks = todolist.getAllTasks(true);
+        Assertions.assertEquals("[Task{name='Wash dishes', isCompleted=true}]",tasks);
+
+        String tasks2 = todolist.getAllTasks(false);
+        Assertions.assertEquals("[Task{name='Do homework', isCompleted=false}]",tasks2);
+    }
 }
