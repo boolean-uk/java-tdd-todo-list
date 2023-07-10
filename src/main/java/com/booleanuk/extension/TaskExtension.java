@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class TaskExtension {
     private final UUID id = UUID.randomUUID();
-    private final String title;
+    private String title;
     private TaskStatusExtension status;
     private LocalDateTime date;
 
@@ -41,5 +41,9 @@ public class TaskExtension {
 
     public void setStatus(TaskStatusExtension status) {
         this.status = status;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 }
