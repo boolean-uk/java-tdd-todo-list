@@ -1,6 +1,9 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class TodoList {
 
@@ -79,4 +82,7 @@ public class TodoList {
     }
 
 
+    public void alphabeticallyInAscendingOrder() {
+        Collections.sort(tasks);
+    }
 }

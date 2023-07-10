@@ -1,6 +1,6 @@
 package com.booleanuk.core;
 
-public class Task {
+public class Task implements Comparable<Task>{
 
     private String taskName;
     private boolean status;
@@ -25,5 +25,11 @@ public class Task {
 
     public boolean getStatus() {
         return status;
+    }
+
+
+    @Override
+    public int compareTo(Task o) {
+        return this.taskName.compareTo(o.taskName);
     }
 }
