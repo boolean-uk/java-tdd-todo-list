@@ -68,4 +68,14 @@ class TodoListTest {
 
         Assertions.assertEquals(3, todoList.inCompleteTasks().size());
     }
+
+    @Test
+    public void searchTest() {
+        todoList.add("Running");
+        todoList.add("Swimming");
+        todoList.add("Cycling");
+        todoList.add("Walking");
+
+        Assertions.assertEquals(todoList.search("Boxing"), "Task wasn't found");
+    }
 }

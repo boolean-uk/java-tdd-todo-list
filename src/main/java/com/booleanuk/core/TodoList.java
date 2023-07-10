@@ -39,4 +39,11 @@ public class TodoList {
         return toDoList.entrySet().stream().filter(e -> "incomplete".equals(e.getValue())).map(Map.Entry::getKey).collect(Collectors.toList());
     }
 
+    public String search(String task) {
+        if (toDoList.containsKey(task)) {
+            return task;
+        }
+        return "Task wasn't found";
+    }
+
 }
