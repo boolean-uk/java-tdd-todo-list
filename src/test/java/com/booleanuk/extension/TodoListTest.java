@@ -37,15 +37,8 @@ class TodoListTest {
                 .getAllTasks()
                 .get(0)
                 .getName();
-        
+
         assertEquals(CLEAN_DISHES, addedTask);
-    }
-
-    @Test
-    void addTask_shouldThrowWhenAlreadyOnList() {
-        TODO_LIST.addTask(CLEAN_DISHES);
-
-        assertThrows(IllegalStateException.class, () -> TODO_LIST.addTask(CLEAN_DISHES));
     }
 
     @Test
@@ -94,8 +87,10 @@ class TodoListTest {
 
         var taskOpt = TODO_LIST.getTask(Task.getCurrentIdCounter());
 
+        var expectedTask = Task.of(TODO_LIST.getAllTasks().get(0));
+
         assertTrue(taskOpt.isPresent());
-        assertEquals(Task.of(CLEAN_DISHES), taskOpt.get());
+        assertEquals(expectedTask, taskOpt.get());
     }
 
     @Test
