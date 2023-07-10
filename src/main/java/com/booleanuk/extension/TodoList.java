@@ -2,6 +2,8 @@ package com.booleanuk.extension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public class TodoList {
     List<Task> tasks = new ArrayList<>();
@@ -50,5 +52,9 @@ public class TodoList {
             return true;
         }
         return false;
+    }
+
+    public Optional<Task> getTaskByUUID(UUID uuid) {
+        return tasks.stream().filter(task -> task.uuid == uuid).findFirst();
     }
 }

@@ -1,6 +1,10 @@
 package com.booleanuk.extension;
 
+import java.util.UUID;
+
 public class Task {
+
+    UUID uuid = UUID.randomUUID();
     String name;
     boolean isCompleted;
 
