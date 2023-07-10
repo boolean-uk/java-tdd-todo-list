@@ -28,9 +28,9 @@ class TodoListTest {
 
     @Test
     public void printingAllTasksTest() {
-        todoList.add("Running for 5km ");
-        todoList.add("Swimming for 30min ");
-        todoList.add("Cycling for 10km ");
+        todoList.add("Running");
+        todoList.add("Swimming");
+        todoList.add("Cycling");
 
         Assertions.assertEquals(3, todoList.allTasks().size());
     }
@@ -45,5 +45,27 @@ class TodoListTest {
         todoList.changeStatusOfTask("Running");
         Assertions.assertEquals(false,todoList.allTasks().get("Running").equals("incomplete"));
     }
+    @Test
+    public void onlyTaskWithCompleteStatusTest() {
+        todoList.add("Running");
+        todoList.add("Swimming");
+        todoList.add("Cycling");
+        todoList.add("Walking");
 
+        todoList.changeStatusOfTask("Running");
+
+        Assertions.assertEquals(1, todoList.completeTasks().size());
+    }
+
+    @Test
+    public void onlyTaskWithIncompleteStatusTest() {
+        todoList.add("Running");
+        todoList.add("Swimming");
+        todoList.add("Cycling");
+        todoList.add("Walking");
+
+        todoList.changeStatusOfTask("Running");
+
+        Assertions.assertEquals(3, todoList.inCompleteTasks().size());
+    }
 }

@@ -1,7 +1,9 @@
 package com.booleanuk.core;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class TodoList {
 
@@ -27,6 +29,14 @@ public class TodoList {
                 toDoList.put(task, "complete");
             }
         }
+    }
+
+    public List<String> completeTasks() {
+        return toDoList.entrySet().stream().filter(e -> "complete".equals(e.getValue())).map(Map.Entry::getKey).collect(Collectors.toList());
+    }
+
+    public List<String> inCompleteTasks() {
+        return toDoList.entrySet().stream().filter(e -> "incomplete".equals(e.getValue())).map(Map.Entry::getKey).collect(Collectors.toList());
     }
 
 }
