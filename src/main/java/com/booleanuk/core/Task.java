@@ -1,5 +1,12 @@
 package com.booleanuk.core;
 
-public record Task(String title) {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+@Data
+@AllArgsConstructor
+public class Task {
+    private String title;
+    private TaskStatus status = TaskStatus.INCOMPLETED;
 
 }

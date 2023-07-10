@@ -17,16 +17,16 @@ class TodoListTest {
     @Test
     public void test() {
         todoList = new TodoList();
-        todoList.add(new Task("Task no. 1"));
+        todoList.add(new Task("Task no. 1", TaskStatus.INCOMPLETED));
 
         Assertions.assertEquals(1, todoList.tasks.size());
     }
 
     @Test
     public void changeTaskStatusToCompleted() {
-        Task task = new Task("Task no. 2");
+        Task task = new Task("Task no. 2", TaskStatus.INCOMPLETED);
         task.changeStatus(TaskStatus.COMPLETED);
 
-        Assertions.assertEquals(task.status, TaskStatus.COMPLETED);
+        Assertions.assertEquals(task.getStatus(), TaskStatus.COMPLETED);
     }
 }
