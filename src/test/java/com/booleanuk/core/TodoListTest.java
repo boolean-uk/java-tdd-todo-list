@@ -117,8 +117,8 @@ class TodoListTest {
     public void testIfTaskRemoved() {
         TodoList todoList = new TodoList();
         todoList.add(new Task("task one", false, now()));
-        todoList.removeTask(1);
 
-        assertEquals(0, todoList.getTasks().size());
+        assertTrue(todoList.removeTask(1));
+        assertFalse(todoList.removeTask(1));
     }
 }
