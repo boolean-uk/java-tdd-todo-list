@@ -42,4 +42,18 @@ class TodoListTest {
         Optional<Task> optionalTask2 = todolist.getTaskByUUID(task.uuid);
         Assertions.assertTrue(optionalTask2.isPresent());
     }
+
+    //boolean updateTaskByUUID(UUID uuid, String newName)
+    @Test
+    public void updateTaskByUUIDTest(){
+        todolist.addTask(task);
+        boolean result1 = todolist.updateTaskByUUID(task.uuid, "Clean the room");
+        Assertions.assertTrue(result1);
+        Assertions.assertEquals("Clean the room",task.name);
+
+        boolean result2 = todolist.updateTaskByUUID(UUID.randomUUID(), "Do homework");
+        Assertions.assertFalse(result2);
+
+
+    }
 }
