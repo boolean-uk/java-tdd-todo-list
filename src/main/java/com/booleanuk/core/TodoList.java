@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 public class TodoList {
@@ -25,7 +26,12 @@ public class TodoList {
     }
 
     public void toggleTaskStatus(String name) {
-        // TODO
+        var task = getOneTaskByName(name)
+                .orElseThrow(() -> new NoSuchElementException(String.format("[%s]: task not found", name)));
+
+        task.toggleStatus();
+        
+        System.err.println("Status has been changed: " + task.status());
     }
 
     public List<Task> getAllTasksByStatus(TaskStatus status) {
@@ -34,8 +40,13 @@ public class TodoList {
     }
 
     public Optional<Task> getOneTaskByName(String name) {
-        // TODO
-        return null;
+        for (var t : tasks) {
+            if (t.name().equals(name)) {
+                return Optional.of(t);
+            }
+        }
+
+        return Optional.empty();
     }
 
     public void removeOneTaskByName(String name) {
