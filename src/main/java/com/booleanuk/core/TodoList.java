@@ -63,17 +63,17 @@ public class TodoList {
         return "Task not found";
     }
 
-    public String displayInAlphabeticalOrder(){
+    public String[] displayInAlphabeticalOrder(){
         List<Task> sortedList = tasks.stream()
                 .sorted(Comparator.comparing(Task::getName))
                 .collect(Collectors.toList());
-        return displayAll();
+        return display(sortedList);
     }
 
-    public String displayInReverseAlphabeticalOrder(){
+    public String[] displayInReverseAlphabeticalOrder(){
         List<Task> sortedList = tasks.stream()
                 .sorted(Comparator.comparing(Task::getName, Comparator.reverseOrder()))
                 .collect(Collectors.toList());
-        return displayAll();
+        return display(sortedList);
     }
 }
