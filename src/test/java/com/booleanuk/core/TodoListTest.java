@@ -64,4 +64,13 @@ class TodoListTest {
         String task2 = todolist.search("Do homework");
         Assertions.assertEquals("found", task2);
     }
+
+    @Test
+    public void removeTaskTest(){
+        todolist.addTask(task2);
+        boolean result1 = todolist.removeTask(task2);
+        Assertions.assertTrue(result1);
+        boolean result2 = todolist.removeTask(task2);
+        Assertions.assertFalse(result2);
+    }
 }
