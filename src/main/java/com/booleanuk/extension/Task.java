@@ -37,6 +37,9 @@ public class Task implements Comparable<com.booleanuk.core.Task> {
         isComplete = !isComplete;
     }
 
+    public Date getDate() {
+        return date;
+    }
 
     @Override
     public int compareTo(com.booleanuk.core.Task o) {

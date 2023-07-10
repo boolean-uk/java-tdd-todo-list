@@ -111,8 +111,10 @@ public class TodoListTest {
         TodoList todolist = new TodoList();
         todolist.addTask(taskDescription);
 
+        Date result;
+
         try {
-            Task result = todolist.getTask(0).getDate();
+            result = todolist.getTask(0).getDate();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
