@@ -17,6 +17,16 @@ public class Task{
         this.id = ++lastId;
     }
 
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", status=" + status +
+                ", createTime=" + createTime +
+                '}';
+    }
+
     public String getName() {
         return name;
     }
