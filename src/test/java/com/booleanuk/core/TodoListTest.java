@@ -79,7 +79,7 @@ class TodoListTest {
     }
 
     @Test
-    public void shouldReturn2AllIncompleteTasksInList(){
+    public void shouldReturn2TasksInAllIncompleteTasksList(){
         //given
         TodoList todoList = new TodoList();
         Task task = new Task("Exercise 1",true);
@@ -98,7 +98,7 @@ class TodoListTest {
     }
 
     @Test
-    public void shouldReturnNoTasksInAllIncompleteTasksInList(){
+    public void shouldReturnNoTasksInAllIncompleteTasksList(){
         //given
         TodoList todoList = new TodoList();
         Task task = new Task("Exercise 1",true);
@@ -115,6 +115,44 @@ class TodoListTest {
         //then
         assertEquals(0,allIncompleteTask.size());
     }
+
+    @Test
+    public void ShouldReturn2TaskInCompleteTaskList(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",false);
+        todoList.addTask(task);
+        Task task2 = new Task("Exercise 2",true);
+        todoList.addTask(task2);
+        Task task3 = new Task("Exercise 3",true);
+        todoList.addTask(task3);
+
+        //when
+        ArrayList<Task> allCompleteTask = todoList.getCompleteTasks();
+
+        //then
+        assertEquals(2,allCompleteTask.size());
+    }
+
+    @Test
+    public void shouldReturnNoTasksInAllCompleteTasksList(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",false);
+        todoList.addTask(task);
+        Task task2 = new Task("Exercise 2",false);
+        todoList.addTask(task2);
+        Task task3 = new Task("Exercise 3",false);
+        todoList.addTask(task3);
+
+        //when
+        ArrayList<Task> allCompleteTaskList = todoList.getCompleteTasks();
+
+
+        //then
+        assertEquals(0,allCompleteTaskList.size());
+    }
+
 
 
 }
