@@ -67,13 +67,14 @@ class TodoListTest {
         Task task2 = new Task("bbb");
         Task task3 = new Task("ccc");
 
+        todoList = new TodoList();
         todoList.add(task2);
         todoList.add(task1);
         todoList.add(task3);
         List<Task> ascendingTasks = todoList.sortAscending();
-        Assertions.assertTrue(todoList.getTasks().get(0).equals(task1));
-        Assertions.assertTrue(todoList.getTasks().get(1).equals(task2));
-        Assertions.assertTrue(todoList.getTasks().get(2).equals(task3));
+        Assertions.assertTrue(ascendingTasks.get(0).equals(task1));
+        Assertions.assertTrue(ascendingTasks.get(1).equals(task2));
+        Assertions.assertTrue(ascendingTasks.get(2).equals(task3));
 
 
     }
