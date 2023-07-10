@@ -86,7 +86,7 @@ class TodoListTest {
             String result = "Completed tasks: \n" +
                     "Wash the dishes\n" +
                     "Walk the dog\n";
-            assertEqual(result, TODOLIST.displayCompletedTasks());
+            assertEquals(result, TODOLIST.displayCompletedTasks());
         }
     }
 

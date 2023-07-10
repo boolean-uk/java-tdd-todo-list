@@ -30,4 +30,16 @@ public class TodoList {
 
         return tasks.replace(text, !tasks.get(text)) != null;
     }
+
+    public String displayCompletedTasks() {
+        StringBuilder result = new StringBuilder();
+        result.append("Completed tasks: \n");
+
+        for (Map.Entry<String, Boolean> task : tasks.entrySet())
+            if (task.getValue())
+                result.append(task.getKey())
+                        .append("\n");
+
+        return result.toString();
+    }
 }
