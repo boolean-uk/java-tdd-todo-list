@@ -10,11 +10,20 @@ public class Task {
         status = false;
     }
 
+    public Task(String taskName, boolean status) {
+        this.taskName = taskName;
+        this.status = status;
+    }
 
     public String printTaskName(){
         return taskName;
     }
 
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
 
-
+    public boolean getStatus() {
+        return status;
+    }
 }

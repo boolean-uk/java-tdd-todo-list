@@ -30,4 +30,14 @@ public class TodoList {
 
         return tasksInString.toString();
     }
+
+    public void changeStatus(Task task, boolean status) {
+        if(tasks.contains(task)){
+          task.setStatus(status);
+        }
+    }
+
+    public boolean getTaskStatus(Task task) {
+        return task.getStatus();
+    }
 }

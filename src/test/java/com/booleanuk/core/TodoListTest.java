@@ -57,9 +57,23 @@ class TodoListTest {
 
         //given
         todoList.changeStatus(task, true);
-        boolean isComplete = todoList.getTaskStatus(task, true);
+        boolean isComplete = todoList.getTaskStatus(task);
 
         assertTrue(isComplete);
+    }
+
+    @Test
+    public void statusShouldReturnFalseAfterChange(){
+        //when
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",true);
+        todoList.addTask(task);
+
+        //given
+        todoList.changeStatus(task, false);
+        boolean isComplete = todoList.getTaskStatus(task);
+
+        assertFalse(isComplete);
     }
 
 }
