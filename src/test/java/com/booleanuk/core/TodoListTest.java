@@ -90,7 +90,7 @@ class TodoListTest {
     }
 
     @Test
-    public Task testIsResultASpecificTask() {
+    public void testIsResultASpecificTask() throws Exception {
         String taskDescription = "Walk the dog";
 
         TodoList todolist = new TodoList();
@@ -99,6 +99,24 @@ class TodoListTest {
         Task result = todolist.getTask(0);
 
         Assertions.assertEquals(result.getDescription(), taskDescription);
+    }
+
+    @Test
+    public void testGetTaskForInvalidId() {
+        String taskDescription = "Walk the dog";
+
+        TodoList todolist = new TodoList();
+        todolist.addTask(taskDescription);
+
+        String message = "";
+
+        try {
+            todolist.getTask(1);
+        } catch(Exception e){
+            message = e.toString();
+        }
+
+        Assertions.assertEquals(message, "java.lang.Exception: Task not found");
     }
 
 }

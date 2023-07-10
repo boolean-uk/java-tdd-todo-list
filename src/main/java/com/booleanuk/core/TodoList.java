@@ -43,6 +43,8 @@ public class TodoList {
     }
 
 
-
-
+    public Task getTask(int i) throws Exception {
+        if(taskList.size() == 0 || i < 0 || i >= taskList.size()) throw new Exception("Task not found");
+        return taskList.get(i);
+    }
 }
