@@ -64,4 +64,10 @@ public class TodoList {
     public Optional<Task> getTask(String id) {
        return tasks.stream().filter(t -> t.ID.equals(id)).findFirst();
     }
+
+    public void updateTask(String id, String newDescription){
+        if(tasks.stream().anyMatch(t -> t.ID.equals(id))){
+            tasks.stream().filter(t -> t.ID.equals(id)).findFirst().get().description = newDescription;
+        }
+    }
 }

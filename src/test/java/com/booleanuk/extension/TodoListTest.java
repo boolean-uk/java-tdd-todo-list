@@ -35,4 +35,17 @@ public class TodoListTest {
 
         Assertions.assertFalse(todoList.getTask(taskComplete.ID).isPresent());
     }
+
+    @Test
+    public void updateTaskUsingId(){
+        String beforeUpdateTaskDescription = taskComplete.description;
+        todoList.add(taskComplete);
+        todoList.updateTask(taskComplete.ID, "New description");
+        String afterUpdateTaskDescription = taskComplete.description;
+
+        Assertions.assertNotEquals(beforeUpdateTaskDescription, afterUpdateTaskDescription);
+        Assertions.assertEquals("New description", afterUpdateTaskDescription);
+    }
+
+
 }
