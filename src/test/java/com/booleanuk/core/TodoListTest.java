@@ -93,4 +93,14 @@ class TodoListTest {
 
         assertEquals(2, todoList.getCompleteTasks().size());
     }
+
+    @Test
+    public void testGettingIncompleteTasks() {
+        TodoList todoList = new TodoList();
+        todoList.add(new Task("task one", false, now()));
+        todoList.add(new Task("task two", true, now()));
+        todoList.add(new Task("task three", true, now()));
+
+        assertEquals(1, todoList.getCompleteTasks().size());
+    }
 }
