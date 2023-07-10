@@ -12,6 +12,11 @@ public class TodoList {
         return newTask;
     }
 
+    public ArrayList<Task> getTasks()
+    {
+        return taskList;
+    }
+
 
 
 
