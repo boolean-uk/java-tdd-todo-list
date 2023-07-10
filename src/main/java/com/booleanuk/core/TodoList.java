@@ -22,4 +22,12 @@ public class TodoList {
     public String getAllTasks(boolean isCompleted){
         return tasks.stream().filter(task -> task.isCompleted == isCompleted).toList().toString();
     }
+
+    public String search(String name) {
+        for(Task task : tasks) {
+            if(task.name.equals(name))
+                return "found";
+        }
+        return "not found";
+    }
 }
