@@ -109,8 +109,8 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         todoList.add(new Task("task one", false, now()));
 
-        assertTrue(todoList.taskExists(1));
-        assertFalse(todoList.taskExists(2));
+        assertEquals("Task with id 1 exists in todo list.", todoList.taskExists(1));
+        assertEquals("Task with id 2 doesn't exist in todo list.", todoList.taskExists(2));
     }
 
     @Test

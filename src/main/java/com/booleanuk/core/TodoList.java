@@ -52,11 +52,17 @@ public class TodoList {
         return tasks.stream().filter(task -> !task.isComplete()).toList();
     }
 
-    public boolean taskExists(int id) {
-        return tasks.stream().anyMatch(task -> task.getId() == id);
+    public String taskExists(int id) {
+        if (tasks.stream().anyMatch(task -> task.getId() == id)) {
+            return String.format("Task with id %d exists in todo list.", id);
+        }
+        return String.format("Task with id %d doesn't exist in todo list.", id);
     }
 
     public List<Task> getTasks() {
         return tasks;
+    }
+
+    public void removeTask(int i) {
     }
 }
