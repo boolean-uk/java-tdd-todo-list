@@ -72,4 +72,37 @@ class TodoListTest {
         }
     }
 
+    @Nested
+    class DisplayCompletedTasks {
+        @Test
+        void shouldReturnInCompleted() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            TODOLIST.addTask(TASK3);
+            assertTrue(TODOLIST.changeTaskStatus(TASK1));
+            assertTrue(TODOLIST.changeTaskStatus(TASK2));
+
+            String result = "Completed tasks: \n" +
+                    "Wash the dishes\n" +
+                    "Walk the dog\n";
+            assertEqual(result, TODOLIST.displayCompletedTasks());
+        }
+    }
+
+    @Nested
+    class DisplayInCompletedTasks {
+        @Test
+        void shouldReturnInCompletedTasks() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            TODOLIST.addTask(TASK3);
+            assertTrue(TODOLIST.changeTaskStatus(TASK1));
+
+            String result = "InCompleted tasks: \n" +
+                    "Wash the dishes\n" +
+                    "Walk the dog\n";
+            assertEqual(result, TODOLIST.displayInCompletedTasks());
+        }
+    }
+
 }
