@@ -22,6 +22,6 @@
 |           |                                  | String listTasks(String order)          | order = ascending            | lists tasks in asc order                          |
 |           |                                  |                                         | order = descending           | lists tasks in desc order                         |
 |           |                                  |                                         | order is anything else       | lists tasks in asc order (default)                |
-|           |                                  | boolean changeStatus(String name)       |                              | changes status to opposite                        |
+|           |                                  | void changeStatus(Task task)            |                              | changes status to opposite                        |
 |           |                                  |                                         |                              |                                                   |
 | Task      | String name, boolean isCompleted |                                         |                              |                                                   |

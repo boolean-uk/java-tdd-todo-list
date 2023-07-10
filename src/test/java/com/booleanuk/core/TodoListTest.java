@@ -87,4 +87,16 @@ class TodoListTest {
         Assertions.assertEquals("[Task{name='Wash dishes', isCompleted=true}, Task{name='Do homework', isCompleted=false}]", descTasks);
         Assertions.assertEquals("[Task{name='Do homework', isCompleted=false}, Task{name='Wash dishes', isCompleted=true}]", defaultTasks);
     }
+
+    @Test
+    public void changeStatusTest(){
+        todolist.addTask(task);
+        todolist.changeStatus(task);
+        Assertions.assertTrue(task.isCompleted);
+
+        todolist.addTask(task2);
+        todolist.changeStatus(task2);
+        Assertions.assertFalse(task2.isCompleted);
+
+    }
 }
