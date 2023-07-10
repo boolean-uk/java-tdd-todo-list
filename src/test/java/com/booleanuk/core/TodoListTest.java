@@ -2,6 +2,8 @@ package com.booleanuk.core;
 
 import org.junit.jupiter.api.*;
 
+import java.util.ArrayList;
+
 class TodoListTest {
     TodoList todoList;
 
@@ -63,5 +65,51 @@ class TodoListTest {
         todoList.addTask("Laundry", "Wash the clothes");
         todoList.addTask("Cooking", "Cook the food");
         Assertions.assertNotEquals("Laundry", todoList.searchTask("Running").getName());
+    }
+
+    @Test
+    public void removeTaskTest() {
+        todoList.addTask("Laundry", "Wash the clothes");
+        Assertions.assertTrue(todoList.removeTask("Laundry"));
+    }
+
+    @Test
+    public void removeTaskFailedTest() {
+        todoList.addTask("Laundry", "Wash the clothes");
+        Assertions.assertFalse(todoList.removeTask("Cooking"));
+    }
+
+    @Test
+    public void getAllTasksAscendingTest() {
+        todoList.addTask("Laundry", "Wash the clothes");
+        todoList.addTask("Cooking", "Cook");
+        todoList.addTask("Washing", "Wash the clothes");
+        ArrayList<String> sortedKeys = todoList.getAllTasksAscending();
+        boolean sorted = true;
+        for (int i = 0; i < sortedKeys.size() - 1; i++) {
+            String current = sortedKeys.get(i);
+            String next = sortedKeys.get(i + 1);
+            if (current.compareTo(next) > 0) {
+                sorted = false;
+            }
+        }
+        Assertions.assertTrue(sorted);
+    }
+
+    @Test
+    public void getAllTasksDescendingTest() {
+        todoList.addTask("Laundry", "Wash the clothes");
+        todoList.addTask("Cooking", "Cook");
+        todoList.addTask("Washing", "Wash the clothes");
+        ArrayList<String> sortedKeys = todoList.getAllTasksDescending();
+        boolean sorted = true;
+        for (int i = 0; i < sortedKeys.size() - 1; i++) {
+            String current = sortedKeys.get(i);
+            String next = sortedKeys.get(i + 1);
+            if (current.compareTo(next) < 0) {
+                sorted = false;
+            }
+        }
+        Assertions.assertTrue(sorted);
     }
 }
