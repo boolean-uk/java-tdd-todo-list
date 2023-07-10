@@ -43,4 +43,8 @@ public class TodoList {
 
         return sortedTasks;
     }
+
+    public List<Task> getCompleteTasks() {
+        return tasks.stream().filter(Task::isStatus).toList();
+    }
 }
