@@ -19,5 +19,9 @@ public class TodoListExtension {
     public TaskExtension getTaskById(UUID id) {
         return this.tasks.stream().filter(task -> task.getId().equals(id)).findFirst().orElseThrow();
     }
+
+    public void renameTask(UUID id, String nameAfter) {
+
+    }
 }
 
