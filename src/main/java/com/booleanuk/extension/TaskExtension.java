@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class TaskExtension {
     private final UUID id = UUID.randomUUID();
-    private final String title;
+    private String title;
     private TaskStatus status;
 
     public UUID getId() {
@@ -25,6 +25,10 @@ public class TaskExtension {
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public TaskStatus getStatus() {

@@ -21,6 +21,7 @@ public class TodoListExtension {
     }
 
     public void renameTask(UUID id, String nameAfter) {
+        this.tasks.stream().filter(task -> task.getId().equals(id)).findFirst().orElseThrow().setTitle(nameAfter);
 
     }
 }
