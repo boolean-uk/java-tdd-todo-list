@@ -90,4 +90,14 @@ public class TodoListExtension {
         tasks.sort(Collections.reverseOrder());
 
     }
+
+    public TaskExtension getTaskbyId(String id) {
+        for (TaskExtension task :
+                tasks) {
+            if (task.getTaskExtensionId().equals(id)) {
+                return task;
+            }
+        }
+        return null;
+    }
 }

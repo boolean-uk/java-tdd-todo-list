@@ -43,4 +43,8 @@ public class TaskExtension implements Comparable<TaskExtension>{
     public String getTaskExtensionId() {
         return taskExtensionId;
     }
+
+    public static void setCounterToZero(){
+        counter = 0;
+    }
 }
