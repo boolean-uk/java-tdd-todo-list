@@ -1,5 +1,6 @@
 package com.booleanuk.extension;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -20,6 +21,12 @@ public class TodoListTest {
         TASK2 = "Walk the dog";
         TASK3 = "Drink a glass of water";
     }
+
+    @AfterEach
+    void clear() {
+        TODOLIST.tasks.clear();
+    }
+
     @Nested
     class addTask {
         @Test
@@ -65,4 +72,19 @@ public class TodoListTest {
         }
     }
 
+    @Nested
+    class ChangeTaskStatus {
+        @Test
+        public void shouldChangeStatus() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            assertFalse(TODOLIST.getTask(0).isCompleted);
+            assertFalse(TODOLIST.getTask(0).isCompleted);
+            TODOLIST.changeTaskStatus(0);
+            TODOLIST.changeTaskStatus(1);
+            TODOLIST.changeTaskStatus(2);
+            assertTrue(TODOLIST.getTask(0).isCompleted);
+            assertTrue(TODOLIST.getTask(0).isCompleted);
+        }
+    }
 }
