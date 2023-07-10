@@ -7,26 +7,26 @@ import java.util.Collections;
 
 public class TodoListExtension {
 
-    private ArrayList<Task> tasks = new ArrayList<>();
+    private ArrayList<TaskExtension> tasks = new ArrayList<>();
 
 
 
 
 
 
-    public void addTask(Task task){
+    public void addTask(TaskExtension task){
         tasks.add(task);
     }
 
 
-    public ArrayList<Task> getTasks() {
+    public ArrayList<TaskExtension> getTasks() {
         return tasks;
     }
 
     public String showTasks() {
         StringBuilder tasksInString = new StringBuilder();
 
-        for (Task task :
+        for (TaskExtension task :
                 tasks) {
             tasksInString.append(task.printTaskName()).append("\n");
         }
@@ -34,19 +34,19 @@ public class TodoListExtension {
         return tasksInString.toString();
     }
 
-    public void changeStatus(Task task, boolean status) {
+    public void changeStatus(TaskExtension task, boolean status) {
         if(tasks.contains(task)){
             task.setStatus(status);
         }
     }
 
-    public boolean getTaskStatus(Task task) {
+    public boolean getTaskStatus(TaskExtension task) {
         return task.getStatus();
     }
 
-    public ArrayList<Task> getIncompleteTasks() {
-        ArrayList<Task> incompleteTasks =  new ArrayList<>();
-        for (Task task :
+    public ArrayList<TaskExtension> getIncompleteTasks() {
+        ArrayList<TaskExtension> incompleteTasks =  new ArrayList<>();
+        for (TaskExtension task :
                 tasks) {
             if (!task.getStatus()) {
                 incompleteTasks.add(task);
@@ -57,9 +57,9 @@ public class TodoListExtension {
     }
 
 
-    public ArrayList<Task> getCompletedTasks() {
-        ArrayList<Task> completedTasks = new ArrayList<>();
-        for (Task task :
+    public ArrayList<TaskExtension> getCompletedTasks() {
+        ArrayList<TaskExtension> completedTasks = new ArrayList<>();
+        for (TaskExtension task :
                 tasks) {
             if (task.getStatus()) {
                 completedTasks.add(task);
@@ -70,14 +70,14 @@ public class TodoListExtension {
 
     }
 
-    public String findTask(Task task) {
+    public String findTask(TaskExtension task) {
         if(tasks.contains(task)){
             return "I found a message!";
         }
         return "I didn't find message";
     }
 
-    public void removeTask(Task task) {
+    public void removeTask(TaskExtension task) {
         tasks.remove(task);
     }
 
