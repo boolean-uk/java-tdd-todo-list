@@ -33,9 +33,8 @@ public class TodoList {
 
         if (taskName.getStatus()){
             taskName.status =false;
-            state = false;
         }
-        else if (!taskName.getStatus()) {
+        else {
             taskName.status = true;
             state =true;
         }
@@ -76,6 +75,26 @@ public class TodoList {
             }
         }
         return "Task not found";
+    }
+
+    public String[] displayUncompleted(){
+        List<Task> uncompletedList = new ArrayList<>();
+        for(Task task : tasks){
+            if(!task.getStatus()){
+                uncompletedList.add(task);
+            }
+        }
+        return display(uncompletedList);
+    }
+
+    public String[] displayCompleted(){
+        List<Task> completedList = new ArrayList<>();
+        for(Task task : tasks){
+            if(task.getStatus()){
+                completedList.add(task);
+            }
+        }
+        return display(completedList);
     }
 
     public String[] displayInAlphabeticalOrder(){
