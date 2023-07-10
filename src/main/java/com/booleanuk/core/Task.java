@@ -11,4 +11,12 @@ public class Task {
         this.status = status;
         this.description = description;
     }
+
+    public void changeStatus() {
+        if (status == Status.INCOMPLETE) {
+            status = Status.COMPLETE;
+        } else {
+            status = Status.INCOMPLETE;
+        }
+    }
 }
