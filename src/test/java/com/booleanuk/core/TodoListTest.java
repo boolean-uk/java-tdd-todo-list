@@ -118,7 +118,6 @@ class TodoListTest {
 
         @Test
         void shouldReturnStringThatSaysThereIsNoSuchTaskInTodoList() {
-            TODOLIST.addTask(TASK1);
             String result = "There is no such task in the list.";
 
             assertEquals(result, TODOLIST.getTask(TASK1));

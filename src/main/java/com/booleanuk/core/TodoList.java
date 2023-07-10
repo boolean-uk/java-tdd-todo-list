@@ -58,4 +58,10 @@ public class TodoList {
     public boolean removeTask(String text) {
         return tasks.remove(text) != null;
     }
+
+    public String getTask(String text) {
+        return tasks.containsKey(text) ?
+                "Completed: " + tasks.get(text) + " | " + text :
+                "There is no such task in the list.";
+    }
 }
