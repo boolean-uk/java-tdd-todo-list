@@ -29,4 +29,15 @@ class TodoListTest {
         Assertions.assertFalse(result2);
     }
 
+    @Test
+    public void getAllTasks() {
+        String tasks = todolist.getAllTasks();
+        Assertions.assertEquals("[]", tasks);
+
+        todolist.addTask(task);
+
+        String tasks2 = todolist.getAllTasks();
+        Assertions.assertEquals("[Task{name='Do homework', isCompleted=false}]", tasks2);
+    }
+
 }
