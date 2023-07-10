@@ -36,5 +36,9 @@ public class TodoList {
         List<Task> sortedAscTasks = new ArrayList<>(tasks);
         sortedAscTasks.sort(Comparator.comparing(Task::getTitle));
         return sortedAscTasks;    }
+    public List<Task> sortDescending(){
+        List<Task> sortedAscTasks = new ArrayList<>(tasks);
+        sortedAscTasks.sort(Comparator.comparing(Task::getTitle).reversed());
+        return sortedAscTasks;    }
 
 }
