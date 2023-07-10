@@ -24,14 +24,14 @@ In case of lists we typed <Task<Task>> to make it visible on the preview
 |          |                        | void changeStatusOfTask(String content)   | If you want to change your task's status                                     |                         |
 |          |                        | List<Task<Task>> getAllCompletedTasks()   | If you want to see all completed tasks                                       | List of completed tasks |
 |          |                        | List<Task<Task>> getAllUncompletedTasks() | If you want to see all uncompleted tasks                                     |                         |
-|          |                        | boolean searchForATask(String content)    | If you want to search for a particular task and it is present in the list    | true                    |
-|          |                        |                                           | If you want to search for a particular task and it isn't present in the list | false                   |
+|          |                        | String searchForATask(String content)     | If you want to search for a particular task and it is present in the list    | Null string             |
+|          |                        |                                           | If you want to search for a particular task and it isn't present in the list | String with message     |
 |          |                        | void removeTask(String content)           | If you want to remove a particular task from your list                       |                         |
 |          |                        | List<Task<Task>> allTasksOrderedAsc()     | If you want to get your list ordered alphabetically in ascending order       | List of tasks           |
-|          |                        | List<Task<Task>> allTasksOrderedDesc()    | If you want to get your list ordered alphabetically in descending order      | List of tasks                        |
-|          |                        |                                           |                                                                              |                                      |
-| Task     | String content         |                                           |                                                                              |                                      |
-|          | boolean complete       |                                           |                                                                              |                                      |
+|          |                        | List<Task<Task>> allTasksOrderedDesc()    | If you want to get your list ordered alphabetically in descending order      | List of tasks           |
+|          |                        |                                           |                                                                              |                         |
+| Task     | String content         |                                           |                                                                              |                         |
+|          | boolean complete       |                                           |                                                                              |                         |
 
 
 ## Extension
