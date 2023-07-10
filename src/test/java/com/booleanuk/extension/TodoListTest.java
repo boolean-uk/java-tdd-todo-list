@@ -38,4 +38,27 @@ public class TodoListTest {
         todoList.updateTask("new second task", 2);
         Assertions.assertEquals(secondTask.getContent(), "new second task");
     }
+
+    @Test
+    public void testChangeStatusOfTask(){
+        Task task = new Task("first task", false, 1);
+        Task secondTask = new Task("second task", false, 2);
+        Task thirdTask = new Task("third task", false, 3);
+        todoList.tasks.add(task);
+        todoList.tasks.add(secondTask);
+        todoList.tasks.add(thirdTask);
+        todoList.changeStatusOfTask(3);
+        Assertions.assertTrue(thirdTask.isComplete());
+    }
+
+    @Test
+    public void testGetDateAndTimeTask(){
+        Task task = new Task("first task", false, 1);
+        Task secondTask = new Task("second task", false, 2);
+        Task thirdTask = new Task("third task", false, 3);
+        todoList.tasks.add(task);
+        todoList.tasks.add(secondTask);
+        todoList.tasks.add(thirdTask);
+        Assertions.assertEquals(secondTask.getDateTime(),todoList.getDateAndTimeTask(2));
+    }
 }
