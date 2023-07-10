@@ -154,5 +154,24 @@ class TodoListTest {
     }
 
 
+    @Test
+    public void shouldReturnPositiveMessage(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",false);
+        todoList.addTask(task);
+        Task task2 = new Task("Exercise 2",false);
+        todoList.addTask(task2);
+        Task task3 = new Task("Exercise 3",false);
+        todoList.addTask(task3);
+
+        //when
+        String message = todoList.findTask(task);
+
+        //then
+        assertEquals("I found a message!", message);
+
+    }
+
 
 }
