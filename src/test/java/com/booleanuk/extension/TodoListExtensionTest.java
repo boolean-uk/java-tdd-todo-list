@@ -3,6 +3,9 @@ package com.booleanuk.extension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TodoListExtensionTest {
 
     @Test
@@ -14,8 +17,24 @@ public class TodoListExtensionTest {
         todoListExtension.addTask(taskExtension);
 
         //then
-        Assertions.assertEquals("ID0",taskExtension.getTaskExtensionId());
+        assertEquals("ID0",taskExtension.getTaskExtensionId());
 
+    }
+
+
+    @Test
+    public void shouldReturnTaskByProvidedID(){
+
+        //given
+        TodoListExtension todoListExtension = new TodoListExtension();
+        TaskExtension taskExtension = new TaskExtension("Extended Task 1");
+        todoListExtension.addTask(taskExtension);
+        //When
+        String id = "ID0";
+        TaskExtension taskExtension1 = todoListExtension.getTaskbyId(id);
+
+        //then
+        assertEquals(taskExtension, taskExtension1);
     }
 
 
