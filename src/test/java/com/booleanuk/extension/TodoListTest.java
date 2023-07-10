@@ -5,6 +5,9 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoListTest {
@@ -24,7 +27,7 @@ public class TodoListTest {
 
     @AfterEach
     void clear() {
-        TODOLIST.tasks.clear();
+        TODOLIST.clearTodoList();
     }
 
     @Nested
@@ -47,7 +50,7 @@ public class TodoListTest {
             TODOLIST.addTask(TASK2);
             Task task1 = TODOLIST.getTask(0);
             Task task2 = TODOLIST.getTask(1);
-            Task task3 = TODOLIST.getTask(3);
+            TODOLIST.getTask(3);
             assertEquals(TASK1, task1.text);
             assertEquals(TASK2, task2.text);
         }
@@ -79,12 +82,12 @@ public class TodoListTest {
             TODOLIST.addTask(TASK1);
             TODOLIST.addTask(TASK2);
             assertFalse(TODOLIST.getTask(0).isCompleted);
-            assertFalse(TODOLIST.getTask(0).isCompleted);
+            assertFalse(TODOLIST.getTask(1).isCompleted);
             TODOLIST.changeTaskStatus(0);
             TODOLIST.changeTaskStatus(1);
             TODOLIST.changeTaskStatus(2);
             assertTrue(TODOLIST.getTask(0).isCompleted);
-            assertTrue(TODOLIST.getTask(0).isCompleted);
+            assertTrue(TODOLIST.getTask(1).isCompleted);
         }
     }
 
@@ -95,12 +98,13 @@ public class TodoListTest {
             TODOLIST.addTask(TASK1);
             TODOLIST.addTask(TASK2);
             TODOLIST.addTask(TASK3);
-            String result = """
-                    Tasks to do:\s
-                    0# Completed: false | Wash the dishes
-                    1# Completed: false | Walk the dog
-                    2# Completed: false | Drink a glass of water
-                    """;
+            LocalDateTime dateTime = LocalDateTime.now();
+            DateTimeFormatter pattern = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+            String result = "Tasks to do: \n" +
+                    "0# Date of creation: " + dateTime.format(pattern) + " | Completed: false | Wash the dishes\n" +
+                    "1# Date of creation: " + dateTime.format(pattern) + " | Completed: false | Walk the dog\n" +
+                    "2# Date of creation: " + dateTime.format(pattern) + " | Completed: false | Drink a glass of water\n" ;
             assertEquals(result, TODOLIST.displayTasks());
         }
     }
