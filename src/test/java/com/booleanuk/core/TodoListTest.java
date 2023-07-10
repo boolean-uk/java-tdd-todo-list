@@ -1,9 +1,9 @@
 package com.booleanuk.core;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 class TodoListTest {
     TodoList todoList;
@@ -15,6 +15,10 @@ class TodoListTest {
         task = new Task();
     }
 
+    @AfterEach
+    public void empty() {
+        todoList.tasks.clear();
+    }
 
     @Test
     public void addTaskReturnTrue() {
@@ -26,4 +30,12 @@ class TodoListTest {
         todoList.add(task);
         Assertions.assertFalse(todoList.add(task));
     }
+
+    @Test
+    public void getTaskReturnEmptyList() {
+        List<Task> result = todoList.getTasks() ;
+
+        Assertions.assertEquals(0, result.size());
+    }
+
 }

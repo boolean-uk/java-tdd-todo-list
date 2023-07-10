@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.TreeMap;
 
 public class TodoList {
@@ -15,5 +16,9 @@ public class TodoList {
             tasks.add(task);
             return true;
         }
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
     }
 }
