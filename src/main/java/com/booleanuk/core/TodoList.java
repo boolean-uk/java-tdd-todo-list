@@ -27,6 +27,21 @@ public class TodoList {
         }
         return returnTaskList;
     }
+
+    public boolean changeStatus(Task taskName){
+        boolean state = false;
+
+        if (taskName.getStatus() == true){
+            taskName.status =false;
+            state = false;
+        }
+        else if (taskName.getStatus() == false) {
+            taskName.status = true;
+            state =true;
+        }
+        return state;
+    }
+
     /*
     private String[] displayAll(){
         return display(tasks);
@@ -34,7 +49,7 @@ public class TodoList {
 
      */
 
-    //private boolean changeStatus(){}
+
 
 
 
