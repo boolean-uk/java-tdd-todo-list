@@ -21,7 +21,11 @@ public class Task {
         return status;
     }
 
-    public void setStatus(Boolean status) {
-        this.status = status;
+    public boolean changeStatus(String task) {
+        return true;
     }
+
+    public void addTask(String taskName){}
+
+    public void displayAll(){}
 }
