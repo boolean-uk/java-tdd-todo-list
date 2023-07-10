@@ -43,16 +43,8 @@ public class Task{
         return isComplete;
     }
 
-    public void setComplete(boolean complete) {
-        this.isComplete = complete;
-    }
-
     public LocalDateTime getCreateTime() {
         return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
     }
 
     public int getId() {

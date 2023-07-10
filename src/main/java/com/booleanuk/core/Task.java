@@ -35,25 +35,10 @@ public class Task{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public boolean isComplete() {
         return isComplete;
     }
 
-    public void setComplete(boolean complete) {
-        this.isComplete = complete;
-    }
-
-    public LocalDateTime getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(LocalDateTime createTime) {
-        this.createTime = createTime;
-    }
 
     public int getId() {
         return id;

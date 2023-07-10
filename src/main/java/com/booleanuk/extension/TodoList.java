@@ -3,7 +3,6 @@ package com.booleanuk.extension;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
 
 public class TodoList {
 
@@ -60,10 +59,6 @@ public class TodoList {
             return String.format("Task with id %d exists in todo list.", id);
         }
         return String.format("Task with id %d doesn't exist in todo list.", id);
-    }
-
-    public List<Task> getTasks() {
-        return tasks;
     }
 
     public boolean removeTask(int id) {
