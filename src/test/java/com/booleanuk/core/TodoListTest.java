@@ -106,4 +106,21 @@ class TodoListTest {
         }
     }
 
+    @Nested
+    class RemoveTask {
+        @Test
+        void shouldReturnTrueWhenTaskInTodoList() {
+            TODOLIST.addTask(TASK1);
+
+            assertTrue(TODOLIST.removeTask(TASK1));
+        }
+
+        @Test
+        void shouldReturnFalseWhenTaskNotInTodoList() {
+            TODOLIST.addTask(TASK1);
+
+            TODOLIST.removeTask(TASK1);
+            assertFalse(TODOLIST.removeTask(TASK1));
+        }
+    }
 }
