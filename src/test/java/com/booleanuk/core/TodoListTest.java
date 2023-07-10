@@ -100,9 +100,9 @@ class TodoListTest {
             assertTrue(TODOLIST.changeTaskStatus(TASK1));
 
             String result = "InCompleted tasks: \n" +
-                    "Wash the dishes\n" +
+                    "Drink a glass of water\n" +
                     "Walk the dog\n";
-            assertEqual(result, TODOLIST.displayInCompletedTasks());
+            assertEquals(result, TODOLIST.displayInCompletedTasks());
         }
     }
 

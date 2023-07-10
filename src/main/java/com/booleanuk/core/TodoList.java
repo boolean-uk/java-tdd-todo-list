@@ -42,4 +42,16 @@ public class TodoList {
 
         return result.toString();
     }
+
+    public String displayInCompletedTasks() {
+        StringBuilder result = new StringBuilder();
+        result.append("InCompleted tasks: \n");
+
+        for (Map.Entry<String, Boolean> task : tasks.entrySet())
+            if (!task.getValue())
+                result.append(task.getKey())
+                        .append("\n");
+
+        return result.toString();
+    }
 }
