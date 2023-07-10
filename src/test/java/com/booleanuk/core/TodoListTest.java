@@ -66,8 +66,27 @@ class TodoListTest {
         TodoList todo = new TodoList();
         todo.add("First task", false);
         todo.add("Second task", true);
-        Assertions.assertEquals("Task was deleted", todo.remove("First task"));
+        Assertions.assertEquals("Task was removed", todo.remove("First task"));
     }
+
+//    @Test
+//    public void sortAscendTest(){
+//        TodoList todo = new TodoList();
+//        todo.add("First task", false);
+//        todo.add("Second task", true);
+//        todo.add("Third task", false);
+//
+//
+//    }
+//    @Test
+//    public void sortDescendTest(){
+//        TodoList todo = new TodoList();
+//        todo.add("B", false);
+//        todo.add("A", true);
+//        todo.add("C", false);
+//        Assertions.assertEquals("C \n B \n A", todo.sortDescend());
+//
+//    }
 
 
 
