@@ -67,4 +67,13 @@ public class TodoList {
             return false;
         }
     }
+
+    public boolean changeStatus(UUID uuid) {
+        Optional<Task> taskByUUID = getTaskByUUID(uuid);
+        if(taskByUUID.isPresent()) {
+            changeStatus(taskByUUID.get());
+            return true;
+        }
+        return false;
+    }
 }
