@@ -45,7 +45,7 @@ public class TodoList {
         ArrayList<Task> incompleteTasks =  new ArrayList<>();
         for (Task task :
                 tasks) {
-            if(!task.getStatus()){
+            if (!task.getStatus()) {
                 incompleteTasks.add(task);
             }
         }
@@ -54,4 +54,16 @@ public class TodoList {
     }
 
 
+    public ArrayList<Task> getCompletedTasks() {
+        ArrayList<Task> completedTasks = new ArrayList<>();
+        for (Task task :
+                tasks) {
+            if (task.getStatus()) {
+                completedTasks.add(task);
+            }
+        }
+
+        return completedTasks;
+
+    }
 }
