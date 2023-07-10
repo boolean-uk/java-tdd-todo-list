@@ -24,4 +24,8 @@ public class TodoList {
     public List<Task> getCompleteTasks() {
         return tasks.stream().filter(t -> t.status.equals(Status.COMPLETE)).toList();
     }
+
+    public List<Task> getIncompleteTasks() {
+        return tasks.stream().filter(t -> t.status.equals(Status.INCOMPLETE)).toList();
+    }
 }
