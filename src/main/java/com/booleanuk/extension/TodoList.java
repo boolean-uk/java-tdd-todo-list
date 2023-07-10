@@ -11,4 +11,8 @@ public class TodoList {
         tasks.put(idCounter, newTask);
         idCounter++;
     }
+
+    public Task getTask(int id) {
+        return tasks.getOrDefault(id, null);
+    }
 }

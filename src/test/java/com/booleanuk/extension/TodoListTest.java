@@ -32,4 +32,17 @@ public class TodoListTest {
         }
     }
 
+    @Nested
+    class getTask {
+        @Test
+        public void shouldReturnTask() {
+            TODOLIST.addTask(TASK1);
+            TODOLIST.addTask(TASK2);
+            Task task1 = TODOLIST.getTask(0);
+            Task task2 = TODOLIST.getTask(1);
+            assertEquals(TASK1, task1.text);
+            assertEquals(TASK2, task2.text);
+        }
+    }
+
 }
