@@ -3,6 +3,9 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class TodoListTest {
     @Test
     public void addNewTaskCorrectDescription() {
@@ -25,4 +28,18 @@ class TodoListTest {
         Task result = todolist.addTask(taskDescription);
         Assertions.assertEquals(result.isComplete(),false);
     }
+    @Test
+    public void getTasksShouldReturnAllTasks() {
+        String taskDescription1 = "Walk the dog";
+        String taskDescription2 = "Walk the hamster";
+
+        TodoList todolist = new TodoList();
+        todolist.addTask(taskDescription1);
+        todolist.addTask(taskDescription2);
+
+        ArrayList<Task> results = todolist.getTasks();
+
+        Assertions.assertEquals(results.size(), 2  );
+    }
+
 }
