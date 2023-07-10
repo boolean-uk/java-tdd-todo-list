@@ -60,4 +60,21 @@ class TodoListTest {
         todoList.add(task1);
         Assertions.assertEquals("Task not found", todoList.search(new Task("a")));
     }
+
+    @Test
+    public void testAscendingOrder(){
+        Task task1 = new Task("aaa");
+        Task task2 = new Task("bbb");
+        Task task3 = new Task("ccc");
+
+        todoList.add(task2);
+        todoList.add(task1);
+        todoList.add(task3);
+        List<Task> ascendingTasks = todoList.sortAscending();
+        Assertions.assertTrue(todoList.getTasks().get(0).equals(task1));
+        Assertions.assertTrue(todoList.getTasks().get(1).equals(task2));
+        Assertions.assertTrue(todoList.getTasks().get(2).equals(task3));
+
+
+    }
 }

@@ -31,4 +31,8 @@ public class TodoList {
                 .orElse("Task not found");
     }
 
+    public List<Task> sortAscending(){
+        return this.tasks;
+    }
+
 }
