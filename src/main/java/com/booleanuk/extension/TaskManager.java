@@ -33,7 +33,19 @@ public class TaskManager {
     }
 
     // I want to be able to change the status of a task by providing its ID.
+    public void changeTaskStatus(int taskID, boolean newStatus) {
+        for (Task task : tasks) {
+            if (task.getTaskID() == taskID) {
+                task.setTaskStatus(newStatus);
+                break;
+            }
+        }
+    }
 
     // I want to be able to see the date and time that I created each task.
-
+    public void printTaskCreationDates() {
+        for (Task task : tasks) {
+            System.out.println("Task ID: " + task.getTaskID() + ", Creation Date: " + task.getTaskDate());
+        }
+    }
 }

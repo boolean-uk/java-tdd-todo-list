@@ -1,5 +1,7 @@
 package com.booleanuk.extension;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.Date;
 
 import org.junit.jupiter.api.Assertions;
@@ -54,6 +56,30 @@ class TestExt {
         taskManager.updateTaskName(1, "Task 24");
 
         Assertions.assertNotEquals("Task 1", taskManager.getTaskByID(1).getTaskName());
+    }
+
+    @Test
+    public void testChangeTaskStatus() {
+        int taskId = 1;
+        boolean newStatus = true;
+        taskManager.changeTaskStatus(taskId, newStatus);
+
+        Task updatedTask = taskManager.getTaskByID(taskId);
+        Assertions.assertNotNull(updatedTask);
+        Assertions.assertEquals(newStatus, updatedTask.isTaskStatus());
+    }
+
+    @Test
+    public void testPrintTaskCreationDates() {
+        PrintStream standardOut = System.out;
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outputStream));
+
+        taskManager.printTaskCreationDates();
+
+        String output = outputStream.toString().trim();
+        Assertions.assertTrue(output.contains("Task ID: 1, Creation Date: "));
+        Assertions.assertTrue(output.contains("Task ID: 2, Creation Date: "));
     }
 
 }
