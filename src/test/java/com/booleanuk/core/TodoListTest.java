@@ -62,6 +62,12 @@ class TodoListTest {
     }
 
     @Test
+    public void RemoveTest(){
+        TodoList todo = new TodoList();
+        todo.add("First task", false);
+        todo.add("Second task", true);
+        Assertions.assertEquals("Task was deleted", todo.remove("First task"));
+    }
 
 
 
