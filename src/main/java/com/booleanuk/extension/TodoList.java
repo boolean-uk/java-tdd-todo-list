@@ -24,4 +24,12 @@ public class TodoList {
         // TODO
         return null;
     }
+
+    public List<Task> getAllTasks() {
+        return tasks;
+    }
+
+    public void clear() {
+        tasks.clear();
+    }
 }
