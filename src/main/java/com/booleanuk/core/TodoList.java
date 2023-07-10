@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 public class TodoList {
 
@@ -27,5 +25,14 @@ public class TodoList {
 
     public Task getById(int id) {
         return tasks.stream().filter(task -> task.getId() == id).findFirst().orElseThrow();
+    }
+
+    public List<Task> getTasksAscending() {
+        List<Task> sortedTasks = new ArrayList<>(tasks);
+
+        sortedTasks.sort(Comparator.comparing(Task::getName));
+
+        return sortedTasks;
+
     }
 }
