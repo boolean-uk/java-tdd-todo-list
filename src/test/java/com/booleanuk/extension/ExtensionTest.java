@@ -22,7 +22,7 @@ public class ExtensionTest {
         String name = "Running";
         extension.updateTask(123, name);
 
-        Assertions.assertEquals(name, extension.getTask(123));
+        Assertions.assertEquals(name, extension.getTask(123).name);
     }
 
     @Test
