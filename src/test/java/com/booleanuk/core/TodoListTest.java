@@ -72,5 +72,8 @@ class TodoListTest {
         Assertions.assertEquals(todoList.tasks.get(0).status, Status.INCOMPLETE);
     }
 
-    
+    @Test
+    public void searchTaskReturnTaskIfFound() {
+        todoList.search(taskComplete);
+    }
 }
