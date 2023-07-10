@@ -30,4 +30,8 @@ public class TodoList {
         }
         return "not found";
     }
+
+    public boolean removeTask(Task task) {
+        return tasks.remove(task);
+    }
 }
