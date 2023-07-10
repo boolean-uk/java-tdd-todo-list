@@ -37,7 +37,7 @@ class TodoListTest {
 
         var addedTaskName = TODO_LIST
                 .getAllTasks().get(0)
-                .name();
+                .getName();
 
         assertEquals(CLEAN_DISHES, addedTaskName);
     }
@@ -72,7 +72,7 @@ class TodoListTest {
 
         var actualStatus = TODO_LIST.getAllTasks()
                 .get(0)
-                .status();
+                .getStatus();
 
         assertEquals(TaskStatus.Complete, actualStatus);
     }
