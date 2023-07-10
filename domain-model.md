@@ -20,7 +20,6 @@ Domain model:
 | `Extension` | `getTask(int id)`                 | There is a task with such ID                | outputs a task with mentioned id                                     |
 |             |                                   | There is no task with such ID               | outputs an error message                                             |
 |             | `updateTask(int id, String name)` | There is a task with such ID                | void                                                                 |
-|             | `updateTask(int id)`              | There is a task with such ID                | void                                                                 |
 |             | `updateStatus(int id)`            | There is a task with such ID                | void                                                                 |
 |             | `getTimeOfCreation(int id)`       | There is a task with such ID                | outputs a time of task creation                                      |
 
