@@ -1,41 +1,33 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.HashMap;
+import java.util.Map;
 
 public class TodoList {
-    List<Task> tasks = new ArrayList<>();
+    HashMap<String, Boolean> tasks = new HashMap<>();
 
     public boolean addTask(String text) {
-        if (tasks.stream()
-                .anyMatch(task ->
-                        Objects.equals(task.text, text)
-                )) {
-            return false;
-        }
-
-        return tasks.add(new Task(text));
+        return tasks.put(text, false) == null;
     }
 
     public String displayTasks() {
         StringBuilder result = new StringBuilder();
         result.append("Tasks to do: \n");
-        tasks.forEach(task -> result.append("Completed: ")
-                .append(task.isCompleted)
+
+        for (Map.Entry<String, Boolean> task : tasks.entrySet())
+            result.append("Completed: ")
+                .append(task.getValue())
                 .append(" | ")
-                .append(task.text)
-                .append("\n"));
+                .append(task.getKey())
+                .append("\n");
+
         return result.toString();
     }
 
     public boolean changeTaskStatus(String text) {
-        return tasks.stream().anyMatch(task -> {
-            if(task.text.equals(text)) {
-                task.isCompleted = !task.isCompleted;
-                return true;
-            }
+        if (!tasks.containsKey(text))
             return false;
-        });
+
+        return tasks.replace(text, !tasks.get(text)) != null;
     }
 }

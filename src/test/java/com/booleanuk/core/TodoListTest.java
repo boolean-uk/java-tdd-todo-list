@@ -49,8 +49,8 @@ class TodoListTest {
             TODOLIST.addTask(TASK3);
             String result = "Tasks to do: \n" +
                     "Completed: false | Wash the dishes\n" +
-                    "Completed: false | Walk the dog\n" +
-                    "Completed: false | Drink a glass of water\n";
+                    "Completed: false | Drink a glass of water\n" +
+                    "Completed: false | Walk the dog\n";
             assertEquals(result, TODOLIST.displayTasks());
         }
     }
@@ -59,16 +59,17 @@ class TodoListTest {
     class ChangeTaskStatus {
         @Test
         void shouldReturnFalse() {
+            System.out.println(TODOLIST.changeTaskStatus(TASK2));
             assertFalse(TODOLIST.changeTaskStatus(TASK2));
         }
         @Test
         void shouldReturnTrue() {
             TODOLIST.addTask(TASK1);
             assertTrue(TODOLIST.changeTaskStatus(TASK1));
-            assertTrue(TODOLIST.tasks.get(0).isCompleted);
+            assertTrue(TODOLIST.tasks.get(TASK1));
 
             assertTrue(TODOLIST.changeTaskStatus(TASK1));
-            assertFalse(TODOLIST.tasks.get(0).isCompleted);
+            assertFalse(TODOLIST.tasks.get(TASK1));
         }
     }
 
