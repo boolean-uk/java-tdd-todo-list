@@ -139,7 +139,7 @@ class TodoListTest {
 
     @Test
     void removeOneTaskByName_shouldDoNothingIfTaskNotPresent() {
-        TODO_LIST.removeOneTaskByName(BUY_GROCERIES);
+        TODO_LIST.addTask(BUY_GROCERIES);
 
         TODO_LIST.removeOneTaskByName(CLEAN_DISHES);
 
