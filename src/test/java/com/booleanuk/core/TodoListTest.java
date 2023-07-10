@@ -3,12 +3,14 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.*;
+
 class TodoListTest {
     @Test
     public void exampleTest() {
         String hello = "Hello";
-        Assertions.assertEquals("Hello", hello);
-        Assertions.assertNotEquals("Goodbye", hello);
+        assertEquals("Hello", hello);
+        assertNotEquals("Goodbye", hello);
     }
 
 
@@ -22,7 +24,7 @@ class TodoListTest {
         todoList.addTask(task);
 
         //then
-        Assertions.assertTrue(TodoList.getTasks.size() == 1);
+        assertEquals(1, todoList.getTasks().size());
 
 
     }
