@@ -21,7 +21,7 @@ class TodoListTest {
     @Test
     public void addTaskFailedTest() {
         todoList.addTask("Laundry", "Wash the clothes");
-        Assertions.assertTrue(todoList.addTask("Laundry", "Wash the clothes"));
+        Assertions.assertFalse(todoList.addTask("Laundry", "Wash the clothes"));
     }
 
     @Test
@@ -34,7 +34,7 @@ class TodoListTest {
     @Test
     public void changeStatusTest() {
         todoList.addTask("Laundry", "Wash the clothes");
-        Assertions.assertTrue(todoList.changeStatus("Laundy", TaskStatus.COMPLETE));
+        Assertions.assertTrue(todoList.changeStatus("Laundry", TaskStatus.COMPLETE));
     }
 
     @Test
@@ -64,7 +64,7 @@ class TodoListTest {
     public void searchTaskFailedTest() {
         todoList.addTask("Laundry", "Wash the clothes");
         todoList.addTask("Cooking", "Cook the food");
-        Assertions.assertNotEquals("Laundry", todoList.searchTask("Running").getName());
+        Assertions.assertNull(todoList.searchTask("Running"));
     }
 
     @Test
