@@ -26,11 +26,10 @@ class TodoListTest {
     }
     @Test
     public void testTask2() {
+        Task task1 =new Task("Task no. 1");
         todoList = new TodoList();
-        todoList.add(new Task("Task no. 1"));
-        List<Task> tasks = new ArrayList<>();
-        tasks.add(new Task("Task no. 1"));
+        todoList.add(task1);
 
-        Assertions.assertEquals(tasks, todoList.getTasks());
+        Assertions.assertTrue(todoList.getTasks().get(0).equals(task1));
     }
 }

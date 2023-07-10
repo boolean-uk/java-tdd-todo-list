@@ -15,6 +15,6 @@ public class TodoList {
     }
 
     public List<Task> getTasks() {
-        return null;
+        return this.tasks;
     }
 }
