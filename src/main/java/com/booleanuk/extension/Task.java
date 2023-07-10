@@ -19,7 +19,11 @@ public class Task {
     private final ZonedDateTime timestamp;
 
     public static Task of(String name) {
-        return new Task(idCounter++, name, TaskStatus.InProgress, ZonedDateTime.now());
+        return new Task(++idCounter, name, TaskStatus.InProgress, ZonedDateTime.now());
+    }
+
+    public static Task of(Task other) {
+        return new Task(other.id, other.name, other.status, other.timestamp);
     }
 
     public static long getCurrentIdCounter() {
