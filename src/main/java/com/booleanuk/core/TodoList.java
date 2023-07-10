@@ -1,11 +1,13 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class TodoList {
 
-    private HashMap<String, Boolean> todoList = new HashMap<String, Boolean>();
+    private final HashMap<String, Boolean> todoList = new HashMap<>();
 
     public HashMap<String, Boolean> getTodoList() {
         return todoList;
@@ -34,7 +36,7 @@ public class TodoList {
 
     // I want to be able to get only the complete tasks.
     public HashMap<String, Boolean> getComplete() {
-        HashMap<String, Boolean> complete = new HashMap<String, Boolean>();
+        HashMap<String, Boolean> complete = new HashMap<>();
 
         for (String key : todoList.keySet()) {
             if (todoList.get(key)) {
@@ -46,7 +48,7 @@ public class TodoList {
 
     // I want to be able to get only the incomplete tasks.
     public HashMap<String, Boolean> getIncomplete() {
-        HashMap<String, Boolean> inComplete = new HashMap<String, Boolean>();
+        HashMap<String, Boolean> inComplete = new HashMap<>();
 
         for (String key : todoList.keySet()) {
             if (!todoList.get(key)) {
@@ -65,5 +67,19 @@ public class TodoList {
         }
         return "Task not found";
     }
+    public void remove(String item){
+        if (todoList.containsKey(item)) todoList.remove(item);
+    }
+
+    public List<String> getTasksInAscendingOrder() {
+        List<String> sortedKeys = new ArrayList<>(todoList.keySet());
+        Collections.sort(sortedKeys);
+        return sortedKeys;
+    }
+    public List<String> getTasksInDescendingOrder() {
+    List<String> sortedKeys = new ArrayList<>(todoList.keySet());
+    sortedKeys.sort(Collections.reverseOrder());
+    return sortedKeys;
+}
 
 }
