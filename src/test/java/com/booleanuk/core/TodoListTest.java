@@ -65,6 +65,7 @@ class TodoListTest {
         assertEquals(task1,todoList.getTasksAscending().get(1));
         assertEquals(task2,todoList.getTasksAscending().get(0));
         assertEquals(task3,todoList.getTasksAscending().get(2));
+        assertEquals(3,todoList.getTasksAscending().size());
     }
 
     @Test
@@ -80,5 +81,6 @@ class TodoListTest {
         assertEquals(task1,todoList.getTasksDescending().get(1));
         assertEquals(task2,todoList.getTasksDescending().get(2));
         assertEquals(task3,todoList.getTasksDescending().get(0));
+        assertEquals(3,todoList.getTasksDescending().size());
     }
 }

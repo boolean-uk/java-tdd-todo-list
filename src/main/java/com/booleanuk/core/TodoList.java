@@ -35,4 +35,12 @@ public class TodoList {
         return sortedTasks;
 
     }
+
+    public List<Task> getTasksDescending() {
+        List<Task> sortedTasks = new ArrayList<>(tasks);
+
+        sortedTasks.sort(Comparator.comparing(Task::getName).reversed());
+
+        return sortedTasks;
+    }
 }
