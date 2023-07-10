@@ -1,10 +1,14 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.*;
+import org.mockito.Mockito;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.time.*;
 import java.util.*;
+
+import static org.mockito.Mockito.when;
 
 class TodoListTest {
 
@@ -24,6 +28,8 @@ class TodoListTest {
     public void setUp() {
         System.setOut(new PrintStream(outputStreamCaptor));
         todoList = new TodoList();
+        task1.setDescription("Go shopping");
+        task2.setDescription("Clean your room");
     }
 
     @AfterEach
@@ -216,5 +222,34 @@ class TodoListTest {
                 '}';
         Assertions.assertEquals(expected,outputStreamCaptor.toString()
                 .trim());
+    }
+
+    @Test
+    void shouldChangeTaskName() {
+        // Setup
+        addSomeTasks(todoList);
+
+        // Execute
+        todoList.changeTaskName(task1.getId(), "Go to the gym");
+
+        // Verify
+        Assertions.assertEquals("Go to the gym", task1.getDescription());
+    }
+
+    @Test
+    void givenFixedClockWhenNowThenGetFixedLocalDateTime() {
+        Task task = Mockito.mock(Task.class);
+        todoList = Mockito.spy(new TodoList());
+        todoList.add(task);
+        when(todoList.search(Mockito.anyInt())).thenReturn(task);
+
+        LocalDateTime expectedDate = LocalDateTime.parse("2018-08-22T10:00:00");
+        when(task.getLocalDateTime()).thenReturn(expectedDate);
+
+        // Execute
+        LocalDateTime actualDate = todoList.getTaskCreationDate(task1.getId());
+
+        // Verify
+        Assertions.assertEquals(expectedDate, actualDate);
     }
 }

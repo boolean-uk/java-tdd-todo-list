@@ -1,5 +1,6 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -66,5 +67,15 @@ public class TodoList {
                     }
                 })
                 .forEach(System.out::println);
+    }
+
+    public void changeTaskName(int id, String description) {
+        Task task = search(id);
+        task.setDescription(description);
+    }
+
+    public LocalDateTime getTaskCreationDate(int id) {
+        Task task = search(id);
+        return task.getLocalDateTime();
     }
 }
