@@ -3,6 +3,7 @@ package com.booleanuk.extension;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 
 public class TodoList {
 
@@ -74,5 +75,13 @@ public class TodoList {
         Task task = getById(id);
         task.setName(updatedName);
         return task.getName().equals(updatedName);
+    }
+
+    public List<Task> getTasksByDate() {
+        List<Task> sortedTasks = new ArrayList<>(tasks);
+
+        sortedTasks.sort(Comparator.comparing(Task::getCreateTime));
+
+        return sortedTasks;
     }
 }

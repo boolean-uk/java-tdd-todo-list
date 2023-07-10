@@ -1,12 +1,11 @@
 package com.booleanuk.extension;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
-import java.util.List;
+import java.time.Month;
 
-import static java.time.LocalDateTime.*;
+import static java.time.LocalDateTime.now;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TodoListTest {
@@ -124,10 +123,28 @@ class TodoListTest {
 
     @Test
     public void testUpdatingTaskName() {
-        com.booleanuk.extension.TodoList todoList = new com.booleanuk.extension.TodoList();
+        TodoList todoList = new TodoList();
         todoList.add(new com.booleanuk.extension.Task("task name", false, now()));
 
         assertTrue(todoList.updateTaskName(1, "updated task name"));
         assertEquals("updated task name", todoList.getById(1).getName());
+    }
+
+    @Test
+    public void testGettingTasksByDateTime() {
+        TodoList todoList = new TodoList();
+        LocalDateTime firstDate = LocalDateTime.of(2023, Month.JULY, 10, 0, 0);
+        LocalDateTime secondDate = LocalDateTime.of(2023, Month.JULY, 11, 0, 0);
+        LocalDateTime thirdDate = LocalDateTime.of(2023, Month.JULY, 12, 0, 0);
+        todoList.add(new Task("first task",false,firstDate));
+        todoList.add(new Task("second task",false,secondDate));
+        todoList.add(new Task("third task",false,thirdDate));
+
+        assertEquals(firstDate, todoList.getTasksByDate().get(0).getCreateTime());
+        assertEquals(secondDate, todoList.getTasksByDate().get(1).getCreateTime());
+        assertEquals(thirdDate, todoList.getTasksByDate().get(2).getCreateTime());
+        assertEquals(3,todoList.getTasksDescending().size());
+
+        System.out.println(todoList.getTasksByDate());
     }
 }

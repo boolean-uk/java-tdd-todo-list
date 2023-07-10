@@ -14,7 +14,7 @@
 |          | getById(int id)                        |                          | If task exists                      | Task with given id                         |
 |          |                                        |                          | If task doesn't exist               | NotFoundException                          |
 |          | updateTaskName(int id, String newName) |                          | Update task name                    | boolean whether succeeded                  |
-|          | getTaskByDate()                        |                          | Show all tasks sorted by createTime | List<Task> with tasks sorted by createTime |
+|          | getTasksByDate()                       |                          | Show all tasks sorted by createTime | List<Task> with tasks sorted by createTime |
 | Task     |                                        | int id                   |                                     |                                            |
 |          |                                        | String name              |                                     |                                            |
 |          |                                        | boolean isComplete       |                                     |                                            |
