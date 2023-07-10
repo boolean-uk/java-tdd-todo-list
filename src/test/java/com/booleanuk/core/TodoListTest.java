@@ -2,6 +2,8 @@ package com.booleanuk.core;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TodoListTest {
@@ -77,7 +79,7 @@ class TodoListTest {
     }
 
     @Test
-    public void shouldReturnAllIncompleteTasksInList(){
+    public void shouldReturn2AllIncompleteTasksInList(){
         //given
         TodoList todoList = new TodoList();
         Task task = new Task("Exercise 1",true);
@@ -88,10 +90,31 @@ class TodoListTest {
         todoList.addTask(task3);
 
         //when
-        String allIncompleteTask = todoList.getIncompleteTasks();
+        ArrayList<Task> allIncompleteTask = todoList.getIncompleteTasks();
+
 
         //then
-        assertEquals("Exercise 2\n"+"Exercise 3\n",allIncompleteTask);
+        assertEquals(2,allIncompleteTask.size());
     }
+
+    @Test
+    public void shouldReturnNoTasksInAllIncompleteTasksInList(){
+        //given
+        TodoList todoList = new TodoList();
+        Task task = new Task("Exercise 1",true);
+        todoList.addTask(task);
+        Task task2 = new Task("Exercise 2",true);
+        todoList.addTask(task2);
+        Task task3 = new Task("Exercise 3",true);
+        todoList.addTask(task3);
+
+        //when
+        ArrayList<Task> allIncompleteTask = todoList.getIncompleteTasks();
+
+
+        //then
+        assertEquals(0,allIncompleteTask.size());
+    }
+
 
 }

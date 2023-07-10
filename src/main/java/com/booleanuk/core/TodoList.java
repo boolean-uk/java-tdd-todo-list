@@ -40,4 +40,16 @@ public class TodoList {
     public boolean getTaskStatus(Task task) {
         return task.getStatus();
     }
+
+    public ArrayList<Task> getIncompleteTasks() {
+        ArrayList<Task> incompleteTasks =  new ArrayList<>();
+        for (Task task :
+                tasks) {
+            if(!task.getStatus()){
+                incompleteTasks.add(task);
+            }
+        }
+
+        return incompleteTasks;
+    }
 }
