@@ -90,6 +90,10 @@ class TodoListTest {
         todoList.add(taskComplete);
         Assertions.assertTrue(todoList.remove(taskComplete));
     }
+    @Test
+    public void removeTaskReturnFalse() {
+        Assertions.assertFalse(todoList.remove(taskComplete));
+    }
 
 
 }

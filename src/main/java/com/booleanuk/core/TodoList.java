@@ -11,8 +11,7 @@ public class TodoList {
     public boolean add(Task task) {
         if (tasks.contains(task)) {
             return false;
-        }
-        else {
+        } else {
             tasks.add(task);
             return true;
         }
@@ -34,9 +33,15 @@ public class TodoList {
 
         if (tasks.stream().anyMatch(t -> t == task)) {
             return task.description;
-        }
-        else {
+        } else {
             return "Task not found!";
         }
     }
+
+    public boolean remove(Task task) {
+
+        return tasks.remove(task);
+
+    }
+
 }
