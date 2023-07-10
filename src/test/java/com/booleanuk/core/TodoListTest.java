@@ -38,4 +38,11 @@ class TodoListTest {
         Assertions.assertEquals(0, result.size());
     }
 
+    @Test
+    public void getCompleteTaskReturnEmptyList() {
+        List<Task> result = todoList.getCompleteTasks();
+
+        Assertions.assertEquals(0, result.size());
+    }
+
 }
