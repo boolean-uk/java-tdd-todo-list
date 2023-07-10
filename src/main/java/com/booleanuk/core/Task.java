@@ -7,6 +7,10 @@ public class Task {
     public Task() {
     }
 
+    public Task(String description) {
+        this.description = description;
+    }
+
     public Task(Status status, String description) {
         this.status = status;
         this.description = description;

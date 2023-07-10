@@ -95,5 +95,18 @@ class TodoListTest {
         Assertions.assertFalse(todoList.remove(taskComplete));
     }
 
+    @Test
+    public void getTasksInAscendingOrderReturnListInAscendingOrder(){
+        todoList.add(new Task("A"));
+        todoList.add(new Task("C"));
+        todoList.add(new Task("B"));
+        todoList = todoList.getTaskInAscOrder();
+
+
+        Assertions.assertEquals("A", todoList.getTasks().get(0));
+        Assertions.assertEquals("B", todoList.getTasks().get(1));
+        Assertions.assertEquals("C", todoList.getTasks().get(2));
+    }
+
 
 }
