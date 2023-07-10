@@ -119,4 +119,48 @@ class TodoListTest {
         Assertions.assertEquals(message, "java.lang.Exception: Task not found");
     }
 
+    @Test
+    public void removeTaskTaskRemoved(){
+        String taskDescription1 = "Walk the dog";
+        TodoList todolist = new TodoList();
+        Task newTask = todolist.addTask(taskDescription1);
+
+        boolean result = todolist.removeTask(newTask.getId());
+
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void removeTaskTaskNotRemoved(){
+        String taskDescription1 = "Walk the dog";
+        TodoList todolist = new TodoList();
+        Task newTask = todolist.addTask(taskDescription1);
+
+        boolean result = todolist.removeTask(1);
+
+        Assertions.assertFalse(result);
+    }
+
+    @Test
+    public void removeAllTasksTasksRemoved(){
+        String taskDescription1 = "Walk the dog";
+        String taskDescription2 = "Walk the dog2";
+        TodoList todolist = new TodoList();
+        Task newTask1 = todolist.addTask(taskDescription1);
+        Task newTask2 = todolist.addTask(taskDescription2);
+
+        boolean result = todolist.removeAllTasks();
+
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void removeAllTasksTasksNotRemoved(){
+        TodoList todolist = new TodoList();
+
+        boolean result = todolist.removeAllTasks();
+
+        Assertions.assertFalse(result);
+    }
+
 }
