@@ -1,8 +1,14 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
 public class Task {
     Status status = Status.INCOMPLETE;
     String description;
+    LocalDateTime date = LocalDateTime.now();
+
+    String ID = UUID.randomUUID().toString();
 
     public Task() {
     }
