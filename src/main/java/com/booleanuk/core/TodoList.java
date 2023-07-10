@@ -14,4 +14,8 @@ public class TodoList {
             return true;
         }
     }
+
+    public String getAllTasks() {
+        return tasks.toString();
+    }
 }

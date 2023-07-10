@@ -8,4 +8,12 @@ public class Task {
         this.name = name;
         this.isCompleted = isCompleted;
     }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "name='" + name + '\'' +
+                ", isCompleted=" + isCompleted +
+                '}';
+    }
 }
