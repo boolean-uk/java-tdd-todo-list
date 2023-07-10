@@ -26,8 +26,13 @@ public class TodoListTest {
 
     @Test
     public void getTaskWithIdReturnTaskIfExists(){
-
-        Assertions.assertTrue(todoList.getTask(taskComplete.ID).ifPresent());
+        todoList.add(taskComplete);
+        Assertions.assertTrue(todoList.getTask(taskComplete.ID).isPresent());
         Assertions.assertEquals(todoList.getTask(taskComplete.ID).get(), taskComplete);
+    }
+    @Test
+    public void getTaskWithIdReturnFalseIfNotExists(){
+
+        Assertions.assertFalse(todoList.getTask(taskComplete.ID).isPresent());
     }
 }

@@ -1,9 +1,6 @@
 package com.booleanuk.extension;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class TodoList {
     List<Task> tasks = new ArrayList<>();
@@ -62,5 +59,9 @@ public class TodoList {
             }
         });
         return tasks;
+    }
+
+    public Optional<Task> getTask(String id) {
+       return tasks.stream().filter(t -> t.ID.equals(id)).findFirst();
     }
 }
