@@ -35,3 +35,22 @@ In case of lists we typed <Task<Task>> to make it visible on the preview
 
 
 ## Extension
+
+```
+- I want to be able to get a task by a unique ID.
+- I want to update the name of a task by providing its ID and a new name.
+- I want to be able to change the status of a task by providing its ID.
+- I want to be able to see the date and time that I created each task.
+```
+
+| Class    | Field                      | Methods                                  | Scenario                                                                     | Output             |
+|----------|----------------------------|------------------------------------------|------------------------------------------------------------------------------|--------------------|
+| Task     | String content             |                                          |                                                                              |                    |
+|          | boolean complete           |                                          |                                                                              |                    |
+|          | int id                     |                                          |                                                                              |                    |
+|          | LocalDateTime dateTimeTask |                                          |                                                                              |                    |
+|          |                            |                                          |                                                                              |                    |
+| ToDoList | List<Task<Task>> tasks     | Task getTask(int id)                     | If you want to get a task by its id                                          | Task task          |
+|          |                            | void updateTask(String name, int id)     | If you want to update the name of a task by providing its ID and a new name. |                    |
+|          |                            | void changeStatusOfTask(int id)          | If you want to change the status of a task by providing its ID               |                    |
+|          |                            | LocalDateTime getDateAndTimeTask(int id) | If you want to see the date and time of task you just created                | LocalDateTime time |
