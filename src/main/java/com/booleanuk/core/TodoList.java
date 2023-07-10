@@ -1,16 +1,44 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class TodoList {
-    private final ArrayList<Task> taskList = new ArrayList<>();
+    private final HashMap<String, Task> taskList = new HashMap<>();
 
-    public void addTask(String name, String description){
+    public boolean addTask(String name, String description){
 
     }
 
-    public List<Task> getAllTasks() {
+    public HashMap<String, Task> getAllTasks() {
+
+    }
+
+    public HashMap<String, Task> getCompleteTasks() {
+
+    }
+
+    public HashMap<String, Task> getIncompleteTasks() {
+
+    }
+
+    public Task searchTask(String name) {
+
+    }
+
+    public boolean removeTask(String name) {
+
+    }
+
+    public HashMap<String, Task> getAllTasksAscending() {
+
+    }
+
+    public HashMap<String, Task> getAllTasksDescending() {
+
+    }
+
+    public boolean changeStatus(String name, TaskStatus status){
 
     }
 }
