@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 
+import com.booleanuk.shared.TaskStatus;
 import lombok.EqualsAndHashCode;
 
 @EqualsAndHashCode

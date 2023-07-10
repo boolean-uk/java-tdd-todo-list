@@ -1,5 +1,8 @@
 package com.booleanuk.core;
 
+import com.booleanuk.shared.SortingOrder;
+import com.booleanuk.shared.TaskStatus;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;

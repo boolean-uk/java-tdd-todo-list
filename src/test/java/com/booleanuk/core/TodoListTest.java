@@ -1,5 +1,7 @@
 package com.booleanuk.core;
 
+import com.booleanuk.shared.SortingOrder;
+import com.booleanuk.shared.TaskStatus;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
