@@ -17,4 +17,8 @@ public class TodoList {
     public List<Task> getTasks() {
         return this.tasks;
     }
+
+    public String removeTask(Task task){
+        return "";
+    }
 }
