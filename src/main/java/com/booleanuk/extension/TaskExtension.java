@@ -2,12 +2,14 @@ package com.booleanuk.extension;
 
 import com.booleanuk.core.TaskStatus;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 public class TaskExtension {
     private final UUID id = UUID.randomUUID();
     private final String title;
-    private TaskStatus status;
+    private TaskStatusExtension status;
+    private LocalDateTime date;
 
     public UUID getId() {
         return id;
@@ -15,23 +17,29 @@ public class TaskExtension {
 
     public TaskExtension(String title) {
         this.title = title;
-        this.status = TaskStatus.INCOMPLETED;
+        this.status = TaskStatusExtension.INCOMPLETED;
+        this.date = LocalDateTime.now();
     }
 
-    public TaskExtension(String title, TaskStatus taskStatus) {
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public TaskExtension(String title, TaskStatusExtension taskStatus) {
         this.title = title;
         this.status = taskStatus;
+        this.date = LocalDateTime.now();
     }
 
     public String getTitle() {
         return title;
     }
 
-    public TaskStatus getStatus() {
+    public TaskStatusExtension getStatus() {
         return status;
     }
 
-    public void setStatus(TaskStatus status) {
+    public void setStatus(TaskStatusExtension status) {
         this.status = status;
     }
 }

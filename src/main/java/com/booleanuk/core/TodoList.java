@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class TodoList {
     List<Task> tasks;
@@ -21,7 +22,7 @@ public class TodoList {
                 .stream()
                 .filter(
                         task -> task.getStatus().equals(TaskStatus.COMPLETED))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public List<Task> getIncompletedTasks() {
@@ -29,7 +30,7 @@ public class TodoList {
                 .stream()
                 .filter(
                         task -> task.getStatus().equals(TaskStatus.INCOMPLETED))
-                .toList();
+                .collect(Collectors.toList());
     }
 
 
