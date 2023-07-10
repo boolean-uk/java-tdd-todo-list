@@ -96,7 +96,7 @@ class TodoListTest {
         TodoList todolist = new TodoList();
         Task newTask = todolist.addTask(taskDescription);
 
-        Task result = newTask.getTask(0);
+        Task result = todolist.getTask(0);
 
         Assertions.assertEquals(result.getDescription(), taskDescription);
     }
