@@ -1,5 +1,6 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -108,5 +109,9 @@ public class TodoListExtension {
     public void changeStatusById(String id, boolean status) {
         TaskExtension taskExtension = getTaskById(id);
         taskExtension.setStatus(status);
+    }
+
+    public LocalDateTime getCreatedAt(TaskExtension taskExtension) {
+        return taskExtension.getCreatedAt();
     }
 }

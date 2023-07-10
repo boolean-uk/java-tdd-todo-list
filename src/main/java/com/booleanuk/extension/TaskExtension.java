@@ -1,5 +1,7 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+
 public class TaskExtension implements Comparable<TaskExtension>{
 
     private String taskName;
@@ -7,6 +9,7 @@ public class TaskExtension implements Comparable<TaskExtension>{
 
     private static int counter =0;
     private String taskExtensionId;
+    private LocalDateTime createdAt;
 
 
 
@@ -15,6 +18,7 @@ public class TaskExtension implements Comparable<TaskExtension>{
         status = false;
         taskExtensionId = "ID"+counter;
         counter++;
+        createdAt = LocalDateTime.now();
     }
 
     public TaskExtension(String taskName, boolean status) {
@@ -22,6 +26,7 @@ public class TaskExtension implements Comparable<TaskExtension>{
         this.status = status;
         taskExtensionId = "ID"+counter;
         counter++;
+        createdAt = LocalDateTime.now();
     }
 
     public String printTaskName(){
@@ -60,5 +65,9 @@ public class TaskExtension implements Comparable<TaskExtension>{
 
     public void setTaskExtensionId(String taskExtensionId) {
         this.taskExtensionId = taskExtensionId;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 }

@@ -109,9 +109,9 @@ public class TodoListExtensionTest {
 
 
         //then
-        assertTrue(taskExtension.getCreatedAt(),createdAt1);
-        assertTrue(taskExtension2.getCreatedAt(),createdAt2);
-        assertTrue(taskExtension3.getCreatedAt(),createdAt3);
+        assertEquals(createdAt1,todoListExtension.getCreatedAt(taskExtension));
+        assertEquals(createdAt2,todoListExtension.getCreatedAt(taskExtension2));
+        assertEquals(createdAt3,todoListExtension.getCreatedAt(taskExtension3));
 
     }
 
