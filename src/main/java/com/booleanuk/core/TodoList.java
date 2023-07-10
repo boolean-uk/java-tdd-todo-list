@@ -85,4 +85,9 @@ public class TodoList {
     public void alphabeticallyInAscendingOrder() {
         Collections.sort(tasks);
     }
+
+    public void alphabeticallyInDescendingOrder() {
+        tasks.sort(Collections.reverseOrder());
+
+    }
 }
