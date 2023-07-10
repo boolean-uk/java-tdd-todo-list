@@ -3,6 +3,8 @@ package com.booleanuk.extension;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoListExtensionTest {
@@ -87,6 +89,30 @@ public class TodoListExtensionTest {
 
         //then
         assertTrue(taskExtension.getStatus());
+    }
+
+    @Test
+    public void shouldReturnDateAndTimeForCreatedTask() {
+        //given
+        TodoListExtension todoListExtension = new TodoListExtension();
+        TaskExtension taskExtension = new TaskExtension("Extended Task 1");
+        TaskExtension taskExtension2 = new TaskExtension("Extended Task 2");
+        TaskExtension taskExtension3 = new TaskExtension("Extended Task 3");
+        todoListExtension.addTask(taskExtension);
+        todoListExtension.addTask(taskExtension2);
+        todoListExtension.addTask(taskExtension3);
+
+        //when
+        LocalDateTime createdAt1 = todoListExtension.getCreatedAt(taskExtension);
+        LocalDateTime createdAt2 = todoListExtension.getCreatedAt(taskExtension2);
+        LocalDateTime createdAt3 = todoListExtension.getCreatedAt(taskExtension3);
+
+
+        //then
+        assertTrue(taskExtension.getCreatedAt(),createdAt1);
+        assertTrue(taskExtension2.getCreatedAt(),createdAt2);
+        assertTrue(taskExtension3.getCreatedAt(),createdAt3);
+
     }
 
 
