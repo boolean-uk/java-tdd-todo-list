@@ -53,7 +53,16 @@ class TodoListTest {
 
         boolean result2 = todolist.updateTaskByUUID(UUID.randomUUID(), "Do homework");
         Assertions.assertFalse(result2);
+    }
 
+    @Test
+    public void changeStatusByUUID() {
+        todolist.addTask(task);
+        boolean result1 = todolist.changeStatus(task.uuid);
+        Assertions.assertTrue(result1);
+        Assertions.assertTrue(task.isCompleted);
 
+        boolean result2 = todolist.changeStatus(UUID.randomUUID());
+        Assertions.assertFalse(result2);
     }
 }
