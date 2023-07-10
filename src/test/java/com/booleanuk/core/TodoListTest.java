@@ -34,4 +34,16 @@ class TodoListTest {
 
         Assertions.assertEquals(3, todoList.allTasks().size());
     }
+
+    @Test
+    public void changingOfStatusTest() {
+        todoList.add("Running");
+
+
+        Assertions.assertEquals(true,todoList.allTasks().get("Running").equals("incomplete"));
+
+        todoList.changeStatusOfTask("Running");
+        Assertions.assertEquals(false,todoList.allTasks().get("Running").equals("incomplete"));
+    }
+
 }

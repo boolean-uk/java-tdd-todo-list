@@ -19,4 +19,14 @@ public class TodoList {
         return toDoList;
     }
 
+    public void changeStatusOfTask(String task) {
+        if(toDoList.containsKey(task)) {
+            if(toDoList.get(task).equals("complete")) {
+                toDoList.put(task, "incomplete");
+            }else if(toDoList.get(task).equals("incomplete")) {
+                toDoList.put(task, "complete");
+            }
+        }
+    }
+
 }
