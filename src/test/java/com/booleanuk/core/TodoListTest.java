@@ -13,11 +13,13 @@ class TodoListTest {
     private static TodoList todolist;
     private static Task task;
     private static Task task2;
+    private static Task task3;
 
     @BeforeAll
     public static void createTasks(){
         task = new Task("Do homework", false);
         task2 = new Task("Wash dishes", true);
+        task3 = new Task("Go outside", true);
     }
     @BeforeEach
     public void create(){
@@ -91,12 +93,17 @@ class TodoListTest {
     @Test
     public void changeStatusTest(){
         todolist.addTask(task);
-        todolist.changeStatus(task);
+        boolean result1 = todolist.changeStatus(task);
+        Assertions.assertTrue(result1);
         Assertions.assertTrue(task.isCompleted);
 
         todolist.addTask(task2);
-        todolist.changeStatus(task2);
+        boolean result2 = todolist.changeStatus(task2);
+        Assertions.assertTrue(result2);
         Assertions.assertFalse(task2.isCompleted);
 
+        boolean result3 = todolist.changeStatus(task3);
+        Assertions.assertFalse(result3);
+        Assertions.assertTrue(task3.isCompleted);
     }
 }
