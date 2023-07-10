@@ -52,4 +52,15 @@ public class TodoListExtensionTest {
 
     }
 
+    @Test
+    public void shouldUpdateTitleAfterPassingIdAndNewTitle() {
+        todoListExtension = new TodoListExtension();
+
+        TaskExtension taskToRename = new TaskExtension("Name before");
+        todoListExtension.add(taskToRename);
+        todoListExtension.renameTask(taskToRename.getId(), "Name After");
+
+        Assertions.assertEquals("Name After", todoListExtension.getTaskById(taskToRename.getId()).getTitle());
+    }
+
 }
