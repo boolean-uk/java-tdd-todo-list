@@ -111,4 +111,42 @@ class TodoListTest {
         Assertions.assertEquals("It wasn't found", todoList.searchForATask("task"));
     }
 
+    @Test
+    public void testRemoveTask(){
+        Task task = new Task("first task", false);
+        Task secondTask = new Task("second task", false);
+        todoList.addTask(task);
+        todoList.addTask(secondTask);
+        todoList.removeTask("first task");
+        Assertions.assertEquals(1, todoList.tasks.size());
+    }
+
+    @Test
+    public void testAllTasksOrderedAsc(){
+        Task task = new Task("first task", false);
+        Task secondTask = new Task("second task", false);
+        Task thirdTask = new Task("one task", false);
+        todoList.addTask(task);
+        todoList.addTask(secondTask);
+        todoList.addTask(thirdTask);
+        List<Task> orderedTasksAsc = todoList.allTasksOrderedAsc();
+        Assertions.assertEquals("first task", orderedTasksAsc.get(0).getContent());
+        Assertions.assertEquals("one task", orderedTasksAsc.get(1).getContent());
+        Assertions.assertEquals("second task", orderedTasksAsc.get(2).getContent());
+    }
+
+    @Test
+    public void testAllTasksOrderedDesc(){
+        Task task = new Task("first task", false);
+        Task secondTask = new Task("second task", false);
+        Task thirdTask = new Task("one task", false);
+        todoList.addTask(task);
+        todoList.addTask(secondTask);
+        todoList.addTask(thirdTask);
+        List<Task> orderedTasksDesc = todoList.allTasksOrderedDesc();
+        Assertions.assertEquals("second task", orderedTasksDesc.get(0).getContent());
+        Assertions.assertEquals("one task", orderedTasksDesc.get(1).getContent());
+        Assertions.assertEquals("first task", orderedTasksDesc.get(2).getContent());
+    }
+
 }
