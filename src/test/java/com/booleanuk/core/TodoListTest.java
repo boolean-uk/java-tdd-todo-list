@@ -121,6 +121,4 @@ class TodoListTest {
         Assertions.assertEquals("B", listInOrder.get(1).description);
         Assertions.assertEquals("A", listInOrder.get(2).description);
     }
-
-
 }

@@ -51,4 +51,14 @@ public class TodoList {
         });
         return tasks;
     }
+
+    public List<Task> getTaskInDescOrder() {
+        Collections.sort(tasks, new Comparator<Task>() {
+            @Override
+            public int compare(Task o1, Task o2) {
+                return o2.description.compareTo(o1.description);
+            }
+        });
+        return tasks;
+    }
 }
