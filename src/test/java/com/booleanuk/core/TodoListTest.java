@@ -23,7 +23,7 @@ class TodoListTest {
         list.addTask("Get home");
         list.addTask("Go for a walk with my dog");
         list.addTask("Get groceries");
-        Assertions.assertEquals(new String[]{"Get home uncompleted", "Go for a walk with my dog uncompleted", "Get groceries uncompleted"}, list.displayAll());
+        Assertions.assertEquals(new String[]{"Get home", "Go for a walk with my dog", "Get groceries"}, list.displayAll());
     }
 
     @Test
@@ -42,15 +42,16 @@ class TodoListTest {
         list.addTask("Get home");
         list.addTask("Go for a walk with my dog");
         list.addTask("Get groceries");
-        Assertions.assertEquals(new String[]{"Get home uncompleted", "Go for a walk with my dog uncompleted", "Get groceries uncompleted"}, list.displayAll());
+        Assertions.assertEquals(new String[]{"Get home uncompleted", "Go for a walk with my dog uncompleted", "Get groceries uncompleted"}, list.displayAllUncompleted());
     }
 
     @Test
     public void shouldDisplayAllCompleted() {
         TodoList list = new TodoList();
         list.addTask("Get home");
+        list.changeStatus("Get home");
         list.addTask("Go for a walk with my dog");
         list.addTask("Get groceries");
-        Assertions.assertEquals(new String[]{"Get home uncompleted", "Go for a walk with my dog uncompleted", "Get groceries uncompleted"}, list.displayAll());
+        Assertions.assertEquals(new String[]{"Get home"}, list.displayAllCompleted());
     }
 }
