@@ -1,8 +1,10 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public class TodoList {
     List<Task> tasks = new ArrayList<>();
@@ -51,5 +53,38 @@ public class TodoList {
             return true;
         }
         return false;
+    }
+
+    public Optional<Task> getTaskByUUID(UUID uuid) {
+        return tasks.stream().filter(task -> task.uuid == uuid).findFirst();
+    }
+
+    public boolean updateTaskByUUID(UUID uuid, String name) {
+        Optional<Task> task = getTaskByUUID(uuid);
+        if(task.isPresent()){
+            task.get().name = name;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean changeStatus(UUID uuid) {
+        Optional<Task> taskByUUID = getTaskByUUID(uuid);
+        if(taskByUUID.isPresent()) {
+            changeStatus(taskByUUID.get());
+            return true;
+        }
+        return false;
+    }
+
+
+    public Optional<LocalDateTime> getDateOfTask(Task task) {
+        if(tasks.contains(task)){
+            return Optional.of(task.dateOfCreation);
+        }
+        else{
+            return Optional.empty();
+        }
     }
 }
