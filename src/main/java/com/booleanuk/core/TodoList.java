@@ -37,11 +37,11 @@ public class TodoList {
         return this.tasks;
     }
 
-    public void removeTask(Task task){
+    public void removeTask(Task task) {
         this.tasks.remove(task);
     }
 
-    public String search(Task task){
+    public String search(Task task) {
         Optional<Task> foundTask = tasks.stream()
                 .filter(t -> t.getTitle().equals(task.getTitle()))
                 .findFirst();
@@ -49,13 +49,16 @@ public class TodoList {
                 .orElse("Task not found");
     }
 
-    public List<Task> sortAscending(){
+    public List<Task> sortAscending() {
         List<Task> sortedAscTasks = new ArrayList<>(tasks);
         sortedAscTasks.sort(Comparator.comparing(Task::getTitle));
-        return sortedAscTasks;    }
-    public List<Task> sortDescending(){
+        return sortedAscTasks;
+    }
+
+    public List<Task> sortDescending() {
         List<Task> sortedAscTasks = new ArrayList<>(tasks);
         sortedAscTasks.sort(Comparator.comparing(Task::getTitle).reversed());
-        return sortedAscTasks;    }
+        return sortedAscTasks;
+    }
 
 }

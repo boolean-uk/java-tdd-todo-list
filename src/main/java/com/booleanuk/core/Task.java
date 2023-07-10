@@ -4,9 +4,9 @@ public class Task {
     private final String title;
     private TaskStatus status;
 
-    public Task(String title, TaskStatus status) {
+    public Task(String title) {
         this.title = title;
-        this.status = status;
+        this.status = TaskStatus.INCOMPLETED;
     }
 
     public String getTitle() {
