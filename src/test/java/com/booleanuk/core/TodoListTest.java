@@ -163,4 +163,30 @@ class TodoListTest {
         Assertions.assertFalse(result);
     }
 
+    @Test
+    public void sortTasksAscCheckIsSorted(){
+        String taskDescription1 = "b";
+        String taskDescription2 = "a";
+        TodoList todolist = new TodoList();
+        Task newTask1 = todolist.addTask(taskDescription1);
+        Task newTask2 = todolist.addTask(taskDescription2);
+
+        ArrayList<Task> result = todolist.sortTasksAsc();
+
+        Assertions.assertEquals(result.get(0).getDescription(), "a");
+    }
+
+    @Test
+    public void sortTasksDscCheckIsSorted(){
+        String taskDescription1 = "a";
+        String taskDescription2 = "b";
+        TodoList todolist = new TodoList();
+        Task newTask1 = todolist.addTask(taskDescription1);
+        Task newTask2 = todolist.addTask(taskDescription2);
+
+        ArrayList<Task> result = todolist.sortTasksDsc();
+
+        Assertions.assertEquals(result.get(0).getDescription(), "b");
+    }
+
 }
