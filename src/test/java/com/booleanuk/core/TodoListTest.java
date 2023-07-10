@@ -1,7 +1,6 @@
 package com.booleanuk.core;
 
 import org.junit.jupiter.api.*;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class TodoListTest {
@@ -46,4 +45,22 @@ class TodoListTest {
             assertEquals(result, TODOLIST.displayTasks());
         }
     }
+
+    @Nested
+    class ChangeTaskStatus {
+        @Test
+        void shouldReturnFalse() {
+            assertFalse(TODOLIST.changeTaskStatus(TASK2));
+        }
+        @Test
+        void shouldReturnTrue() {
+            TODOLIST.addTask(TASK1);
+            assertTrue(TODOLIST.changeTaskStatus(TASK1));
+            assertTrue(TODOLIST.tasks.get(0).isCompleted);
+
+            assertTrue(TODOLIST.changeTaskStatus(TASK1));
+            assertFalse(TODOLIST.tasks.get(0).isCompleted);
+        }
+    }
+
 }
