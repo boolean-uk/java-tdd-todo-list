@@ -1,6 +1,5 @@
 package com.booleanuk.core;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -42,11 +41,5 @@ public class TodoList {
     public List<Task> getAllTasksSorted(SortingOrder sortingOrder) {
         // TODO
         return null;
-    }
-
-    public record Task(
-        String name,
-        TaskStatus status
-    ) {
     }
 }
