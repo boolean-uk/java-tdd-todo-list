@@ -128,7 +128,7 @@ class TodoListTest {
         todoList.addTask(task3);
 
         //when
-        ArrayList<Task> allCompleteTask = todoList.getCompleteTasks();
+        ArrayList<Task> allCompleteTask = todoList.getCompletedTasks();
 
         //then
         assertEquals(2,allCompleteTask.size());
@@ -146,7 +146,7 @@ class TodoListTest {
         todoList.addTask(task3);
 
         //when
-        ArrayList<Task> allCompleteTaskList = todoList.getCompleteTasks();
+        ArrayList<Task> allCompleteTaskList = todoList.getCompletedTasks();
 
 
         //then
