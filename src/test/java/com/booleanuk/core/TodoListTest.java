@@ -41,5 +41,27 @@ class TodoListTest {
 
         Assertions.assertEquals(results.size(), 2  );
     }
+    @Test
+    public void changeTaskStatusToComplete() {
+        String taskDescription1 = "Walk the dog";
+
+        TodoList todolist = new TodoList();
+        Task newTask = todolist.addTask(taskDescription1);
+        Task results = newTask.changeTaskStatus();
+
+        Assertions.assertTrue(results.isComplete());
+    }
+    @Test
+    public void changeTaskStatusToIncomplete() {
+        String taskDescription1 = "Walk the dog";
+
+        TodoList todolist = new TodoList();
+        Task newTask = todolist.addTask(taskDescription1);
+        newTask.changeTaskStatus(); //change status to complete
+        Task results = newTask.changeTaskStatus();
+
+        Assertions.assertFalse(results.isComplete());
+
+    }
 
 }
