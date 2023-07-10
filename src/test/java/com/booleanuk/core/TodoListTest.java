@@ -75,7 +75,21 @@ class TodoListTest {
         Assertions.assertTrue(ascendingTasks.get(0).equals(task1));
         Assertions.assertTrue(ascendingTasks.get(1).equals(task2));
         Assertions.assertTrue(ascendingTasks.get(2).equals(task3));
+    }
 
+    @Test
+    public void testDescendingOrder(){
+        Task task1 = new Task("aaa");
+        Task task2 = new Task("bbb");
+        Task task3 = new Task("ccc");
 
+        todoList = new TodoList();
+        todoList.add(task2);
+        todoList.add(task1);
+        todoList.add(task3);
+        List<Task>descTasks = todoList.sortDescending();
+        Assertions.assertTrue(descTasks.get(0).equals(task3));
+        Assertions.assertTrue(descTasks.get(1).equals(task2));
+        Assertions.assertTrue(descTasks.get(2).equals(task1));
     }
 }
