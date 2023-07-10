@@ -12,7 +12,7 @@ class TodoListTest {
     @BeforeEach
     public void setup() {
         todoList = new TodoList();
-        task = new Task();
+        task = new Task(Status.COMPLETE,"Dishes");
     }
 
     @AfterEach
@@ -43,6 +43,15 @@ class TodoListTest {
         List<Task> result = todoList.getCompleteTasks();
 
         Assertions.assertEquals(0, result.size());
+    }
+
+    @Test
+    public void getCompleteTaskReturnList() {
+        todoList.add(task);
+        List<Task> result = todoList.getCompleteTasks();
+
+        Assertions.assertEquals(1, result.size());
+        Assertions.assertEquals(todoList.tasks.get(0).status, Status.COMPLETE);
     }
 
 }

@@ -2,8 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
-import java.util.TreeMap;
+import java.util.stream.Collectors;
 
 public class TodoList {
     List<Task> tasks = new ArrayList<>();
@@ -20,5 +19,9 @@ public class TodoList {
 
     public List<Task> getTasks() {
         return tasks;
+    }
+
+    public List<Task> getCompleteTasks() {
+        return tasks.stream().filter(t -> t.status.equals(Status.COMPLETE)).toList();
     }
 }
