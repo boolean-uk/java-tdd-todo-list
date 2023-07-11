@@ -12,25 +12,25 @@ public class TodoList {
     ArrayList<TodoList> tasks = new ArrayList<TodoList>();
     Map<String, Boolean> treemap = new TreeMap<>();
 
-
-    public String put(String task, boolean status){
+    public String put(String task, boolean status) {
         treemap.put(task, status);
         return "Task added to to-do list";
     }
+
     public TodoList() {
     }
+
 
     public TodoList(String task, boolean status) {
         this.task = task;
         this.status = status;
     }
 
-
-
     public String add(String task, boolean status) {
         tasks.add(new TodoList(task, status));
         return "Task added to to-do list";
     }
+
 
     public ArrayList<TodoList> seeAll() {
         return this.tasks;
@@ -84,17 +84,18 @@ public class TodoList {
         return "Task was not removed";
     }
 
-        public String sortAscend(){
-            System.out.println(this.treemap);
-            return treemap.toString();
-        }
+    public String sortAscend() {
+        System.out.println(this.treemap);
+        return treemap.toString();
+    }
 
-//    public String sortDescend() {
-//
-//
-//        return treemap.toString();
-//    }
 
+    public ArrayList<TodoList> sortDescend() {
+        ArrayList<TodoList> sortedKeys;
+        sortedKeys = new ArrayList<>(this.tasks);
+        sortedKeys.sort(Collections.reverseOrder());
+        return sortedKeys;
+    }
 }
 
 

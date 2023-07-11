@@ -79,13 +79,23 @@ class TodoListTest {
         Assertions.assertEquals("{A=false, B=false, C=true}", todo.sortAscend());
     }
 
-//    @Test
-//    public void sortDescendTest(){
-//        TodoList todo = new TodoList();
-//        todo.put("A", false);
-//        todo.put("C", true);
-//        todo.put("B", false);
-//        Assertions.assertEquals("{C=true, B=false, A=false}", todo.sortDescend());
-//    }
+    @Test
+    public void getAllTasksDescendingTest() {
+        TodoList todo = new TodoList();
+        todo.add("A", true);
+        todo.add("C", false);
+        todo.add("B", true);
+        ArrayList<TodoList> sortedKeys = todo.sortDescend();
+        boolean sorted = true;
+        for (int i = 0; i < sortedKeys.size() - 1; i++) {
+            String current = String.valueOf(sortedKeys.get(i));
+            String next = String.valueOf(sortedKeys.get(i + 1));
+            if (current.compareTo(next) < 0) {
+                sorted = false;
+                break;
+            }
+        }
+        Assertions.assertTrue(sorted);
+    }
 
 }
