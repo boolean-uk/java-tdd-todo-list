@@ -1,100 +1,78 @@
 package com.booleanuk.core;
-import java.util.TreeMap;
-import java.util.Map;
+
+import java.util.Collections;
 import java.util.*;
 
 
-
 public class TodoList {
-    public String task;
-    public boolean status;
-
-    ArrayList<TodoList> tasks = new ArrayList<TodoList>();
-    Map<String, Boolean> treemap = new TreeMap<>();
-
-    public String put(String task, boolean status) {
-        treemap.put(task, status);
-        return "Task added to to-do list";
-    }
+    private final List<String> tasks;
 
     public TodoList() {
+        tasks = new ArrayList<>();
     }
 
-
-    public TodoList(String task, boolean status) {
-        this.task = task;
-        this.status = status;
+    public int add(String task) {
+        tasks.add(task);
+        System.out.println("Added a new task!");
+        return tasks.size();
     }
 
-    public String add(String task, boolean status) {
-        tasks.add(new TodoList(task, status));
-        return "Task added to to-do list";
+    public String seeAll() {
+        return tasks.toString();
     }
 
-
-    public ArrayList<TodoList> seeAll() {
-        return this.tasks;
+    public String statusChange(String task, boolean complete) {
+        int index = tasks.indexOf(task);
+        if (index != -1) {
+            tasks.set(index, complete ? task + " [Complete]" : task + " [Incomplete]");
+        }
+        System.out.println("Successfully changed the status!");
+        return tasks.toString();
     }
 
-    public String statusChange(String task, boolean status) {
-        for (TodoList todo : this.tasks) {
-            if (task.equals(todo.task)) {
-                this.status = status;
+    public String getComplete() {
+        List<String> completeTasks = new ArrayList<>();
+        for (String task : tasks) {
+            if (task.endsWith("[Complete]")) {
+                completeTasks.add(task);
             }
         }
-        return "Status changed";
+        return completeTasks.toString();
     }
 
-    public ArrayList<TodoList> getComplete() {
-        ArrayList<TodoList> completedTasks = new ArrayList<>();
-        for (TodoList todo : this.tasks) {
-            if (todo.status) {
-                completedTasks.add(todo);
+    public String getIncomplete() {
+        List<String> incompleteTasks = new ArrayList<>();
+        for (String task : tasks) {
+            if (task.endsWith("[Incomplete]")) {
+                incompleteTasks.add(task);
             }
         }
-        return completedTasks;
-    }
-
-    public ArrayList<TodoList> getIncomplete() {
-        ArrayList<TodoList> inCompletedTasks = new ArrayList<>();
-        for (TodoList todo : this.tasks) {
-            if (!todo.status) {
-                inCompletedTasks.add(todo);
-            }
-        }
-        return inCompletedTasks;
+        return incompleteTasks.toString();
     }
 
     public String search(String task) {
-        for (TodoList todo : this.tasks) {
-            if (task.equals(todo.task)) {
-                return "Task was found";
-            }
+        if (tasks.contains(task)) {
+            return "Task was found.";
+        } else {
+            return "Task was not found.";
         }
-        return "Task was not found";
     }
 
-    public String remove(String task) {
-        for (TodoList todo : this.tasks) {
-            if (task.equals(todo.task)) {
-                this.tasks.remove(todo);
-                return "Task was removed";
-            }
-        }
-        return "Task was not removed";
+    public int remove(String task) {
+        tasks.remove(task);
+        return tasks.size();
     }
 
     public String sortAscend() {
-        System.out.println(this.treemap);
-        return treemap.toString();
+        List<String> sortedTasks = new ArrayList<>(tasks);
+        Collections.sort(sortedTasks);
+        return sortedTasks.toString();
     }
 
-
-    public ArrayList<TodoList> sortDescend() {
-        ArrayList<TodoList> sortedKeys;
-        sortedKeys = new ArrayList<>(this.tasks);
-        sortedKeys.sort(Collections.reverseOrder());
-        return sortedKeys;
+    public String sortDescend() {
+        List<String> sortedTasks = new ArrayList<>(tasks);
+        sortedTasks.sort(Comparator.reverseOrder());
+        return sortedTasks.toString();
     }
 }
 

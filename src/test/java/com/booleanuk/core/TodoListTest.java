@@ -2,10 +2,6 @@ package com.booleanuk.core;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
-
-import java.util.ArrayList;
-import java.util.TreeMap;
 
 class TodoListTest {
     @Test
@@ -16,86 +12,83 @@ class TodoListTest {
     }
 
     @Test
-    public void addTest(){
-        TodoList todo = new TodoList("First task", false);
-        Assertions.assertEquals("Task added to to-do list", todo.add("Second task", false) );
+    public void addTest() {
+        TodoList todo = new TodoList();
+        Assertions.assertEquals(1, todo.add("First task"));
     }
 
     @Test
-    public void seeAllTest(){
+    public void seeAllTest() {
         TodoList todo = new TodoList();
-        todo.add("First todo", false);
-        todo.add("Second task", true);
-        todo.add("Third task", true);
-        Assertions.assertEquals(todo.tasks, todo.seeAll());
+        todo.add("First task");
+        todo.add("Second task");
+        todo.add("Third task");
+        Assertions.assertEquals("[First task, Second task, Third task]", todo.seeAll());
     }
 
     @Test
-    public void changeStatusTest(){
+    public void changeStatusTest() {
         TodoList todo = new TodoList();
-        todo.add("First todo", false);
-        Assertions.assertEquals("Status changed", todo.statusChange("First todo", true));
+        todo.add("First task");
+        todo.add("Second task");
+        Assertions.assertEquals("[First task [Complete], Second task]", todo.statusChange("First task", true));
     }
 
     @Test
-    public void getCompleteTest(){
+    public void getCompleteTest() {
         TodoList todo = new TodoList();
-        todo.add("First todo", false);
-        todo.add("Second task", true);
-        Assertions.assertEquals(todo.tasks.get(1), todo.getComplete().get(0));
+        todo.add("First task");
+        todo.add("Second task");
+        todo.add("Third task");
+        todo.statusChange("First task", true);
+        todo.statusChange("Third task", true);
+        Assertions.assertEquals("[First task [Complete], Third task [Complete]]", todo.getComplete());
     }
 
     @Test
-    public void getIncompleteTest(){
+    public void getIncompleteTest() {
         TodoList todo = new TodoList();
-        todo.add("Second task", true);
-        todo.add("First todo", false);
-        Assertions.assertEquals(todo.tasks.get(1), todo.getIncomplete().get(0));
+        todo.add("First task");
+        todo.add("Second task");
+        todo.add("Third task");
+        todo.statusChange("First task", false);
+        todo.statusChange("Third task", false);
+        Assertions.assertEquals("[First task [Incomplete], Third task [Incomplete]]", todo.getIncomplete());
     }
 
     @Test
-    public void SearchForTaskTest(){
+    public void SearchForTaskTest() {
         TodoList todo = new TodoList();
-        todo.add("First task", false);
-        todo.add("Second task", true);
-        todo.add("Third task", false);
-        Assertions.assertEquals("Task was found", todo.search("Second task"));
+        todo.add("First task");
+        todo.add("Second task");
+        todo.add("Third task");
+        Assertions.assertEquals("Task was found.", todo.search("Second task"));
     }
 
     @Test
-    public void RemoveTest(){
+    public void RemoveTest() {
         TodoList todo = new TodoList();
-        todo.add("First task", false);
-        todo.add("Second task", true);
-        Assertions.assertEquals("Task was removed", todo.remove("First task"));
+        todo.add("First task");
+        todo.add("Second task");
+        todo.add("Third task");
+        Assertions.assertEquals(2, todo.remove("First task"));
     }
 
     @Test
-    public void sortAscendTest(){
+    public void sortAscendTest() {
         TodoList todo = new TodoList();
-        todo.put("A", false);
-        todo.put("C", true);
-        todo.put("B", false);
-        Assertions.assertEquals("{A=false, B=false, C=true}", todo.sortAscend());
+        todo.add("A");
+        todo.add("C");
+        todo.add("B");
+        Assertions.assertEquals("[A, B, C]", todo.sortAscend());
     }
 
     @Test
     public void getAllTasksDescendingTest() {
         TodoList todo = new TodoList();
-        todo.add("A", true);
-        todo.add("C", false);
-        todo.add("B", true);
-        ArrayList<TodoList> sortedKeys = todo.sortDescend();
-        boolean sorted = true;
-        for (int i = 0; i < sortedKeys.size() - 1; i++) {
-            String current = String.valueOf(sortedKeys.get(i));
-            String next = String.valueOf(sortedKeys.get(i + 1));
-            if (current.compareTo(next) < 0) {
-                sorted = false;
-                break;
-            }
-        }
-        Assertions.assertTrue(sorted);
+        todo.add("A");
+        todo.add("C");
+        todo.add("B");
+        Assertions.assertEquals("[C, B, A]", todo.sortDescend());
     }
-
 }
