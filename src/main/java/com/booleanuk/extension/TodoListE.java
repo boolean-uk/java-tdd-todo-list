@@ -1,20 +1,33 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collections;
 import java.util.*;
 
 
-public class TodoList {
-    private final List<String> tasks;
+public class TodoListE {
+    List<String> tasks;
+    List<LocalDateTime> dates;
 
-    public TodoList() {
+    public TodoListE() {
         tasks = new ArrayList<>();
+        dates = new ArrayList<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
     }
 
     public int add(String task) {
         tasks.add(task);
+        LocalDateTime creationTime = LocalDateTime.now();
+        dates.add(creationTime);
         System.out.println("Added a new task!");
         return tasks.size();
+    }
+
+    public int getTime(int task) {
+        LocalDateTime times = dates.get(task);
+        System.out.println(times);
+        return times.getHour();
     }
 
     public String seeAll() {
@@ -74,6 +87,13 @@ public class TodoList {
         sortedTasks.sort(Comparator.reverseOrder());
         return sortedTasks.toString();
     }
+
+    public String addID(String task, int ID) {
+        int index = tasks.indexOf(task);
+        if (!task.startsWith("[ID]")) {
+                tasks.set(index,"[ID]" + ID + " " + task);}
+        return tasks.get(index);
+    }
+
+
 }
-
-
