@@ -24,3 +24,13 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |  | remove(String task)                       | Remove task from the list                                                  | print that the task was removed      |
 |  | sortAscend()                              | Sort the list in aplhabetic order, ascending                               | print list of tasks sorted           |
 |  | sortDescend()                             | Sort the list in aplhabetic order, descending                              | print list of tasks sorted           |
+
+
+# Extension Criteria
+
+```
+I want to be able to get a task by a unique ID.
+I want to update the name of a task by providing its ID and a new name.
+I want to be able to change the status of a task by providing its ID.
+I want to be able to see the date and time that I created each task.
+```

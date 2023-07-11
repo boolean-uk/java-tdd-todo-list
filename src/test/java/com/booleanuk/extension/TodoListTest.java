@@ -1,9 +1,12 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class TodoListTest {
+import java.time.LocalDateTime;
+import java.util.Locale;
+
+class TodoListETest {
     @Test
     public void exampleTest() {
         String hello = "Hello";
@@ -13,13 +16,13 @@ class TodoListTest {
 
     @Test
     public void addTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         Assertions.assertEquals(1, todo.add("First task"));
     }
 
     @Test
     public void seeAllTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("First task");
         todo.add("Second task");
         todo.add("Third task");
@@ -28,7 +31,7 @@ class TodoListTest {
 
     @Test
     public void changeStatusTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("First task");
         todo.add("Second task");
         Assertions.assertEquals("[First task [Complete], Second task]", todo.statusChange("First task", true));
@@ -36,7 +39,7 @@ class TodoListTest {
 
     @Test
     public void getCompleteTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("First task");
         todo.add("Second task");
         todo.add("Third task");
@@ -47,7 +50,7 @@ class TodoListTest {
 
     @Test
     public void getIncompleteTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("First task");
         todo.add("Second task");
         todo.add("Third task");
@@ -58,7 +61,7 @@ class TodoListTest {
 
     @Test
     public void SearchForTaskTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("First task");
         todo.add("Second task");
         todo.add("Third task");
@@ -67,7 +70,7 @@ class TodoListTest {
 
     @Test
     public void RemoveTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("First task");
         todo.add("Second task");
         todo.add("Third task");
@@ -76,7 +79,7 @@ class TodoListTest {
 
     @Test
     public void sortAscendTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("A");
         todo.add("C");
         todo.add("B");
@@ -85,10 +88,32 @@ class TodoListTest {
 
     @Test
     public void getAllTasksDescendingTest() {
-        com.booleanuk.core.TodoList todo = new com.booleanuk.core.TodoList();
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
         todo.add("A");
         todo.add("C");
         todo.add("B");
         Assertions.assertEquals("[C, B, A]", todo.sortDescend());
     }
+
+    //Extension Criteria Tests
+
+    @Test
+    public void GetTimeandDateTest() {
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
+        todo.add("A");
+        todo.add("C");
+        todo.add("B");
+        LocalDateTime cTime = LocalDateTime.now();
+        Assertions.assertEquals(cTime, todo.getTime(2));
+    }
+
+    @Test
+    public void AddIDTest() {
+        com.booleanuk.extension.TodoListE todo = new com.booleanuk.extension.TodoListE();
+        todo.add("A");
+        todo.add("B");
+        todo.add("C");
+        Assertions.assertEquals("[ID]123 B", todo.addID("B", 123));
+    }
 }
+
