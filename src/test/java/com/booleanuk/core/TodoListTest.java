@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 class TodoListTest {
     @Test
@@ -69,25 +70,22 @@ class TodoListTest {
         Assertions.assertEquals("Task was removed", todo.remove("First task"));
     }
 
-//    @Test
-//    public void sortAscendTest(){
-//        TodoList todo = new TodoList();
-//        todo.add("First task", false);
-//        todo.add("Second task", true);
-//        todo.add("Third task", false);
-//
-//
-//    }
+    @Test
+    public void sortAscendTest(){
+        TodoList todo = new TodoList();
+        todo.put("A", false);
+        todo.put("C", true);
+        todo.put("B", false);
+        Assertions.assertEquals("{A=false, B=false, C=true}", todo.sortAscend());
+    }
+
 //    @Test
 //    public void sortDescendTest(){
 //        TodoList todo = new TodoList();
-//        todo.add("B", false);
-//        todo.add("A", true);
-//        todo.add("C", false);
-//        Assertions.assertEquals("C \n B \n A", todo.sortDescend());
-//
+//        todo.put("A", false);
+//        todo.put("C", true);
+//        todo.put("B", false);
+//        Assertions.assertEquals("{C=true, B=false, A=false}", todo.sortDescend());
 //    }
-
-
 
 }

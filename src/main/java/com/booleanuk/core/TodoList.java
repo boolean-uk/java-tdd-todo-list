@@ -1,13 +1,22 @@
 package com.booleanuk.core;
-
+import java.util.TreeMap;
+import java.util.Map;
 import java.util.*;
+
+
 
 public class TodoList {
     public String task;
     public boolean status;
 
     ArrayList<TodoList> tasks = new ArrayList<TodoList>();
+    Map<String, Boolean> treemap = new TreeMap<>();
 
+
+    public String put(String task, boolean status){
+        treemap.put(task, status);
+        return "Task added to to-do list";
+    }
     public TodoList() {
     }
 
@@ -15,6 +24,8 @@ public class TodoList {
         this.task = task;
         this.status = status;
     }
+
+
 
     public String add(String task, boolean status) {
         tasks.add(new TodoList(task, status));
@@ -73,15 +84,15 @@ public class TodoList {
         return "Task was not removed";
     }
 
-    //    public ArrayList<TodoList> sortAscend(){
-//        ArrayList<TodoList> sortedAsc = new ArrayList<>();
-//        sortedAsc = Arrays.sort(new ArrayList[]{this.tasks});
-//
-//        }
+        public String sortAscend(){
+            System.out.println(this.treemap);
+            return treemap.toString();
+        }
+
 //    public String sortDescend() {
-//        List<String> sortedDesc = new ArrayList<>();
-//        Collections.sort(this.tasks, Collections.reverseOrder());
-//        return this.tasks.toString();
+//
+//
+//        return treemap.toString();
 //    }
 
 }
