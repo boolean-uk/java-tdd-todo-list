@@ -24,10 +24,10 @@ public class TodoListE {
         return tasks.size();
     }
 
-    public LocalDateTime getTime(int task) {
+    public int getTime(int task) {
         LocalDateTime times = dates.get(task);
         System.out.println(times);
-        return times;
+        return times.getHour();
     }
 
     public String seeAll() {

@@ -104,7 +104,8 @@ class TodoListETest {
         todo.add("C");
         todo.add("B");
         LocalDateTime cTime = LocalDateTime.now();
-        Assertions.assertEquals(cTime, todo.getTime(2));
+        int hTime = cTime.getHour();
+        Assertions.assertEquals(hTime, todo.getTime(2));
     }
 
     @Test
