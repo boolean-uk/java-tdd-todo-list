@@ -1,13 +1,10 @@
 package com.booleanuk.core;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class TodoList {
-    public TreeMap<String, Boolean> tasks;
+    public TreeMap<String,Boolean> tasks;
 
     public TodoList() {
         this.tasks = new TreeMap<String, Boolean>();
