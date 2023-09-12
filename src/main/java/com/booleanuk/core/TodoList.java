@@ -84,4 +84,12 @@ public class TodoList {
             return true;
         }
     }
+
+    public String getAsc() {
+        return "";
+    }
+
+    public String getDesc() {
+        return "";
+    }
 }

@@ -115,4 +115,28 @@ class TodoListTest {
         tdl.add("Walk Dog");
         Assertions.assertFalse(tdl.remove("Iron Clothes"));
     }
+
+    @Test
+    public void shouldGetTasksInAscOrder() {
+        TodoList tdl = new TodoList();
+        tdl.add("Laundry");
+        tdl.add("Walk Dog");
+        tdl.add("Iron Clothes");
+        tdl.add("Lift Weights");
+
+        String expected = "Iron Clothes\nLaundry\nLift Weights\nWalk dog";
+        Assertions.assertEquals(expected, tdl.getAsc());
+    }
+
+    @Test
+    public void shouldGetTasksInDescOrder() {
+        TodoList tdl = new TodoList();
+        tdl.add("Laundry");
+        tdl.add("Walk Dog");
+        tdl.add("Iron Clothes");
+        tdl.add("Lift Weights");
+
+        String expected = "Walk Dog\nLift Weights\nLaundry\nIron Clothes";
+        Assertions.assertEquals(expected, tdl.getDesc());
+    }
 }
