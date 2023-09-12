@@ -34,8 +34,8 @@ Create domain models based on the requirements outlined below.
 |                        |                       | - If task not in list                  | False, No Message                                                                  |
 | getComplete()          |                       | 4. Get complete tasks:                 |                                                                                    |
 | getIncomplete()        |                       | 5. Get incomplete tasks:               |                                                                                    |
-|                        |                       | - If list empty / not exists           | Null                                                                               |
-|                        |                       | - If list not empty, exists            | Return an ArrayList<Task> with the corresponding tasks (complete/incomplete)       |
+|                        |                       | - If list empty / not exists           | Empty String                                                                       |
+|                        |                       | - If list not empty, exists            | String with the corresponding tasks (complete/incomplete)                          |
 | search(String name)    |                       | 6. Look for task:                      |                                                                                    |
 |                        |                       | - Task found                           | Return Task                                                                        |
 |                        |                       | - Task not found                       | Null, Print Message                                                                |
