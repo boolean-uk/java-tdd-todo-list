@@ -3,9 +3,11 @@ package com.booleanuk.extension;
 public class Task {
     String name;
     boolean status;
+    int id;
 
-    public Task(String name) {
+    public Task(String name, int id) {
         this.name = name;
+        this.id = id;
         this.status = false;
     }
 
@@ -13,6 +15,7 @@ public class Task {
         return this.name;
     }
 
+    public int getId() {return this.id;}
 
     public boolean getStatus() {
         return this.status;
