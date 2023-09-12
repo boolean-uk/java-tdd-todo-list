@@ -68,4 +68,29 @@ class TodoListTest {
                 todoList.changeTaskStatus(taskTwo));
     }
 
+    @Test
+    public void testGetCompleteTasksSuccessful() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        todoList.changeTaskStatus(taskOne);
+        String taskTwo = "Go shopping";
+        todoList.addTask(taskTwo);
+//        todoList.changeTaskStatus(taskTwo);
+        Assertions.assertTrue(todoList.tasks.get(taskOne));
+        Assertions.assertEquals("Feed the cat",todoList.getCompletedTasks());
+        todoList.changeTaskStatus(taskTwo);
+        Assertions.assertEquals("Feed the cat, Go shopping",todoList.getCompletedTasks());
+    }
+
+    @Test
+    public void testGetCompleteTasksSuccessful() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        String taskTwo = "Go shopping";
+        todoList.addTask(taskTwo);
+        Assertions.assertEquals("There are no completed task at the moment.",todoList.getCompletedTasks());
+    }
+
 }
