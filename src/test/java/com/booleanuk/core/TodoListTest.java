@@ -84,13 +84,13 @@ class TodoListTest {
     }
 
     @Test
-    public void testGetCompleteTasksSuccessful() {
+    public void testGetCompleteTasksIsEmpty() {
         TodoList todoList = new TodoList();
         String taskOne = "Feed the cat";
         todoList.addTask(taskOne);
         String taskTwo = "Go shopping";
         todoList.addTask(taskTwo);
-        Assertions.assertEquals("There are no completed task at the moment.",todoList.getCompletedTasks());
+        Assertions.assertEquals("No completed tasks",todoList.getCompletedTasks());
     }
 
 }

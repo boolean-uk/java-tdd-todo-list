@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class TodoList {
     public HashMap<String, Boolean> tasks;
@@ -32,6 +34,19 @@ public class TodoList {
                     this.tasks.get(task) ? "complete" : "incomplete");
         } else {
             return "Couldn't update status, task doesn't exist";
+        }
+    }
+
+    public String getCompletedTasks() {
+        String completedTasks = this.tasks.entrySet()
+                .stream()
+                .filter(Map.Entry::getValue)
+                .map(Map.Entry::getKey)
+                .collect(Collectors.joining(", "));
+        if (completedTasks.isEmpty()) {
+            return "No completed tasks"; 
+        } else {
+            return completedTasks;
         }
     }
 }
