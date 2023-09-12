@@ -62,4 +62,14 @@ public class TodoList {
             return incompleted;
         }
     }
+
+    public boolean removeTask(String task) {
+        if (!toDoList.containsKey(task)) {
+            System.out.println("Task already exists");
+            return false;
+        }
+        toDoList.remove(task);
+        System.out.println("Task removed successfully");
+        return true;
+    }
 }
