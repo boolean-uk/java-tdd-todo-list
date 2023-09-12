@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class TodoList {
@@ -36,10 +37,29 @@ public class TodoList {
                 System.out.println("Same status");
                 return false;
             }
-            toDoList.replace(toDoList.get(task), newStatus);
+            toDoList.put(task, newStatus);
             System.out.println("Status changed successfully");
             return true;
         }
         return false;
+    }
+
+    public ArrayList<String> getCategoryTasks(String status) {
+        ArrayList<String> completed = new ArrayList<>();
+        ArrayList<String> incompleted = new ArrayList<>();
+
+        for (String key : toDoList.keySet()) {
+            if (toDoList.get(key).equals("complete")) {
+                completed.add(key);
+            } else {
+                incompleted.add(key);
+            }
+        }
+
+        if (status.equals("complete")) {
+            return completed;
+        } else {
+            return incompleted;
+        }
     }
 }
