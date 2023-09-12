@@ -17,4 +17,11 @@ public class TodoList {
             return res;
         }
     }
+
+    public String getTasks() {
+        if (this.tasks.isEmpty()) {
+            return "No tasks in your list yet!";
+        }
+        return "Tasks: " + String.join(", ", this.tasks.keySet());
+    }
 }

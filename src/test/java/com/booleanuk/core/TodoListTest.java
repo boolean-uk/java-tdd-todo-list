@@ -36,12 +36,12 @@ class TodoListTest {
         String taskTwo = "Go shopping";
         todoList.addTask(taskOne);
         todoList.addTask(taskTwo);
-        Assertions.assertEquals("Tasks: " + String.join(", ", todoList.tasks.keySet()), todoList.getTasks());
+        Assertions.assertEquals(String.format("Tasks: %s, %s", taskOne, taskTwo), todoList.getTasks());
     }
     @Test
     public void getTasksWhenMapIsEmpty() {
         TodoList todoList = new TodoList();
-        Assertions.assertEquals("No tasks in your list!" , todoList.getTasks());
+        Assertions.assertEquals("No tasks in your list yet!" , todoList.getTasks());
     }
 
 }
