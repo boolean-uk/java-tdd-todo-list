@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
+import java.util.*;
 
 public class TodoList {
 
@@ -71,5 +69,16 @@ public class TodoList {
         toDoList.remove(task);
         System.out.println("Task removed successfully");
         return true;
+    }
+
+    public ArrayList<String> orderedTasks(String orderType) {
+        ArrayList<String> ordered = new ArrayList<>(toDoList.keySet());
+
+        if (orderType.equals("ascending")) {
+            ordered.sort(Comparator.naturalOrder());
+        } else {
+            ordered.sort(Comparator.reverseOrder());
+        }
+        return ordered;
     }
 }
