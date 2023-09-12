@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class TodoList {
     ArrayList<Task> tasks;
@@ -26,16 +27,41 @@ public class TodoList {
     }
 
     public boolean setStatus(String name){
-        return true;
+        for (Task task : this.tasks) {
+            if (Objects.equals(task.getName(), name)) {
+                task.setStatus();
+                return true;
+            }
+        }
+        return false;
     }
 
-    public ArrayList<Task> getComplete() {
-        ArrayList<Task> tmp = new ArrayList<>();
-        return tmp;
+    public String getComplete() {
+        StringBuilder result = new StringBuilder();
+        for (Task task : this.tasks) {
+            if (task.getStatus()) {
+                result.append(task.getName()).append("\n");
+            }
+        }
+        if (result.length() == 0){
+            return "";
+        }
+        return String.valueOf(result).substring(0,result.length()-1);
     }
 
-    public ArrayList<Task> getIncomplete() {
-        ArrayList<Task> tmp = new ArrayList<>();
-        return tmp;
+    public String getIncomplete() {
+        if (this.tasks.size() == 0){
+            return "";
+        }
+        StringBuilder result = new StringBuilder();
+        for (Task task : this.tasks) {
+            if (!task.getStatus()) {
+                result.append(task.getName()).append("\n");
+            }
+        }
+        if (result.length() == 0){
+            return "";
+        }
+        return String.valueOf(result).substring(0,result.length()-1);
     }
 }
