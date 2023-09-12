@@ -139,4 +139,11 @@ class TodoListTest {
         String expected = "Walk Dog\nLift Weights\nLaundry\nIron Clothes";
         Assertions.assertEquals(expected, tdl.getDesc());
     }
+
+    @Test
+    public void sortEmptyListShouldWork() {
+        TodoList tdl = new TodoList();
+        String expected = "";
+        Assertions.assertEquals(expected, tdl.getAsc());
+    }
 }
