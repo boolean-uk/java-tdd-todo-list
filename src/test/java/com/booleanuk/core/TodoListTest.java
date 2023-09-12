@@ -65,7 +65,7 @@ class TodoListTest {
         todoList.addToTodoList(taskTwo, false);
         todoList.addToTodoList(taskThree, false);
 
-        String expected = "Task: Walk the dog";
+        String expected = "Completed tasks: Walk the dog";
         Assertions.assertTrue(todoList.taskList.containsValue(true));
         Assertions.assertEquals(expected, todoList.getCompletedTasks());
     }

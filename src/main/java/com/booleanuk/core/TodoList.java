@@ -1,7 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.HashMap;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 public class TodoList {
   HashMap<String, Boolean> taskList;
@@ -33,5 +32,19 @@ public class TodoList {
       return true; // Status changed successfully
     }
     return false; // Task not found
+  }
+
+  public String getCompletedTasks() {
+    List<String> completedTaskNames = new ArrayList<>();
+    for (Map.Entry<String, Boolean> entry : taskList.entrySet()) {
+      if (entry.getValue()) {
+        completedTaskNames.add(entry.getKey());
+      }
+    }
+   if (!completedTaskNames.isEmpty()) {
+     return "Completed tasks: " + String.join(", ", completedTaskNames);
+   } else {
+     return "You don't have completed tasks";
+   }
   }
 }
