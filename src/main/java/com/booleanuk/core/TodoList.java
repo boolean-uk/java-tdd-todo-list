@@ -24,5 +24,14 @@ public class TodoList {
         return "Tasks: " + String.join(", ", this.tasks.keySet());
     }
 
-
+    public String changeTaskStatus(String task) {
+        if (this.tasks.containsKey(task)) {
+            this.tasks.put(task, !this.tasks.get(task));
+            return String.format("Task '%s' is now set to %s.",
+                    task,
+                    this.tasks.get(task) ? "complete" : "incomplete");
+        } else {
+            return "Couldn't update status, task doesn't exist";
+        }
+    }
 }

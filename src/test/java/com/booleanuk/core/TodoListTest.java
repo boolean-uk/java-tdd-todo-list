@@ -51,9 +51,8 @@ class TodoListTest {
         String taskOne = "Feed the cat";
         todoList.addTask(taskOne);
         Assertions.assertFalse(todoList.tasks.get(taskOne));
-        Assertions.assertEquals(String.format("Task %s is now set to %s.",
-                        taskOne,
-                        todoList.tasks.get(taskOne) ? "complete" : "incomplete"),
+        Assertions.assertEquals(String.format("Task '%s' is now set to %s.",
+                taskOne,"complete"),
                 todoList.changeTaskStatus(taskOne));
         Assertions.assertTrue(todoList.tasks.get(taskOne));
 
