@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class TodoListTest {
     @Test
@@ -117,5 +119,28 @@ class TodoListTest {
         Assertions.assertTrue(todoList.removeTask(task1));
         Assertions.assertFalse(todoList.removeTask(task1));
         Assertions.assertTrue(todoList.removeTask(task2));
+    }
+
+    @Test
+    public void orderedTasks() {
+        TodoList todoList = new TodoList();
+
+        String task1 = "Do the dishes";
+        String task2 = "Wash the car";
+        todoList.addTask(task1);
+        todoList.addTask(task2);
+
+        String ascending = "ascending";
+        String descending = "descending";
+
+        ArrayList<String> ordered = todoList.orderedTasks(ascending);
+        List<String> expectedTasks = Arrays.asList(task1, task2);
+
+        Assertions.assertEquals(expectedTasks, ordered);
+
+        ordered = todoList.orderedTasks(descending);
+        expectedTasks = Arrays.asList(task2, task1);
+
+        Assertions.assertEquals(expectedTasks, ordered);
     }
 }
