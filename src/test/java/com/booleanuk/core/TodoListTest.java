@@ -117,5 +117,23 @@ class TodoListTest {
 
         Assertions.assertEquals("No incomplete tasks",todoList.getIncompleteTasks());
     }
+    @Test
+    public void testSearchForValidTask() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        String taskTwo = "Go shopping";
+        todoList.addTask(taskTwo);
+        Assertions.assertEquals(String.format("Task %s is %s.",taskOne,todoList.tasks.get(taskOne)),todoList.searchForTask(taskOne));
 
+    }
+    @Test
+    public void testSearchForValidTask() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        String taskTwo = "Go shopping";
+        Assertions.assertEquals("No such task",todoList.searchForTask(taskTwo));
+
+    }
 }
