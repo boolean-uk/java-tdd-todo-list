@@ -1,7 +1,8 @@
 ## Domain model To-do list
 
-Class TodoList:
+### Core Requirements:
 
+Class TodoList:
 
 
 | Member Variables               | Methods                       | Scenario                      | Output       |
@@ -27,3 +28,27 @@ Class TodoList:
 |                                |                               |                               |              |
 |                                |                               |                               |              |
 
+### Extension Requirements
+
+Class TodoList:
+
+| Member Variables          | Methods                             | Scenario                         | Output |
+|---------------------------|-------------------------------------|----------------------------------|--------|
+| ArrayList<Task> tasksList | getTaskById(int id)                 | Task with this id exists         | String |
+|                           |                                     | Task with this id does not exist | String |
+|                           | updateTaskName(int id, String name) | Task with this id exists         | true   |
+|                           |                                     | Task with this id does not exist | false  |
+|                           | changeStatus(int id)                | Task with this id exists         | String |
+|                           |                                     | Task with this id does not exist | String |
+|                           | getTaskTimeAndDate(int id)          | Task with this id exists         | String |
+|                           |                                     | Task with this id does not exist | String |
+
+Class Task:
+
+| Member Variables | Methods     | Scenario                | Output |
+|------------------|-------------|-------------------------|--------|
+| static? int id   | id getter   |                         |        |
+| String name      | id setter?  |                         |        |
+|                  | name getter |                         |        |
+|                  | name setter | name is valid           | void   |
+|                  |             | name is an empty string | void   |
