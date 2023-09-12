@@ -65,8 +65,8 @@ class TodoListTest {
         String taskOne = "Feed the cat";
         String taskTwo = "Go shopping";
         todoList.addTask(taskOne);
-        todoList.changeTaskStatus(taskTwo);
-        Assertions.assertTrue(todoList.tasks.get(taskOne));
+        Assertions.assertEquals("Couldn't update status, task doesn't exist",
+                todoList.changeTaskStatus(taskTwo));
     }
 
 }
