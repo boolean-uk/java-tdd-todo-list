@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TodoList {
@@ -18,5 +19,14 @@ public class TodoList {
         toDoList.put(task, "incomplete");
         System.out.println("Task added successfully");
         return true;
+    }
+
+    public ArrayList<String> showToDoList() {
+        ArrayList<String> listOfTasks = new ArrayList<>(toDoList.keySet());
+
+        if (toDoList.isEmpty()) {
+            System.out.println("Empty list");
+        }
+        return listOfTasks;
     }
 }
