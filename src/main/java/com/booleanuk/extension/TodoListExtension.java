@@ -41,4 +41,16 @@ public class TodoListExtension {
         }
         return false;
     }
+
+    public String changeTaskStatus(int id) {
+        Task task = this.tasks.stream()
+                .filter(t -> t.getId() == id)
+                .findFirst()
+                .orElse(null);
+        if (task != null) {
+            task.setStatus(!task.getStatus());
+            return String.format("Task %s updated successfully.", task.getName());
+        }
+        return "Task not found.";
+    }
 }
