@@ -15,6 +15,8 @@ public class Task {
         return this.name;
     }
 
+    public void setName(String newName) {this.name = newName;}
+
     public int getId() {return this.id;}
 
     public boolean getStatus() {

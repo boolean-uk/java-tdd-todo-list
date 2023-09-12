@@ -18,7 +18,16 @@ public class TodoList {
     }
 
     public boolean updateTask(int id, String newName) {
-        return true;
+        if (id >= idCount || id < 0) {
+            return false;
+        }
+        for (Task task: this.tasks2){
+            if (task.getId() == id){
+                task.setName(newName);
+                return true;
+            }
+        }
+        return false;
     }
 
     public String getTasks() {
@@ -33,10 +42,21 @@ public class TodoList {
     }
 
     public Task getTaskById(int id) {
+        if (id >= idCount || id < 0) {
+            return null;
+        }
+        for (Task task: this.tasks2) {
+            if (task.getId() == id) {
+                return task;
+            }
+        }
         return null;
     }
 
     public boolean setStatus(int id){
+        if (id >= idCount || id < 0) {
+            return false;
+        }
         for (Task task : this.tasks2) {
             if (Objects.equals(task.getId(), id)) {
                 task.setStatus();
