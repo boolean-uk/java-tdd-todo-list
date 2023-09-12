@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -77,8 +78,20 @@ public class TodoList {
     public String getSortedTasksAscending() {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<String, Boolean> entry : this.tasks.entrySet()) {
-            sb.append(String.format("%s: %s\n", entry.getKey(),entry.getValue()?"completed":"incomplete"));
+            sb.append(entry.getKey()).append(": ").append(entry.getValue()?"completed":"incomplete").append("\n");
         }
         return sb.isEmpty() ? "The to-do list is empty!" : String.valueOf(sb);
+    }
+    public String getSortedTasksDescending() {
+        TreeMap<String, Boolean> descendingTreeMap = new TreeMap<>(Collections.reverseOrder());
+        descendingTreeMap.putAll(this.tasks);
+
+        StringBuilder sb = new StringBuilder();
+
+        for (Map.Entry<String, Boolean> entry : descendingTreeMap.entrySet()) {
+            sb.append(entry.getKey()).append(": ").append(entry.getValue()?"completed":"incomplete").append("\n");
+        }
+
+        return  sb.isEmpty() ? "The to-do list is empty!" : String.valueOf(sb);
     }
 }
