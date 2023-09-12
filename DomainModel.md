@@ -45,13 +45,13 @@ Class TodoList:
 
 Class Task:
 
-| Member Variables | Methods        | Scenario                | Output |
-|------------------|----------------|-------------------------|--------|
-| static? int id   | id getter      |                         |        |
-| String name      | id setter?     |                         |        |
-| boolean status   | name getter    |                         |        |
-|                  | name setter    | name is valid           | void   |
-|                  |                | name is an empty string | void   |
-|                  | status setter  |                         |        |
-|                  | status getter  |                         |        |
-|                  | toggleStatus() |                         |        |
+| Member Variables   | Methods        | Scenario                | Output |
+|--------------------|----------------|-------------------------|--------|
+| static? int id     | getters        |                         |        |
+| String name        | setters        |                         |        |
+| boolean status     |                |                         |        |
+| String timeAndDate | name setter    | name is valid           | true   |
+|                    |                | name is an empty string | false  |
+|                    |                |                         |        |
+|                    |                |                         |        |
+|                    | toggleStatus() |                         |        |

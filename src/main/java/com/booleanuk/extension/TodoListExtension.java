@@ -13,11 +13,11 @@ public class TodoListExtension {
         this.tasks = new ArrayList<Task>();
     }
 
-    public boolean addTask(String task) {
+    public boolean addTask(String task, String timeAndDate) {
         if (task.isBlank()) {
             return false;
         } else {
-            return this.tasks.add(new Task(task));
+            return this.tasks.add(new Task(task, timeAndDate));
         }
     }
 
