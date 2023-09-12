@@ -69,7 +69,16 @@ public class TodoList {
     }
     return "Task not found: " + searchTerm; //If task is not found
   }
+  public boolean removeTask(String taskName) {
+    if (taskList.containsKey(taskName)) {
+      taskList.remove(taskName); //remove task
+      System.out.println("Task is removed from list" + taskList);
+      return true;
+    }
+  return false;
+  }
 }
+
 
 
 
