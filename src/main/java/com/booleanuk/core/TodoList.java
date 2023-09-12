@@ -67,4 +67,9 @@ public class TodoList {
                 "No such task";
 
     }
+
+    public boolean removeTask(String task) {
+        return this.tasks.remove(task) != null;
+
+    }
 }

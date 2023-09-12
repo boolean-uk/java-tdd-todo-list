@@ -147,7 +147,7 @@ class TodoListTest {
         Assertions.assertEquals(1, todoList.tasks.size());
     }
     @Test
-    public void testRemoveValidTask() {
+    public void testRemoveInvalidTask() {
         TodoList todoList = new TodoList();
         String taskOne = "Feed the cat";
         todoList.addTask(taskOne);
