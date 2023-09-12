@@ -30,11 +30,12 @@ class TodoListTest {
         String task = "Walk the dog";
         String taskTwo = "Iron shirts";
         String taskThree = "Do the dishes";
-        todoList.addToTodoList(taskTwo, true);
-        todoList.addToTodoList(taskThree, false);
+        todoList.addToTodoList(task, true);
+        todoList.addToTodoList(taskTwo, false);
         todoList.addToTodoList(taskThree, false);
 
-        Assertions.assertEquals(String.format("Tasks: Walk the dog, Iron shirts, Do the dishes", todoList.getTasks()));
+        String expected = "Task: Walk the dog, Iron shirts, Do the dishes";
+        Assertions.assertEquals(expected, todoList.getTasks());
     }
 }
 
