@@ -41,10 +41,29 @@ public class TodoList {
         completedTaskNames.add(entry.getKey());
       }
     }
-   if (!completedTaskNames.isEmpty()) {
-     return "Completed tasks: " + String.join(", ", completedTaskNames);
-   } else {
-     return "You don't have completed tasks";
-   }
+    if (!completedTaskNames.isEmpty()) {
+      return "Completed tasks: " + String.join(", ", completedTaskNames);
+    } else {
+      return "You don't have completed tasks";
+    }
+  }
+
+  public String getInCompleteTasks() {
+    List<String> inCompletedTaskNames = new ArrayList<>();
+    for (Map.Entry<String, Boolean> entry : taskList.entrySet()) {
+      if (!entry.getValue()) {
+        inCompletedTaskNames.add(entry.getKey());
+      }
+    }
+    if (!inCompletedTaskNames.isEmpty()) {
+      return "Incomplete tasks: " + String.join(", ", inCompletedTaskNames);
+    } else {
+      return "You don't have incomplete tasks";
+    }
   }
 }
+
+
+
+
+
