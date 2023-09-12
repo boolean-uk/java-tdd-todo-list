@@ -124,7 +124,7 @@ class TodoListTest {
         tdl.add("Iron Clothes");
         tdl.add("Lift Weights");
 
-        String expected = "Iron Clothes\nLaundry\nLift Weights\nWalk dog";
+        String expected = "Iron Clothes\nLaundry\nLift Weights\nWalk Dog";
         Assertions.assertEquals(expected, tdl.getAsc());
     }
 

@@ -86,10 +86,12 @@ public class TodoList {
     }
 
     public String getAsc() {
-        return "";
+        this.tasks.sort((task1, task2) -> task1.getName().compareToIgnoreCase(task2.getName()));
+        return this.getTasks();
     }
 
     public String getDesc() {
-        return "";
+        this.tasks.sort((task1, task2) -> task2.getName().compareToIgnoreCase(task1.getName()));
+        return this.getTasks();
     }
 }
