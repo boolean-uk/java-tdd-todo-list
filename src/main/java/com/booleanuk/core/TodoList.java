@@ -1,20 +1,21 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class TodoList {
 
-    List<String> items;
+    public HashMap<String, Boolean> todoItems;
 
     public TodoList() {
-        this.items = new ArrayList<>();
+        this.todoItems = new HashMap<>();
     }
 
     public void addTask(String item) {
-        items.add(item);
-        System.out.println("The task " + item + "has been added");
-//        System.out.println(items);
+        todoItems.put(item, false);
+        System.out.println(todoItems);
     }
 
 
