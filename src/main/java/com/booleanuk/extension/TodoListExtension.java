@@ -10,7 +10,7 @@ public class TodoListExtension {
     public ArrayList<Task> tasks;
 
     public TodoListExtension() {
-        this.tasks = new ArrayList<Task> ();
+        this.tasks = new ArrayList<Task>();
     }
 
     public boolean addTask(String task) {
@@ -26,8 +26,19 @@ public class TodoListExtension {
                 .filter(t -> t.getId() == id)
                 .findFirst()
                 .orElse(null);
-        return task !=null
-                ? String.format("Task %d: %s - %s", task.getId(), task.getName(), task.getStatus()?"completed":"incomplete")
+        return task != null
+                ? String.format("Task %d: %s - %s", task.getId(), task.getName(), task.getStatus() ? "completed" : "incomplete")
                 : "Task not found";
+    }
+
+    public boolean updateTaskName(int id, String newName) {
+        Task task = this.tasks.stream()
+                .filter(t -> t.getId() == id)
+                .findFirst()
+                .orElse(null);
+        if (task != null) {
+            return task.setName(newName);
+        }
+        return false;
     }
 }

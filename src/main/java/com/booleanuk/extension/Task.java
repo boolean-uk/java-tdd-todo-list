@@ -32,8 +32,12 @@ public class Task {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public boolean setName(String name) {
+        if (!name.isBlank()) {
+            this.name = name;
+            return true;
+        }
+        return false;
     }
 
     public boolean getStatus() {
