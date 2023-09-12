@@ -3,8 +3,7 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class TodoListTest {
     @Test
@@ -83,6 +82,20 @@ class TodoListTest {
         String expected = "Incomplete tasks: Iron shirts, Do the dishes";
         Assertions.assertTrue(todoList.taskList.containsValue(false));
         Assertions.assertEquals(expected, todoList.getInCompleteTasks());
+    }
+
+    @Test
+    public void testSearchForTaskFailed() {
+        TodoList todoList = new TodoList();
+        String task = "Walk the dog";
+        String taskTwo = "Iron shirts";
+        String taskThree = "Do the dishes";
+        todoList.addToTodoList(task, true);
+        todoList.addToTodoList(taskTwo, false);
+        todoList.addToTodoList(taskThree, false);
+
+        String result = todoList.searchForTask("Pet the cat");
+        Assertions.assertEquals("Task not found: Pet the cat", result);
     }
 }
 
