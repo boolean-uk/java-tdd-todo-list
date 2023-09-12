@@ -112,6 +112,19 @@ class TodoListTest {
         assertTrue(removed); //check if task two (Iron shirts) is removed
         assertFalse(todoList.taskList.containsKey(taskTwo));
     }
+
+    @Test
+    public void testSortTasksAscending() {
+        TodoList todoList = new TodoList();
+        String task = "Walk the dog";
+        String taskTwo = "Iron shirts";
+        String taskThree = "Do the dishes";
+        todoList.addToTodoList(task, true);
+        todoList.addToTodoList(taskTwo, false);
+        todoList.addToTodoList(taskThree, false);
+
+        Assertions.assertEquals("Do the dishes, Iron shirts, Walk the dog", todoList.sortTaskAscending());
+    }
 }
 
 

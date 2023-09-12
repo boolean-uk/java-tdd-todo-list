@@ -61,6 +61,7 @@ public class TodoList {
       return "You don't have incomplete tasks";
     }
   }
+
   public String searchForTask(String searchTerm) {
     for (String task : taskList.keySet()) {
       if (task.equals(searchTerm)) {
@@ -69,13 +70,26 @@ public class TodoList {
     }
     return "Task not found: " + searchTerm; //If task is not found
   }
+
   public boolean removeTask(String taskName) {
     if (taskList.containsKey(taskName)) {
       taskList.remove(taskName); //remove task
       System.out.println("Task is removed from list" + taskList);
       return true;
     }
-  return false;
+    return false;
+  }
+
+  public String sortTaskAscending() {
+    List<String> taskAscending = new ArrayList<>(this.taskList.keySet());
+    Collections.sort(taskAscending);
+
+    this.taskList.clear();
+    for (String task : taskAscending) {
+      this.taskList.put(task, false);
+    }
+    System.out.println("ordered list alphabetically" + taskAscending);
+      return String.join(", ", taskAscending);
   }
 }
 
