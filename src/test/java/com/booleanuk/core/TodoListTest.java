@@ -76,7 +76,6 @@ class TodoListTest {
         todoList.changeTaskStatus(taskOne);
         String taskTwo = "Go shopping";
         todoList.addTask(taskTwo);
-//        todoList.changeTaskStatus(taskTwo);
         Assertions.assertTrue(todoList.tasks.get(taskOne));
         Assertions.assertEquals("Feed the cat",todoList.getCompletedTasks());
         todoList.changeTaskStatus(taskTwo);
@@ -124,16 +123,37 @@ class TodoListTest {
         todoList.addTask(taskOne);
         String taskTwo = "Go shopping";
         todoList.addTask(taskTwo);
-        Assertions.assertEquals(String.format("Task %s is %s.",taskOne,todoList.tasks.get(taskOne)),todoList.searchForTask(taskOne));
+        Assertions.assertEquals(String.format("Task %s is %s.",taskOne,todoList.tasks.get(taskOne)?"complete":"incomplete"),todoList.searchForTask(taskOne));
 
     }
     @Test
-    public void testSearchForValidTask() {
+    public void testSearchForNonexistentTask() {
         TodoList todoList = new TodoList();
         String taskOne = "Feed the cat";
         todoList.addTask(taskOne);
         String taskTwo = "Go shopping";
         Assertions.assertEquals("No such task",todoList.searchForTask(taskTwo));
+    }
+
+    @Test
+    public void testRemoveValidTask() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        String taskTwo = "Go shopping";
+        todoList.addTask(taskTwo);
+        Assertions.assertEquals(2, todoList.tasks.size());
+        Assertions.assertTrue(todoList.removeTask(taskOne));
+        Assertions.assertEquals(1, todoList.tasks.size());
+    }
+    @Test
+    public void testRemoveValidTask() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        String taskTwo = "Go shopping";
+        Assertions.assertEquals(1, todoList.tasks.size());
+        Assertions.assertFalse(todoList.removeTask(taskTwo));
 
     }
 }

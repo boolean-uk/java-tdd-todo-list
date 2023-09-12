@@ -61,4 +61,10 @@ public class TodoList {
             return incompleteTasks;
         }
     }
+    public String searchForTask(String task) {
+        return this.tasks.containsKey(task) ?
+                String.format("Task %s is %s.",task,(this.tasks.get(task)?"complete":"incomplete")):
+                "No such task";
+
+    }
 }
