@@ -17,9 +17,11 @@ class TodoListTest {
     @Test
     public void testAddTaskWorks() {
         TodoList todoList = new TodoList();
+        String task = "Walk the dog";
+        boolean taskFinished = true;
 
-        assertTrue(todoList.addToTodoList("Walk the dog", true));
-        Assertions.assertTrue(todoList.tasks.containsKey("Walk the dog"));
-        Assertions.assertEquals(true, todoList.tasks.get("Walk the dog"));
+        assertTrue(todoList.addToTodoList(task, taskFinished));
+        Assertions.assertTrue(todoList.taskList.containsKey(task));
+        Assertions.assertEquals(true, todoList.taskList.get(task));
     }
 }
