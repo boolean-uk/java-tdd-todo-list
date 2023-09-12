@@ -43,4 +43,23 @@ class TodoListTest {
         Assertions.assertEquals(task1, thisList2.get(0));
         Assertions.assertEquals(task2, thisList2.get(1));
     }
+
+    @Test
+    public void changeStatus() {
+        TodoList todoList = new TodoList();
+
+        String task1 = "Do the dishes";
+        String task2 = "Wash the car";
+        todoList.addTask(task1);
+        todoList.addTask(task2);
+
+        String complete = "complete";
+        String incomplete = "incomplete";
+
+        Assertions.assertFalse(todoList.changeStatus("Read a book", complete));
+        Assertions.assertFalse(todoList.changeStatus("Read a book", incomplete));
+
+        Assertions.assertFalse(todoList.changeStatus(task1, incomplete));
+        Assertions.assertTrue(todoList.changeStatus(task1, complete));
+    }
 }
