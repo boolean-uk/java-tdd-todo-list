@@ -66,10 +66,22 @@ public class TodoList {
     }
 
     public Task search(String name){
+        for (Task task: this.tasks){
+            if (Objects.equals(task.getName(), name)) {
+                return task;
+            }
+        }
+        System.out.println("This task was not found in the Todo List.");
         return null;
     }
 
     public boolean remove(String name){
-        return true;
+        Task task = this.search(name);
+        if (task == null){
+            return false;
+        } else {
+            this.tasks.remove(task);
+            return true;
+        }
     }
 }
