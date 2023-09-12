@@ -125,6 +125,19 @@ class TodoListTest {
 
         Assertions.assertEquals("Do the dishes, Iron shirts, Walk the dog", todoList.sortTaskAscending());
     }
+
+    @Test
+    public void testSortTasksDescending() {
+        TodoList todoList = new TodoList();
+        String task = "Walk the dog";
+        String taskTwo = "Iron shirts";
+        String taskThree = "Do the dishes";
+        todoList.addToTodoList(task, true);
+        todoList.addToTodoList(taskTwo, false);
+        todoList.addToTodoList(taskThree, false);
+
+        Assertions.assertEquals("Walk the dog, Iron shirts, Do the dishes", todoList.sortTaskDescending());
+    }
 }
 
 
