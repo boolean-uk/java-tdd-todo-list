@@ -103,4 +103,19 @@ class TodoListTest {
         Assertions.assertEquals(1, completedTasks.size());
         Assertions.assertEquals(1, incompletedTasks.size());
     }
+
+    @Test
+    public void removeTask() {
+        TodoList todoList = new TodoList();
+
+        String task1 = "Do the dishes";
+        String task2 = "Wash the car";
+        todoList.addTask(task1);
+        todoList.addTask(task2);
+
+        Assertions.assertFalse(todoList.removeTask("Read a book"));
+        Assertions.assertTrue(todoList.removeTask(task1));
+        Assertions.assertFalse(todoList.removeTask(task1));
+        Assertions.assertTrue(todoList.removeTask(task2));
+    }
 }
