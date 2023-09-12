@@ -10,10 +10,15 @@ public class TodoList {
     }
 
     public void add(String name) {
-
+        Task newTask = new Task(name);
+        this.tasks.add(newTask);
     }
 
-    public void viewTasks() {
-
+    public String getTasks() {
+        StringBuilder result = new StringBuilder();
+        for (Task task: this.tasks){
+            result.append(task.getName()).append("\n");
+        }
+        return String.valueOf(result).substring(0,result.length()-1);
     }
 }

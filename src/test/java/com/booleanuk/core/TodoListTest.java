@@ -3,9 +3,6 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
-
 class TodoListTest {
     @Test
     public void exampleTest() {
@@ -25,15 +22,11 @@ class TodoListTest {
 
     @Test
     public void tasksShouldBePrintedSuccessfully() {
-        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outContent));
-
         TodoList tdl = new TodoList();
         tdl.add("Super Market");
         tdl.add("Get Haircut");
-        tdl.viewTasks();
 
         String expectedOutput = "Super Market\nGet Haircut";
-        Assertions.assertEquals(expectedOutput, outContent.toString());
+        Assertions.assertEquals(expectedOutput, tdl.getTasks());
     }
 }
