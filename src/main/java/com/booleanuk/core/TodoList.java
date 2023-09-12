@@ -29,4 +29,17 @@ public class TodoList {
         }
         return listOfTasks;
     }
+
+    public boolean changeStatus(String task, String newStatus) {
+        if (toDoList.containsKey(task)) {
+            if (newStatus.equals(toDoList.get(task))) {
+                System.out.println("Same status");
+                return false;
+            }
+            toDoList.replace(toDoList.get(task), newStatus);
+            System.out.println("Status changed successfully");
+            return true;
+        }
+        return false;
+    }
 }
