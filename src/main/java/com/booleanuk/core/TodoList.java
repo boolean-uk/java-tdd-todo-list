@@ -88,10 +88,24 @@ public class TodoList {
     for (String task : taskAscending) {
       this.taskList.put(task, false);
     }
-    System.out.println("ordered list alphabetically" + taskAscending);
+    System.out.println("ordered list alphabetically" + " " + taskAscending);
       return String.join(", ", taskAscending);
   }
+
+  public String sortTaskDescending() {
+
+    List<String> taskDescending = new ArrayList<>(this.taskList.keySet());
+    taskDescending.sort(Collections.reverseOrder());
+
+    this.taskList.clear();
+    for (String task : taskDescending) {
+      this.taskList.put(task, false);
+    }
+    System.out.println("ordered list reversed alphabetically" + " " + taskDescending);
+    return String.join(", ", taskDescending);
+  }
 }
+
 
 
 
