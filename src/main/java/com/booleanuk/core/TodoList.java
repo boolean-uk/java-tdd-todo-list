@@ -61,7 +61,16 @@ public class TodoList {
       return "You don't have incomplete tasks";
     }
   }
+  public String searchForTask(String searchTerm) {
+    for (String task : taskList.keySet()) {
+      if (task.equals(searchTerm)) {
+        return task;
+      }
+    }
+    return "Task not found: " + searchTerm; //If task is not found
+  }
 }
+
 
 
 
