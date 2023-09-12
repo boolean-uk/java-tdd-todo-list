@@ -92,5 +92,30 @@ class TodoListTest {
         todoList.addTask(taskTwo);
         Assertions.assertEquals("No completed tasks",todoList.getCompletedTasks());
     }
+    @Test
+    public void testGetIncompleteTasksSuccessful() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        todoList.changeTaskStatus(taskOne);
+        String taskTwo = "Go shopping";
+        todoList.addTask(taskTwo);
+        Assertions.assertEquals("Go shopping",todoList.getIncompleteTasks());
+        todoList.changeTaskStatus(taskOne);
+        Assertions.assertEquals("Feed the cat, Go shopping",todoList.getIncompleteTasks());
+    }
+
+    @Test
+    public void testGetIncompleteTasksIsEmpty() {
+        TodoList todoList = new TodoList();
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        String taskTwo = "Go shopping";
+        todoList.addTask(taskTwo);
+        todoList.changeTaskStatus(taskOne);
+        todoList.changeTaskStatus(taskTwo);
+
+        Assertions.assertEquals("No incomplete tasks",todoList.getIncompleteTasks());
+    }
 
 }
