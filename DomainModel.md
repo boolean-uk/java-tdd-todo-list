@@ -26,7 +26,7 @@ Create domain models based on the requirements outlined below.
 
 | Method                 | Attributes            | Scenario                               | Outcome                                                                            |
 |------------------------|-----------------------|----------------------------------------|------------------------------------------------------------------------------------|
-| ToDoList()             | ArrayList<Task> tasks | Initiate ToDo List                     | Constructor - Create an empty list of tasks                                        |
+| TodoList()             | ArrayList<Task> tasks | Initiate Todo List                     | Constructor - Create an empty list of tasks                                        |
 | add(String name)       |                       | 1. Add a new task to the list          | No Return Value, There is no capacity factor, therefore task is added successfully |
 | getTasks()             |                       | 2. Get all tasks                       | String built from all task names                                                   |
 | setStatus(String name) |                       | 3. Change task status:                 |                                                                                    |
