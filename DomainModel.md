@@ -25,8 +25,6 @@ Class TodoList:
 |                                |                               | listTasks is empty            | String       |
 |                                | getSortedTasksDescending()    | listTasks is NOT empty        | String       |
 |                                |                               | listTasks is empty            | String       |
-|                                |                               |                               |              |
-|                                |                               |                               |              |
 
 ### Extension Requirements
 
@@ -52,6 +50,4 @@ Class Task:
 | boolean status     |                |                         |        |
 | String timeAndDate | name setter    | name is valid           | true   |
 |                    |                | name is an empty string | false  |
-|                    |                |                         |        |
-|                    |                |                         |        |
 |                    | toggleStatus() |                         |        |

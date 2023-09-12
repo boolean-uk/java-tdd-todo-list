@@ -1,26 +1,34 @@
 package com.booleanuk.extension;
 
-import com.booleanuk.core.TodoList;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class TodoListExtensionTest {
+    private TodoListExtension todoList;
+
+    @BeforeEach
+    void setUp() {
+        todoList = new TodoListExtension();
+        Task.resetNextId();
+        // This was needed because without it the tests were passing individually,
+        // but failing when I run them all together.
+    }
+
     @Test
     public void testGetTask() {
-        TodoListExtension todoList = new TodoListExtension();
         Assertions.assertTrue(todoList.addTask("Feed the cat", "2023-09-15 14:00"));
         Assertions.assertEquals(1, todoList.tasks.size());
         Assertions.assertEquals(("Feed the cat"), todoList.tasks.get(0).getName());
         Assertions.assertEquals("Task 1: Feed the cat - incomplete", todoList.getTaskById(1));
-        Assertions.assertTrue(todoList.addTask("Feed the dog", "2023-09-15 14:00"));
-        Assertions.assertEquals("Task 2: Feed the dog - incomplete", todoList.getTaskById(1));
+        Assertions.assertTrue(todoList.addTask("Feed the dog", "2023-09-16 14:00"));
+        Assertions.assertEquals("Task 2: Feed the dog - incomplete", todoList.getTaskById(2));
         Assertions.assertEquals("Task not found", todoList.getTaskById(3));
 
     }
 
     @Test
     public void testUpdateTaskName() {
-        TodoListExtension todoList = new TodoListExtension();
         Assertions.assertTrue(todoList.addTask("Feed the cat","2023-09-15 14:00"));
         Assertions.assertEquals(1, todoList.tasks.size());
         Assertions.assertTrue(todoList.updateTaskName(1, "Feed the dog"));
@@ -30,7 +38,6 @@ class TodoListExtensionTest {
     }
     @Test
     public void testChangeStatus() {
-        TodoListExtension todoList = new TodoListExtension();
         Assertions.assertTrue(todoList.addTask("Feed the cat","2023-09-15 14:00"));
         Assertions.assertEquals(1, todoList.tasks.size());
         Assertions.assertFalse(todoList.tasks.get(0).getStatus());
@@ -38,9 +45,9 @@ class TodoListExtensionTest {
         Assertions.assertTrue(todoList.tasks.get(0).getStatus());
         Assertions.assertEquals("Task not found.",todoList.changeTaskStatus(2));
 
-    }  @Test
+    }
+    @Test
     public void testGetTaskTimeAndDate() {
-        TodoListExtension todoList = new TodoListExtension();
         Assertions.assertTrue(todoList.addTask("Feed the cat","2023-09-15 14:00"));
         Assertions.assertTrue(todoList.addTask("Feed the dog","2023-09-15 16:00"));
         Assertions.assertEquals("2023-09-15 14:00", todoList.getTaskTimeAndDate(1));

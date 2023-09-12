@@ -32,9 +32,6 @@ public class Task {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;
@@ -57,6 +54,9 @@ public class Task {
     }
 
     public void toggleStatus() {
-
+        this.setStatus(!this.getStatus());
+    }
+    public static void resetNextId() {
+        nextId = 1;
     }
 }
