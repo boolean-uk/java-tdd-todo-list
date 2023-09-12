@@ -24,4 +24,18 @@ public class TodoList {
         }
         return String.valueOf(result).substring(0,result.length()-1);
     }
+
+    public boolean setStatus(String name){
+        return true;
+    }
+
+    public ArrayList<Task> getComplete() {
+        ArrayList<Task> tmp = new ArrayList<>();
+        return tmp;
+    }
+
+    public ArrayList<Task> getIncomplete() {
+        ArrayList<Task> tmp = new ArrayList<>();
+        return tmp;
+    }
 }
