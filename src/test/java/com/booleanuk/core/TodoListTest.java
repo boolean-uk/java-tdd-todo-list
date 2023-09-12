@@ -165,8 +165,10 @@ class TodoListTest {
         String taskTwo = "Go shopping";
         todoList.addTask(taskTwo);
         todoList.changeTaskStatus(taskTwo);
-        Assertions.assertEquals("Feed the cat: incomplete/nGo shopping: completed", todoList.getSortedTasksAscending());
+        Assertions.assertEquals("Go shopping: incomplete\nFeed the cat: completed", todoList.getSortedTasksAscending());
 
 
     }
+
+  
 }

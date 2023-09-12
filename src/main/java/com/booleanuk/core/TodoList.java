@@ -2,13 +2,14 @@ package com.booleanuk.core;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class TodoList {
-    public HashMap<String, Boolean> tasks;
+    public TreeMap<String, Boolean> tasks;
 
     public TodoList() {
-        this.tasks = new HashMap<String, Boolean>();
+        this.tasks = new TreeMap<String, Boolean>();
     }
 
     public boolean addTask(String task) {
@@ -71,5 +72,13 @@ public class TodoList {
     public boolean removeTask(String task) {
         return this.tasks.remove(task) != null;
 
+    }
+
+    public String getSortedTasksAscending() {
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<String, Boolean> entry : this.tasks.entrySet()) {
+            sb.append(String.format("%s: %s\n", entry.getKey(),entry.getValue()?"completed":"incomplete"));
+        }
+        return sb.isEmpty() ? "The to-do list is empty!" : String.valueOf(sb);
     }
 }
