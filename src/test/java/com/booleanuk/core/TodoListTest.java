@@ -24,6 +24,7 @@ class TodoListTest {
         Assertions.assertTrue(todoList.taskList.containsKey(task));
         Assertions.assertEquals(true, todoList.taskList.get(task));
     }
+
     @Test
     public void testGetTasksWorks() {
         TodoList todoList = new TodoList();
@@ -36,6 +37,22 @@ class TodoListTest {
 
         String expected = "Task: Walk the dog, Iron shirts, Do the dishes";
         Assertions.assertEquals(expected, todoList.getTasks());
+    }
+
+    @Test
+    public void testChangeTaskStatusWorks() {
+        TodoList todoList = new TodoList();
+        String task = "Walk the dog";
+        boolean initialTaskStatus = false;
+
+        assertTrue(todoList.addToTodoList(task, initialTaskStatus));
+        Assertions.assertTrue(todoList.taskList.containsKey(task));
+        Assertions.assertEquals(initialTaskStatus, todoList.taskList.get(task));
+
+        boolean newStatus = true; //change the status to complete
+        assertTrue(todoList.changeStatus(task, newStatus));
+        Assertions.assertTrue(todoList.taskList.containsValue(newStatus));
+        Assertions.assertEquals(newStatus, todoList.taskList.get(task));
     }
 }
 
