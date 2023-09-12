@@ -38,7 +38,7 @@ Class TodoList:
 |                           |                                     | Task with this id does not exist | String |
 |                           | updateTaskName(int id, String name) | Task with this id exists         | true   |
 |                           |                                     | Task with this id does not exist | false  |
-|                           | changeStatus(int id)                | Task with this id exists         | String |
+|                           | changeTaskStatus(int id)            | Task with this id exists         | String |
 |                           |                                     | Task with this id does not exist | String |
 |                           | getTaskTimeAndDate(int id)          | Task with this id exists         | String |
 |                           |                                     | Task with this id does not exist | String |
