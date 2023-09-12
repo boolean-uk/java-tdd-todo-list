@@ -21,8 +21,9 @@ class TodoListTest {
     }
 
     @Test
-    public void tasksShouldBePrintedSuccessfully() {
+    public void tasksShouldBeRetrievedSuccessfully() {
         TodoList tdl = new TodoList();
+        Assertions.assertEquals("", tdl.getTasks());
         tdl.add("Super Market");
         tdl.add("Get Haircut");
 
