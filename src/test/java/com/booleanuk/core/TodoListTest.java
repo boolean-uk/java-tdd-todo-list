@@ -77,4 +77,42 @@ class TodoListTest {
         tdl.setStatus("Laundry");
         Assertions.assertEquals(expected, tdl.getIncomplete());
     }
+
+    @Test
+    public void shouldFindExistingTask() {
+        TodoList tdl = new TodoList();
+        tdl.add("Iron Clothes");
+        tdl.add("Laundry");
+        tdl.add("Walk Dog");
+        String expected = "Laundry";
+        Task task = tdl.search("Laundry");
+        Assertions.assertEquals(expected, task == null? null: task.getName());
+    }
+
+    @Test
+    public void shouldNotFindFakeTask() {
+        TodoList tdl = new TodoList();
+        tdl.add("Iron Clothes");
+        tdl.add("Laundry");
+        Assertions.assertNull(tdl.search("Walk Dog"));
+    }
+
+    @Test
+    public void shouldRemoveExistingTask(){
+        TodoList tdl = new TodoList();
+        tdl.add("Laundry");
+        tdl.add("Walk Dog");
+        tdl.add("Iron Clothes");
+        Assertions.assertTrue(tdl.remove("Iron Clothes"));
+        String expected = "Laundry\nWalk Dog";
+        Assertions.assertEquals(expected, tdl.getTasks());
+    }
+
+    @Test
+    public void shouldNotRemoveFakeTask() {
+        TodoList tdl = new TodoList();
+        tdl.add("Laundry");
+        tdl.add("Walk Dog");
+        Assertions.assertFalse(tdl.remove("Iron Clothes"));
+    }
 }

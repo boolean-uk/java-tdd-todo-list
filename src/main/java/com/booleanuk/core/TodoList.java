@@ -64,4 +64,12 @@ public class TodoList {
         }
         return String.valueOf(result).substring(0,result.length()-1);
     }
+
+    public Task search(String name){
+        return null;
+    }
+
+    public boolean remove(String name){
+        return true;
+    }
 }
