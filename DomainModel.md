@@ -42,5 +42,5 @@ Create domain models based on the requirements outlined below.
 | remove(String name)    |                       | 7. Remove task from list (use search): |                                                                                    |
 |                        |                       | - If task exists                       | True, Task Removed                                                                 |
 |                        |                       | - If task doesn't exist                | False, Message printed from search method                                          |
-| printAsc()             |                       | 8. See tasks in asc name order         | No Return Value, Tasks printed in asc name order                                   |
-| printDesc()            |                       | 9. See tasks in desc name order        | No Return Value, Tasks printed in desc name order                                  |
+| getAsc()               |                       | 8. See tasks in asc name order         | String of tasks in asc name order                                                  |
+| getDesc()              |                       | 9. See tasks in desc name order        | String of tasks in desc name order                                                 |
