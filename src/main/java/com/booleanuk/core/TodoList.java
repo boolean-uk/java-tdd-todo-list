@@ -44,9 +44,21 @@ public class TodoList {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.joining(", "));
         if (completedTasks.isEmpty()) {
-            return "No completed tasks"; 
+            return "No completed tasks";
         } else {
             return completedTasks;
+        }
+    }
+    public String getIncompleteTasks() {
+        String incompleteTasks = this.tasks.entrySet()
+                .stream()
+                .filter(entry -> !entry.getValue())
+                .map(Map.Entry::getKey)
+                .collect(Collectors.joining(", "));
+        if (incompleteTasks.isEmpty()) {
+            return "No incomplete tasks";
+        } else {
+            return incompleteTasks;
         }
     }
 }
