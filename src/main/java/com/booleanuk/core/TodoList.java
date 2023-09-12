@@ -10,6 +10,11 @@ public class TodoList {
     }
 
     public boolean addTask(String task) {
-        return this.tasks.putIfAbsent(task, false) == null;
+        if (task.isBlank()) {
+            return false;
+        } else {
+            boolean res = this.tasks.putIfAbsent(task.strip(), false) == null;
+            return res;
+        }
     }
 }

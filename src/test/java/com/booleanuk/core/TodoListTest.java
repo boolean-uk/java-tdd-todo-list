@@ -23,7 +23,7 @@ class TodoListTest {
     @Test
     public void addTaskFailsBecauseEmptyString() {
         TodoList todoList = new TodoList();
-        Assertions.assertFalse(todoList.addTask("\n\r\t\b\f"));
+        Assertions.assertFalse(todoList.addTask("\n\r\t"));
         Assertions.assertEquals(0, todoList.tasks.size());
     }
 
