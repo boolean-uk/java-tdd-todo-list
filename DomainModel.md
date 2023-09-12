@@ -6,7 +6,7 @@ Class TodoList:
 
 | Member Variables               | Methods                    | Scenario                      | Output       |
 |--------------------------------|----------------------------|-------------------------------|--------------|
-| HashMap<String, boolean> tasks | addTask()                  | Task added successfully       | true         |
+| HashMap<String, boolean> tasks | addTask(String task)       | Task added successfully       | true         |
 |                                |                            | Task already exists           | false        |
 |                                | getTasks()                 | mapTasks in NOT empty         | String       |
 |                                |                            | mapTasks is empty             | String       |
