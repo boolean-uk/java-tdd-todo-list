@@ -10,14 +10,21 @@ class TodoListTest {
         Assertions.assertTrue(todoList.addTask("Feed the cat"));
         Assertions.assertEquals(1, todoList.tasks.size());
         Assertions.assertTrue(todoList.tasks.containsKey("Feed the cat"));
+        Assertions.assertFalse(todoList.tasks.get("Feed the cat"));
     }
     @Test
-    public void addTaskSFailed() {
+    public void addTaskFailed() {
         TodoList todoList = new TodoList();
         Assertions.assertTrue(todoList.addTask("Feed the cat"));
         Assertions.assertEquals(1, todoList.tasks.size());
         Assertions.assertTrue(todoList.tasks.containsKey("Feed the cat"));
         Assertions.assertFalse(todoList.addTask("Feed the cat"));
+    }
+    @Test
+    public void addTaskFailsBecauseEmptyString() {
+        TodoList todoList = new TodoList();
+        Assertions.assertFalse(todoList.addTask("\n\r\t\b\f"));
+        Assertions.assertEquals(0, todoList.tasks.size());
     }
 
 }
