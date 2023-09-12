@@ -28,7 +28,7 @@ Create domain models based on the requirements outlined below.
 |------------------------|-----------------------|----------------------------------------|------------------------------------------------------------------------------------|
 | ToDoList()             | ArrayList<Task> tasks | Initiate ToDo List                     | Constructor - Create an empty list of tasks                                        |
 | add(String name)       |                       | 1. Add a new task to the list          | No Return Value, There is no capacity factor, therefore task is added successfully |
-| viewTasks()            |                       | 2. View all tasks                      | No Return Value, Task names printed through list iteration                         |
+| getTasks()             |                       | 2. Get all tasks                       | String built from all task names                                                   |
 | setStatus(String name) |                       | 3. Change task status:                 |                                                                                    |
 |                        |                       | - If task in list                      | True, Status condition inverted                                                    |
 |                        |                       | - If task not in list                  | False, No Message                                                                  |
