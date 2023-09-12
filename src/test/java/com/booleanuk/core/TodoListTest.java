@@ -62,4 +62,45 @@ class TodoListTest {
         Assertions.assertFalse(todoList.changeStatus(task1, incomplete));
         Assertions.assertTrue(todoList.changeStatus(task1, complete));
     }
+
+    @Test
+    public void getCategoryTasks() {
+        TodoList todoList = new TodoList();
+
+        String task1 = "Do the dishes";
+        String task2 = "Wash the car";
+        todoList.addTask(task1);
+        todoList.addTask(task2);
+
+        String complete = "complete";
+        String incomplete = "incomplete";
+
+        ArrayList<String> completedTasks = todoList.getCategoryTasks(complete);
+        ArrayList<String> incompletedTasks = todoList.getCategoryTasks(incomplete);
+
+        Assertions.assertEquals(0, completedTasks.size());
+        Assertions.assertNotEquals(0, incompletedTasks.size());
+        Assertions.assertEquals(2, incompletedTasks.size());
+
+        todoList.changeStatus(task1, complete);
+        completedTasks = todoList.getCategoryTasks(complete);
+        incompletedTasks = todoList.getCategoryTasks(incomplete);
+
+        Assertions.assertEquals(1, completedTasks.size());
+        Assertions.assertEquals(1, incompletedTasks.size());
+
+        todoList.changeStatus(task2, complete);
+        completedTasks = todoList.getCategoryTasks(complete);
+        incompletedTasks = todoList.getCategoryTasks(incomplete);
+
+        Assertions.assertEquals(2, completedTasks.size());
+        Assertions.assertEquals(0, incompletedTasks.size());
+
+        todoList.changeStatus(task1, incomplete);
+        completedTasks = todoList.getCategoryTasks(complete);
+        incompletedTasks = todoList.getCategoryTasks(incomplete);
+
+        Assertions.assertEquals(1, completedTasks.size());
+        Assertions.assertEquals(1, incompletedTasks.size());
+    }
 }
