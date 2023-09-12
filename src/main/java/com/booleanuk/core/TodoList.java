@@ -15,6 +15,9 @@ public class TodoList {
     }
 
     public String getTasks() {
+        if (tasks.size() == 0){
+            return "";
+        }
         StringBuilder result = new StringBuilder();
         for (Task task: this.tasks){
             result.append(task.getName()).append("\n");
