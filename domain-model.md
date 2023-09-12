@@ -22,7 +22,7 @@
 |                                   |                                                |                                             | Return false                                      |
 | `showToDoList()`                  |                                                | 2.                                          |                                                   |
 |                                   |                                                | If the toDoList is empty                    | Output empty message                              |
-|                                   |                                                |                                             | Return false                                      |
+|                                   |                                                |                                             | Return empty list                                 |
 |                                   |                                                | 2.                                          |                                                   |
 |                                   |                                                | If the toDoList is not empty                | Print all the tasks from the toDoList             |
 |                                   |                                                |                                             | Return a list of Strings                          |
