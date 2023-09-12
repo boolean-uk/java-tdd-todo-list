@@ -6,19 +6,19 @@ public class Task {
 
     public Task(String name) {
         this.name = name;
-        status = false;
+        this.status = false;
     }
 
     public String getName() {
-        return "";
+        return this.name;
     }
 
 
     public boolean getStatus() {
-        return false;
+        return this.status;
     }
 
     public void setStatus() {
-        status = !status;
+        this.status = !this.status;
     }
 }
