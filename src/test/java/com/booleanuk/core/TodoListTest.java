@@ -12,7 +12,7 @@ class TodoListTest {
 //    }
 
     @Test
-    void addItemsToTheTodoList(){
+    void addItemsToTheTodoList() {
         TodoList todolist = new TodoList();
 
         String todo1 = "groceries";
@@ -20,10 +20,32 @@ class TodoListTest {
         String todo3 = "dentist";
         String todo4 = "cleaning";
 
+        todolist.addTask(todo1);
+        todolist.addTask(todo2);
+        todolist.addTask(todo3);
+        todolist.addTask(todo4);
+
+
         Assertions.assertEquals(4, todolist.items.size());
 
     }
 
+    @Test
+    void seeWhatTasksYouHave() {
+        TodoList todolist = new TodoList();
+
+        String todo1 = "groceries";
+        String todo2 = "bills";
+        String todo3 = "dentist";
+
+
+        todolist.addTask(todo1);
+        todolist.addTask(todo2);
+        todolist.addTask(todo3);
+
+        Assertions.assertEquals("groceries, bills, dentist", todolist.seeTasks());
+
+    }
 
 
 }

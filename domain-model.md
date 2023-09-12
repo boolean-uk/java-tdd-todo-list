@@ -14,9 +14,9 @@
 | Classes  | Methods               | Scenario                                              | Outputs                                              |
 |----------|-----------------------|-------------------------------------------------------|------------------------------------------------------|
 | TodoList | addTask(String task)  | 1. The task has been added successfully               | message: The task has been added                     |
-|          |                       |                                                       | return true;                                         |
+|          |                       |                                                       |                                                      |
 |          |                       | 1. The task didn't get added                          | message: The task has not been added                 |
-|          |                       |                                                       | return false;                                        |
+|          |                       |                                                       |                                                      |
 |          |                       |                                                       |                                                      |
 |          | seeTasks()            | 2. The tasks are displayed                            | message: (all the tasks)                             |
 |          |                       | 2. The tasks are not displayed                        | message: (error)                                     |
