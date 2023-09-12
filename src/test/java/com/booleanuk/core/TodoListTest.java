@@ -169,6 +169,18 @@ class TodoListTest {
 
 
     }
+    @Test
+    public void testGetSortedTasksDescending() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("The to-do list is empty!",todoList.getSortedTasksDescending());
+        String taskOne = "Feed the cat";
+        todoList.addTask(taskOne);
+        String taskTwo = "Go shopping";
+        todoList.addTask(taskTwo);
+        todoList.changeTaskStatus(taskTwo);
+        Assertions.assertEquals("Feed the cat: incomplete\nGo shopping: completed", todoList.getSortedTasksDescending());
 
-  
+
+    }
+
 }
