@@ -97,6 +97,21 @@ class TodoListTest {
         String result = todoList.searchForTask("Pet the cat");
         Assertions.assertEquals("Task not found: Pet the cat", result);
     }
+
+    @Test
+    public void testRemoveTask() {
+        TodoList todoList = new TodoList();
+        String task = "Walk the dog";
+        String taskTwo = "Iron shirts";
+        String taskThree = "Do the dishes";
+        todoList.addToTodoList(task, true);
+        todoList.addToTodoList(taskTwo, false);
+        todoList.addToTodoList(taskThree, false);
+
+        boolean removed = todoList.removeTask(taskTwo); //remove task two from the list
+        assertTrue(removed); //check if task two (Iron shirts) is removed
+        assertFalse(todoList.taskList.containsKey(taskTwo));
+    }
 }
 
 
