@@ -59,4 +59,30 @@ public class TodoList {
         return completedTasks.toString();
     }
 
+
+
+    public String getUncompletedTasks() {
+        StringBuilder uncompleted = new StringBuilder();
+
+        for (Map.Entry<String, Boolean> entry : todoItems.entrySet()) {
+            if (!entry.getValue()) {
+                uncompleted.append(entry.getKey()).append(", ");
+            }
+        }
+
+        if (!uncompleted.isEmpty()) {
+            uncompleted.delete(uncompleted.length() - 2, uncompleted.length());
+        }
+
+        return uncompleted.toString();
+    }
+
+
+
+
+
+
+
+
+
 }

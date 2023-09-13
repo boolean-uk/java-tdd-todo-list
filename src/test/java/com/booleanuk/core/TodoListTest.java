@@ -101,11 +101,29 @@ class TodoListTest {
         todolist.addTask(todo3, true);
         todolist.addTask(todo4, true);
 
-        Assertions.assertEquals("dentist, cleaning", todolist.getUncompletedTasks());
+        Assertions.assertEquals("groceries, bills", todolist.getUncompletedTasks());
 
 
     }
 
+    @Test
+    void searchForSpecificTasks() {
+        TodoList todolist = new TodoList();
 
+        String todo1 = "groceries";
+        String todo2 = "bills";
+        String todo3 = "dentist";
+        String todo4 = "cleaning";
+
+        todolist.addTask(todo1, false);
+        todolist.addTask(todo2, false);
+        todolist.addTask(todo3, true);
+        todolist.addTask(todo4, true);
+
+        Assertions.assertEquals(true, todolist.searchTask(todo1));
+        Assertions.assertEquals(false, todolist.searchTask("working"));
+
+
+    }
 
 }
