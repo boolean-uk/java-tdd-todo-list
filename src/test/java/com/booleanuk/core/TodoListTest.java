@@ -42,7 +42,28 @@ class TodoListTest {
         todolist.addTask(todo3);
         todolist.addTask(todo4);
 
-        Assertions.assertEquals("groceries, bills, dentist,cleaning", todolist.todoItems.size());
+        Assertions.assertEquals("groceries, bills, dentist, cleaning", todolist.seeTasks());
+
+
+    }
+
+    @Test
+    void changeStatus() {
+        TodoList todolist = new TodoList();
+
+        String todo1 = "groceries";
+        String todo2 = "bills";
+        String todo3 = "dentist";
+        String todo4 = "cleaning";
+
+        todolist.addTask(todo1);
+        todolist.addTask(todo2);
+        todolist.addTask(todo3);
+        todolist.addTask(todo4);
+
+        todolist.changeStatus("groceries");
+
+        Assertions.assertTrue(todolist.todoItems.get("groceries"));
 
 
     }
