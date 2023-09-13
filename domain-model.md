@@ -11,37 +11,37 @@
 
 -->
 
-| Classes  | Methods               | Scenario                                              | Outputs                                                            |
-|----------|-----------------------|-------------------------------------------------------|--------------------------------------------------------------------|
-| TodoList | addTask(String task)  | 1. The task has been added successfully               | message: The task has been added                                   |
-|          |                       |                                                       |                                                                    |
-|          |                       | 1. The task didn't get added                          | message: The task has not been added                               |
-|          |                       |                                                       |                                                                    |
-|          |                       |                                                       |                                                                    |
-|          | seeTasks()            | 2. The tasks are displayed                            | message: (all the tasks)                                           |
-|          |                       | 2. The tasks are not displayed                        | message: (error)                                                   |
-|          |                       |                                                       |                                                                    |
-|          | changeStatus()        | 3. The task' status has been changed                  | message: The status has been updated                               |
-|          |                       |                                                       | true                                                               |
-|          |                       | 3. The task has not been found                        | message: The task wasn't found                                     |
-|          |                       |                                                       | false                                                              |
-|          |                       |                                                       |                                                                    |
-|          | getCompletedTasks()   | 4. The user gets a list of tasks that are completed   | message: List of all the completed tasks                           |
-|          |                       |                                                       | list of tasks                                                      |
-|          |                       |                                                       |                                                                    |
-|          | getUncompletedTasks() | 5. The user gets a list of tasks that are uncompleted | message: List of all the uncompleted tasks                         |
-|          |                       |                                                       | list of tasks                                                      |
-|          | searchTask()          | 6. The task has been found                            | message: The task  "taskname" has been found in your Todo-list     |
-|          |                       | 6. The task doesn't exist                             | message: The task  "taskname" has not been found in your Todo-list |
-|          |                       |                                                       | false                                                              |
-|          |                       |                                                       |                                                                    |
-|          | removeTask()          | 7. The task has been removed                          | message: The task has been removed                                 |
-|          |                       |                                                       | true                                                               |
-|          |                       | 7. The task isn't present in the list                 | message: The task hasn't been found                                |
-|          |                       |                                                       | false                                                              |
-|          |                       |                                                       |                                                                    |
-|          | getAscendingOrder()   | 8. Get a list of all the items in ascending order     | List                                                               |
-|          |                       |                                                       |                                                                    |
-|          | getDescendingOrder()  | 9. Get a list of all the items in descending order    | List                                                               |
-|          |                       |                                                       |                                                                    |
+| Classes  | Methods               | Scenario                                              | Outputs                                                                 |
+|----------|-----------------------|-------------------------------------------------------|-------------------------------------------------------------------------|
+| TodoList | addTask(String task)  | 1. The task has been added successfully               | message: The task has been added                                        |
+|          |                       |                                                       |                                                                         |
+|          |                       | 1. The task didn't get added                          | message: The task has not been added                                    |
+|          |                       |                                                       |                                                                         |
+|          |                       |                                                       |                                                                         |
+|          | seeTasks()            | 2. The tasks are displayed                            | message: (all the tasks)                                                |
+|          |                       | 2. The tasks are not displayed                        | message: (error)                                                        |
+|          |                       |                                                       |                                                                         |
+|          | changeStatus()        | 3. The task' status has been changed                  | message: The status has been updated                                    |
+|          |                       |                                                       | true                                                                    |
+|          |                       | 3. The task has not been found                        | message: The task wasn't found                                          |
+|          |                       |                                                       | false                                                                   |
+|          |                       |                                                       |                                                                         |
+|          | getCompletedTasks()   | 4. The user gets a list of tasks that are completed   | message: List of all the completed tasks                                |
+|          |                       |                                                       | list of tasks                                                           |
+|          |                       |                                                       |                                                                         |
+|          | getUncompletedTasks() | 5. The user gets a list of tasks that are uncompleted | message: List of all the uncompleted tasks                              |
+|          |                       |                                                       | list of tasks                                                           |
+|          | searchTask()          | 6. The task has been found                            | message: The task  "taskname" has been found in your Todo-list          |
+|          |                       | 6. The task doesn't exist                             | message: The task  "taskname" has not been found in your Todo-list      |
+|          |                       |                                                       | false                                                                   |
+|          |                       |                                                       |                                                                         |
+|          | removeTask()          | 7. The task has been removed                          | message: The task "taskName" has been successfully removed              |
+|          |                       |                                                       | true                                                                    |
+|          |                       | 7. The task isn't present in the list                 | message: The task "taskName" could not be found in the list           } |
+|          |                       |                                                       | false                                                                   |
+|          |                       |                                                       |                                                                         |
+|          | getAscendingOrder()   | 8. Get a list of all the items in ascending order     | List                                                                    |
+|          |                       |                                                       |                                                                         |
+|          | getDescendingOrder()  | 9. Get a list of all the items in descending order    | List                                                                    |
+|          |                       |                                                       |                                                                         |
 

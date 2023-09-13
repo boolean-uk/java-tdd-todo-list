@@ -80,12 +80,23 @@ public class TodoList {
     public Boolean searchTask(String taskName) {
 
         if (todoItems.containsKey(taskName)) {
-            System.out.println("The task \"" + taskName + "\" has been found in your Todo-list");
+//            System.out.println("The task \"" + taskName + "\" has been found in your Todo-list");
             return true;
         }
-        System.out.println("The task \"" + taskName + "\" has not been found in your Todo-list");
+//        System.out.println("The task \"" + taskName + "\" has not been found in your Todo-list");
         return false;
 
+
+    }
+
+    public Boolean removeTask(String taskName) {
+        if (todoItems.containsKey(taskName)) {
+            todoItems.remove(taskName);
+            System.out.println("The task \"" + taskName + "\" has been successfully removed");
+            return true;
+        }
+        System.out.println("The task \"" + taskName + "\" could not be found in the list");
+        return false;
 
     }
 
