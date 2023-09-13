@@ -60,7 +60,6 @@ public class TodoList {
     }
 
 
-
     public String getUncompletedTasks() {
         StringBuilder uncompleted = new StringBuilder();
 
@@ -78,11 +77,17 @@ public class TodoList {
     }
 
 
+    public Boolean searchTask(String taskName) {
+
+        if (todoItems.containsKey(taskName)) {
+            System.out.println("The task \"" + taskName + "\" has been found in your Todo-list");
+            return true;
+        }
+        System.out.println("The task \"" + taskName + "\" has not been found in your Todo-list");
+        return false;
 
 
-
-
-
+    }
 
 
 }
