@@ -42,6 +42,21 @@ public class TodoList {
         }
     }
 
+    public String getCompletedTasks() {
+        StringBuilder completedTasks = new StringBuilder();
+        List<Map.Entry<String, Boolean>> entryList = new ArrayList<>(todoItems.entrySet());
 
+        for (int i = 0; i < entryList.size(); i++) {
+            Map.Entry<String, Boolean> entry = entryList.get(i);
+            if (entry.getValue()) {
+                completedTasks.append(entry.getKey());
+                if (i < entryList.size() - 1) {
+                    completedTasks.append(", ");
+                }
+            }
+        }
+
+        return completedTasks.toString();
+    }
 
 }
