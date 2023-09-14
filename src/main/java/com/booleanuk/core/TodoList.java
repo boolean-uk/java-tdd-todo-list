@@ -100,5 +100,28 @@ public class TodoList {
 
     }
 
+    public String ascendingTasks() {
+
+        Map<String, Boolean> map = new TreeMap<>(todoItems);
+        StringBuilder list = new StringBuilder();
+
+        int i = 0;
+        for (String sKey : map.keySet()) {
+
+            list.append(sKey);
+            if (i < map.size() - 1) {
+                list.append(", ");
+            }
+            i++;
+        }
+        System.out.println(list);
+
+
+        return list.toString();
+    }
+
+
+  
+
 
 }

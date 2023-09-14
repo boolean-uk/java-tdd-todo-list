@@ -149,7 +149,7 @@ class TodoListTest {
     }
 
     @Test
-    void removeSpecificTasks() {
+    void getTheTasksInAscendingOrder() {
         TodoList todolist = new TodoList();
 
         String todo1 = "groceries";
@@ -166,6 +166,25 @@ class TodoListTest {
         Assertions.assertEquals("bills, cleaning, dentist, groceries", todolist.ascendingTasks());
 
 
+
+
+    }
+
+    @Test
+    void getTheTasksInDescendingOrder() {
+        TodoList todolist = new TodoList();
+
+        String todo1 = "groceries";
+        String todo2 = "bills";
+        String todo3 = "dentist";
+        String todo4 = "cleaning";
+
+        todolist.addTask(todo1, false);
+        todolist.addTask(todo2, false);
+        todolist.addTask(todo3, true);
+        todolist.addTask(todo4, true);
+
+        Assertions.assertEquals("groceries, dentist, cleaning, bills", todolist.descendingTasks());
     }
 
 
