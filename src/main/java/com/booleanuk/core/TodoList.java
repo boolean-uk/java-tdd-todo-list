@@ -14,7 +14,7 @@ public class TodoList {
 
     public void addTask(String item, boolean status) {
         todoItems.put(item, status);
-        System.out.println("The task has been added.");
+//        System.out.println("The task has been added.");
     }
 
 
