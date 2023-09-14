@@ -120,8 +120,26 @@ public class TodoList {
         return list.toString();
     }
 
+    public String descendingTasks() {
+        Map<String, Boolean> map = new TreeMap<>(Collections.reverseOrder());
+        map.putAll(todoItems);
+        StringBuilder list = new StringBuilder();
 
-  
+
+        int i = 0;
+        for (String sKey : map.keySet()) {
+
+            list.append(sKey);
+            if (i < map.size() - 1) {
+                list.append(", ");
+            }
+            i++;
+        }
+        System.out.println(list);
+
+
+        return list.toString();
+    }
 
 
 }
