@@ -148,5 +148,25 @@ class TodoListTest {
 
     }
 
+    @Test
+    void removeSpecificTasks() {
+        TodoList todolist = new TodoList();
+
+        String todo1 = "groceries";
+        String todo2 = "bills";
+        String todo3 = "dentist";
+        String todo4 = "cleaning";
+
+        todolist.addTask(todo1, false);
+        todolist.addTask(todo2, false);
+        todolist.addTask(todo3, true);
+        todolist.addTask(todo4, true);
+
+
+        Assertions.assertEquals("bills, cleaning, dentist, groceries", todolist.ascendingTasks());
+
+
+    }
+
 
 }
