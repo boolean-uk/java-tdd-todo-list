@@ -14,31 +14,35 @@ public class TodoList {
 
     public void addTask(String item, boolean status) {
         todoItems.put(item, status);
-//        System.out.println(todoItems);
+        System.out.println("The task has been added.");
     }
 
 
     public String seeTasks() {
-        StringBuilder str = new StringBuilder();
-        List<String> keys = new ArrayList<>(todoItems.keySet());
+        if (todoItems.size() > 0) {
+            StringBuilder str = new StringBuilder();
+            List<String> keys = new ArrayList<>(todoItems.keySet());
 
-        for (int i = 0; i < keys.size(); i++) {
-            str.append(keys.get(i));
-            if (i <= keys.size() - 2) {
-                str.append(", ");
+            for (int i = 0; i < keys.size(); i++) {
+                str.append(keys.get(i));
+                if (i <= keys.size() - 2) {
+                    str.append(", ");
+                }
             }
-
+            return str.toString();
         }
 
-        return str.toString();
+        return "No tasks found";
+
     }
 
     public void changeStatus(String itemName) {
         if (!todoItems.get(itemName)) {
-            System.out.println("the value is " + todoItems.get(itemName));
             todoItems.put(itemName, true);
+            System.out.println("The status has been changed.");
         } else {
             todoItems.put(itemName, false);
+            System.out.println("The status has been changed.");
         }
     }
 
@@ -55,7 +59,7 @@ public class TodoList {
                 }
             }
         }
-
+        System.out.println("List of all the completed tasks");
         return completedTasks.toString();
     }
 
@@ -72,7 +76,7 @@ public class TodoList {
         if (!uncompleted.isEmpty()) {
             uncompleted.delete(uncompleted.length() - 2, uncompleted.length());
         }
-
+        System.out.println("List of all the uncompleted tasks");
         return uncompleted.toString();
     }
 
@@ -80,10 +84,10 @@ public class TodoList {
     public Boolean searchTask(String taskName) {
 
         if (todoItems.containsKey(taskName)) {
-//            System.out.println("The task \"" + taskName + "\" has been found in your Todo-list");
+            System.out.println("The task \"" + taskName + "\" has been found in your Todo-list");
             return true;
         }
-//        System.out.println("The task \"" + taskName + "\" has not been found in your Todo-list");
+        System.out.println("The task \"" + taskName + "\" has not been found in your Todo-list");
         return false;
 
 
