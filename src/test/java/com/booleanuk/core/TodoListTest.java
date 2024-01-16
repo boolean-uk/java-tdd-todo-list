@@ -23,4 +23,14 @@ class TodoListTest {
         todoList.addTask("clean");
         Assertions.assertFalse(todoList.addTask("clean"));
     }
+
+    @Test
+    public void seeListTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        todoList.addTask("bake");
+        todoList.addTask("book dentist appointment");
+        String expected = "clean/nbake/nbook dentist appointment";
+        Assertions.assertEquals(expected, todoList.seeList());
+    }
 }
