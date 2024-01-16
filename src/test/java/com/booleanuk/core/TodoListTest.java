@@ -105,4 +105,37 @@ class TodoListTest {
         String expectedOutput = "";
         Assertions.assertEquals(expectedOutput, todoList.getTasks());
     }
+
+    @Test
+    public void testGetCompleteTasksWithGetStatusMethod() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        todoList.add("Go for a walk");
+        todoList.changeStatus("Go for a walk");
+        todoList.add("Laundry");
+        todoList.add("Make dinner");
+        todoList.changeStatus("Make dinner");
+        String[] completedTasks = new String[]{"Go for a walk", "Make dinner"};
+        Assertions.assertEquals(completedTasks, todoList.getStatus(true));
+    }
+
+    @Test
+    public void testGetIncompleteTasksWithGetStatusMethod() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        todoList.add("Go for a walk");
+        todoList.changeStatus("Go for a walk");
+        todoList.add("Laundry");
+        todoList.add("Make dinner");
+        todoList.changeStatus("Make dinner");
+        String[] completedTasks = new String[]{"Vacuum", "Laundry"};
+        Assertions.assertEquals(completedTasks, todoList.getStatus(false));
+    }
+
+    @Test
+    public void testGetStatusWithEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals(new String[]{}, todoList.getStatus(true));
+        Assertions.assertEquals(new String[]{}, todoList.getStatus(false));
+    }
 }
