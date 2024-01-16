@@ -134,6 +134,18 @@ class TodoListTest {
         Assertions.assertEquals("The task (" + "Task2" + ") does not exist in your Todolist.", getOutput());
     }
 
+    @Test
+    public void testRemoveTask() {
+        TodoList todoList = new TodoList();
 
+        todoList.addTaskToTodolist("Task1");
+
+        Assertions.assertTrue(todoList.checkTask("Task1"));
+
+        todoList.removeTask();
+
+        Assertions.assertFalse(todoList.checkTask("Task1"));
+
+    }
 
 }
