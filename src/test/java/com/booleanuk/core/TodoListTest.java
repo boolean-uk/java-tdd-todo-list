@@ -30,4 +30,17 @@ class TodoListTest {
 		todo.addTask(task2);
 		Assertions.assertEquals("0: Code more,\tIncomplete\n1: Code even more,\tIncomplete", todo.printList());
 	}
+	@Test
+	public void setCompleteTest(){
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		Task task2 = new Task("Code even more");
+
+		Assertions.assertFalse(task1.completed);
+		Assertions.assertFalse(task2.completed);
+		task1.setComplete(true);
+		Assertions.assertTrue(task1.completed);
+		Assertions.assertFalse(task2.completed);
+
+	}
 }
