@@ -33,4 +33,7 @@ public class TodoList {
         return true;
     }
 
+    public String getCompletedTasks() {
+        return "";
+    }
 }
