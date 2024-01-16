@@ -1,5 +1,6 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -204,6 +205,32 @@ public class TodoListExtension {
                 outputString.append("[");
                 outputString.append(!task.complete ? " " : "X");
                 outputString.append(("] "));
+                outputString.append(task.name);
+                outputString.append("\n");
+            }
+            System.out.print(outputString);
+        }   else {
+            System.out.print("No tasks to display, todo list is empty");
+        }
+    }
+
+    public void setDate(int ID, LocalDate date)
+    {
+        for(Task t : taskList)
+        {
+            if(t.ID == ID)
+                t.creationDate = date;
+        }
+    }
+
+    public void showDateAndTime()
+    {
+        if(!taskList.isEmpty()) {
+            StringBuilder outputString = new StringBuilder();
+            outputString.append("Your tasks are:\n");
+            for(Task task : taskList)  {
+                outputString.append(task.creationDate);
+                outputString.append(" ");
                 outputString.append(task.name);
                 outputString.append("\n");
             }

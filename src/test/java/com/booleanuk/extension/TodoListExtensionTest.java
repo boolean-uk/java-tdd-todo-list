@@ -447,12 +447,16 @@ class TodoListExtensionTest {
         todoListExtension.addTask("Eat yoghurt");
         todoListExtension.addTask("Paint the Mona Lisa");
 
+        todoListExtension.setDate(0, timeNow);
+        todoListExtension.setDate(1, timeNow);
 
         String expectedString = """
-                2024-01-16 15:42 Eat yoghurt
-                2024-01-16 15:42 Paint the Mona Lisa
+                Your tasks are:
+                2024-01-16 Eat yoghurt
+                2024-01-16 Paint the Mona Lisa
                 """;
 
+        todoListExtension.showDateAndTime();
         Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
     }
 }
