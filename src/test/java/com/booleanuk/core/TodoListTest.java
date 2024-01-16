@@ -21,7 +21,8 @@ class TodoListTest {
 
         todoList.addTaskToTodolist("Task1");
 
-        Map<String, Boolean> todolist = new HashMap<>();
+        Map<String, Boolean> todolist = todoList.getTodolist();
+
 
 
     }
