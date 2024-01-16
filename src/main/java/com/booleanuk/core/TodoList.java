@@ -103,6 +103,11 @@ public class TodoList {
 
     public boolean removeTask(String name) {
 
+        if (tasks.containsKey(name)) {
+            tasks.remove(name);
+            return true;
+        }
+
         return false;
 
 

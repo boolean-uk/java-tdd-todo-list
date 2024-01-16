@@ -168,7 +168,7 @@ class TodoListTest {
 
         boolean result = task1.removeTask("Slossgehewt");
 
-        Assertions.assertTrue(result);
+        Assertions.assertFalse(result);
 
 
     }
