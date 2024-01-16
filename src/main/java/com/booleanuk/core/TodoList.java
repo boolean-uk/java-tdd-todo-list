@@ -60,7 +60,7 @@ public class TodoList {
     }
 
     public ArrayList<Task> sortTasks(boolean descending) {
-         Collections.sort(tasks, new Comparator<Task>() {
+         Collections.sort(tasks, new Comparator<>() {
              @Override
              public int compare(Task task1, Task task2) {
                  return task1.name.compareToIgnoreCase(task2.name);
