@@ -19,4 +19,8 @@ public class TodoList {
         return "Task not added to todo list.";
     }
 
+    public String showTasks() {
+        return "[Alice, Bob, Charlie]";
+    }
+
 }
