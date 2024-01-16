@@ -15,6 +15,22 @@ public class Task {
         return id;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
     @Override
     public String toString() {
         return "[\"" + description + "\", " + (completed ? "complete" : "incomplete") + "]";

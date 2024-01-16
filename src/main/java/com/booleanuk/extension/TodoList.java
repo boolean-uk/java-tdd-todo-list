@@ -29,6 +29,26 @@ public class TodoList {
         return tasks;
     }
 
+    public int renameTask(int id, String description) {
+        for (Task task : tasks) {
+            if (task.getId() == id) {
+                task.setDescription(description);
+                return id;
+            }
+        }
+        return -1;
+    }
+
+    public int setCompletionStatus(int id, boolean completion) {
+        for (Task task : tasks) {
+            if (task.getId() == id) {
+                task.setCompleted(completion);
+                return id;
+            }
+        }
+        return -1;
+    }
+
     public void clear() {
         this.tasks.clear();
     }
