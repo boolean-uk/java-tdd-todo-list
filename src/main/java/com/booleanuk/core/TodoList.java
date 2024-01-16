@@ -1,6 +1,9 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 public class TodoList {
 
@@ -68,6 +71,14 @@ public class TodoList {
             return true;
         }
         return false;
+    }
+    public void printTasksInAscOrder() {
+        List<String> sortedTasks = new ArrayList<>(toDoList.keySet());
+        Collections.sort(sortedTasks);
+
+        for (String task : sortedTasks) {
+            System.out.println(task);
+        }
     }
 
 }
