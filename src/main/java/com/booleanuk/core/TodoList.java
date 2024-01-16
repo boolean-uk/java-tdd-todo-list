@@ -81,8 +81,9 @@ public class TodoList {
     }
     public int getLastAlphabetically(ArrayList<String> tasks) {
         int last = 0;
-        int counter = 0;
+        int counter;
         for (int i = 0; i < tasks.size(); i++) {
+            counter = 0;
             for (int j = 0; j < tasks.size(); j++) {
                 if (tasks.get(i).compareToIgnoreCase(tasks.get(j)) >= 0) {
                     counter++;
@@ -91,6 +92,9 @@ public class TodoList {
                     last = i;
                     break;
                 }
+            }
+            if (counter == tasks.size()) {
+                break;
             }
         }
         return last;
