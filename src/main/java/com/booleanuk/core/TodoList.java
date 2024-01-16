@@ -33,6 +33,9 @@ public class TodoList {
     }
 
     public String checkOneTask(String task){
+        if (!isTaskInList(task)){
+            return "Task not found";
+        }
         return task +": "+ todoList.get(task);
     }
 }
