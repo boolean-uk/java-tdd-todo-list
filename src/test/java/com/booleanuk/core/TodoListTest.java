@@ -30,4 +30,26 @@ class TodoListTest {
         todoList.add("exercise");
         Assertions.assertTrue(todoList.todos.containsKey("exercise"));
     }
+
+    @Test
+    public void testGetTodoListWithSingleItem() {
+        TodoList todoList = new TodoList();
+        todoList.add("exercise");
+        Assertions.assertEquals("exercise: Incomplete", todoList.getTodoList());
+    }
+
+    @Test
+    public void testGetTodoListWithMultipleItems() {
+        TodoList todoList = new TodoList();
+        todoList.add("Code");
+        todoList.add("Exercise");
+        todoList.add("Work");
+        Assertions.assertEquals("Exercise: Incomplete\nWork: Incomplete\nCode: Incomplete", todoList.getTodoList());
+    }
+
+    @Test
+    public void testGetTodoListWithNoItems() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("List is empty", todoList.getTodoList());
+    }
 }

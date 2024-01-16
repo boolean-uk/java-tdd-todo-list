@@ -11,10 +11,10 @@ I want to add tasks to my todo list.
 ```
 I want to see all the tasks in my todo list.
 ```
-| Method               | Variables                      | Scenario          | Return values/Output                   |
-|----------------------|--------------------------------|-------------------|----------------------------------------|
-| getList(String task) | HashMap<String, boolean> todos | Get the todo list | List in nicely formatted string format |
-|                      |                                | List empty        | Empty string                           |
+| Method        | Variables                      | Scenario          | Return values/Output                   |
+|---------------|--------------------------------|-------------------|----------------------------------------|
+| getTodoList() | HashMap<String, boolean> todos | Get the todo list | List in nicely formatted string format |
+|               |                                | List empty        | Empty string                           |
 ```
 I want to change the status of a task between incomplete and complete.
 ```
