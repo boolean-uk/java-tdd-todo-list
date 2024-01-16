@@ -4,14 +4,14 @@ import java.util.HashMap;
 
 public class TodoList {
 
-    HashMap<String, Integer> list = new HashMap<String, Integer>();
+    HashMap<String, String> list = new HashMap<String, String>();
 
 
     public String add(String task){
         if (list.containsKey(task)){
             return "Task already in TodoList";
         }
-        list.put(task, 0);
+        list.put(task, "Incomplete");
         return task+ " added to TodoList";
     }
 
