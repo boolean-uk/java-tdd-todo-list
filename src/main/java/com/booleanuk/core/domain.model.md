@@ -7,8 +7,8 @@
 - I want to change the status of a task between incomplete and complete. √
 - I want to be able to get only the complete tasks. √
 - I want to be able to get only the incomplete tasks. √
-- I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
-- I want to remove tasks from my list.
+- I want to search for a task and receive a message that says it wasn't found if it doesn't exist. √
+- I want to remove tasks from my list. 
 - I want to see all the tasks in my list ordered alphabetically in ascending order.
 - I want to see all the tasks in my list ordered alphabetically in descending order.
 
@@ -20,7 +20,8 @@
 |                   | retrieveTasks()    | I want to know what tasks I have | Print the tasks, and return the list | List<Task> |
 |                   | getCompleteTasks() | I want to see completed tasks    | Print the tasks, and return the list | List<Task> |
 |                   | searchTask()       | I want to know if tasks exists   | Print the tasks, and return it       | Task       |
-|                   |                    |                                  |                                      |            |
+|                   | removeTask()       | I want to remove a task          | Print which task was removed         | Sys.out    |
+|                   | removeAllTasks()   | I want to remove all tasks       | Print which tasks was removed        | Sys.out    |
 
 
 ### Task
