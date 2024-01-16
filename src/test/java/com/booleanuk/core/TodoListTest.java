@@ -152,4 +152,27 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertEquals("No tasks incomplete",todoList.getIncompleteTasks());
     }
+
+    @Test
+    public void testSearchForTask() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        Assertions.assertEquals("Work: incomplete",todoList.getTask("Work"));
+    }
+
+    @Test
+    public void testSearchForTaskNotInList() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        Assertions.assertEquals("Task not found",todoList.getTask("Code"));
+    }
+
+    @Test
+    public void testSearchForTaskInListWithMultipleTasks() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        todoList.add("Code");
+        todoList.add("Write tests :(");
+        Assertions.assertEquals("Work: incomplete",todoList.getTask("Work"));
+    }
 }
