@@ -99,8 +99,25 @@ class TodoListTest {
     public void testGetCompleteOrIncompleteTasks() {
         TodoList todoList = new TodoList();
 
+        todoList.addTaskToTodolist("Task1");
+        todoList.addTaskToTodolist("Task2");
+        todoList.addTaskToTodolist("Task3");
+
+        Assertions.assertFalse(todoList.getTodolist().get("Task1"));
+        Assertions.assertFalse(todoList.getTodolist().get("Task2"));
+        Assertions.assertFalse(todoList.getTodolist().get("Task3"));
+        todoList.changeTaskToCompleteOrIncomplete("Task2");
+
+        Assertions.assertTrue(todoList.getTodolist().get("Task2"));
+
         Map<String, Boolean> completeTasks = todoList.getCompleteOrIncompleteTasks("Complete");
         Map<String, Boolean> incompleteTasks = todoList.getCompleteOrIncompleteTasks("Incomplete");
+
+        Assertions.assertTrue(completeTasks.containsKey("Task2"));
+
+
+        Assertions.assertTrue(incompleteTasks.containsKey("Task2"));
+        Assertions.assertTrue(incompleteTasks.containsKey("Task2"));
 
     }
 }
