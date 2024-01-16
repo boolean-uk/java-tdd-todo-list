@@ -31,8 +31,8 @@ I want to be able to change the status of a task by providing its ID.
 I want to be able to see the date and time that I created each task.
 ```
 #### creationTime added to Task class for this purpose. Can create a getTasks that displays all the fields except id
-| Method     | Variables             | Scenario                                                | Return values/Output  |
-|------------|-----------------------|---------------------------------------------------------|-----------------------|
-| getTasks() | ArrayList<Task> todos | Tasks list presented nicely in a string with all fields | String list           |
-|            |                       | List empty                                              | List is empty message |
+| Method             | Variables             | Scenario                                                | Return values/Output  |
+|--------------------|-----------------------|---------------------------------------------------------|-----------------------|
+| getTasksWithTime() | ArrayList<Task> todos | Tasks list presented nicely in a string with all fields | String list           |
+|                    |                       | List empty                                              | List is empty message |
 
