@@ -2,7 +2,6 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class TodoList {
@@ -56,6 +55,22 @@ public class TodoList {
             return "None of your tasks are complete";
         } else {
             return String.join(", ", completeTasks);
+        }
+    }
+
+    public String getIncompleteTasks() {
+        ArrayList<String> incompleteTasks = new ArrayList<>();
+
+        for (Map.Entry<String, String> entry : todoList.entrySet()) {
+            if (entry.getValue().equals("Incomplete")) {
+                incompleteTasks.add(entry.getKey());
+            }
+        }
+
+        if (incompleteTasks.isEmpty()) {
+            return "None of your tasks are complete";
+        } else {
+            return String.join(", ", incompleteTasks);
         }
     }
 }
