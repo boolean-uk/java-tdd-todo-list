@@ -4,11 +4,16 @@ import com.sun.tools.javac.Main;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 class TodoListTest {
     @Test
     public void exampleTest() {
         String hello = "Hello";
-        Assertions.assertEquals("Hello", hello);
+        assertEquals("Hello", hello);
         Assertions.assertNotEquals("Goodbye", hello);
     }
     @Test
@@ -18,14 +23,18 @@ class TodoListTest {
         Assertions.assertTrue(list.toDoList.containsKey("clean"));
 
     }
+    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     @Test
     public void seeAllTaskTest() {
         TodoList list = new TodoList();
         list.addTask("paint");
         list.addTask("groceries");
         list.addTask("vacuum");
-        Assertions.assertEquals(3,list.toDoList.size());
-        Assertions.assertTrue(list.seeAllTasks());
+        assertEquals(3,list.toDoList.size());
+        System.setOut(new PrintStream(outContent));
+        list.seeAllTasks();
+        assertEquals("{vacuum=incomplete, paint=incomplete, groceries=incomplete}", outContent.toString().trim());
+
     }
 
 

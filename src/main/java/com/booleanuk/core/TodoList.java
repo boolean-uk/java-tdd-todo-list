@@ -17,7 +17,7 @@ public class TodoList {
             return true;
     }
     public void seeAllTasks(){
-        System.out.println();
+        System.out.println(toDoList.toString());
     }
 
 
