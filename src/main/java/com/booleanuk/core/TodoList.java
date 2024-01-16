@@ -28,11 +28,23 @@ public class TodoList {
     }
 
     public ArrayList<Task> completeTasks(){
-        return null;
+        ArrayList<Task> complete = new ArrayList<>();
+        for (Task t : tasks){
+            if (t.status){
+                complete.add(t);
+            }
+        }
+        return complete;
     }
 
     public ArrayList<Task> incompleteTasks(){
-        return null;
+        ArrayList<Task> incomplete = new ArrayList<>();
+        for (Task t : tasks){
+            if (!t.status){
+                incomplete.add(t);
+            }
+        }
+        return incomplete;
     }
 
     public ArrayList<Task> tasksAscending(){
