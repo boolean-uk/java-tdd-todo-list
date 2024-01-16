@@ -175,4 +175,34 @@ class TodoListTest {
         todoList.add("Write tests :(");
         Assertions.assertEquals("Work: incomplete",todoList.getTask("Work"));
     }
+
+    @Test
+    public void testRemoveTask() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        Assertions.assertTrue(todoList.removeTask("Work"));
+        Assertions.assertFalse(todoList.todos.containsKey("Work"));
+    }
+
+    @Test
+    public void testRemoveTaskNotInList() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        Assertions.assertFalse(todoList.removeTask("Code"));
+    }
+
+    @Test
+    public void testRemoveTaskFromEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertFalse(todoList.removeTask("Code"));
+    }
+
+    @Test
+    public void testRemoveTaskInListWithMultipleTasks() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        todoList.add("Code");
+        todoList.add("Write tests :(");
+        Assertions.assertTrue(todoList.removeTask("Work"));
+    }
 }
