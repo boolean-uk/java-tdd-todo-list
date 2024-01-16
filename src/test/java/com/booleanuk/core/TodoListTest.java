@@ -16,8 +16,7 @@ class TodoListTest {
         Task task = new Task("Code more");
         Assertions.assertEquals(0,todo.list.size());
         todo.addTask(task);
-        Assertions.assertEquals("Code more",todo.list.get(0));
+        Assertions.assertEquals("Code more",todo.list.get(0).description);
         Assertions.assertEquals(1,todo.list.size());
-
     }
 }
