@@ -39,8 +39,10 @@ class TodoListTest {
         TodoList todolist = new TodoList();
         todolist.add("Do laundry");
 
-       // Assertions.assertEquals(todolist.getTask());
+       Assertions.assertFalse((todolist.getTask("Do laundry")).isComplete);
 
+       todolist.changeCompletion("Do laundry");
 
+       Assertions.assertTrue((todolist.getTask("Do laundry")).isComplete);
     }
 }
