@@ -15,8 +15,6 @@ public class Task {
     }
 
     public void changeCompletion(){
-
         this.isComplete = !this.isComplete;
-
     }
 }
