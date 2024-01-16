@@ -43,9 +43,9 @@
 |                                      | getTask(String ID)        | searches and finds task      | task             |
 |                                      |                           | corresponding to ID          |                  |
 |                                      |                           |                              |                  |
-|                                      |                           |                              |                  |
-|                                      |                           |                              |                  |
-|                                      |                           |                              |                  |
+|                                      | newTaskName(String ID,    | updated toDoList and map     | true             |
+|                                      | String newName)           | with new name                |                  |
+|                                      |                           | ID not found                 | false            |
 |                                      |                           |                              |                  |
 |                                      |                           |                              |                  |
 |                                      |                           |                              |                  |
