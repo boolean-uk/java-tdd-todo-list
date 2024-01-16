@@ -27,4 +27,15 @@ class TodoListTest {
         Assertions.assertEquals("Go swimming instead", todoList.getTask(id2).getDescription());
         Assertions.assertEquals(-1, todoList.renameTask(54321, "This id should not exist"));
     }
+
+    @Test
+    public void canToggleCompletion() {
+        int id1 = todoList.add("Go Shopping");
+        int id2 = todoList.add("Go Fishing");
+        Assertions.assertFalse(todoList.getTask(id2).isCompleted());
+        Assertions.assertEquals(1, todoList.setCompletionStatus(id2, true));
+        Assertions.assertTrue(todoList.getTask(id2).isCompleted());
+        Assertions.assertEquals(1, todoList.setCompletionStatus(id2, false));
+        Assertions.assertFalse(todoList.getTask(id2).isCompleted());
+    }
 }
