@@ -42,8 +42,8 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 ## 4 and 5
 
-| Class Variables               | Methods                                                    | Scenarios                                    | Output/Return              |
-|-------------------------------|------------------------------------------------------------|----------------------------------------------|----------------------------|
-| Map<String, Boolean> todoList | getCompleteOrIncompleteTasks(Boolean CompleteOrIncomplete) | Gets either the complete or incomplete tasks | Map<String, Boolean> tasks |
-|                               |                                                            |                                              |                            |
-|                               |                                                            |                                              |                            |
+| Class Variables               | Methods                                                   | Scenarios                                    | Output/Return              |
+|-------------------------------|-----------------------------------------------------------|----------------------------------------------|----------------------------|
+| Map<String, Boolean> todoList | getCompleteOrIncompleteTasks(String CompleteOrIncomplete) | Gets either the complete or incomplete tasks | Map<String, Boolean> tasks |
+|                               |                                                           |                                              |                            |
+|                               |                                                           |                                              |                            |

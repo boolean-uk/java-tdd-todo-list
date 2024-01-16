@@ -99,7 +99,8 @@ class TodoListTest {
     public void testGetCompleteOrIncompleteTasks() {
         TodoList todoList = new TodoList();
 
-
+        Map<String, Boolean> completeTasks = todoList.getCompleteOrIncompleteTasks("Complete");
+        Map<String, Boolean> incompleteTasks = todoList.getCompleteOrIncompleteTasks("Incomplete");
 
     }
 }
