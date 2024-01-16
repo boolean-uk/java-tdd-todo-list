@@ -32,4 +32,11 @@ class TodoListTest {
 
         Assertions.assertNotEquals(lst.retrieveTasks(), ex);
     }
+
+    @Test
+    public void testSetStatus() {
+        TodoList lst = new TodoList();
+        Task task = new Task("CV");
+        Assertions.assertTrue(task.status);
+    }
 }

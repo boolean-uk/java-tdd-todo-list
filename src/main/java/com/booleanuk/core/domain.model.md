@@ -25,10 +25,10 @@
 
 ### Task
 
-| Member Variables | Methods | Scenario | Return | Type |
-|------------------|---------|----------|--------|------|
-| name: String     |         |          |        |      |
-|                  |         |          |        |      |
-|                  |         |          |        |      |
-|                  |         |          |        |      |
-|                  |         |          |        |      |
+| Member Variables | Methods | Scenario                          | Return | Type |
+|------------------|---------|-----------------------------------|--------|------|
+| name: String     |         |                                   |        |      |
+| status: boolean  |         | If incomplete: false _ else: true |        |      |
+|                  |         |                                   |        |      |
+|                  |         |                                   |        |      |
+|                  |         |                                   |        |      |
