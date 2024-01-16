@@ -47,4 +47,10 @@ class TodoListTest {
         todoList.addTask("clean");
         Assertions.assertFalse(todoList.updateTaskStatus("bake", true));
     }
+
+    @Test
+    public void getCompletedTasksEmptyTest() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("", todoList.getCompletedTasks());
+    }
 }
