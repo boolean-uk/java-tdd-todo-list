@@ -1,4 +1,4 @@
-#1
+##1
 
 | Classes  | Methods                      | Members                          | Scenario              | Output |
 |----------|------------------------------|----------------------------------|-----------------------|--------|
@@ -6,7 +6,7 @@
 |          |                              |                                  | String already added? | false. |
 |          |                              |                                  |                       |        |
 
-#2
+##2
 
 | Classes  | Methods    | Members | Scenario                             | Output                     |
 |----------|------------|---------|--------------------------------------|----------------------------|
@@ -14,7 +14,7 @@
 |          |            |         |                                      |                            |
 |          |            |         |                                      |                            |
 
-#3
+##3
 
 | Classes  | Methods                   | Members | Scenario        | Output                |
 |----------|---------------------------|---------|-----------------|-----------------------|
@@ -22,7 +22,7 @@
 |          |                           |         |                 |                       |
 |          |                           |         |                 |                       |
 
-#4
+##4
 
 | Classes  | Methods       | Members | Scenario           | Output         |
 |----------|---------------|---------|--------------------|----------------|
@@ -30,7 +30,7 @@
 |          |               |         |                    |                |
 |          |               |         |                    |                |
 
-#5
+##5
 
 | Classes  | Methods         | Members | Scenario         | Output        |
 |----------|-----------------|---------|------------------|---------------|
@@ -38,7 +38,7 @@
 |          |                 |         |                  |               |
 |          |                 |         |                  |               |
 
-#6
+##6
 
 
 | Classes  | Methods              | Members | Scenario                    | Output                     |
@@ -47,7 +47,7 @@
 |          |                      |         | if name doesnt exist in map | returns message.           |
 |          |                      |         |                             |                            |
 
-#7
+##7
 
 
 | Classes  | Methods                 | Members | Scenario       | Output        |
@@ -56,7 +56,7 @@
 |          |                         |         | id not there   | returns false |
 |          |                         |         |                |               |
 
-#8
+##8
 
 
 | Classes  | Methods     | Members | Scenario       | Output                                  |
@@ -65,7 +65,7 @@
 |          |             |         |                |                                         |
 |          |             |         |                |                                         |
 
-#9
+##9
 
 
 | Classes  | Methods      | Members | Scenario       | Output                                   |
@@ -74,3 +74,37 @@
 |          |              |         |                |                                          |
 |          |              |         |                |                                          |
 
+#Extension
+##1
+
+| Classes           | Methods     | Members                  | Scenario                                      | Output |
+|-------------------|-------------|--------------------------|-----------------------------------------------|--------|
+| TodoListExtension | getWithId() | HashMap<Integer, String> | Method is called with id and id exists        | true;  |
+|                   |             |                          | Method is called with id, but id doesnt exist | false; |
+|                   |             |                          |                                               |        |
+
+##2
+
+| Classes  | Methods                               | Members | Scenario                | Output                    |
+|----------|---------------------------------------|---------|-------------------------|---------------------------|
+| TodoList | setNewName(int newId, String newName) |         | Parameters are provided | The task gets a new name. |
+|          |                                       |         |                         |                           |
+|          |                                       |         |                         |                           |
+
+##3
+
+
+| Classes  | Methods                    | Members | Scenario                       | Output         |
+|----------|----------------------------|---------|--------------------------------|----------------|
+| TodoList | changeStatusWithId(int id) |         | Method is used with correct id | returns true.  |
+|          |                            |         | Method is used with wrong id   | returns false. |
+|          |                            |         |                                |                |
+
+##4
+
+
+| Classes  | Methods       | Members | Scenario                       | Output                                        |
+|----------|---------------|---------|--------------------------------|-----------------------------------------------|
+| TodoList | timeCreated() |         | Method is called for all tasks | tasks are displayed with their creation time. |
+|          |               |         |                                |                                               |
+|          |               |         |                                |                                               |
