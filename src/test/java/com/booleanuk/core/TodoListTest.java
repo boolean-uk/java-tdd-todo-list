@@ -130,6 +130,17 @@ class TodoListTest {
         Assertions.assertEquals("Task does not exist!\n", outContent.toString());
 
         Assertions.assertFalse(expected);
+    }
 
+    @Test
+    public void removeTaskReturnTrue() {
+        TodoList result = new TodoList();
+
+        result.addTask("Do the dishes");
+        result.addTask("Clean the bathroom");
+        result.addTask("Train for 60 minutes");
+        result.addTask("Cook dinner");
+
+        Assertions.assertTrue(result.removeTask("Clean the bathroom"));
     }
 }
