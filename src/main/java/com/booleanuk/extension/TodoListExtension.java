@@ -229,7 +229,7 @@ public class TodoListExtension {
             StringBuilder outputString = new StringBuilder();
             outputString.append("Your tasks are:\n");
             for(Task task : taskList)  {
-                outputString.append(task.creationDate);
+                outputString.append(task.timeString);
                 outputString.append(" ");
                 outputString.append(task.name);
                 outputString.append("\n");

@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 class TodoListExtensionTest {
     private final PrintStream standardOut = System.out;
@@ -442,19 +444,20 @@ class TodoListExtensionTest {
     public void testSeeDatesOfTasks()
     {
         TodoListExtension todoListExtension = new TodoListExtension();
-        LocalDate timeNow = LocalDate.now();
+        LocalDate dateNow = LocalDate.now();
+        LocalTime timeNow = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH.mm");
+        String timeString = dateNow + " " + timeNow.format(formatter);
 
         todoListExtension.addTask("Eat yoghurt");
         todoListExtension.addTask("Paint the Mona Lisa");
 
-        todoListExtension.setDate(0, timeNow);
-        todoListExtension.setDate(1, timeNow);
+        todoListExtension.setDate(0, dateNow);
+        todoListExtension.setDate(1, dateNow);
 
-        String expectedString = """
-                Your tasks are:
-                2024-01-16 Eat yoghurt
-                2024-01-16 Paint the Mona Lisa
-                """;
+        String expectedString = "Your tasks are:\n"
+                + timeString + " Eat yoghurt\n"
+                + timeString + " Paint the Mona Lisa\n";
 
         todoListExtension.showDateAndTime();
         Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
