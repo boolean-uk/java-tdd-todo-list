@@ -127,9 +127,9 @@ public class TodoListTestExtended {
     public void testChangeName(){
         TodoListExtended todolist = new TodoListExtended();
         todolist.add("Go fishing");
-        Assertions.assertEquals(new TaskExtended("Go fishing") ,todolist.getTask(1000));
+        Assertions.assertEquals("Go fishing" ,todolist.getTask(1000).getName());
         todolist.changeName(1000, "Eat");
-        Assertions.assertEquals(new TaskExtended("Eat") ,todolist.getTask(1000));
+        Assertions.assertEquals("Eat" ,todolist.getTask(1000));
     }
 
     @Test
