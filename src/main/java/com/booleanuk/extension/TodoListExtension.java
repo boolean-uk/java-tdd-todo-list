@@ -72,6 +72,22 @@ public class TodoListExtension {
         System.out.println("No Task found");
         return null;
     }
+    public String updateTaskByID(int num){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == num){
+                if(this.list.get(i).isCompleted){
+                    //System.out.println("Toggling isCompleted to false.");
+                    this.list.get(i).isCompleted = false;
+                    return "Toggling isCompleted to false";
+                }
+                System.out.println("Toggling isCompleted to true.");
+                this.list.get(i).isCompleted = true;
+                return "Toggling isCompleted to true";
+            }
+        }
+        System.out.println("No task found");
+        return null;
+    }
 
 
     public boolean removeTask(String task){
