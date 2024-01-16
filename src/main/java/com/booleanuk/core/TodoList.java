@@ -10,7 +10,7 @@ public class TodoList {
         this.taskList = new HashMap<>();
 //        taskList.put("Speak","Complete");
 //        taskList.put("talk","Incomplete");
-//        taskList.put("Sleep","Complete");
+      taskList.put("Sleep","Complete");
 //        taskList.put("Snore","Incomplete");
     }
 
@@ -56,9 +56,13 @@ public class TodoList {
     }
 
 
+    public String findTask(String task) {
+        return "your Task: " + task + " is " + taskList.get(task);
+    }
 
     public static void main(String[] args) {
         TodoList todoList = new TodoList();
-        System.out.println(todoList.viewCompletedTask());
+        todoList.findTask("Sleep");
+        //System.out.println(todoList.viewCompletedTask());
     }
 }
