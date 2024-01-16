@@ -66,12 +66,18 @@ public class TodoList {
     }
 
     public ArrayList<String> getListInAlphabeticalOrder(boolean ascending) {
-        ArrayList<String> keys = new ArrayList<>(tasks.keySet());
-        Collections.sort(keys);
-        if(ascending) {
-            return keys;
+
+        ArrayList<String> taskNames = new ArrayList<>();
+
+        for(Task t: tasks.values()) {
+            taskNames.add(t.name);
         }
-        Collections.reverse(keys);
-        return keys;
+
+        Collections.sort(taskNames);
+        if(ascending) {
+            return taskNames;
+        }
+        Collections.reverse(taskNames);
+        return taskNames;
     }
 }
