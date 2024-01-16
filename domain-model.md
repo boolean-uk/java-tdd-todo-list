@@ -37,6 +37,13 @@
 5. I want to be able to get only the incomplete tasks.
 
 
+| Class    | Member Variables        | Methods                     | Scenario                       | Output/Result            |
+|----------|-------------------------|-----------------------------|--------------------------------|--------------------------|
+| TodoList | ArrayList<String>       | String getIncompleteTasks() | Retrieve incomplete tasks only | Returns incomplete tasks |
+|          | HashMap<String, String> |                             |                                |                          |
+
+
+
 6. I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
 
 
