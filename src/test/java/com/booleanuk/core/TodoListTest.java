@@ -80,4 +80,11 @@ class TodoListTest {
         todoList.updateTaskStatus("clean", true);
         Assertions.assertEquals(new ArrayList<>(Arrays.asList("book dentist")), todoList.getUncompletedTasks());
     }
+
+    @Test
+    public void doesExistingTaskExist() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        Assertions.assertTrue(todoList.doesTaskExist("clean"));
+    }
 }
