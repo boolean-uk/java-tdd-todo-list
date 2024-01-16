@@ -1,9 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TodoList {
 
@@ -67,6 +64,12 @@ public class TodoList {
     }
 
     public ArrayList<String> getListInAlphabeticalOrder(boolean ascending) {
-        return new ArrayList<>(Arrays.asList("bake", "book bowling", "clean"));
+        ArrayList<String> keys = new ArrayList<>(tasks.keySet());
+        Collections.sort(keys);
+        if(ascending) {
+            return keys;
+        }
+        Collections.reverse(keys);
+        return keys;
     }
 }
