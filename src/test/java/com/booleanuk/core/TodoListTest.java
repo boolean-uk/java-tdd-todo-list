@@ -14,7 +14,7 @@ class TodoListTest {
     @Test
     public void addTaskTest() {
         TodoList todoList = new TodoList();
-        todoList.addTask("Dishes");
+        Assertions.assertTrue(todoList.addTask("Dishes"));
         Assertions.assertEquals(1, todoList.tasks.size());
 
     }
