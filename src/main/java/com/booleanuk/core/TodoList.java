@@ -49,7 +49,6 @@ public class TodoList {
 
     //User Story 4
     public String getCompletedTasks() {
-
         String completedTask = "";
         String getStatus;
         for(String task : this.taskMap.keySet()) {
@@ -62,7 +61,15 @@ public class TodoList {
     }
 
     public String getIncompleteTasks() {
-        return "Hit the gym., Feed cat., Read newspaper.,";
+        String incompleteTask = "";
+        String getStatus;
+        for(String task : this.taskMap.keySet()) {
+            getStatus = this.taskMap.get(task);
+            if("Incomplete.".equals(getStatus)) {
+                incompleteTask = incompleteTask + task + ", ";
+            }
+        }
+        return incompleteTask.toString();
     }
 
 }

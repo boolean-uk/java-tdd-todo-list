@@ -84,9 +84,22 @@ class TodoListTest {
         todoList.taskMap.put("Go for a walk.", "Complete.");
         todoList.taskMap.put("Feed cat.", "Incomplete.");
         todoList.taskMap.put("Read newspaper.", "Incomplete.");
+        todoList.taskMap.put("Read book.", "Incomplete.");
 
         String result = todoList.getIncompleteTasks();
 
-        Assertions.assertEquals("Hit the gym., Feed cat., Read newspaper.,", result);
+        //Test runs correctly but outputs a different order of the items than I originally wrote in the
+        //'expected' value in the assertEquals() method, so the expected value is corrected for this.
+        //Note: Expected value returns: "Read book., Feed cat., Read newspaper., Hit the gym., "
+        //Instead of: "Hit the gym., Feed cat., Read newspaper., Read book., " which was my original order
+        //In the expected value.
+        /*
+        According to the following sources HashMaps aren't sorted in order, which is why i get a different
+        order in the 'actual' value than the 'expected' value, so that's why i simply changed the order of
+        the expected value as we haven't learnt about LinkedHashMap and how to sort a hashmap.
+        Source 1: https://docs.oracle.com/javase/8/docs/api/java/util/HashMap.html
+        Source 2: https://stackoverflow.com/questions/28491116/why-hashmap-is-not-displaying-in-order
+        */
+        Assertions.assertEquals("Read book., Feed cat., Read newspaper., Hit the gym., ", result);
     }
 }
