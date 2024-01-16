@@ -50,11 +50,21 @@ class TodoListTest {
         todo.add("Workout");
         todo.add("Walk the dog");
         Assertions.assertEquals(5, todo.getIncompleteTasks());
-
         todo.changeTaskStatus("Wash car");
         todo.changeTaskStatus("Brush teeth");
-
-        todo.getIncompleteTasks();
         Assertions.assertEquals(3, todo.getIncompleteTasks());
+    }
+    @Test
+    public void testGetCompletedTasks(){
+        TodoList todo = new TodoList();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        todo.add("Walk the dog");
+        Assertions.assertEquals(0, todo.getcompletedTasks());
+        todo.changeTaskStatus("Wash car");
+        todo.changeTaskStatus("Brush teeth");
+        Assertions.assertEquals(2, todo.getcompletedTasks());
     }
 }
