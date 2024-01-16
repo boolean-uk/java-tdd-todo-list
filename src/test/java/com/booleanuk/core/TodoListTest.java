@@ -102,4 +102,25 @@ class TodoListTest {
 
     }
 
+    @Test
+    public void removeTaskTest() {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask(new Task("Do laundry", false));
+        todoList.addTask(new Task("Walk dog", true));
+        todoList.addTask(new Task("Clean Kitchen"));
+        todoList.addTask(new Task("Turn on washing machine", true));
+
+        ArrayList<Task> listOfTasks = new ArrayList<>();
+        listOfTasks.add(new Task("Do Laundry"));
+        listOfTasks.add(new Task("Walk dog", true));
+        listOfTasks.add(new Task("Turn on washing machine", true));
+
+        Assertions.assertTrue(todoList.removeTask("Clean Kitchen"));
+        for(int i = 0; i < todoList.tasks.size(); i++) {
+            Assertions.assertEquals(listOfTasks.get(i).name, todoList.tasks.get(i).name);
+            Assertions.assertEquals(listOfTasks.get(i).complete, todoList.tasks.get(i).complete);
+        }
+    }
+
 }

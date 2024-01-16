@@ -37,6 +37,14 @@ public class TodoList {
         return completeTasks;
     }
 
+    public String searchTasks(String taskName) {
+        for(Task task : tasks) {
+            if(task.name.equals(taskName)) {
+                return "Found result for " + taskName;
+            }
+        }
+        return "No results for " + taskName;
+    }
 
 
 
