@@ -13,5 +13,9 @@ public class TodoList {
         return tasks.add(task);
     }
 
+    public ArrayList<Task> showTasks() {
+        return tasks;
+    }
+
 
 }
