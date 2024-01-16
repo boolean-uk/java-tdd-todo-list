@@ -98,3 +98,42 @@ HashMap<String, Boolean> taskList
 |----------|----------------------------------------|-------------------|---------------------|---------------------------------------------------|
 | TodoList | showAllTasksOrdered(boolean ascending) | ascending = false | Task list not empty | Show all tasks in descending order. Return true   |
 |          |                                        |                   | Task list empty     | Show message about list being empty. Return false |
+
+## Extension
+
+````dtd
+I want to be able to get a task by a unique ID
+````
+
+| Classes  | Methods         | Member Variables | Scenario          | Output/Result/Return value                          |
+|----------|-----------------|------------------|-------------------|-----------------------------------------------------|
+| TodoList | getTask(int ID) |                  | ID exists         | Show task, return true                              |
+| Task     |                 |                  | ID does not exist | Show message saying task is not found, return false |
+
+````dtd
+I want to update the name of a task by providing its ID and a new name.
+````
+
+| Classes  | Methods                             | Member Variables | Scenario          | Output/Result/Return value                          |
+|----------|-------------------------------------|------------------|-------------------|-----------------------------------------------------|
+| TodoList | updateTaskName(int ID, String name) |                  | ID exists         | Task gets new name, return true                     |
+| Task     |                                     |                  | ID does not exist | Show message saying task is not found, return false |
+
+````dtd
+I want to be able to change the status of a task by providing its ID.
+````
+
+| Classes  | Methods              | Member Variables | Scenario          | Output/Result/Return value                          |
+|----------|----------------------|------------------|-------------------|-----------------------------------------------------|
+| TodoList | changeStatus(int ID) |                  | ID exists         | Task status is changed, return true                 |
+| Task     |                      |                  | ID does not exist | Show message saying task is not found, return false |
+
+````dtd
+I want to be able to see the date and time that I created each task.
+````
+
+| Classes  | Methods           | Member Variables | Scenario            | Output/Result/Return value                      |
+|----------|-------------------|------------------|---------------------|-------------------------------------------------|
+| TodoList | showDateAndTime() |                  | Task list not empty | Show date and time for each task, return true   |
+| Task     |                   |                  | Task list empty     | Show message saying list is empty, return false |
+
