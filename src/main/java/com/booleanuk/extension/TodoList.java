@@ -24,15 +24,15 @@ public class TodoList {
         }
         return list.substring(0, list.length()-1);
     }
-//
-//    public boolean updateTaskStatus(String task, boolean newStatus) {
-//        if(!tasks.containsKey(task)) {
-//            return false;
-//        }
-//        tasks.put(task, newStatus);
-//        return true;
-//    }
-//
+
+    public boolean updateTaskStatus(String task, boolean newStatus) {
+        if(!tasks.containsKey(task)) {
+            return false;
+        }
+        tasks.put(task, newStatus);
+        return true;
+    }
+
 //    public ArrayList<String> getCompletedTasks() {
 //        return getTasks(true);
 //    }

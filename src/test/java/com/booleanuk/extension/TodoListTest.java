@@ -37,12 +37,12 @@ class TodoListTest {
         Assertions.assertTrue(list.contains("clean") && list.contains("bake") && list.contains("book dentist appointment"));
     }
 
-//    @Test
-//    public void updateExistingTaskStatusTest() {
-//        TodoList todoList = new TodoList();
-//        todoList.addTask("clean");
-//        Assertions.assertTrue(todoList.updateTaskStatus("clean", true));
-//    }
+    @Test
+    public void updateExistingTaskStatusTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertTrue(todoList.updateTaskStatus("123", true));
+    }
 //
 //    @Test
 //    public void updateNonExistingTaskStatusTest() {
