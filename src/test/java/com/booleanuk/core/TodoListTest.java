@@ -8,15 +8,14 @@ class TodoListTest {
     public void testAddingTask1() {
         TodoList todo = new TodoList();
 
-        Assertions.assertTrue(todo.list.addToTodo("clean"));
-
+        Assertions.assertTrue(todo.addToTodo("clean"));
     }
 
     @Test
     public void testAddingTask2() {
         TodoList todo = new TodoList();
 
-        Assertions.assertTrue(todo.list.addToTodo("wash"));
+        Assertions.assertTrue(todo.addToTodo("wash"));
     }
 
 }
