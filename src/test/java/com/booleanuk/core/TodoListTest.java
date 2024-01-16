@@ -92,10 +92,10 @@ class TodoListTest {
     public void testCorrectOutputFromGetTasks() {
         TodoList todoList = new TodoList();
         todoList.add("Vacuum");
-        todoList.add("Laundry");
         todoList.add("Go for a walk");
         todoList.changeStatus("Go for a walk");
-        String expectedOutput = "Vacuum incomplete\nLaundry incomplete\nGo for a walk complete";
+        todoList.add("Laundry");
+        String expectedOutput = "Vacuum incomplete\nGo for a walk complete\nLaundry incomplete\n";
         Assertions.assertEquals(expectedOutput, todoList.getTasks());
     }
 

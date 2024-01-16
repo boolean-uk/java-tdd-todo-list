@@ -47,4 +47,20 @@ public class TodoList {
         return task + " wasn't found.";
     }
 
+    public String getTasks() {
+        if(this.tasks.isEmpty()) {
+            return "";
+        }
+        String output = "";
+        for (String task : this.tasks.keySet()) {
+            if (this.tasks.get(task)) {
+                output += task + " complete\n";
+            }
+            else {
+                output += task + " incomplete\n";
+            }
+        }
+        return output;
+    }
+
 }
