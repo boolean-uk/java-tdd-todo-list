@@ -72,8 +72,17 @@ class TodoListTest {
     @Test
     public void testGetTask(){
         TodoList todolist = new TodoList();
-        Assertions.assertEquals("Task doesnt exist" ,todolist.getTaskName("Go fishing"));
+        Assertions.assertEquals("Task doesn't exist" ,todolist.getTaskName("Go fishing"));
         todolist.add("Go fishing");
         Assertions.assertEquals("Go fishing" ,todolist.getTaskName("Go fishing"));
+    }
+
+    @Test
+    public void testRemoveTask(){
+        TodoList todolist = new TodoList();
+        todolist.add("Do laundry");
+        Assertions.assertTrue(todolist.getToDos().contains("Do laundry"));
+        todolist.remove("Do laundry");
+        Assertions.assertFalse(todolist.getToDos().contains("Do laundry"));
     }
 }
