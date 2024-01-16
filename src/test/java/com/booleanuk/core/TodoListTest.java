@@ -42,6 +42,7 @@ class TodoListTest {
         todoList.add(task);
         String task2 = "Drink";
         todoList.add(task2);
+        todoList.taskList.put("Speak","Complete");
 
         Assertions.assertEquals(task2+ " " + "Complete", todoList.updateTask(task2));
         Assertions.assertEquals("Speak Incomplete", todoList.updateTask("Speak"));
@@ -54,7 +55,22 @@ class TodoListTest {
         todoList.add(task);
         String task2 = "Eat";
         todoList.add(task2);
+        todoList.taskList.put("Sleep","Complete");
+        todoList.taskList.put("Speak","Complete");
 
-        Assertions.assertEquals("Task:{Speak=Complete, Drink=Complete}", todoList.viewCompletedTask());
+
+        Assertions.assertEquals("Completed tasks: {Sleep=Complete, Speak=Complete}", todoList.viewCompletedTask());
     }
+
+    @Test
+    public void testViewIncompleteTask() {
+        TodoList todoList = new TodoList();
+        String task = "Wash";
+        todoList.add(task);
+        String task2 = "Eat";
+        todoList.add(task2);
+
+        Assertions.assertEquals("Incompleted tasks: {Wash=Incomplete, Eat=incomplete}", todoList.viewCompletedTask());
+    }
+
 }
