@@ -70,5 +70,15 @@ public class TodoList {
         return this.list.containsKey(taskName);
     }
 
+    public boolean removeTask(String taskName) {
+        if(this.list.containsKey(taskName)) {
+            this.list.remove(taskName);
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
 
 }

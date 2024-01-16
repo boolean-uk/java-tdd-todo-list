@@ -144,8 +144,10 @@ class TodoListTest {
         todo.addToTodo("wash");
         todo.addToTodo("clean");
 
-        Assertions.assertFalse(todo.removeTask("wash"));
-        Assertions.assertFalse(todo.removeTask("clean"));
+        Assertions.assertTrue(todo.removeTask("wash"));
+        Assertions.assertTrue(todo.removeTask("clean"));
+        Assertions.assertFalse(todo.removeTask("shop"));
+
 
     }
 
