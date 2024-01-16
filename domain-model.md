@@ -50,8 +50,8 @@
 |                                       | taskStatusID(String ID     | Updates task status with id  | taskstatus       |
 |                                       | boolean status)            | task not found               | false            |
 |                                       |                            |                              |                  |
-| HaspMap<String, String> mapTaskToTime | addTaskIDTime(String task, | Same as addTaskID(), but     | true             |
-|                                       | String ID)                 | also logs the date and time  |                  |
+| HashMap<String, String> mapTaskToTime | addTaskIDTime(String task, | Same as addTaskID(), but     | true             |
+| (Key ID, value time)                  | String ID)                 | also logs the date and time  |                  |
 |                                       |                            | task already added           | false            |
 |                                       |                            |                              |                  |
 |                                       |                            |                              |                  |

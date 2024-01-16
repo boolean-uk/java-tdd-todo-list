@@ -1,5 +1,7 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -8,11 +10,15 @@ public class TodoListExtension {
     ArrayList<String> toDoList;
     ArrayList<Boolean> taskComplete;
     HashMap<String, String> mapIDtoTask;
+    HashMap<String, String> mapTaskToTime;
+    DateTimeFormatter dtf;
 
     public TodoListExtension() {
         toDoList = new ArrayList<>();
         taskComplete = new ArrayList<>();
         mapIDtoTask = new HashMap<>();
+        mapTaskToTime = new HashMap<>();
+        dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     }
 
     public boolean addTaskID(String task, String ID) {
@@ -20,6 +26,19 @@ public class TodoListExtension {
             toDoList.add(task);
             taskComplete.add(false);
             mapIDtoTask.put(ID, task);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addTaskIDTime(String task, String ID) {
+        if (!toDoList.contains(task) && !mapIDtoTask.containsKey(ID)) {
+            toDoList.add(task);
+            taskComplete.add(false);
+            mapIDtoTask.put(ID, task);
+            LocalDateTime now = LocalDateTime.now();
+            mapTaskToTime.put(ID, dtf.format(now));
+
             return true;
         }
         return false;
