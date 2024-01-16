@@ -28,4 +28,13 @@ class TodoListTest {
         todo.listTasks();
         Assertions.assertEquals(3, todo.listTasks());
     }
+
+    @Test
+    public void testChangeTaskStatus(){
+        TodoList todo = new TodoList();
+        todo.add("Wash car");
+        Assertions.assertFalse(todo.list.get(1).isCompleted);
+        todo.changeTaskStatus("Wash car");
+        Assertions.assertTrue(todo.list.get(1).isCompleted);
+    }
 }
