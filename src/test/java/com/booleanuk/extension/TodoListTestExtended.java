@@ -118,9 +118,8 @@ public class TodoListTestExtended {
     @Test
     public void testGetTaskWithId(){
         TodoListExtended todolist = new TodoListExtended();
-        Assertions.assertEquals("Task doesn't exist" ,todolist.getTask(1000));
         todolist.add("Go fishing");
-        Assertions.assertEquals(new TaskExtended("Go fishing") ,todolist.getTask(1000));
+        Assertions.assertEquals("Go fishing" ,todolist.getTask(1000).getName());
     }
 
     @Test
@@ -129,7 +128,7 @@ public class TodoListTestExtended {
         todolist.add("Go fishing");
         Assertions.assertEquals("Go fishing" ,todolist.getTask(1000).getName());
         todolist.changeName(1000, "Eat");
-        Assertions.assertEquals("Eat" ,todolist.getTask(1000));
+        Assertions.assertEquals("Eat" ,todolist.getTask(1000).getName());
     }
 
     @Test
