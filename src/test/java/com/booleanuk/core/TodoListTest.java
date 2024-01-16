@@ -62,9 +62,9 @@ class TodoListTest {
         todo.add("Brush teeth");
         todo.add("Workout");
         todo.add("Walk the dog");
-        Assertions.assertEquals(0, todo.getcompletedTasks());
+        Assertions.assertEquals(0, todo.getCompletedTasks());
         todo.changeTaskStatus("Wash car");
         todo.changeTaskStatus("Brush teeth");
-        Assertions.assertEquals(2, todo.getcompletedTasks());
+        Assertions.assertEquals(2, todo.getCompletedTasks());
     }
 }
