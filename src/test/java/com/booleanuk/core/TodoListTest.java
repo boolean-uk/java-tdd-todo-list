@@ -61,4 +61,16 @@ class TodoListTest {
         Assertions.assertEquals(1, todoList.getTasks(true).size());
     }
 
+    @Test
+    public void canGetTaskByDescription() {
+        todoList.add(task1);
+        Assertions.assertEquals(task1, todoList.getTask("Go shopping"));
+    }
+
+    @Test
+    public void returnsNullIfTaskDoesNotExist() {
+        todoList.add(task1);
+        Assertions.assertNull(todoList.getTask("Do my homework"));
+    }
+
 }
