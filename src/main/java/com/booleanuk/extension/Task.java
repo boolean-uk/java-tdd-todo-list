@@ -1,12 +1,20 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Task {
 	int id;
 	String description;
 	boolean completed = false;
+	String date;
 
 	public Task(String description) {
 		this.description = description;
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		date = currentDateTime.format(formatter);
+
 	}
 
 	@Override
@@ -33,4 +41,7 @@ public class Task {
 		this.description=description;
 	}
 
+	public String getDate() {
+		return this.date;
+	}
 }

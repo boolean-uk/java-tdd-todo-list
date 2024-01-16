@@ -4,6 +4,9 @@ package com.booleanuk.extension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 class TodoListExtensionTest {
 	@Test
 	public void exampleTest() {
@@ -161,5 +164,16 @@ class TodoListExtensionTest {
 		} catch (NotInListException e) {
 			Assertions.assertEquals("com.booleanuk.extension.NotInListException: No task with id 1 in list",e.toString());
 		}
+
+	}
+	@Test
+	public void getTimeTest(){
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		todo.addTask(task1);
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		String date = currentDateTime.format(formatter);
+		Assertions.assertEquals(date,task1.getDate());
 	}
 }
