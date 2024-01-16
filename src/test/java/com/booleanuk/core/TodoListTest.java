@@ -150,4 +150,22 @@ class TodoListTest {
 
         Assertions.assertEquals("Task successfully removed from todo list.", result);
     }
+
+    //User Story 8 Test
+    @Test
+    public void returnListInAlphabeticalAscendingOrder() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskList.add("Do homework.");
+        todoList.taskList.add("Read book.");
+        todoList.taskList.add("Hit the gym.");
+        todoList.taskList.add("Go for a walk.");
+        todoList.taskList.add("Read newspaper.");
+
+        String result = todoList.outputListAscending();
+
+        Assertions.assertEquals("Do homework., Go for a walk., Hit the gym., Read book., Read newspaper., ", result);
+
+
+    }
 }
