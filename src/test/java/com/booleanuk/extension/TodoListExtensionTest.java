@@ -31,7 +31,7 @@ public class TodoListExtensionTest {
     public void testSetTaskNameByIdWithSingleTaskInList() {
         TodoListExtension todoList = new TodoListExtension();
         todoList.todos.add(new Task("1","Work"));
-        Assertions.assertTrue(todoList.SetTaskName("1", "Code"));
+        Assertions.assertTrue(todoList.setTaskName("1", "Code"));
         Assertions.assertEquals(todoList.getTaskById("1").split(": ")[0], "Code");
     }
 
@@ -41,14 +41,14 @@ public class TodoListExtensionTest {
         todoList.todos.add(new Task("1","Work"));
         todoList.todos.add(new Task("2","Exercise"));
         todoList.todos.add(new Task("3","Train"));
-        Assertions.assertTrue(todoList.SetTaskName("3", "Code"));
+        Assertions.assertTrue(todoList.setTaskName("3", "Code"));
         Assertions.assertEquals(todoList.getTaskById("3").split(": ")[0], "Code");
     }
 
     @Test
     public void testSetTaskNameByIdWithEmptyList() {
         TodoListExtension todoList = new TodoListExtension();
-        Assertions.assertFalse(todoList.SetTaskName("1", "Code"));
+        Assertions.assertFalse(todoList.setTaskName("1", "Code"));
     }
 
     @Test
@@ -57,6 +57,6 @@ public class TodoListExtensionTest {
         todoList.todos.add(new Task("1","Work"));
         todoList.todos.add(new Task("2","Exercise"));
         todoList.todos.add(new Task("3","Train"));
-        Assertions.assertFalse(todoList.SetTaskName("4", "Code"));
+        Assertions.assertFalse(todoList.setTaskName("4", "Code"));
     }
 }
