@@ -106,4 +106,28 @@ class TodoListTest {
 
         Assertions.assertFalse(todoList.changeTaskStatus("Eat yoghurt"));
     }
+
+    @Test
+    public void testGetCompleteTasks()
+    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        todoList.changeTaskStatus(("Eat yoghurt"));
+        todoList.changeTaskStatus("Talk to janitor");
+
+        String expectedOutput = """
+                You have 2 complete tasks:
+                [X] Eat yoghurt
+                [X] Talk to janitor
+                """;
+
+        todoList.showAllTasks(true);
+
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
 }
