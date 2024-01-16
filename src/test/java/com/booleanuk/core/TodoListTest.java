@@ -102,4 +102,36 @@ class TodoListTest {
         */
         Assertions.assertEquals("Read book., Feed cat., Read newspaper., Hit the gym., ", result);
     }
+
+    //User Story 6 Test Case 1 - Task is in list
+    @Test
+    public void taskFoundInTodoList() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskList.add("Do homework.");
+        todoList.taskList.add("Read book.");
+        todoList.taskList.add("Hit the gym.");
+        todoList.taskList.add("Go for a walk.");
+        todoList.taskList.add("Read newspaper.");
+
+        String result = todoList.searchTasks("Hit the gym.");
+
+        Assertions.assertEquals("Task exists in todo list", result);
+    }
+
+    //User Story 6 Test Case 2 - Task is not in list
+    @Test
+    public void taskNotFoundInTodoList() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskList.add("Do homework.");
+        todoList.taskList.add("Read book.");
+        todoList.taskList.add("Hit the gym.");
+        todoList.taskList.add("Go for a walk.");
+        todoList.taskList.add("Read newspaper.");
+
+        String result = todoList.searchTasks("Feed cat.");
+
+        Assertions.assertEquals("Task does not exist in list", result);
+    }
 }
