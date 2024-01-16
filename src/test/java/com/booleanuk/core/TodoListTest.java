@@ -77,4 +77,15 @@ class TodoListTest {
         list.addTask("Go party", "Incomplete");
         Assertions.assertEquals("Workout: Incomplete", list.checkOneTask(task));
     }
+
+    @Test
+    public void testCheckOneTaskIfExists(){
+        TodoList list = new TodoList();
+        String task = "Play football";
+        list.addTask("Workout", "Incomplete");
+        list.addTask("Shower", "Complete");
+        list.addTask("Go party", "Incomplete");
+        Assertions.assertEquals("Task not found", list.checkOneTask(task));
+    }
+
 }
