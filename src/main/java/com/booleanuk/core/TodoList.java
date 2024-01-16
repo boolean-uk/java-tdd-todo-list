@@ -65,8 +65,13 @@ public class TodoList {
     }
 
 
-    public String remove(){
-        return "";
+    public String remove(String name){
+        if (getToDos().contains(name)){
+            this.todoList.remove(name);
+            return name + " removed from list";
+        }
+        return "Task is not in list";
+
     }
 
     public ArrayList<String> getListAlphabeticly(String order){
