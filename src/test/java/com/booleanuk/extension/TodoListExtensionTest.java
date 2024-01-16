@@ -33,6 +33,6 @@ public class TodoListExtensionTest {
 
         taskStatus.updateStatus(1, "Complete");
 
-        assertEquals("Complete", taskStatus.getStatus());
+        assertEquals("Complete", taskStatus.taskStatus(1));
     }
 }

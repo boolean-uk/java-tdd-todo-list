@@ -17,7 +17,7 @@ public class TodoListExtension {
             return;
         }
 
-        int taskId = taskIdMap.size() + 1;  // Generate a unique ID
+        int taskId = taskIdMap.size() + 1;
         Task task = new Task(taskId, taskName, status);
 
         todoList.put(taskName, task);
@@ -38,15 +38,28 @@ public class TodoListExtension {
     public void updateTask(int id, String name) {
         if (name != null && taskIdMap.containsKey(id)) {
             Task taskToUpdate = taskIdMap.get(id);
-            taskIdMap.remove(taskToUpdate.getName()); // Remove old entry from taskIdMap
-            taskToUpdate.setName(name);               // Update task name
-            taskIdMap.put(id, taskToUpdate);        // Put updated task back into taskIdMap
+            taskIdMap.remove(taskToUpdate.getName());
+            taskToUpdate.setName(name);
+            taskIdMap.put(id, taskToUpdate);
         }
     }
 
-    // Other methods remain mostly unchanged
+    public void updateStatus(int id, String status) {
+        if (status != null && taskIdMap.containsKey(id)) {
+            Task taskToUpdate = taskIdMap.get(id);
+            taskToUpdate.setStatus(status);
+        }
+    }
 
-    // Nested Task class to represent tasks with ID, name, and status
+    public String taskStatus(int id) {
+        Task taskStatus = taskIdMap.get(id);
+        if (taskStatus != null) {
+            return taskStatus.getStatus();
+        } else {
+            return "Task not found";
+        }
+    }
+
     private static class Task {
         private final int id;
         private String name;
