@@ -20,6 +20,6 @@ class TodoListTest {
         HashMap<String, Boolean> expected = new HashMap<>();
         expected.put("Do the dishes", false);
 
-        Assertions.assertEquals(expected, result.addTask());
+        Assertions.assertEquals(expected, result.addTask("Do the dishes"));
     }
 }
