@@ -167,8 +167,4 @@ class TodoListTest {
         Assertions.assertEquals("Work", alphabetizedList.get(1));
         Assertions.assertEquals("Zap", alphabetizedList.get(0));
     }
-
-
-
-
 }

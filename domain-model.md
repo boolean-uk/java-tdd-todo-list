@@ -33,7 +33,7 @@
 |                                 |                           | in decreasing order          |                  |
 |                                 |                           |                              |                  |
 |                                 |                           |                              |                  |
-|                                 |                           |                              |                  |
+| Extensions                      | Extensions                | Extensions                   | Extensions       |
 |                                 |                           |                              |                  |
 |                                 |                           |                              |                  |
 |                                 |                           |                              |                  |
