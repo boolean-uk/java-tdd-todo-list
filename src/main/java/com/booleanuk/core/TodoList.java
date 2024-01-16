@@ -54,6 +54,6 @@ public class TodoList {
     }
 
     public boolean doesTaskExist(String task) {
-        return true;
+        return tasks.containsKey(task);
     }
 }
