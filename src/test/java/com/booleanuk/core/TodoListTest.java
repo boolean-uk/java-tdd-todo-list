@@ -43,4 +43,14 @@ class TodoListTest {
         Assertions.assertEquals(expected,todoList.show());
 
     }
+
+    @Test
+    public void testChangeStatus(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        todoList.status("Wash clothes", "Complete");
+        String str=todoList.list.get("Wash clothes");
+        Assertions.assertEquals("Complete", str);
+
+    }
 }

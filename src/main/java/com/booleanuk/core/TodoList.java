@@ -33,7 +33,7 @@ public class TodoList {
         return str;
     }
 
-    public String status(){
+    public String status(String task, String newStatus){
         return "";
     }
 
