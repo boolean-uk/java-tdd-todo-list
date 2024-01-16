@@ -25,7 +25,6 @@ public class TodoList {
         this.list = new ArrayList<>();
     }
 
-
     public void sortedListAsc(){
         this.list.sort(Comparator.comparing(Task::getDescription));
         if(!this.list.isEmpty()){
