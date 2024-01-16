@@ -39,8 +39,32 @@ class TodoListTest {
 
         ArrayList<Task> listOfTasks = new ArrayList<>();
         listOfTasks.add(new Task("Do laundry", false));
-        listOfTasks.add(new Task("Do laundry", true));
-        Assertions.assertEquals(listOfTasks, todoList.showTasks());
+        listOfTasks.add(new Task("Walk dog", true));
 
+        for(int i = 0; i < todoList.tasks.size(); i++) {
+            Assertions.assertEquals(listOfTasks.get(i).name, todoList.tasks.get(i).name);
+            Assertions.assertEquals(listOfTasks.get(i).complete, todoList.tasks.get(i).complete);
+        }
+
+    }
+
+    @Test
+    public void getCompleteTasksTest() {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask(new Task("Do laundry", false));
+        todoList.addTask(new Task("Walk dog", true));
+        todoList.addTask(new Task("Clean Kitchen"));
+        todoList.addTask(new Task("Turn on washing Machine", true));
+        ArrayList<Task> completeTasks = todoList.getCompleteTasks();
+        ArrayList<Task> listOfTasks = new ArrayList<>();
+        listOfTasks.add(new Task("Walk dog", true));
+        listOfTasks.add(new Task("Turn on washing Machine", true));
+
+
+        for(int i = 0; i < completeTasks.size(); i++) {
+            Assertions.assertEquals(listOfTasks.get(i).name, completeTasks.get(i).name);
+            Assertions.assertEquals(listOfTasks.get(i).complete, completeTasks.get(i).complete);
+        }
     }
 }
