@@ -24,7 +24,22 @@ class TodoListTest {
 
     @Test
     public void canAddTaskToList() {
+        Assertions.assertEquals(0, todoList.getTasks().size());
         Assertions.assertTrue(todoList.add(task1));
+        Assertions.assertEquals(1, todoList.getTasks().size());
+    }
+
+    @Test
+    public void canGetAllTasksInList() {
+        ArrayList<Task> listWithTasks = new ArrayList<>();
+        Assertions.assertEquals(listWithTasks, todoList.getTasks());
+
+        listWithTasks.add(task1);
+        listWithTasks.add(task2);
+        todoList.add(task1);
+        todoList.add(task2);
+
+        Assertions.assertEquals(listWithTasks, todoList.getTasks());
     }
 
 }
