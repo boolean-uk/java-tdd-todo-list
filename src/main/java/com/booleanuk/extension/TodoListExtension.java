@@ -86,4 +86,32 @@ public class TodoListExtension {
         Collections.reverse(orderTasksAsc());
         return this.tasks;
     }
+
+    public TaskExtension searchById(int id) {
+        for (TaskExtension task : this.tasks) {
+            if (task.getId() == id) {
+                return task;
+            }
+        }
+        return null;
+    }
+
+    public boolean setNameById(int id, String newName) {
+        TaskExtension task = searchById(id);
+        if (task != null) {
+            task.setName(newName);
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean setStatusById(int id, boolean newStatus) {
+        TaskExtension task = searchById(id);
+        if(task != null) {
+            task.setStatus(newStatus);
+            return true;
+        }
+        return false;
+    }
 }

@@ -82,20 +82,20 @@ TodoList
 
 TodoList
 
-| method             | object variable         | context                                                                                                          | output/return            |
-|--------------------|-------------------------|------------------------------------------------------------------------------------------------------------------|--------------------------|
-| searchById(int id) | ArrayList\<Task\> tasks | iterates over elements in ArrayList and checks if any element's id matches id. If found, return positive message | (String) foundMessage    |
-|                    |                         | if not found, return negative message                                                                            | (String) notFoundMessage |
+| method             | object variable         | context                                                                                                      | output/return             |
+|--------------------|-------------------------|--------------------------------------------------------------------------------------------------------------|---------------------------|
+| searchById(int id) | ArrayList\<Task\> tasks | iterates over elements in ArrayList and checks if any element's id matches id. If found, return the element. | (Task) taskWithMatchingId |
+|                    |                         | if not found, return null                                                                                    | (Task) null               |
 
 ---
 ```I want to update the name of a task by providing its ID and a new name.```
 
 TodoList
 
-| method                            | object variable         | context                                                                                                                        | output/return            |
-|-----------------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| setNameById(int id, name newName) | ArrayList\<Task\> tasks | iterates over elements in ArrayList and checks if any element's id matches id. If found, set the name to new name, return true | (boolean) changedName    |
-|                                   |                         | if not found, return false                                                                                                     | (boolean) notChangedName |
+| method                              | object variable         | context                                                                                                                        | output/return            |
+|-------------------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| setNameById(int id, String newName) | ArrayList\<Task\> tasks | iterates over elements in ArrayList and checks if any element's id matches id. If found, set the name to new name, return true | (boolean) changedName    |
+|                                     |                         | if not found, return false                                                                                                     | (boolean) notChangedName |
 
 ---
 ```I want to be able to change the status of a task by providing its ID.```

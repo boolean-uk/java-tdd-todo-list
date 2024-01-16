@@ -1,6 +1,7 @@
 package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.sql.Timestamp;
@@ -9,10 +10,9 @@ import java.util.Arrays;
 
 class TodoListTest {
 
-    TodoListExtension todoList = new TodoListExtension();
-
     @Test
     public void testAddTask() {
+        TodoListExtension todoList = new TodoListExtension();
         Assertions.assertInstanceOf(TaskExtension.class, todoList.addTask("Dishes"));
         TaskExtension task = todoList.addTask("Vacuum");
         Assertions.assertEquals(todoList.tasks.get(1), task);
@@ -20,6 +20,7 @@ class TodoListTest {
 
     @Test
     public void testShowTasks() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes"), new TaskExtension("Vacuum") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String tasksString = todoList.showTasks(todoList.tasks);
@@ -29,6 +30,7 @@ class TodoListTest {
 
     @Test
     public void testSetStatus() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension task = new TaskExtension("Dishes");
         Assertions.assertFalse(task.getStatus());
         task.setStatus(true);
@@ -37,6 +39,7 @@ class TodoListTest {
 
     @Test
     public void testShowCompleteTasks() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes", false), new TaskExtension("Vacuum", true), new TaskExtension("Empty Trash", false), new TaskExtension("Walk the dog", true) };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String completedTasksString = todoList.showCompleteTasks();
@@ -48,6 +51,7 @@ class TodoListTest {
 
     @Test
     public void testShowIncompleteTasks() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes", false), new TaskExtension("Vacuum", true), new TaskExtension("Empty trash", false), new TaskExtension("Walk the dog", true) };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String completedTasksString = todoList.showIncompleteTasks();
@@ -59,6 +63,7 @@ class TodoListTest {
 
     @Test
     public void testSearchForNameFound() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes"), new TaskExtension("Vacuum"), new TaskExtension("Empty Trash"), new TaskExtension("Walk the dog") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String foundMessage = todoList.search("Dishes");
@@ -67,6 +72,7 @@ class TodoListTest {
 
     @Test
     public void testSearchForNameNotFound() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes"), new TaskExtension("Vacuum"), new TaskExtension("Empty Trash"), new TaskExtension("Walk the dog") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String notFoundMessage = todoList.search("Wash floor");
@@ -75,6 +81,7 @@ class TodoListTest {
 
     @Test
     public void testDeleteExistingTask() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes"), new TaskExtension("Vacuum"), new TaskExtension("Empty Trash"), new TaskExtension("Walk the dog") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         boolean deleted = todoList.delete("Dishes");
@@ -83,6 +90,7 @@ class TodoListTest {
 
     @Test
     public void testOrderTasksAsc() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes"), new TaskExtension("Vacuum"), new TaskExtension("Empty trash"), new TaskExtension("Walk the dog") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         ArrayList<TaskExtension> sortedAsc = todoList.orderTasksAsc();
@@ -92,6 +100,7 @@ class TodoListTest {
 
     @Test
     public void testOrderTasksDesc() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes"), new TaskExtension("Vacuum"), new TaskExtension("Empty Trash"), new TaskExtension("Walk the dog") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         ArrayList<TaskExtension> sortedAsc = todoList.orderTasksDesc();
@@ -101,30 +110,35 @@ class TodoListTest {
 
     @Test
     public void testSearchById() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes"), new TaskExtension("Vacuum"), new TaskExtension("Empty Trash"), new TaskExtension("Walk the dog") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
-        String searchString = searchById(1);
-        Assertions.assertEquals("Task with id 1 is Dishes", searchString);
+        TaskExtension task = todoList.searchById(1);
+        Assertions.assertEquals("Dishes", task.getName());
     }
 
     @Test
     public void testSetNameById() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
-        Assertions.assertTrue(setNameById(1, "Make Dinner"));
-        Assertions.assertFalse(setNameById(3, "Make Dinner"));
+        System.out.println(todoList.tasks.get(0).getName());
+        Assertions.assertTrue(todoList.setNameById(1, "Make Dinner"));
+        Assertions.assertFalse(todoList.setNameById(3, "Make Dinner"));
     }
 
     @Test
     public void testSetStatusById() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension[] array = new TaskExtension[] { new TaskExtension("Dishes") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
-        Assertions.assertTrue(setStatusById(1, true));
-        Assertions.assertFalse(SetStatusById(3, true));
+        Assertions.assertTrue(todoList.setStatusById(1, true));
+        Assertions.assertFalse(todoList.setStatusById(3, true));
     }
 
     @Test
     public void testTimeStamp() {
+        TodoListExtension todoList = new TodoListExtension();
         TaskExtension task = new TaskExtension("Dishes");
         Assertions.assertInstanceOf(Timestamp.class, task.getCreatedAt());
     }
