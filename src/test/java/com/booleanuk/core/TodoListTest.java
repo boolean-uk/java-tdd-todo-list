@@ -329,4 +329,39 @@ class TodoListTest {
 
         Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testShowTasksDescending()
+    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        String expectedString = """
+                Your tasks are:
+                [ ] Talk to janitor
+                [ ] Paint the Mona Lisa
+                [ ] Eat yoghurt
+                [ ] Do laundry
+                """;
+
+        todoList.showAllTasksOrdered(false);
+
+        Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testShowTasksDescendingEmpty()
+    {
+        TodoList todoList = new TodoList();
+
+        String expectedString = "No tasks to display, todo list is empty";
+
+        todoList.showAllTasksOrdered(false);
+
+        Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
+    }
 }
