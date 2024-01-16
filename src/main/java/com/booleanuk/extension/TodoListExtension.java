@@ -1,19 +1,29 @@
 package com.booleanuk.extension;
 
+import java.rmi.server.UID;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class TodoListExtension {
     public static class Task{
         public String description;
         public boolean isCompleted;
+        private static int nextId = 0;
+        private int id;
+
+
 
         public Task(String task){
             this.description = task;
             this.isCompleted = false;
+            this.id = nextId++;
         }
-
+        public int getID(){
+            return id;
+        }
         public String getDescription(){
             return description;
         }
@@ -41,6 +51,15 @@ public class TodoListExtension {
             }
         }
         return completedList.size();
+    }
+
+    public String getTaskByID(int num){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == num){
+                return list.get(i).description;
+            }
+        }
+        return null;
     }
 
 
@@ -126,6 +145,9 @@ public class TodoListExtension {
         todo.add("Brush teeth");
         todo.add("Workout");
         todo.add("Walk the dog");
+        for (int i = 0; i < todo.list.size(); i++) {
+            System.out.println(todo.list.get(i).id);
+        }
         System.out.println(todo.getIncompleteTasks());
         todo.changeTaskStatus("Wash car");
         todo.changeTaskStatus("Brush teeth");
