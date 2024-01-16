@@ -101,4 +101,11 @@ class TodoListTest {
         todoList.addTask("clean");
         Assertions.assertTrue(todoList.remove("clean"));
     }
+
+    @Test
+    public void removeNonexistingTask() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        Assertions.assertFalse(todoList.remove("make dinner"));
+    }
 }
