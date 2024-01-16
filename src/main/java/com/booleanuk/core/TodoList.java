@@ -26,9 +26,26 @@ public class TodoList {
                 System.out.println(task.name);
             }
         } catch (Exception e) {
+            System.out.println("Error, returning empty list");
             return new ArrayList<>();
         }
         return this.listOfTasks;
+    }
+
+    public ArrayList<Task> getCompleteTasks() {
+        ArrayList<Task> completedTasks = new ArrayList<>();
+        try {
+            for(Task task : this.listOfTasks) {
+                if (task.status) {
+                    System.out.println(task.name);
+                    completedTasks.add(task);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error, returning empty list");
+            return new ArrayList<>();
+        }
+        return completedTasks;
     }
 
     public static void main(String[] args) {

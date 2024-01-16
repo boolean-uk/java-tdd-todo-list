@@ -42,4 +42,22 @@ class TodoListTest {
         task.setStatus(true);
         Assertions.assertTrue(task.status);
     }
+
+    @Test
+    public void testGetCompleteTasks() {
+        TodoList lst = new TodoList();
+        Task task_1 = new Task("CV");
+        Task task_2 = new Task("Sleep");
+
+        lst.addTask(task_1);
+        lst.addTask(task_2);
+
+        Assertions.assertFalse(task_1.status);
+        lst.addTask(task_1);
+        lst.addTask(task_2);
+        task_1.setStatus(true);
+
+        Assertions.assertSame(task_1, lst.getCompleteTasks().get(0));
+        Assertions.assertNotSame(task_2, lst.getCompleteTasks().get(0));
+    }
 }
