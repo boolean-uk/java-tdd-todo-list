@@ -55,6 +55,12 @@
 7. I want to remove tasks from my list.
 
 
+| Class    | Member Variables  | Methods                    | Scenario                   | Output/Result                                                |
+|----------|-------------------|----------------------------|----------------------------|--------------------------------------------------------------|
+| TodoList | ArrayList<String> | String remove(String task) | Remove task from todo list | Removes task to todo list and returns message affirming this |
+|          |                   |                            |                            |                                                              |
+
+
 8. I want to see all the tasks in my list ordered alphabetically in ascending order.
 
 
