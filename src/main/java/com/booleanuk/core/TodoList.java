@@ -60,7 +60,10 @@ public class TodoList {
     }
 
     public boolean removeTask(String task) {
-        return !this.todoList.remove(task);
+        if (this.todoList.containsKey(task)) {
+            return !this.todoList.remove(task);
+        }
+        return false;
     }
 
     public static void main(String[] args) {
