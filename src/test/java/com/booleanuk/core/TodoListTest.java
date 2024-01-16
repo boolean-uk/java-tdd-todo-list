@@ -21,10 +21,15 @@ class TodoListTest {
 
         todoList.addTaskToTodolist("Task1");
 
-        Map<String, Boolean> todolist = todoList.getTodolist();
+        Map<String, Boolean> todolistMap = todoList.getTodolist();
 
-        Assertions.assertFalse(todolist.get("Task1"));
+        Assertions.assertTrue(todolistMap.containsKey("Task1"));
+        Assertions.assertFalse(todolistMap.get("Task1"));
 
+        todoList.addTaskToTodolist(null);
+
+        Assertions.assertFalse(todolistMap.containsKey(null));
 
     }
+
 }

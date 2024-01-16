@@ -22,4 +22,13 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |                                   | Map<String, Boolean> getTodoList() | Gets the todoList        | Map<Map<String, boolean> todolist |
 |                                   |                                    |                          |                                   |
 
+## 2
+
+| Class Variables                   | Methods                            | Scenarios                    | Output/Return                     |
+|-----------------------------------|------------------------------------|------------------------------|-----------------------------------|
+| Map<Map<String, Boolean> todoList | printTasksFromTodolist()           | prints the tasks of todolist | void                              |
+|                                   | Map<String, Boolean> getTodoList() | Gets the todoList            | Map<Map<String, boolean> todolist |
+|                                   |                                    |                              |                                   |
+
+
 
