@@ -89,10 +89,16 @@ public class TodoListExtended {
     //Extention
 
     public TaskExtended getTask(int id){
+        if(getIdNameMap().containsKey(id)){
+            return this.todoList.get(getIdNameMap().get(id));
+        }
         return null;
     }
 
-    public void changeName(int id){
+    public void changeName(int id, String name){
+        System.out.println(getTask(id).getName());
+        System.out.println(getTask(id).getId());
+        getTask(id).setName(id, name);
 
     }
 
@@ -102,5 +108,13 @@ public class TodoListExtended {
 
     public void getTimeCreated(String name) {
 
+    }
+
+    public HashMap<Integer, String> getIdNameMap(){
+        HashMap<Integer, String> idsAndNames = new HashMap<>();
+        for(TaskExtended task : this.todoList.values()){
+            idsAndNames.put(task.getId(), task.getName());
+        }
+        return idsAndNames;
     }
 }
