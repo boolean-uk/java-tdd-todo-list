@@ -38,7 +38,7 @@ class TodoListTest {
 
 		Assertions.assertFalse(task1.completed);
 		Assertions.assertFalse(task2.completed);
-		task1.setComplete(true);
+		task1.setCompleted(true);
 		Assertions.assertTrue(task1.completed);
 		Assertions.assertFalse(task2.completed);
 
