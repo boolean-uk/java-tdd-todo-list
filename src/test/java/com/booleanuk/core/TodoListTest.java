@@ -78,11 +78,19 @@ class TodoListTest {
     }
 
     @Test
-    public void testRemoveTask(){
+    public void testRemoveTaskWhenTaskInList(){
         TodoList todolist = new TodoList();
         todolist.add("Do laundry");
         Assertions.assertTrue(todolist.getToDos().contains("Do laundry"));
         todolist.remove("Do laundry");
         Assertions.assertFalse(todolist.getToDos().contains("Do laundry"));
+    }
+
+    @Test
+    public void testRemoveTaskWhenTaskNotInList(){
+        TodoList todolist = new TodoList();
+        Assertions.assertEquals("Task is not in list", todolist.remove("Do laundry"));
+
+
     }
 }
