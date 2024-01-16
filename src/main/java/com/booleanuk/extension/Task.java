@@ -41,6 +41,6 @@ public class Task {
 
     @Override
     public String toString() {
-        return "[\"" + description + "\", " + (completed ? "complete" : "incomplete") + "]";
+        return "[" + id +", \"" + description + "\", " + (completed ? "1, " : "0, ") + creationDate.getDayOfWeek() + "]";
     }
 }
