@@ -129,7 +129,7 @@ class TodoListTest {
         todoList.todos.put("Work", true);
         todoList.todos.put("Code", false);
         todoList.todos.put("Walk", false);
-        Assertions.assertEquals("Code\nWalk",todoList.getIncompleteTasks());
+        Assertions.assertEquals("Walk\nCode",todoList.getIncompleteTasks());
     }
 
     @Test
