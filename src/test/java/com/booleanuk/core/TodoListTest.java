@@ -103,6 +103,16 @@ class TodoListTest {
         assertFalse(outContent.toString().trim().contains("groceries"));
     }
 
+    @Test
+    public void testPrintTasksInAlphabeticalOrder() {
+        TodoList list = new TodoList();
+        list.addTask("vacuum");
+        list.addTask("paint");
+        list.addTask("groceries");
+        list.printTasksInAlphabeticalOrder();
+        String expectedOutput = String.join(System.lineSeparator(), "groceries", "paint", "vacuum");
+        assertEquals(expectedOutput, outContent.toString().trim());
+    }
 
 
 
