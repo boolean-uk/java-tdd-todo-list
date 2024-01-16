@@ -56,4 +56,8 @@ public class TodoList {
     public boolean doesTaskExist(String task) {
         return tasks.containsKey(task);
     }
+
+    public boolean remove(String task) {
+        return true;
+    }
 }
