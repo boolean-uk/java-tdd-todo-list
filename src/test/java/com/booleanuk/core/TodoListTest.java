@@ -13,8 +13,8 @@ class TodoListTest {
         todo.add("buy milk");
         todo.add("brush teeth");
         
-        Assertions.assertTrue(todo.contains("buy milk"));
-        Assertions.assertTrue(todo.contains("brush teeth"));
+        Assertions.assertTrue(todo.search("buy milk"));
+        Assertions.assertTrue(todo.search("brush teeth"));
     }
 
     @Test
@@ -42,8 +42,8 @@ class TodoListTest {
 
         Assertions.assertEquals(2, todo.completeTasks().size());
         Assertions.assertEquals(1, todo.incompleteTasks().size());
-        Assertions.assertTrue(todo.contains("scream", todo.completeTasks()));
-        Assertions.assertFalse(todo.contains("scream", todo.incompleteTasks()));
+        Assertions.assertTrue(todo.search("scream", todo.completeTasks()));
+        Assertions.assertFalse(todo.search("scream", todo.incompleteTasks()));
     }
 
     @Test
@@ -74,12 +74,14 @@ class TodoListTest {
     public void testRemoveFromEmptyList(){
         TodoList todo = new TodoList();
         todo.remove("rob bank");
+        Assertions.assertTrue(false);
     }
-    
+    /*
     @Test 
     public void testRemoveNonExistingTask(){
 
     }
+     */
 
     @Test
     public void testAscending(){
@@ -96,5 +98,15 @@ class TodoListTest {
     @Test
     public void testDescending(){
         TodoList todo = new TodoList();
+        todo.add("basketball");
+        todo.add("knit");
+        todo.add("drink water");
+        todo.add("complain");
+        todo.add("arrest the bad guys");
+        todo.tasksDescending();
+
+        Assertions.assertTrue(todo.tasks.get(0).description.equals("arrest the bad guys"));
+        Assertions.assertTrue(todo.tasks.get(4).description.equals("knit"));
+
     }
 }
