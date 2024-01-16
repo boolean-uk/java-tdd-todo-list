@@ -41,6 +41,8 @@ class TodoListTest {
 
         listStatus.add("Shovel snow", "Incomplete");
 
+        listStatus.add("Grocery shopping", "Incomplete");
+
         listStatus.changeStatus("Shovel snow", "Complete");
 
         assertEquals("Shovel snow", listStatus.getCompleteTasks());
