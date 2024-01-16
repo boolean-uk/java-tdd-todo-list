@@ -48,17 +48,32 @@ class TodoListTest {
 
     @Test
     public void testSearch(){
+        TodoList todo = new TodoList();
+        todo.add("clip nails");
+        todo.add("vacuum hair");
 
+        Assertions.assertTrue(todo.search("clip nails"));
+        Assertions.assertFalse(todo.search("lawn mow"));
+        Assertions.assertTrue(todo.search("vacuum hair"));
     }
 
     @Test
     public void testRemove(){
+        TodoList todo = new TodoList();
+        todo.add("ride horse");
+        todo.add("appreciate boyfriend");
 
+        Assertions.assertTrue(todo.search("ride horse"));
+
+        todo.remove("ride horse");
+
+        Assertions.assertFalse(todo.search("ride horse"));
     }
     
     @Test 
     public void testRemoveFromEmptyList(){
-        
+        TodoList todo = new TodoList();
+        todo.remove("rob bank");
     }
     
     @Test 
@@ -68,11 +83,12 @@ class TodoListTest {
 
     @Test
     public void testAscending(){
+        TodoList todo = new TodoList();
 
     }
 
     @Test
     public void testDescending(){
-
+        TodoList todo = new TodoList();
     }
 }
