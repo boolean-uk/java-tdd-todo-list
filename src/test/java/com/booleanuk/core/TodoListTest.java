@@ -88,4 +88,13 @@ class TodoListTest {
         Assertions.assertEquals("Task not found", list.checkOneTask(task));
     }
 
+    @Test
+    public void testChangeTaskStatus(){
+        TodoList list = new TodoList();
+        String status = "Complete";
+        list.addTask("Workout", "Incomplete");
+        list.addTask(" Walk dog", "Incomplete");
+        Assertions.assertEquals("Status changed", list.changeTaskStatus(status));
+        Assertions.assertEquals("Workout: Complete", list.checkOneTask("Workout"));
+    }
 }
