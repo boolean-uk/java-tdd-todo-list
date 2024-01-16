@@ -142,7 +142,7 @@ class TodoListTest {
 
         Assertions.assertTrue(todoList.checkTask("Task1"));
 
-        todoList.removeTask();
+        todoList.removeTask("Task1");
 
         Assertions.assertFalse(todoList.checkTask("Task1"));
 

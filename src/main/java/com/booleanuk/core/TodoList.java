@@ -65,4 +65,8 @@ public class TodoList {
         }
         return this.getTodolist().containsKey(task1);
     }
+
+    public void removeTask(String task) {
+        this.todolist.remove(task);
+    }
 }
