@@ -19,8 +19,8 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |             | ArrayList<String> toDoList <br/> Task task  | getIncompleteTasks()     | if toDoList not null | return true        |
 |             | ArrayList<String> toDoList <br/> Task task  | removeTask(String task)  | if task in list      | return true        |
 |             | ArrayList<String> toDoList <br/> Task task  | searchTask(String task)  | if task is null      | return false       |
-|             | ArrayList<String> toDoList <br/> Task task  | toDoListSortedAsc()      | if toDoList not null | return true        |
-|             | ArrayList<String> toDoList <br/> Task task  | toDoListSortedDes()      | if toDoList not null | return true        |
+|             | ArrayList<String> toDoList <br/> Task task  | sortedListAsc()          | if toDoList not null | void               |
+|             | ArrayList<String> toDoList <br/> Task task  | sortedListDes()          | if toDoList not null | void               |
 
 | Class | Attribute   |
 |-------|-------------|
