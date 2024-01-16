@@ -38,4 +38,13 @@ public class TodoListExtension {
         }
         return false;
     }
+
+    public String getTasksWithTime() {
+        if (this.todos.isEmpty()) return "List is empty";
+        String todoString = "";
+        for(Task task: todos) {
+            todoString = todoString.concat(task.name+": "+(task.status ? "complete" : "incomplete") + "\n" + task.creationTime +"\n");
+        }
+        return todoString.substring(0, todoString.length()-1);
+    }
 }
