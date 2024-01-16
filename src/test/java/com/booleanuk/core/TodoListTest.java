@@ -74,8 +74,8 @@ class TodoListTest {
         todo.add("Make food");
         todo.add("Brush teeth");
         todo.add("Workout");
-        Assertions.assertTrue(todo.searchList("Workout"));
-        Assertions.assertFalse(todo.searchList("Trim beard"));
+        Assertions.assertTrue(todo.searchTask("Workout"));
+        Assertions.assertFalse(todo.searchTask("Trim beard"));
     }
 
 
