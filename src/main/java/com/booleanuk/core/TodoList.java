@@ -3,7 +3,6 @@ package com.booleanuk.core;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
 public class TodoList {
     public ArrayList<Task> tasks;
 
@@ -70,7 +69,7 @@ public class TodoList {
     public boolean contains(String task, ArrayList<Task> tasks){
 
         for (Task t : tasks){
-            if (t.compareTo(task) == 0){
+            if (t.equals(task)){
                 return true;
             }
         }
@@ -84,7 +83,7 @@ public class TodoList {
 
     public Task find(String task){
         for (Task t : tasks){
-            if (t.compareTo(task) == 0){
+            if (t.equals(task)){
                 return t;
             }
         }

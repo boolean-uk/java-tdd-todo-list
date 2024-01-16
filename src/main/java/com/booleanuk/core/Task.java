@@ -1,8 +1,8 @@
 package com.booleanuk.core;
 
 public class Task implements Comparable<Task>{
-    String description;
-    boolean status;
+    public String description;
+    public boolean status;
     public Task(String description){
         this.description = description;
         status = false;
@@ -16,8 +16,8 @@ public class Task implements Comparable<Task>{
         return this.description.compareTo(otherTask.description);
     }
 
-    public int compareTo(String task){
-        return this.description.compareTo(task);
+    public boolean equals(String task){
+        return this.description.equals(task);
     }
 
     public String toString(){

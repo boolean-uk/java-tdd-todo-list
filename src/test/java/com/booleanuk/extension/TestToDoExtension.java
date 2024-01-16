@@ -23,7 +23,7 @@ public class TestToDoExtension {
 
         todo.changeName("7646", "play tennis");
 
-        Assertions.assertFalse(todo.getTask("7646").description.equals("play golf"));
+        Assertions.assertNotEquals("play golf", todo.getTask("7646").description);
         Assertions.assertEquals(todo.getTask("7646").description, "play tennis");
     }
 
@@ -41,6 +41,13 @@ public class TestToDoExtension {
 
     @Test
     public void testDateAndTimeCreated(){
-        // TODO ============================================== test printed to screen
+        ToDoExtension todo = new ToDoExtension();
+        todo.add("001", "sweep floor");
+        todo.add("002", "comb the rug");
+        todo.add("003", "fishing with pa");
+        todo.add("004", "bake tart");
+        todo.add("005", "beat flu");
+        todo.displayTimeCreated();
+        // TODO other way to test what is printed to screen?
     }
 }
