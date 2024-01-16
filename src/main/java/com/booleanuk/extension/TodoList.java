@@ -35,23 +35,23 @@ public class TodoList {
         return true;
     }
 
-//    public ArrayList<String> getCompletedTasks() {
-//        return getTasks(true);
-//    }
-//
-//    public ArrayList<String> getUncompletedTasks() {
-//        return getTasks(false);
-//    }
-//
-//    private ArrayList<String> getTasks(boolean status) {
-//        ArrayList<String> tasksWithTheSuppliedStatus = new ArrayList<>();
-//        for(Map.Entry<String, Boolean> e: tasks.entrySet()) {
-//            if(e.getValue() == status) {
-//                tasksWithTheSuppliedStatus.add(e.getKey());
-//            }
-//        }
-//        return tasksWithTheSuppliedStatus;
-//    }
+    public ArrayList<String> getCompletedTasks() {
+        return getTasks(true);
+    }
+
+    public ArrayList<String> getUncompletedTasks() {
+        return getTasks(false);
+    }
+
+    private ArrayList<String> getTasks(boolean status) {
+        ArrayList<String> tasksWithTheSuppliedStatus = new ArrayList<>();
+        for(Map.Entry<String, Boolean> e: tasks.entrySet()) {
+            if(e.getValue() == status) {
+                tasksWithTheSuppliedStatus.add(e.getKey());
+            }
+        }
+        return tasksWithTheSuppliedStatus;
+    }
 //
 //    public String doesTaskExist(String task) {
 //        return tasks.containsKey(task)? "The task exists!" : "The task doesn't exist!";

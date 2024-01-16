@@ -51,12 +51,12 @@ class TodoListTest {
         Assertions.assertFalse(todoList.updateTaskStatus("456", true));
     }
 
-//    @Test
-//    public void getCompletedTasksEmptyList() {
-//        TodoList todoList = new TodoList();
-//        Assertions.assertEquals(new ArrayList<>(), todoList.getCompletedTasks());
-//    }
-//
+    @Test
+    public void getCompletedTasksEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals(new ArrayList<>(), todoList.getCompletedTasks());
+    }
+
 //    @Test
 //    public void getCompletedTasksNotEmptyList() {
 //        TodoList todoList = new TodoList();
