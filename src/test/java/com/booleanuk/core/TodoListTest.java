@@ -115,6 +115,23 @@ class TodoListTest {
         assertEquals(expectedOutput, outContent.toString().trim());
     }
 
+    @Test
+    public void testShowTasksInDescOrder() {
+        TodoList list = new TodoList();
+        list.addTask("paint");
+        list.addTask("groceries");
+        list.addTask("vacuum");
+
+        // Manually change status to 'complete' for 'paint'
+        list.changeStatus("paint");
+        System.setOut(new PrintStream(outContent));
+        list.showTasksInDescOrder();
+
+        String expectedOutput = "vacuum - incomplete\npaint - complete\ngroceries - incomplete\n";
+        assertEquals(expectedOutput, outContent.toString());
+    }
+
+
 
 
 
