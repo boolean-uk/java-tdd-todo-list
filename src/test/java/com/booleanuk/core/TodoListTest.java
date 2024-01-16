@@ -143,4 +143,15 @@ class TodoListTest {
 
         Assertions.assertTrue(result.removeTask("Clean the bathroom"));
     }
+
+    @Test
+    public void removeTaskReturnFalse() {
+        TodoList result = new TodoList();
+
+        result.addTask("Do the dishes");
+        result.addTask("Train for 60 minutes");
+        result.addTask("Cook dinner");
+
+        Assertions.assertFalse(result.removeTask("Clean the bathroom"));
+    }
 }
