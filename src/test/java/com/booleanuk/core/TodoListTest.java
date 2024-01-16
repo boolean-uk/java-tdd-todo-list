@@ -50,4 +50,15 @@ class TodoListTest {
         Assertions.assertTrue(todoList.getTasks().get(0).isCompleted());
     }
 
+    @Test
+    public void canRetrieveTasksByCompletion() {
+        todoList.add(task1);
+        Assertions.assertEquals(1, todoList.getTasks(false).size());
+        Assertions.assertEquals(0, todoList.getTasks(true).size());
+
+        todoList.getTasks().get(0).setCompleted(true);
+        Assertions.assertEquals(0, todoList.getTasks(false).size());
+        Assertions.assertEquals(1, todoList.getTasks(true).size());
+    }
+
 }
