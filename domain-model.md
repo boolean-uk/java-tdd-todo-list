@@ -31,7 +31,7 @@
 |          |                        | addTask(String task,     | the todoList                    | returns "Could not add task" |
 |          |                        | String status)           |                                 | if task already exists       |
 |          |                        |                          |                                 |                              |
-|          |                        | String                   | User wants to remove a task     | return "task removed"        |
+|          |                        | String                   | User wants to remove a task     | return "Task removed"        |
 |          |                        | removeTask(String task)  | from the todoList               | if removed and "task does    |
 |          |                        |                          |                                 | not exist" task is not found |
 |          |                        |                          |                                 |                              |

@@ -48,4 +48,11 @@ class TodoListTest {
         Assertions.assertEquals("Can not add: Task already added", list.addTask(task,status));
     }
 
+    @Test
+    public void testRemoveTask(){
+        TodoList list = new TodoList();
+        String task = "Workout";
+        Assertions.assertEquals("{Workout=Complete}",list.addTask("Workout", "Complete"));
+        Assertions.assertEquals("Task removed", list.removeTask(task));
+    }
 }
