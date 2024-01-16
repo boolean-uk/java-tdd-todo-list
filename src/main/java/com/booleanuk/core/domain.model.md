@@ -14,14 +14,16 @@
 
 ### Class ToDoList
  
-| Member Variables  | Methods            | Scenario                         | Return                               | Type       |
-|-------------------|--------------------|----------------------------------|--------------------------------------|------------|
-| listOfTasks: List | addTasks()         | I want to add task to list       | Add the list to the to-do-list       | boolean    |
-|                   | retrieveTasks()    | I want to know what tasks I have | Print the tasks, and return the list | List<Task> |
-|                   | getCompleteTasks() | I want to see completed tasks    | Print the tasks, and return the list | List<Task> |
-|                   | searchTask()       | I want to know if tasks exists   | Print the tasks, and return it       | Task       |
-|                   | removeTask()       | I want to remove a task          | Print which task was removed         | Sys.out    |
-|                   | removeAllTasks()   | I want to remove all tasks       | Print which tasks was removed        | Sys.out    |
+| Member Variables  | Methods               | Scenario                             | Return                               | Type       |
+|-------------------|-----------------------|--------------------------------------|--------------------------------------|------------|
+| listOfTasks: List | addTasks()            | I want to add task to list           | Add the list to the to-do-list       | boolean    |
+|                   | retrieveTasks()       | I want to know what tasks I have     | Print the tasks, and return the list | List<Task> |
+|                   | getCompleteTasks()    | I want to see completed tasks        | Print the tasks, and return the list | List<Task> |
+|                   | searchTask()          | I want to know if tasks exists       | Print the tasks, and return it       | Task       |
+|                   | removeTask()          | I want to remove a task              | Print which task was removed         | Sys.out    |
+|                   | removeAllTasks()      | I want to remove all tasks           | Print which tasks was removed        | Sys.out    |
+|                   | showTasksAscending()  | I want to see tasks ascending order  | Print all tasks in ascending order   | Sys.out    |
+|                   | showTasksDescending() | I want to see tasks descending order | Print all tasks in descending order  | Sys.out    |
 
 
 ### Task
