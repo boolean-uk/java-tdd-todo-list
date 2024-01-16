@@ -26,10 +26,20 @@ class TodoListTest {
     public void changeTaskStatusTest(){
         TodoList todoList = new TodoList();
         todoList.addTask("Dishes");
-        Assertions.assertEquals("{Dishes=true}", todoList.showTasks());
-        todoList.changeTaskStatus("Dishes");
         Assertions.assertEquals("{Dishes=false}", todoList.showTasks());
         todoList.changeTaskStatus("Dishes");
         Assertions.assertEquals("{Dishes=true}", todoList.showTasks());
+        todoList.changeTaskStatus("Dishes");
+        Assertions.assertEquals("{Dishes=false}", todoList.showTasks());
+    }
+    @Test
+    public void getCompletedTasks(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Dishes");
+        todoList.addTask("Haircut");
+        todoList.changeTaskStatus("Dishes");
+        todoList.changeTaskStatus("Haircut");
+        Assertions.assertEquals("Dishes=true", seeStatus(true));
+
     }
 }

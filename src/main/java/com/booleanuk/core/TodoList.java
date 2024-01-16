@@ -12,7 +12,7 @@ public class TodoList {
 
     public Boolean addTask(String task) {
         if (!this.tasks.containsKey(task)){
-            this.tasks.put(task, true);
+            this.tasks.put(task, false);
             return true;
         } else {
             return false;
