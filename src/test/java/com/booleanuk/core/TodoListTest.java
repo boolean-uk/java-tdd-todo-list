@@ -128,6 +128,8 @@ class TodoListTest {
         todoList.addTaskToTodolist("Task1");
 
         Assertions.assertTrue(todoList.checkTask("Task1"));
+        Assertions.assertFalse(todoList.checkTask("Task2"));
+
 
 
     }

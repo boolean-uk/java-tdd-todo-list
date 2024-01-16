@@ -51,8 +51,8 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 ## 6
 
-| Class Variables               | Methods                | Scenarios                        | Output/Return                    |
-|-------------------------------|------------------------|----------------------------------|----------------------------------|
-| Map<String, Boolean> todoList | checkTask(String task) | Checks if task is already in map | True if it is in the listOfTasks |
-|                               |                        |                                  | and false if not                 |
-|                               |                        |                                  |                                  |
+| Class Variables               | Methods                | Scenarios                             | Output/Return                    |
+|-------------------------------|------------------------|---------------------------------------|----------------------------------|
+| Map<String, Boolean> todoList | checkTask(String task) | Checks if task is already in map      | True if it is in the listOfTasks |
+|                               |                        | Also prints out that it was not found | and false if not                 |
+|                               |                        |                                       |                                  |
