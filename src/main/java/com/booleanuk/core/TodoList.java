@@ -18,6 +18,18 @@ public class TodoList {
         this.list = new ArrayList<>();
     }
 
+
+    public int getIncompleteTasks(){
+        ArrayList<Task> incompleteList = new ArrayList<>();
+        for (int i = 0; i < this.list.size(); i++) {
+            if(!this.list.get(i).isCompleted){
+                incompleteList.add(this.list.get(i));
+            }
+        }
+        return incompleteList.size();
+    }
+
+
     public boolean changeTaskStatus(String task){
         if(task.isEmpty()){
             return false;
@@ -32,8 +44,6 @@ public class TodoList {
         System.out.println("NO TASK FOUND IN LIST");
         return false;
     }
-
-
     public boolean add(String taskDescription){
         if(taskDescription.isEmpty()){
             return false;
@@ -55,9 +65,17 @@ public class TodoList {
     }
 
     public static void main(String[] args) {
-        TodoList t = new TodoList();
-        t.add("Need to brush my teeth");
+        TodoList todo = new TodoList();
 
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        todo.add("Walk the dog");
+        System.out.println(todo.getIncompleteTasks());
+        todo.changeTaskStatus("Wash car");
+        todo.changeTaskStatus("Brush teeth");
+        System.out.println(todo.getIncompleteTasks());
         //System.out.println(t.list.get(0).description + t.list.get(0).isCompleted);
     }
 }
