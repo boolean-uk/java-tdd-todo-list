@@ -57,6 +57,14 @@ public class TodoList {
         return null;
     }
 
+    public String getTaskName(String name) {
+        if(getToDos().contains(name)){
+            return this.todoList.get(name).getName();
+        }
+        return "Task doesn't exist";
+    }
+
+
     public String remove(){
         return "";
     }
