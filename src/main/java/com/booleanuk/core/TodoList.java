@@ -10,21 +10,21 @@ public class TodoList {
     }
 
     public void add(String task){
-        if (!search(task)){
+        if (!contains(task)){
             tasks.add(new Task(task));
         }
     }
 
     public void remove(String task){
-        if (search(task)){
-            tasks.removeIf(t -> t.description.equals(task));
+        if (contains(task)){
+            tasks.remove(find(task));
         } else {
             System.out.println("Task not in ToDo list.");
         }
     }
 
     public void changeStatus(String task, boolean newStatus){
-
+        find(task).status = newStatus;
     }
 
     public ArrayList<Task> completeTasks(){
@@ -44,10 +44,10 @@ public class TodoList {
     }
 
     public boolean status(String task){
-        return true;
+        return find(task).status;
     }
 
-    public boolean search(String task, ArrayList<Task> tasks){
+    public boolean contains(String task, ArrayList<Task> tasks){
         for (Task t : tasks){
             if (t.description.equals(task)){
                 return true;
@@ -56,7 +56,16 @@ public class TodoList {
         return false;
     }
 
-    public boolean search(String task){
-        return search(task, this.tasks);
+    public boolean contains(String task){
+        return contains(task, this.tasks);
+    }
+
+    public Task find(String task){
+        for (Task t : tasks){
+            if (t.description.equals(task)){
+                return t;
+            }
+        }
+        return null;
     }
 }

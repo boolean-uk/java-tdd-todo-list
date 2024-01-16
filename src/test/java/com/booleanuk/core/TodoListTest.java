@@ -13,8 +13,8 @@ class TodoListTest {
         todo.add("buy milk");
         todo.add("brush teeth");
         
-        Assertions.assertTrue(todo.search("buy milk"));
-        Assertions.assertTrue(todo.search("brush teeth"));
+        Assertions.assertTrue(todo.contains("buy milk"));
+        Assertions.assertTrue(todo.contains("brush teeth"));
     }
 
     @Test
@@ -42,8 +42,8 @@ class TodoListTest {
 
         Assertions.assertEquals(2, todo.completeTasks().size());
         Assertions.assertEquals(1, todo.incompleteTasks().size());
-        Assertions.assertTrue(todo.search("scream", todo.completeTasks()));
-        Assertions.assertFalse(todo.search("scream", todo.incompleteTasks()));
+        Assertions.assertTrue(todo.contains("scream", todo.completeTasks()));
+        Assertions.assertFalse(todo.contains("scream", todo.incompleteTasks()));
     }
 
     @Test
@@ -52,9 +52,9 @@ class TodoListTest {
         todo.add("clip nails");
         todo.add("vacuum hair");
 
-        Assertions.assertTrue(todo.search("clip nails"));
-        Assertions.assertFalse(todo.search("lawn mow"));
-        Assertions.assertTrue(todo.search("vacuum hair"));
+        Assertions.assertTrue(todo.contains("clip nails"));
+        Assertions.assertFalse(todo.contains("lawn mow"));
+        Assertions.assertTrue(todo.contains("vacuum hair"));
     }
 
     @Test
@@ -63,11 +63,11 @@ class TodoListTest {
         todo.add("ride horse");
         todo.add("appreciate boyfriend");
 
-        Assertions.assertTrue(todo.search("ride horse"));
+        Assertions.assertTrue(todo.contains("ride horse"));
 
         todo.remove("ride horse");
 
-        Assertions.assertFalse(todo.search("ride horse"));
+        Assertions.assertFalse(todo.contains("ride horse"));
     }
     
     @Test 
