@@ -38,6 +38,17 @@ public class TodoList {
         return completedList.size();
     }
 
+    public boolean searchTask(String task){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(Objects.equals(this.list.get(i).description, task)){
+                System.out.println("Task found in list at index " + i);
+                return true;
+            }
+        }
+        System.out.println("Task is not in list");
+        return false;
+    }
+
 
     public boolean changeTaskStatus(String task){
         if(task.isEmpty()){
