@@ -50,6 +50,18 @@ public class TodoList {
         return false;
     }
 
+    public boolean removeTask(String task)
+    {
+        if(taskList.contains(task))
+        {
+            taskList.remove(task);
+            taskStatus.remove(task);
+            return true;
+        }
+        System.out.print("Task not found");
+        return false;
+    }
+
     /*
     expectedString = """
         Your tasks are:
