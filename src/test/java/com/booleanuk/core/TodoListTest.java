@@ -97,12 +97,12 @@ class TodoListTest {
 		todo.addTask(task1);
 		todo.addTask(task2);
 		Assertions.assertEquals(2,todo.list.size());
-		Assertions.assertTrue(todo.list.containsKey(2));
+		Assertions.assertTrue(todo.list.containsKey(1));
 		try {
-			todo.removeTask(2);
+			todo.removeTask(1);
 		}catch (Exception e){}
 		Assertions.assertEquals(1,todo.list.size());
-		Assertions.assertFalse(todo.list.containsKey(2));
+		Assertions.assertFalse(todo.list.containsKey(1));
 		try{
 		todo.removeTask(3);
 		}catch (Exception e){

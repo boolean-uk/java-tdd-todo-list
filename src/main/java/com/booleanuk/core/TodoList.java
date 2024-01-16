@@ -60,4 +60,12 @@ public class TodoList {
 			throw new NotInListException(id);
 		}
 	}
+
+	public void removeTask(int id) throws NotInListException {
+		if (list.containsKey(id)) {
+			list.remove(id);
+		} else {
+			throw new NotInListException(id);
+		}
+	}
 }
