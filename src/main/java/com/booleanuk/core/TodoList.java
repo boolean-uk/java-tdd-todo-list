@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class TodoList {
     public ArrayList<Task> tasks;
@@ -55,5 +57,9 @@ public class TodoList {
         }
         return false;
     }
+
+//    public ArrayList<Task> sortTasks(boolean descending) {
+//        // Collection.sort(tasks, (a, b) -> a.name)
+//    }
 
 }
