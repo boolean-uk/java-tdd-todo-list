@@ -37,5 +37,14 @@ class TodoListTest {
 
     }
 
+    @Test
+    public void testChangeStatus(){
+        TodoList list = new TodoList();
+        list.addTask("paint");
+        Assertions.assertEquals("complete", list.changeStatus("paint"));
+        Assertions.assertEquals("incomplete", list.changeStatus("paint"));
+
+    }
+
 
 }
