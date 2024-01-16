@@ -40,6 +40,12 @@ class TodoListTest {
         todoList.changeTaskStatus("Dishes");
         todoList.changeTaskStatus("Haircut");
         Assertions.assertEquals("Haircut\nDishes\n", todoList.seeStatus(true));
-
+    }
+    @Test
+    public void getIncompletedTasks() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("Dishes");
+        todoList.addTask("Haircut");
+        Assertions.assertEquals("Haircut\nDishes\n", todoList.seeStatus(false));
     }
 }
