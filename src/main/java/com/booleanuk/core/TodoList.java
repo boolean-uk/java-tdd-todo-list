@@ -39,6 +39,7 @@ public class TodoList {
 		}
 		return sb.toString();
 	}
+
 	public String printListIncompleted() {
 		StringBuilder sb = new StringBuilder();
 		list.forEach((key, value) -> {
@@ -50,5 +51,13 @@ public class TodoList {
 			sb.deleteCharAt(sb.length() - 1);
 		}
 		return sb.toString();
+	}
+
+	public Task getTask(int id) throws NotInListException {
+		if (list.containsKey(id)) {
+			return list.get(id);
+		} else {
+			throw new NotInListException(id);
+		}
 	}
 }

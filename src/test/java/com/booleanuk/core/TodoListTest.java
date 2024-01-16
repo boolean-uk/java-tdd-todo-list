@@ -69,6 +69,8 @@ class TodoListTest {
 		task1.setCompleted(true);
 		Assertions.assertEquals("1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete",todo.printListIncompleted());
 	}
+
+	@Test
 	public void getTaskTest(){
 		TodoList todo = new TodoList();
 		Task task1 = new Task("Code more");
@@ -78,7 +80,7 @@ class TodoListTest {
 		try {
 			Task task = todo.getTask(4);
 		}catch (Exception e){
-			Assertions.assertEquals("No task with id 4 in list",e.toString());
+			Assertions.assertEquals("com.booleanuk.core.NotInListException: No task with id 4 in list",e.toString());
 		}
 		try {
 			Task task = todo.getTask(0);
