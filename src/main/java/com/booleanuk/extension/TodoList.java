@@ -52,10 +52,10 @@ public class TodoList {
         }
         return tasksWithTheSuppliedStatus;
     }
-//
-//    public String doesTaskExist(String task) {
-//        return tasks.containsKey(task)? "The task exists!" : "The task doesn't exist!";
-//    }
+
+    public String doesTaskExist(String id) {
+        return tasks.containsKey(id)? "The task exists!" : "The task doesn't exist!";
+    }
 //
 //    public boolean remove(String task) {
 //        if(!tasks.containsKey(task)) {

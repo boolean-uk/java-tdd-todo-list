@@ -80,20 +80,20 @@ class TodoListTest {
         todoList.updateTaskStatus("123", true);
         Assertions.assertEquals(new ArrayList<>(Arrays.asList("book dentist")), todoList.getUncompletedTasks());
     }
-//
-//    @Test
-//    public void doesExistingTaskExist() {
-//        TodoList todoList = new TodoList();
-//        todoList.addTask("clean");
-//        Assertions.assertEquals(	"The task exists!", todoList.doesTaskExist("clean"));
-//    }
-//
-//    @Test
-//    public void doesNonexistingTaskExist() {
-//        TodoList todoList = new TodoList();
-//        todoList.addTask("clean");
-//        Assertions.assertEquals(	"The task doesn't exist!", todoList.doesTaskExist("call bob"));
-//    }
+
+    @Test
+    public void doesExistingTaskExist() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertEquals(	"The task exists!", todoList.doesTaskExist("123"));
+    }
+
+    @Test
+    public void doesNonexistingTaskExist() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertEquals(	"The task doesn't exist!", todoList.doesTaskExist("456"));
+    }
 //
 //    @Test
 //    public void removeExistingTask() {
