@@ -3,8 +3,10 @@ package com.booleanuk.extension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 
 class TodoListTest {
     @Test
@@ -144,5 +146,13 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         todoList.addTask("clean", "123");
         Assertions.assertFalse(todoList.updateNameOfExistingTask("122", "clean bedroom"));
+    }
+
+    @Test
+    public void getTimeCreatedTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        String time = new SimpleDateFormat("H:mm:ss").format(new Date());
+        Assertions.assertEquals(time, todoList.getTimeCreated("123"));
     }
 }
