@@ -123,7 +123,23 @@ public class TodoListExtension {
     }
 
     public TaskExtension getTaskByID(int ID) {
+        for(TaskExtension task : this.listOfTasks) {
+            if (task.ID == ID) {
+                return task;
+            }
+        }
+        return new TaskExtension("");
+    }
 
+    public void setNameByID(int ID, String name) {
+        for(TaskExtension task : this.listOfTasks) {
+            if (task.ID == ID) {
+                task.setName(name);
+                System.out.println("Name changed successfully");
+                return;
+            }
+        }
+        System.out.println("Name has not been changed");
     }
 
     public static void main(String[] args) {

@@ -9,7 +9,10 @@ public class TodoListExtensionTest {
     public void testGetTaskByID() {
         TodoListExtension lst = new TodoListExtension();
         TaskExtension task = new TaskExtension("CV");
+        task.ID = 0;
+        lst.addTask(task);
 
-        Assertions.assertEquals(task.ID, 2);
+        Assertions.assertEquals(task.ID, 0);
+        Assertions.assertSame(task, lst.getTaskByID(0));
     }
 }
