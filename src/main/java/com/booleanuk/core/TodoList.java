@@ -50,4 +50,18 @@ public class TodoList {
         }
         return completedTasks;
     }
+
+    public ArrayList<String> displayIncompletedTasks() {
+        ArrayList<String> incompletedTasks = new ArrayList<>();
+
+        for (int i = 0; i < taskComplete.size(); i++) {
+            if (!taskComplete.get(i)) {
+                incompletedTasks.add(toDoList.get(i));
+            }
+        }
+        return incompletedTasks;
+    }
+
+
+
 }
