@@ -1,11 +1,13 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class TodoList {
     public static class Task{
-        String description;
-        boolean isCompleted;
+        public String description;
+        public boolean isCompleted;
+
         public Task(String task){
             this.description = task;
             this.isCompleted = false;
@@ -15,6 +17,22 @@ public class TodoList {
     public TodoList(){
         this.list = new ArrayList<>();
     }
+
+    public boolean changeTaskStatus(String task){
+        if(task.isEmpty()){
+            return false;
+        }
+        for (Task value : this.list) {
+            if (Objects.equals(value.description, task)) {
+                System.out.println("CHANGING isCompleted FROM TRUE TO FALSE");
+                value.isCompleted = true;
+                return true;
+            }
+        }
+        System.out.println("NO TASK FOUND IN LIST");
+        return false;
+    }
+
 
     public boolean add(String taskDescription){
         if(taskDescription.isEmpty()){
