@@ -59,4 +59,21 @@ public class TodoListExtensionTest {
         todoList.todos.add(new Task("3","Train"));
         Assertions.assertFalse(todoList.setTaskName("4", "Code"));
     }
+
+    @Test
+    public void testChangeStatus() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        Assertions.assertTrue(todoList.setTaskStatus("1"));
+        Assertions.assertTrue(todoList.todos.get(0).status);
+    }
+
+    @Test
+    public void testChangeStatusTwice() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        Assertions.assertTrue(todoList.setTaskStatus("1"));
+        Assertions.assertTrue(todoList.setTaskStatus("1"));
+        Assertions.assertFalse(todoList.todos.get(0).status);
+    }
 }
