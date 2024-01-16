@@ -88,7 +88,7 @@ class TodoListTest {
         String task2 = "Cook";
         todoList.add(task2);
 
-        todoList.remove(task2);
+        Assertions.assertTrue(todoList.remove(task2));
         Assertions.assertEquals(1,todoList.taskList.size());
     }
 

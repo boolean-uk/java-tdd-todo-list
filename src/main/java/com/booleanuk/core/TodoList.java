@@ -10,7 +10,7 @@ public class TodoList {
         this.taskList = new HashMap<>();
 //        taskList.put("Speak","Complete");
 //        taskList.put("talk","Incomplete");
-      taskList.put("Sleep","Complete");
+//        taskList.put("Sleep","Complete");
 //        taskList.put("Snore","Incomplete");
     }
 
@@ -58,6 +58,15 @@ public class TodoList {
 
     public String findTask(String task) {
         return "your Task: " + task + " is " + taskList.get(task);
+    }
+
+    public boolean remove(String task) {
+        if (taskList.containsKey(task)){
+            taskList.remove(task);
+            return true;
+        }else {
+            return false;
+        }
     }
 
     public static void main(String[] args) {
