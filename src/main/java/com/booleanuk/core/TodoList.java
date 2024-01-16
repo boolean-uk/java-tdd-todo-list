@@ -1,8 +1,7 @@
 package com.booleanuk.core;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TodoList {
     HashMap<Integer, String> taskname;
@@ -23,7 +22,6 @@ public class TodoList {
     }
 
 
-
     public boolean addTask(String name, boolean status) {
 
         if (this.tasks.containsKey(name)) {
@@ -31,9 +29,7 @@ public class TodoList {
         }
 
 
-            tasks.put(name, status);
-
-
+        tasks.put(name, status);
 
 
         return true;
@@ -54,7 +50,6 @@ public class TodoList {
 
         return false;
     }
-
 
 
     public String getComplete() {
@@ -115,26 +110,27 @@ public class TodoList {
 
     public String ascending() {
 
-        return "new HashMap<>()";
+        ArrayList<String> order = new ArrayList<>();
+
+
+        for (HashMap.Entry<String, Boolean> entry : tasks.entrySet()) {
+
+            order.add(entry.getKey());
+
+
+        }
+        Collections.sort(order);
+
+
+        return order.toString();
     }
 
     public String descending() {
+        ArrayList<String> order1 = new ArrayList<>();
 
-        return "new HashMap<>()";
+        List<String> order = new ArrayList<>(tasks.keySet());
+        Collections.reverse(order);
+        return order.toString();
     }
-
-  /*  public static void main(String[] args) {
-        TodoList task = new TodoList();
-        task.taskname.put(78, "Hei");
-        task.status = true;
-        task.creation = LocalDateTime.now();
-        TodoList task1 = new TodoList();
-
-
-        task1.addTask(10, "Play");
-
-        System.out.println(task1.allTasks());
-    }*/
-
 
 }
