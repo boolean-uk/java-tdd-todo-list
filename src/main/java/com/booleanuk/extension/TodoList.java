@@ -80,4 +80,8 @@ public class TodoList {
         Collections.reverse(taskNames);
         return taskNames;
     }
+
+    public boolean updateNameOfExistingTask(String id, String newName) {
+        return false;
+    }
 }

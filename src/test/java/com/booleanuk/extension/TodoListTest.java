@@ -128,4 +128,11 @@ class TodoListTest {
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("clean", "book bowling", "bake"));
         Assertions.assertEquals(expected, todoList.getListInAlphabeticalOrder(false));
     }
+
+    @Test
+    public void updateNameOfExistingTaskTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertTrue(todoList.updateNameOfExistingTask("123", "clean bedroom"));
+    }
 }

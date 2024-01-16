@@ -3,7 +3,7 @@ TodoList
 
 | Method                                             | Member variable             | Scenario                                                                  | Output                                        |
 |----------------------------------------------------|-----------------------------|---------------------------------------------------------------------------|-----------------------------------------------|
-| addTask(String task, String id)                    | HashMap<String, Task> tasks | If user wants to add task to the todo list with an ID that doesn't exist  | true                                          |
+| addTask(String name, String id)                    | HashMap<String, Task> tasks | If user wants to add task to the todo list with an ID that doesn't exist  | true                                          |
 |                                                    |                             | If user wants to add task to the todo list with an ID that already exists | false                                         |
 | seeList()                                          |                             | User wants to see all the tasks                                           | The todo list as a string                     |
 | updateTaskStatus(String id, boolean updatedStatus) |                             | If user wants to update status of task with id that exists                | true                                          |
