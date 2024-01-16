@@ -5,6 +5,10 @@ import java.util.HashMap;
 public class TodoList {
     public HashMap<String,String> todoList = new HashMap<>();
 
+    public boolean isTaskInList(String task){
+        return todoList.containsKey(task);
+    }
+
     public String checkAllTasks(){
         if (todoList.isEmpty()){
             return "List is empty";
@@ -13,6 +17,9 @@ public class TodoList {
     }
 
     public String addTask(String task, String status){
+        if (isTaskInList(task)){
+            return "Can not add: Task already added";
+        }
         todoList.put(task,status);
         return "Task added";
     }
