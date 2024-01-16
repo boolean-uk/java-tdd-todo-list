@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -86,6 +87,17 @@ public class TodoList {
             return "This task does not exist in your list";
         } else {
             return "This task is in your list";
+        }
+    }
+
+    public String ascendingOrder() {
+        ArrayList<String> ascendingOrder = new ArrayList<>(todoList.keySet());
+        Collections.sort(ascendingOrder);
+
+        if (ascendingOrder.isEmpty()) {
+            return "The list is empty!";
+        } else {
+            return String.join(", ", ascendingOrder);
         }
     }
 }

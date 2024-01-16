@@ -95,6 +95,8 @@ class TodoListTest {
         sortedList.add("Watering plants", "Incomplete");
         sortedList.add("Cleaning windows", "Incomplete");
 
-        assertEquals("Cleaning windows, Grocery shopping, Shovel snow, Watering plants", sortedList.todoList.ascendingOrder());
+        String ascendingOrder = sortedList.ascendingOrder();
+
+        assertEquals("Cleaning windows, Grocery shopping, Shovel snow, Watering plants", ascendingOrder);
     }
 }
