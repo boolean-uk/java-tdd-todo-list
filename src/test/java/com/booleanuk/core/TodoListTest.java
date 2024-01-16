@@ -181,7 +181,7 @@ class TodoListTest {
 
         todo.todoAlphabeticalAsc();
 
-        Assertions.assertEquals(todo.todoAlphabeticalAsc(), "[z, wash, shop, cook, clean, a]");
+        Assertions.assertEquals(todo.todoAlphabeticalDesc(), "[z, wash, shop, cook, clean, a]");
     }
 
 

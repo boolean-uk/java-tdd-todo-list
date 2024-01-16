@@ -85,13 +85,15 @@ public class TodoList {
     public String todoAlphabeticalAsc(){
         ArrayList<String> listAsc = new ArrayList<>(this.list.keySet());
         Collections.sort(listAsc);
+
         return listAsc.toString();
-
-//        for(String key : listAsc){
-//            this.list.put(key, this.list.get(key));
-//        }
-
     }
 
+    public String todoAlphabeticalDesc() {
+        ArrayList<String> listDesc = new ArrayList<>(this.list.keySet());
+        Collections.sort(listDesc);
+        Collections.reverse(listDesc);
+        return listDesc.toString();
+    }
 
 }
