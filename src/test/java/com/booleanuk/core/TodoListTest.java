@@ -15,13 +15,21 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertTrue(todoList.addTask("Dishes"));
         Assertions.assertEquals(1, todoList.tasks.size());
-
     }
     @Test
     public void showTasksTest() {
         TodoList todoList = new TodoList();
         todoList.addTask("Dishes");
         Assertions.assertEquals("{Dishes=true}", todoList.showTasks());
-
+    }
+    @Test
+    public void changeTaskStatusTest(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Dishes");
+        Assertions.assertEquals("{Dishes=true}", todoList.showTasks());
+        todoList.changeTaskStatus("Dishes");
+        Assertions.assertEquals("{Dishes=false}", todoList.showTasks());
+        todoList.changeTaskStatus("Dishes");
+        Assertions.assertEquals("{Dishes=true}", todoList.showTasks());
     }
 }
