@@ -1,6 +1,9 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class TodoList {
     public HashMap<String,String> todoList = new HashMap<>();
@@ -42,6 +45,22 @@ public class TodoList {
     public String changeTaskStatus(String task, String status){
         todoList.replace(task,status);
         return "Status changed";
+    }
+
+    public String [] getCompleteOrIncomplete(String status){
+        ArrayList<String> tasks = new ArrayList<>();
+        if (todoList.containsValue(status)){
+            for (HashMap.Entry<String,String> entry: todoList.entrySet()){
+                if (Objects.equals(entry.getValue(), status)){
+                    tasks.add(entry.getKey());
+                }
+            }
+        }
+        String [] taskArray = new String[tasks.size()];
+        for(int i = 0; i < taskArray.length; i++){
+            taskArray[i] = tasks.get(i);
+        }
+        return taskArray;
     }
 }
 
