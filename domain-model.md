@@ -2,7 +2,7 @@
 
 
 ```
-- I want to add tasks to my todo list.
+1. I want to add tasks to my todo list.
 ```
 
 | Classes  | Methods                    | Scenario                      | Returns |
@@ -12,7 +12,7 @@
 
 
 ```
-- I want to see all the tasks in my todo list.
+2. I want to see all the tasks in my todo list.
 ```
 
 | Classes  | Methods            | Scenario          | Returns               |
@@ -22,7 +22,7 @@
 
 
 ```
-- I want to change the status of a task between incomplete and complete.
+3. I want to change the status of a task between incomplete and complete.
 ```
 
 | Classes  | Methods                          | Scenario                   | Returns                              |
@@ -31,7 +31,7 @@
 |          |                                  | Task does not exist        | "Task does not exist"                |
 
 ```
-- I want to be able to get only the complete tasks.
+4. I want to be able to get only the complete tasks.
 ```
 
 | Classes  | Methods                    | Scenario                 | Returns                           |
@@ -40,7 +40,7 @@
 |          |                            | No completed tasks exist | "There are no completed tasks"    |
 
 ```
-- I want to be able to get only the incomplete tasks.
+5. I want to be able to get only the incomplete tasks.
 ```
 
 | Classes  | Methods                     | Scenario                 | Returns                            |
@@ -49,7 +49,7 @@
 |          |                             | No completed tasks exist | "There are no incomplete tasks"     |
 
 ```
-- I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
+6. I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
 ```
 
 | Classes  | Methods                        | Scenario    | Returns                   |
@@ -59,7 +59,7 @@
 
 
 ```
-- I want to remove tasks from my list.
+7. I want to remove tasks from my list.
 ```
 
 | Classes  | Methods                             | Scenario           | Returns |
@@ -68,7 +68,7 @@
 |          |                                     | Tasks do not exist | false   |
 
 ```
-- I want to see all the tasks in my list ordered alphabetically in ascending order.
+8. I want to see all the tasks in my list ordered alphabetically in ascending order.
 ```
 
 | Classes  | Methods                | Scenario          | Returns                              |
@@ -77,7 +77,7 @@
 |          |                        | List has no items | "List has no tasks"                  |
 
 ```
-- I want to see all the tasks in my list ordered alphabetically in descending order.
+9. I want to see all the tasks in my list ordered alphabetically in descending order.
 ```
 
 | Classes  | Methods                 | Scenario          | Returns                               |

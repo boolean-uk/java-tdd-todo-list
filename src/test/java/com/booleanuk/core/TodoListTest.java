@@ -10,4 +10,16 @@ class TodoListTest {
         Assertions.assertEquals("Hello", hello);
         Assertions.assertNotEquals("Goodbye", hello);
     }
+
+    /*Domain model user story 1 test*/
+    @Test
+    public void testAddToTodoList(){
+        TodoList tl = new TodoList();
+        Assertions.assertTrue(tl.addTask(new Task("Shopping")));
+
+
+    }
+    @Test void testAddExistingTaskToTodoList(){
+
+    }
 }
