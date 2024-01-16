@@ -143,7 +143,14 @@ public class TodoListExtension {
 
     public String setNewName(int id, String newName) {
 
-        return "";
+
+        if (taskname.containsKey(id)) {
+            taskname.put(id, newName);
+            return taskname.get(id).toString();
+        }
+
+
+        return "It no work";
     }
 
 

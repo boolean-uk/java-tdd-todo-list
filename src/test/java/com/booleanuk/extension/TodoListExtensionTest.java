@@ -30,7 +30,7 @@ public class TodoListExtensionTest {
 
         task1.addTask(1, "Hei");
         String result = task1.setNewName(1, "Halla");
-        Assertions.assertEquals("{1=Halla})", result);
+        Assertions.assertEquals("Halla", result);
 
     }
 
