@@ -56,7 +56,10 @@ public class TodoList {
     }
 
     public ArrayList<String> getTaskDescending() {
-
+        ArrayList<String> taskListKey = new ArrayList<>(taskList.keySet());
+        Collections.sort(taskListKey);
+        Collections.reverse(taskListKey);
+        return taskListKey;
     }
     public static void main(String[] arg){
         TodoList object = new TodoList();
