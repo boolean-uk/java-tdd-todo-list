@@ -25,6 +25,14 @@ public class TodoListExtension {
         return false;
     }
 
+    public String getTask(String ID) {
+        String result = "";
+        if (mapIDtoTask.containsKey(ID)) {
+            result = mapIDtoTask.get(ID);
+        }
+        return result;
+    }
+
     public boolean displayTasks() {
         if (toDoList.size() == 0){
             return false;
