@@ -165,7 +165,21 @@ class TodoListTest {
         String result = todoList.outputListAscending();
 
         Assertions.assertEquals("[Do homework., Go for a walk., Hit the gym., Read book., Read newspaper.]", result);
+    }
 
+    //User Story 9 Test
+    @Test
+    public void returnListInAlphabeticalDescendingOrder() {
+        TodoList todoList = new TodoList();
 
+        todoList.taskList.add("Do homework.");
+        todoList.taskList.add("Read book.");
+        todoList.taskList.add("Hit the gym.");
+        todoList.taskList.add("Go for a walk.");
+        todoList.taskList.add("Read newspaper.");
+
+        String result = todoList.outputListDescending();
+
+        Assertions.assertEquals("[Read newspaper., Read book., Hit the gym., Go for a walk., Do homework.]", result);
     }
 }
