@@ -76,6 +76,22 @@ class TodoListTest {
 
         assertEquals("vacuum", outContent.toString().trim());
     }
+    @Test
+    public void testSearchTask() {
+        TodoList list = new TodoList();
+        // Add tasks
+        list.addTask("paint");
+        list.addTask("groceries");
+
+        // Test for an existing task
+        String result1 = list.searchTask("paint");
+        assertEquals("Task found: paint", result1);
+
+        // Test for a non-existing task
+        String result2 = list.searchTask("clean");
+        assertEquals("Task not found", result2);
+    }
+
 
 
 
