@@ -143,4 +143,13 @@ public class TodoListTestExtended {
 
         Assertions.assertTrue((todolist.getTask("Do laundry")).isComplete);
     }
+
+    @Test
+    public void testGetDateAndTime(){
+        TodoListExtended todolist = new TodoListExtended();
+        todolist.add("Eat");
+        TaskExtended test = new TaskExtended("Sleep");
+
+        Assertions.assertEquals(test.getTimeCreated(), todolist.getTask("Eat").getTimeCreated());
+    }
 }
