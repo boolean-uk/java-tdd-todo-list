@@ -23,6 +23,7 @@ public class TodoList {
         }
 
             this.taskname.put(id, name);
+            this.status = false;
             this.creation = LocalDateTime.now();
 
 
@@ -30,6 +31,12 @@ public class TodoList {
     }
 
     public String allTasks() {
+
+        String output = "";
+        for (int i = 0; i < this.taskname.size(); i++) {
+            output += "Taskname: " + this.taskname + "Status: " +
+
+        }
 
         return "";
     }

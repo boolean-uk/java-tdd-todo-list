@@ -20,11 +20,23 @@ class TodoListTest {
     }
 
     @Test
-    public void isItemAlreadyAdded() {
+    public void isTaskAlreadyAdded() {
         TodoList task1 = new TodoList();
 
         boolean result = task1.addTask(1, "Fiske");
         Assertions.assertFalse(result);
+
+    }
+
+    @Test
+    public void testPrintTasks() {
+        TodoList task1 = new TodoList();
+
+        String result = task1.allTasks();
+
+        task1.addTask(2, "Football");
+        Assertions.assertEquals("1, Fiske, 2, Football", result);
+
 
     }
 
