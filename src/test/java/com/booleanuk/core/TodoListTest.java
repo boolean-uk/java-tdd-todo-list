@@ -73,4 +73,20 @@ class TodoListTest {
         Assertions.assertNull(todoList.getTask("Do my homework"));
     }
 
+    @Test
+    public void canRemoveTaskFromList() {
+        todoList.add(task1);
+        Assertions.assertEquals(1, todoList.getTasks().size());
+
+        Assertions.assertTrue(todoList.remove(task1));
+        Assertions.assertEquals(0, todoList.getTasks().size());
+    }
+
+    @Test
+    public void cantRemoveNonExistentTasksFromList() {
+        todoList.add(task1);
+        Assertions.assertEquals(1, todoList.getTasks().size());
+        Assertions.assertFalse(todoList.remove(task2));
+        Assertions.assertEquals(1, todoList.getTasks().size());
+    }
 }
