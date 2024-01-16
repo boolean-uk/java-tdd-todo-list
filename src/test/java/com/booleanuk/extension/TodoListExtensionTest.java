@@ -119,4 +119,17 @@ class TodoListExtensionTest {
         Assertions.assertEquals("Wash car", todo.list.get(1).description);
         Assertions.assertEquals("Workout", todo.list.get(0).description);
     }
+
+    @Test
+    public void testGetTaskByID(){
+        TodoListExtension todo = new TodoListExtension();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+
+        Assertions.assertEquals("Make food", todo.getTaskByID(1));
+        Assertions.assertEquals("Workout", todo.getTaskByID(3));
+        Assertions.assertEquals("No task found", todo.getTaskByID(5));
+    }
 }
