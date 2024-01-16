@@ -90,4 +90,16 @@ class TodoListTestExtension {
         result = toDo.taskStatusID("fg83ft", true);
         Assertions.assertTrue(result);
     }
+
+    @Test
+    public void taskStatusIDTestReturnFalse() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        result = toDo.addTaskID("Dry", "fg83ft");
+        result = toDo.taskStatusID("fg93ft", true);
+        Assertions.assertFalse(result);
+        result = toDo.taskStatusID("fg83ft", false);
+        Assertions.assertFalse(result);
+    }
+
 }

@@ -63,6 +63,16 @@ public class TodoListExtension {
         return false;
     }
 
+    public boolean taskStatusID(String ID, boolean status) {
+        if (mapIDtoTask.containsKey(ID) ) {
+            String task = mapIDtoTask.get(ID);
+            int idx = toDoList.indexOf(task);
+            taskComplete.set(idx, status);
+            return taskComplete.get(idx);
+        }
+        return false;
+    }
+
     public ArrayList<String> displayCompletedTasks() {
         ArrayList<String> completedTasks = new ArrayList<>();
 
