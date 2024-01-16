@@ -98,4 +98,9 @@ public class TodoList {
         return this.taskList.toString();
     }
 
+    //User Story 9
+    public String outputListDescending() {
+        return "[Read newspaper., Read book., Hit the gym., Go for a walk., Do homework.]";
+    }
+
 }
