@@ -96,13 +96,20 @@ class TodoListTest {
     @Test
     public void testSortAlphabetically(){
         TodoList todolist = new TodoList();
-        ArrayList<String> testListAscending = (ArrayList<String>) Arrays.asList("Do homework", "Eat lunch", "Sleep");
-        ArrayList<String> testListDescending = (ArrayList<String>) Arrays.asList("Sleep", "Eat lunch", "Do homework");
-        todolist.add("Do homework");
+        ArrayList<String> testListAscending = new ArrayList<>();
+        testListAscending.add("Do homework");
+        testListAscending.add("Eat lunch");
+        testListAscending.add("Sleep");
+        ArrayList<String> testListDescending = new ArrayList<>();
+        testListDescending.add("Sleep");
+        testListDescending.add("Eat lunch");
+        testListDescending.add("Do homework");
+
         todolist.add("Eat lunch");
+        todolist.add("Do homework");
         todolist.add("Sleep");
 
         Assertions.assertEquals(testListAscending, todolist.getListAlphabeticly(true));
-        Assertions.assertEquals(testListAscending, todolist.getListAlphabeticly(false));
+        Assertions.assertEquals(testListDescending, todolist.getListAlphabeticly(false));
     }
 }
