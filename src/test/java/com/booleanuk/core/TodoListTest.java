@@ -71,4 +71,20 @@ class TodoListTest {
         todoList.add("Vacuum");
         Assertions.assertFalse(todoList.changeStatus("Laundry"));
     }
+
+    @Test
+    public void testCorrectOutputFromGetTask() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+
+        String expectedOutput = "Vacuum is incomplete.";
+        Assertions.assertEquals(expectedOutput, todoList.getTask("Vacuum"));
+
+        todoList.changeStatus("Vacuum");
+        expectedOutput = "Vacuum is complete.";
+        Assertions.assertEquals(expectedOutput, todoList.getTask("Vacuum"));
+
+        expectedOutput = "Laundry wasn't found.";
+        Assertions.assertEquals(expectedOutput, todoList.getTask("Laundry"));
+    }
 }
