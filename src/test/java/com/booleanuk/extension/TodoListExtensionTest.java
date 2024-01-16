@@ -152,10 +152,10 @@ class TodoListExtensionTest {
         todo.add("Workout");
         todo.changeTaskStatus("Make food");
         todo.changeTaskStatus("Workout");
-        Assertions.assertTrue(todo.updateTaskByID(1));
-        Assertions.assertTrue(todo.updateTaskByID(3));
-        Assertions.assertFalse(todo.updateTaskByID(0));
-        Assertions.assertFalse(todo.updateTaskByID(2));
+        Assertions.assertEquals("Toggling isCompleted to false", todo.updateTaskByID(1));
+        Assertions.assertEquals("Toggling isCompleted to false", todo.updateTaskByID(3));
+        Assertions.assertEquals("Toggling isCompleted to true", todo.updateTaskByID(2));
+        Assertions.assertEquals("Toggling isCompleted to true", todo.updateTaskByID(0));
 
         todo.updateTaskByID(1, "Make Pizza");
         Assertions.assertEquals("Make Pizza", todo.list.get(1).description);
