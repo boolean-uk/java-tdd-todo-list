@@ -113,4 +113,43 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertEquals("No tasks completed",todoList.getCompleteTasks());
     }
+
+    @Test
+    public void testGetIncompleteTasksWithOneOfEach() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        todoList.todos.put("Walk", false);
+        Assertions.assertEquals("Walk",todoList.getIncompleteTasks());
+    }
+
+    @Test
+    public void testGetIncompleteTasksWithMultipleOfEach() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        todoList.todos.put("Work", true);
+        todoList.todos.put("Code", false);
+        todoList.todos.put("Walk", false);
+        Assertions.assertEquals("Code\nWalk",todoList.getIncompleteTasks());
+    }
+
+    @Test
+    public void testGetIncompleteTasksWithOneTask() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", false);
+        Assertions.assertEquals("Exercise",todoList.getIncompleteTasks());
+    }
+
+    @Test
+    public void testGetIncompleteTasksWithNoCompleteTasks() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Code", true);
+        todoList.todos.put("Walk", true);
+        Assertions.assertEquals("No tasks incomplete",todoList.getIncompleteTasks());
+    }
+
+    @Test
+    public void testGetIncompleteTasksWithEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("No tasks incomplete",todoList.getIncompleteTasks());
+    }
 }
