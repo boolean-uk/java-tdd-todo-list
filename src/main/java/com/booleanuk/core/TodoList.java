@@ -32,6 +32,9 @@ public class TodoList {
         }
 
     }
+    public boolean removeTask(String task){
+
+    }
     public static void main(String[] arg){
         TodoList object = new TodoList();
         object.addTask("Task1", "incomplete");

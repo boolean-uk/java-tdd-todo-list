@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,8 +35,25 @@ class TodoListTest {
         todoList.changeStatus("Task1", "incomplete");
         Assertions.assertEquals("incomplete", todoList.taskList.get("Task1"));
     }
+    @Test
+    public void testCompletedTask(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Task1", "complete");
+        todoList.addTask("Task2", "complete");
 
-
-
+    }
+    @Test
+    public void removingTaskReturnTrue(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Task1", "incomplete");
+        todoList.addTask("Task2", "incomplete");
+        Assertions.assertTrue(todoList.removeTask("Task1"));
+    }
+    @Test
+    public void removingTaskReturnFalse(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Task2", "incomplete");
+        Assertions.assertFalse(todoList.removeTask("Task1"));
+    }
 
 }
