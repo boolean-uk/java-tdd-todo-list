@@ -26,10 +26,10 @@ I want to change the status of a task between incomplete and complete.
 ```
 I want to be able to get only the complete tasks.
 ```
-| Method             | Variables                      | Scenario          | Return values/Output |
-|--------------------|--------------------------------|-------------------|----------------------|
-| getCompleteTasks() | HashMap<String, boolean> todos | Get tasks         | List (String)        |
-|                    |                                | No complete tasks | ""                   |
+| Method             | Variables                      | Scenario          | Return values/Output      |
+|--------------------|--------------------------------|-------------------|---------------------------|
+| getCompleteTasks() | HashMap<String, boolean> todos | Get tasks         | List (String)             |
+|                    |                                | No complete tasks | No complete tasks message |
 ```
 I want to be able to get only the incomplete tasks.
 ```

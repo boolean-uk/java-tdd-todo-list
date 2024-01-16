@@ -74,4 +74,43 @@ class TodoListTest {
         todoList.add("Work");
         Assertions.assertFalse(todoList.completeTask("Eat"));
     }
+
+    @Test
+    public void testGetCompleteTasksWithOneOfEach() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        todoList.todos.put("Walk", false);
+        Assertions.assertEquals("Exercise",todoList.getCompleteTasks());
+    }
+
+    @Test
+    public void testGetCompleteTasksWithMultipleOfEach() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        todoList.todos.put("Work", true);
+        todoList.todos.put("Code", false);
+        todoList.todos.put("Walk", false);
+        Assertions.assertEquals("Exercise\nWork",todoList.getCompleteTasks());
+    }
+
+    @Test
+    public void testGetCompleteTasksWithOneTask() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        Assertions.assertEquals("Exercise",todoList.getCompleteTasks());
+    }
+
+    @Test
+    public void testGetCompleteTasksWithNoCompleteTasks() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Code", false);
+        todoList.todos.put("Walk", false);
+        Assertions.assertEquals("No tasks completed",todoList.getCompleteTasks());
+    }
+
+    @Test
+    public void testGetCompleteTasksWithEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("No tasks completed",todoList.getCompleteTasks());
+    }
 }
