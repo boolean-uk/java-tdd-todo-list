@@ -96,4 +96,17 @@ class TodoListTest {
         expected = "Bowling" + ", Not Complete\n";
         Assertions.assertEquals(expected, tl.getTodoList());
     }
+
+    /* Domain model user story 8*/
+    @Test
+    public void testIfStringIsInAscendingOrder(){
+        TodoList tl = new TodoList();
+        tl.addTask(new Task("Shopping"));
+        tl.addTask(new Task("Bowling"));
+        tl.addTask(new Task("Gaming"));
+        String expected = "Bowling" + ", Not Complete\n"
+                + "Gaming" + ", Not Complete\n"
+                + "Shopping" + ", Not Complete\n";
+        Assertions.assertEquals(expected, tl.ascendingList());
+    }
 }
