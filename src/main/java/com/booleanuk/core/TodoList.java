@@ -28,7 +28,9 @@ public class TodoList {
     }
 
     public void changeTaskToCompleteOrIncomplete(String task1) {
-
+        if(this.todolist.containsKey(task1)) {
+            this.todolist.put(task1, !(this.todolist.get(task1)));
+        }
 
     }
 }
