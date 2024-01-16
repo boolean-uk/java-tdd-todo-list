@@ -36,4 +36,11 @@ class TodoListTest {
         Assertions.assertTrue(result);
     }
 
+    @Test
+    public void displayTasksTestReturnFalse() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.displayTasks();
+        Assertions.assertFalse(result);
+    }
+
 }
