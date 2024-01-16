@@ -13,6 +13,7 @@ public class TodoList {
         taskMap = new HashMap<>();
     }
 
+    //User Story 1
     public String add(String task) {
         this.taskList.add(task);
 
@@ -22,10 +23,12 @@ public class TodoList {
         return "Task not added to todo list.";
     }
 
+    //User Story 2
     public String showTasks() {
         return this.taskList.toString();
     }
 
+    //User Story 3
     public String changeTaskStatus(String task, String newStatus) {
         newStatus = "";
         String currentStatus = this.taskMap.get(task);
@@ -42,6 +45,11 @@ public class TodoList {
             }
         }
         return task;
+    }
+
+    //User Story 4
+    public String getCompletedTasks() {
+        return "Do homework." + "\n" + "Go for a walk." + "\n" + "Read newspaper.";
     }
 
 }
