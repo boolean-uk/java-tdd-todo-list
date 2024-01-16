@@ -7,17 +7,15 @@ import org.junit.jupiter.api.Test;
 class TodoListTest {
     TodoList todoList = new TodoList();
 
-    Task task1 = new Task("Go shopping");
-    Task task2 = new Task("Make dinner");
-    Task task3 = new Task("Prepare for meeting");
-
     @BeforeEach
     public void setupTestEnvironment() {
         todoList.clear();
     }
 
     @Test
-    public void canInitializeTodoList() {
-
+    public void canGetTaskByUUID() {
+        int id1 = todoList.add("Go Shopping");
+        int id2 = todoList.add("Go Fishing");
+        Assertions.assertEquals(todoList.getTasks().get(1), todoList.getTask(id2));
     }
 }
