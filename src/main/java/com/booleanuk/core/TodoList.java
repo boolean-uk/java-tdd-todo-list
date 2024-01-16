@@ -8,7 +8,10 @@ public class TodoList {
 
     public TodoList() {
         this.taskList = new HashMap<>();
-        taskList.put("Speak","Complete");
+//        taskList.put("Speak","Complete");
+//        taskList.put("talk","Incomplete");
+//        taskList.put("Sleep","Complete");
+//        taskList.put("Snore","Incomplete");
     }
 
     public boolean add(String task) {
@@ -32,4 +35,20 @@ public class TodoList {
         return task + " " + taskList.get(task);
     }
 
+    public String viewCompletedTask() {
+        HashMap<String, String> completeTask = new HashMap<>();
+        for (String key : taskList.keySet()) {
+            if (taskList.get(key).equals("Complete")){
+                completeTask.put(key, "Complete");
+            }
+        }
+
+
+        return "Completed tasks: " + completeTask;
+    }
+
+    public static void main(String[] args) {
+        TodoList todoList = new TodoList();
+        System.out.println(todoList.viewCompletedTask());
+    }
 }
