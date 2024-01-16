@@ -5,24 +5,26 @@ import java.util.Collections;
 import java.util.Comparator;
 
 public class TodoList {
+    private int counter;
     private ArrayList<Task> tasks;
 
     public TodoList() {
+        this.counter = 0;
         this.tasks = new ArrayList<>();
     }
 
-    public boolean add(Task task) {
-        return tasks.add(task);
+    public int add(String description) {
+        tasks.add(new Task(counter, description));
+        return counter++;
     }
 
     public boolean remove(Task task) {
         return tasks.remove(task);
     }
 
-    public Task getTask(String description) {
+    public Task getTask(int id) {
         for (Task task : tasks) {
-            // Only exact match
-            if (task.getDescription().equals(description)) {
+            if (task.getId() == (id)) {
                 return task;
             }
         }

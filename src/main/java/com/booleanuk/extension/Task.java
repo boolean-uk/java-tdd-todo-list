@@ -1,12 +1,14 @@
 package com.booleanuk.extension;
 
 public class Task {
+    private int id;
     private String description;
     private boolean completed;
 
-    public Task(String description) {
+    public Task(int id, String description) {
         this.description = description;
         this.completed = false;
+        this.id = id;
     }
 
     public String getDescription() {
@@ -15,6 +17,10 @@ public class Task {
 
     public boolean isCompleted() {
         return completed;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setCompleted(boolean completed) {
