@@ -12,7 +12,10 @@ public class TodoList {
         return todoList.toString();
     }
 
-
+    public String addTask(String task, String status){
+        todoList.put(task,status);
+        return "Task added";
+    }
 }
 
 /*

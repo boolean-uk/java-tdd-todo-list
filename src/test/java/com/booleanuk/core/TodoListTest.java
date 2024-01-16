@@ -30,11 +30,13 @@ class TodoListTest {
                 "Clean kitchen=Incomplete}",list.checkAllTasks());
     }
 
+    @Test
     public void testAddTask(){
         TodoList list = new TodoList();
         String task = "Workout";
         String status = "Incomplete";
         Assertions.assertEquals("Task added",list.addTask(task,status));
+        Assertions.assertEquals("{Workout=Incomplete}",list.checkAllTasks());
     }
 
 }
