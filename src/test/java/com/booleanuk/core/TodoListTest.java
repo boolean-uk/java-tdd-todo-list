@@ -120,6 +120,7 @@ class TodoListTest {
 
     }
 
+    @Test
     public void testGetKeyByWrongSearch() {
 
         TodoList task1 = new TodoList();
@@ -136,6 +137,26 @@ class TodoListTest {
 
 
     }
+
+    @Test
+    public void testRemoveKey() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        task1.addTask("Sloss2", true);
+        task1.addTask("Sloss3", false);
+        task1.addTask("Sloss4", true);
+        task1.addTask("Sloss5", false);
+
+        boolean result = task1.removeTask("Sloss");
+
+        Assertions.assertTrue(result);
+
+
+    }
+
+
 
 
 }
