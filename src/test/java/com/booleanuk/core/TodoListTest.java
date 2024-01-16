@@ -59,4 +59,17 @@ class TodoListTest {
         Assertions.assertEquals(expected, tl.getCompletedTasks());
 
     }
+
+    /*Domain model user story 5 test*/
+    @Test
+    public void testGettingIncompleteTasks(){
+        TodoList tl = new TodoList();
+        Task t1 = new Task("Shopping");
+        t1.setComplete(true);
+        Task t2 = new Task("Bowling");
+        tl.addTask(t1);
+        tl.addTask(t2);
+        String expected = "Incomplete Tasks\n" + t2.getName() + "\n";
+        Assertions.assertEquals(expected, tl.getIncompleteTasks());
+    }
 }

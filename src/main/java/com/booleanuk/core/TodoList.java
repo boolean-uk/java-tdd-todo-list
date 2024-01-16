@@ -51,13 +51,30 @@ public class TodoList {
     }
     public String getCompletedTasks(){
         StringBuilder sb = new StringBuilder("Completed Tasks\n");
-        for(Task t : tasks){
-            System.out.println(t.getName());
-            if(t.isComplete()){
-
-                sb.append(t.getName()).append("\n");
+        int count = 0;
+        if(!tasks.isEmpty()){
+            for(Task t : tasks){
+                System.out.println(t.getName());
+                if(t.isComplete()){
+                    count++;
+                    sb.append(t.getName()).append("\n");
+                }
             }
+            if(count > 0){
+                return sb.toString();
+            }
+            else{
+                return "There are no completed tasks";
+            }
+
         }
-        return sb.toString();
+        else{
+            return "Task list is empty";
+        }
+
+    }
+    public String getIncompleteTasks(){
+        StringBuilder sb = new StringBuilder("Incomplete Tasks\n");
+        return "";
     }
 }
