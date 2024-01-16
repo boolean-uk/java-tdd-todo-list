@@ -24,6 +24,17 @@ public class TodoList {
         list.add(task);
         return true;
     }
+    public int listTasks(){
+        if(!this.list.isEmpty()){
+            for (int i = 0; i < this.list.size(); i++) {
+                System.out.println("Task: " + i
+                        + " Description: " + this.list.get(i).description
+                        + " IsCompleted: " + this.list.get(i).isCompleted);
+            }
+            return list.size();
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
         TodoList t = new TodoList();
