@@ -1,15 +1,24 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TodoList {
-    ArrayList<String> tasks;
+    HashMap<String, Boolean> tasks;
 
     public TodoList(){
-        this.tasks = new ArrayList<>();
+        this.tasks = new HashMap<>();
     }
 
     public Boolean addTask(String task) {
-        return this.tasks.add(task);
+        if (!this.tasks.containsKey(task)){
+            this.tasks.put(task, true);
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public String showTasks() {
+        return this.tasks.toString();
     }
 }

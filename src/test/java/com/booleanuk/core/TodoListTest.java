@@ -21,7 +21,7 @@ class TodoListTest {
     public void showTasksTest() {
         TodoList todoList = new TodoList();
         todoList.addTask("Dishes");
-        Assertions.assertEquals("Dishes", todoList.showTasks("Dishes"));
+        Assertions.assertEquals("[Dishes]", todoList.showTasks());
 
     }
 }
