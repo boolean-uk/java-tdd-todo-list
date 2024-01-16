@@ -130,4 +130,31 @@ class TodoListTest {
 
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testGetCompleteTasksOnlyIncomplete()    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        String expectedOutput = "No tasks to show";
+
+        todoList.showAllTasks(true);
+
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testGetCompleteTasksNoTasks()    {
+        TodoList todoList = new TodoList();
+
+        String expectedOutput = "No tasks to show";
+
+        todoList.showAllTasks(true);
+
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
 }
