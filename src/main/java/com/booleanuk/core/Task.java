@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 public class Task {
+	int id;
 	String description;
 	boolean completed = false;
 
@@ -10,7 +11,7 @@ public class Task {
 
 	@Override
 	public String toString() {
-		String s = description + ",\t";
+		String s = id+": "+description + ",\t";
 		if (completed) {
 			s = s + "Complete";
 		} else {
@@ -20,6 +21,9 @@ public class Task {
 	}
 	public void setCompleted(boolean completed){
 		this.completed=completed;
+	}
+	public void setId(int id){
+		this.id=id;
 	}
 
 }

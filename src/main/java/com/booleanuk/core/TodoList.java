@@ -1,7 +1,7 @@
 package com.booleanuk.core;
 
 import javax.swing.text.html.parser.Entity;
-import java.util.HashMap;
+import java.util.*;
 
 public class TodoList {
 	HashMap<Integer, Task> list;
@@ -13,13 +13,14 @@ public class TodoList {
 
 	public void addTask(Task task) {
 		list.put(currId, task);
+		task.setId(currId);
 		currId++;
 	}
 
 	public String printList() {
 		StringBuilder sb = new StringBuilder();
 		list.forEach((key, value) -> {
-			sb.append(key + ": " + value + "\n");
+			sb.append(value + "\n");
 		});
 		if (sb.length() != 0) {
 			sb.deleteCharAt(sb.length() - 1);
@@ -31,7 +32,7 @@ public class TodoList {
 		StringBuilder sb = new StringBuilder();
 		list.forEach((key, value) -> {
 			if (value.completed) {
-				sb.append(key + ": " + value + "\n");
+				sb.append(value + "\n");
 			}
 		});
 		if (!sb.isEmpty()) {
@@ -44,7 +45,7 @@ public class TodoList {
 		StringBuilder sb = new StringBuilder();
 		list.forEach((key, value) -> {
 			if (!value.completed) {
-				sb.append(key + ": " + value + "\n");
+				sb.append(value + "\n");
 			}
 		});
 		if (!sb.isEmpty()) {
@@ -67,5 +68,19 @@ public class TodoList {
 		} else {
 			throw new NotInListException(id);
 		}
+	}
+	public String printListAsc(){
+		TaskComparator taskComp = new TaskComparator();
+		StringBuilder sb = new StringBuilder();
+		Collection<Task> values = list.values();
+		List<Task> valueList = new ArrayList<>(values);
+		valueList.sort(taskComp);
+		for(Task task :valueList){
+			sb.append(task+"\n");
+		}
+		if (!sb.isEmpty()) {
+			sb.deleteCharAt(sb.length() - 1);
+		}
+		return sb.toString();
 	}
 }
