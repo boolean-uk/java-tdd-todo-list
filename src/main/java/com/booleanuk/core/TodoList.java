@@ -28,7 +28,12 @@ public class TodoList {
         return exists;
     }
     public String taskExists(String name){
-        return "";
+        for(Task t : tasks){
+            if(t.getName().equals(name)){
+                return name + " exists";
+            }
+        }
+        return name + " does not exist";
     }
     public String getTodoList(){
         StringBuilder sb = new StringBuilder();

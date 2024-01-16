@@ -79,7 +79,7 @@ class TodoListTest {
         TodoList tl= new TodoList();
         tl.addTask(new Task("Shopping"));
         tl.addTask(new Task("Bowling"));
-        String expected = "Gaming" + " exists";
-        Assertions.assertEquals(expected, tl.taskExists("Gaming"));
+        String expected = "Bowling" + " exists";
+        Assertions.assertEquals(expected, tl.taskExists("Bowling"));
     }
 }
