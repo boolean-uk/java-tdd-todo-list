@@ -49,8 +49,20 @@ public class TodoList {
     }
 
     public ArrayList<Task> getIncompleteTasks() {
-        return new ArrayList<>();
-    }
+            ArrayList<Task> incompleteTasks = new ArrayList<>();
+            try {
+                for(Task task : this.listOfTasks) {
+                    if (!task.status) {
+                        System.out.println(task.name);
+                        incompleteTasks.add(task);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println("Error, returning empty list");
+                return new ArrayList<>();
+            }
+            return incompleteTasks;
+        }
 
     public static void main(String[] args) {
 

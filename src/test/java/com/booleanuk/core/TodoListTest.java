@@ -75,7 +75,7 @@ class TodoListTest {
         lst.addTask(task_2);
         task_1.setStatus(true);
 
-        Assertions.assertSame(task_1, lst.getIncompleteTasks().get(0));
-        Assertions.assertNotSame(task_2, lst.getIncompleteTasks().get(0));
+        Assertions.assertNotSame(task_1, lst.getIncompleteTasks().get(0));
+        Assertions.assertSame(task_2, lst.getIncompleteTasks().get(0));
     }
 }
