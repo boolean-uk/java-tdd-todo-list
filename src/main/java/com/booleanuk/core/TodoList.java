@@ -60,6 +60,7 @@ public class TodoList {
         return completedTask.toString();
     }
 
+    //User Story 5
     public String getIncompleteTasks() {
         String incompleteTask = "";
         String getStatus;
@@ -70,6 +71,11 @@ public class TodoList {
             }
         }
         return incompleteTask.toString();
+    }
+
+    //User Story 6
+    public String findTask(String task) {
+        return "Task exists in todo list";
     }
 
 }

@@ -114,7 +114,7 @@ class TodoListTest {
         todoList.taskList.add("Go for a walk.");
         todoList.taskList.add("Read newspaper.");
 
-        String result = todoList.searchTasks("Hit the gym.");
+        String result = todoList.findTask("Hit the gym.");
 
         Assertions.assertEquals("Task exists in todo list", result);
     }
@@ -130,7 +130,7 @@ class TodoListTest {
         todoList.taskList.add("Go for a walk.");
         todoList.taskList.add("Read newspaper.");
 
-        String result = todoList.searchTasks("Feed cat.");
+        String result = todoList.findTask("Feed cat.");
 
         Assertions.assertEquals("Task does not exist in list", result);
     }
