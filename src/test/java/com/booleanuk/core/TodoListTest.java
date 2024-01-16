@@ -95,11 +95,11 @@ class TodoListTest {
     @Test
     public void testAscTaskList() {
         TodoList todoList = new TodoList();
-        todoList.add("eat");
-        todoList.add("fish");
         todoList.add("sleep");
+        todoList.add("fish");
+        todoList.add("eat");
 
-        Assertions.assertEquals("",todoList.sortAscTask());
+        Assertions.assertEquals("[eat, fish, sleep]", todoList.sortAscTask());
     }
 
     @Test
@@ -109,7 +109,7 @@ class TodoListTest {
         todoList.add("fish");
         todoList.add("sleep");
 
-        Assertions.assertEquals("",todoList.sortDescTask());
+        Assertions.assertEquals("[sleep, fish, eat]",todoList.sortDescTask());
     }
 
 }

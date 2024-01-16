@@ -1,5 +1,7 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class TodoList {
@@ -67,6 +69,24 @@ public class TodoList {
         }else {
             return false;
         }
+    }
+
+    public String sortAscTask(){
+
+            ArrayList<String> sortedKeys = new ArrayList<String>(taskList.keySet());
+
+            Collections.sort(sortedKeys);
+
+            return sortedKeys.toString();
+            }
+
+    public String sortDescTask(){
+
+        ArrayList<String> sortedKeys = new ArrayList<String>(taskList.keySet());
+
+        Collections.sort(sortedKeys, Collections.reverseOrder());
+
+        return sortedKeys.toString();
     }
 
     public static void main(String[] args) {
