@@ -38,6 +38,18 @@ public class TodoList {
         return completedList.size();
     }
 
+    public boolean removeTask(String task){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(Objects.equals(this.list.get(i).description, task)){
+                System.out.println("Task found, removing...");
+                this.list.remove(this.list.get(i));
+                return true;
+            }
+        }
+        System.out.println("Task not found, nothing is removed");
+        return false;
+    }
+
     public boolean searchTask(String task){
         for (int i = 0; i < this.list.size(); i++) {
             if(Objects.equals(this.list.get(i).description, task)){
