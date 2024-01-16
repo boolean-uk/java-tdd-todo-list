@@ -135,9 +135,18 @@ class TodoListTest {
         todo.changeStatus("clean");
 
         Assertions.assertFalse(todo.searchTodo("becomerich"));
-
-
     }
 
+    @Test
+    public void testRemoveTasks() {
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("wash");
+        todo.addToTodo("clean");
+
+        Assertions.assertFalse(todo.removeTask("wash"));
+        Assertions.assertFalse(todo.removeTask("clean"));
+
+    }
 
 }
