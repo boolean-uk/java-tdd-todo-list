@@ -87,4 +87,15 @@ class TodoListTest {
         todoList.showAllTasks();
         Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testChangeTaskFromIncompleteToComplete()
+    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.changeTaskStatus("Eat yoghurt");
+
+        Assertions.assertTrue(todoList.taskStatus.get("Eat yoghurt"));
+    }
 }
