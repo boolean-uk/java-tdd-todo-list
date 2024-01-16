@@ -39,4 +39,13 @@ class TodoListTest {
         Assertions.assertEquals("{Workout=Incomplete}",list.checkAllTasks());
     }
 
+    @Test
+    public void testAddTaskIfTaskExists(){
+        TodoList list = new TodoList();
+        String task = "Workout";
+        String status = "Incomplete";
+        list.todoList.put("Workout","Incomplete");
+        Assertions.assertEquals("Can not add: Task already added", list.addTask(task,status));
+    }
+
 }
