@@ -123,6 +123,12 @@ class TodoListTest {
 
     @Test
     public void testCheckTask() {
+        TodoList todoList = new TodoList();
+
+        todoList.addTaskToTodolist("Task1");
+
+        Assertions.assertTrue(todoList.checkTask("Task1"));
+
 
     }
 }
