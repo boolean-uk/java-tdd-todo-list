@@ -40,9 +40,9 @@ class TodoListTest {
     public void changeTaskStatusInTodoListToComplete() {
         TodoList todoList = new TodoList();
 
-        todoList.taskMap.put("Do homework.", "Incomplete");
+        todoList.taskMap.put("Do homework.", "Incomplete.");
 
-        String result = todoList.changeTaskStatus("Do homework.", "Complete");
+        String result = todoList.changeTaskStatus("Do homework.", "Complete.");
 
         Assertions.assertEquals("Task status changed to complete.", result);
     }
@@ -52,9 +52,9 @@ class TodoListTest {
     public void changeTaskStatusInTodoListToIncomplete() {
         TodoList todoList = new TodoList();
 
-        todoList.taskMap.put("Do homework.", "Complete");
+        todoList.taskMap.put("Do homework.", "Complete.");
 
-        String result = todoList.changeTaskStatus("Do homework.", "Incomplete");
+        String result = todoList.changeTaskStatus("Do homework.", "Incomplete.");
 
         Assertions.assertEquals("Task status changed to incomplete.", result);
     }

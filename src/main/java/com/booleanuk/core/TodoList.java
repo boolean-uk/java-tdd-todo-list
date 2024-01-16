@@ -26,8 +26,22 @@ public class TodoList {
         return this.taskList.toString();
     }
 
-    public String changeTaskStatus(String task, String status) {
-        return "Task status changed to incomplete.";
+    public String changeTaskStatus(String task, String newStatus) {
+        newStatus = "";
+        String currentStatus = this.taskMap.get(task);
+        if (this.taskMap.containsKey(task)) {
+            if ("Complete.".equals(currentStatus)) {
+                newStatus = "Incomplete.";
+                this.taskMap.put(task, newStatus);
+                return "Task status changed to incomplete.";
+
+            } else if ("Incomplete.".equals(currentStatus)) {
+                newStatus = "Complete.";
+                this.taskMap.put(task, newStatus);
+                return "Task status changed to complete.";
+            }
+        }
+        return task;
     }
 
 }
