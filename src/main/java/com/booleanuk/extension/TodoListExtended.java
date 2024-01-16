@@ -85,4 +85,22 @@ public class TodoListExtended {
         }
         return res;
     }
+
+    //Extention
+
+    public TaskExtended getTask(int id){
+        return null;
+    }
+
+    public void changeName(int id){
+
+    }
+
+    public void changeCompletion(int id) {
+
+    }
+
+    public void getTimeCreated(String name) {
+
+    }
 }
