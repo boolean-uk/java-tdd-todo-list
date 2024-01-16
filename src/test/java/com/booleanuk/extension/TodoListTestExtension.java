@@ -4,6 +4,8 @@ import com.booleanuk.core.TodoList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 class TodoListTestExtension {
@@ -109,6 +111,21 @@ class TodoListTestExtension {
         boolean result = toDo.addTaskID("Clean", "a12ft");
         result = toDo.addTaskIDTime("Dry", "fg83ft");
         Assertions.assertTrue(result);
+    }
+
+    // get Time
+    @Test
+    public void addTaskIDTimeTestReturnFalse() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        result = toDo.addTaskIDTime("Dry", "fg83ft");
+        String timeTask = toDo.getTaskTime("fg83ft");
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String timeNow = dtf.format(now);
+
+        Assertions.assertEquals(timeNow.substring(19), timeTask.substring(19));
     }
 
 }
