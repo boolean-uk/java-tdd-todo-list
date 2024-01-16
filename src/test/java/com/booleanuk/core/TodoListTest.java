@@ -94,8 +94,16 @@ class TodoListTest {
         TodoList todoList = new TodoList();
 
         todoList.addTask("Eat yoghurt");
-        todoList.changeTaskStatus("Eat yoghurt");
 
+        Assertions.assertTrue(todoList.changeTaskStatus("Eat yoghurt"));
         Assertions.assertTrue(todoList.taskStatus.get("Eat yoghurt"));
+    }
+
+    @Test
+    public void testChangeTaskNotExist()
+    {
+        TodoList todoList = new TodoList();
+
+        Assertions.assertFalse(todoList.changeTaskStatus("Eat yoghurt"));
     }
 }

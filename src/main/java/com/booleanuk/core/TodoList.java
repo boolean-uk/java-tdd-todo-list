@@ -46,6 +46,6 @@ public class TodoList {
         }   else {
             System.out.print("No tasks to display, todo list is empty");
         }
-
     }
+
 }
