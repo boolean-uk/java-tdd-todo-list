@@ -8,7 +8,11 @@ public class TodoList {
 
 
     public String add(String task){
-        return "";
+        if (list.containsKey(task)){
+            return "Task already in TodoList";
+        }
+        list.put(task, 0);
+        return task+ " added to TodoList";
     }
 
     public String remove(){
