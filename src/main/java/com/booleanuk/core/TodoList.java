@@ -27,13 +27,27 @@ public class TodoList {
         return listOfNames;
     }
 
-    public boolean changeCompletion(String name) {
+    public void changeCompletion(String name) {
         getTask(name).changeCompletion();
-        return getTask(name).isComplete;
     }
 
-    public ArrayList<String> getTasksByCompletion(){
-        return new ArrayList<>();
+    public ArrayList<String> getTasksByCompletion(boolean isComplete){
+        ArrayList<String> resComplete = new ArrayList<>();
+        ArrayList<String> resInComplete = new ArrayList<>();
+
+        for(Task task: this.todoList.values()){
+            if(task.isComplete){
+                resComplete.add(task.getName());
+            }else {
+                resInComplete.add((task.getName()));
+            }
+        }
+
+        if (isComplete){
+            return resComplete;
+        }
+
+        return resInComplete;
     }
 
     public Task getTask(String name) {
