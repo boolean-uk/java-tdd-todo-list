@@ -108,5 +108,36 @@ class TodoListTest {
         Assertions.assertEquals(todo.displayIncompleteTodo(), "[shop, cook]");
     }
 
+    @Test
+    public void testSearchForTaskInList() {
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("wash");
+        todo.addToTodo("clean");
+        todo.addToTodo("shop");
+        todo.addToTodo("cook");
+
+        todo.changeStatus("wash");
+        todo.changeStatus("clean");
+
+        Assertions.assertTrue(searchTodo("wash"));
+    }
+    @Test
+    public void testSearchForTaskNotInList() {
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("wash");
+        todo.addToTodo("clean");
+        todo.addToTodo("shop");
+        todo.addToTodo("cook");
+
+        todo.changeStatus("wash");
+        todo.changeStatus("clean");
+
+        Assertions.assertFalse(searchTodo("becomerich"));
+
+
+    }
+
 
 }
