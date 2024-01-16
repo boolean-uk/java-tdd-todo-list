@@ -12,5 +12,12 @@ class TodoListTest {
     }
 
 
+    @Test
+    public void addTaskToTodolist() {
+        TodoList todoList = new TodoList();
 
+        todoList.addTaskToTodolist(String task);
+
+
+    }
 }
