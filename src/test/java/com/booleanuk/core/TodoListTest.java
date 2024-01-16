@@ -3,6 +3,7 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 class TodoListTest {
@@ -120,5 +121,19 @@ class TodoListTest {
         list.addTask("Watch TikTok", "Complete");
         list.addTask("Make food", "Incomplete");
         Assertions.assertArrayEquals(new String[]{"Workout","Make food"}, list.getCompleteOrIncomplete(status));
+    }
+
+    @Test
+    public void testOrderAlphabeticallyAscending(){
+        TodoList list = new TodoList();
+        list.addTask("Workout", "Incomplete");
+        list.addTask("Bathe", "Complete");
+        list.addTask("Sleep", "Complete");
+        list.addTask("Get to work", "Complete");
+        list.addTask("Watch TikTok", "Complete");
+        list.addTask("Make food", "Incomplete");
+        Assertions.assertArrayEquals(new String[]{"Bathe: Complete", "Get to work: Complete",
+                "Make food: Incomplete", "Sleet: Complete", "Watch TikTok: Complete",
+                "Workout: Incomplete"}, list.sortTodoList(ascending));
     }
 }
