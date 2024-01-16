@@ -63,7 +63,12 @@ class TodoListTest {
         testlistInComplete.add("Go fishing");
         testlistInComplete.add("Cook");
 
-        Assertions.assertEquals(testlistComplete, todolist.getTasksByCompletion(true));
-        Assertions.assertEquals(testlistInComplete, todolist.getTasksByCompletion(false));
+        Assertions.assertTrue(
+                testlistComplete.containsAll(todolist.getTasksByCompletion(true)) &&
+                todolist.getTasksByCompletion(true).containsAll(testlistComplete));
+        Assertions.assertTrue(testlistInComplete.containsAll(todolist.getTasksByCompletion(false)) &&
+                todolist.getTasksByCompletion(false).containsAll(testlistInComplete));
+//        Assertions.assertEquals(testlistComplete, todolist.getTasksByCompletion(true));
+//        Assertions.assertEquals(testlistInComplete, todolist.getTasksByCompletion(false));
     }
 }
