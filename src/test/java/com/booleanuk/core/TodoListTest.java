@@ -77,6 +77,16 @@ class TodoListTest {
         Assertions.assertTrue(todo.searchTask("Workout"));
         Assertions.assertFalse(todo.searchTask("Trim beard"));
     }
-
+    @Test
+    public void testRemoveTask(){
+        TodoList todo = new TodoList();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        Assertions.assertTrue(todo.removeTask("Workout"));
+        Assertions.assertFalse(todo.removeTask("Workout"));
+        Assertions.assertFalse(todo.removeTask("Trim beard"));
+    }
 
 }
