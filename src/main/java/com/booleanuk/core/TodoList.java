@@ -16,4 +16,15 @@ public class TodoList {
             return todoList.add(task);
         }
     }
+
+    public boolean viewTasks() {
+        if (todoList.isEmpty()) {
+            return false;
+        } else {
+            for (int i = 0; i < todoList.size(); i++) {
+                System.out.print(todoList.get(i));
+            }
+            return true;
+        }
+    }
 }

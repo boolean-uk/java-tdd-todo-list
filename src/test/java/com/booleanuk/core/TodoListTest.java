@@ -18,5 +18,18 @@ class TodoListTest {
         TodoList list = new TodoList();
 
         assertEquals(false, list.viewTasks());
+
+        list.add("Shovel snow");
+
+        assertEquals(true, list.viewTasks());
+    }
+
+    @Test
+    public void testingIfTaskIsCompleted() {
+        TodoList listStatus = new TodoList();
+
+        listStatus.changeStatus("Shovel snow", "Complete");
+
+        assertEquals("Complete", viewStatus("Shovel snow"));
     }
 }
