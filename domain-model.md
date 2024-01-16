@@ -24,9 +24,9 @@
 |          | getTask(String description)             | ArrayList\<Task> tasks                   | Task exists                             | Task                   |
 |          |                                         |                                          | Task does not exist                     | null                   |
 |          | getTasks()                              | ArrayList\<Task> tasks                   | Get all tasks                           | ArrayList\<Task>       |
-|          |                                         |                                          | There are no tasks                      | null                   |
+|          |                                         |                                          | There are no tasks                      | ArrayList\<Task>       |
 |          | getTasks(boolean completion)            | ArrayList\<Task> tasks                   | Get all tasks by completion             | ArrayList\<Task>       |
-|          |                                         |                                          | There are no tasks                      | null                   |
+|          |                                         |                                          | There are no tasks                      | ArrayList\<Task>       |
 |          | getAlphabeticalTasks(boolean ascending) | ArrayList\<Task> tasks                   | Get all tasks alphabetically            | ArrayList\<Task>       |
-|          |                                         |                                          | There are no tasks                      | null                   |
+|          |                                         |                                          | There are no tasks                      | ArrayList\<Task>       |
 |          | clear()                                 | ArrayList\<Task> tasks                   | Removes all tasks from the todo-list    | void                   |

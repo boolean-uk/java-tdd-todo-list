@@ -30,17 +30,10 @@ public class TodoList {
     }
 
     public ArrayList<Task> getTasks() {
-        if (tasks.isEmpty()) {
-            return null;
-        }
         return tasks;
     }
 
     public ArrayList<Task> getTasks(boolean completion) {
-        if (tasks.isEmpty()) {
-            return null;
-        }
-
         ArrayList<Task> tmpArray = new ArrayList<>();
         for (Task task : tasks) {
             if (task.isCompleted() == completion) {
@@ -51,10 +44,6 @@ public class TodoList {
     }
 
     public ArrayList<Task> getAlphabeticalTasks(boolean ascending) {
-        if (tasks.isEmpty()) {
-            return null;
-        }
-
         ArrayList<Task> tmpArray = tasks;
         tmpArray.sort(Comparator.comparing(Task::getDescription));
         if (!ascending) {
