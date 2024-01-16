@@ -109,6 +109,7 @@ class TodoListTest {
         list.addTask("vacuum");
         list.addTask("paint");
         list.addTask("groceries");
+        System.setOut(new PrintStream(outContent));
         list.printTasksInAscOrder();
         String expectedOutput = String.join(System.lineSeparator(), "groceries", "paint", "vacuum");
         assertEquals(expectedOutput, outContent.toString().trim());
