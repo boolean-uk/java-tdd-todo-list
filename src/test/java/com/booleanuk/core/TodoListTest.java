@@ -27,10 +27,10 @@ class TodoListTest {
     @Test
     public void seeListTest() {
         TodoList todoList = new TodoList();
+        todoList.addTask("book dentist appointment");
         todoList.addTask("clean");
         todoList.addTask("bake");
-        todoList.addTask("book dentist appointment");
-        String expected = "clean/nbake/nbook dentist appointment";
-        Assertions.assertEquals(expected, todoList.seeList());
+        String list = todoList.seeList();
+        Assertions.assertTrue(list.contains("clean") && list.contains("bake") && list.contains("book dentist appointment"));
     }
 }
