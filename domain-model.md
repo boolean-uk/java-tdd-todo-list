@@ -23,12 +23,14 @@
 
 ```
 3. I want to change the status of a task between incomplete and complete.
+{Added extension}. I want to be able to change the status of a task by providing its ID.
+
 ```
 
-| Classes  | Methods                           | Scenario                   | Returns |
-|----------|-----------------------------------|----------------------------|---------|
-| TodoList | boolean toggleStatus(String name) | Task exists and is changed | true    |
-|          |                                   | Task does not exist        | false   |
+| Classes  | Methods                      | Scenario                   | Returns |
+|----------|------------------------------|----------------------------|---------|
+| TodoList | boolean toggleStatus(int id) | Task exists and is changed | true    |
+|          |                              | Task does not exist        | false   |
 
 ```
 4. I want to be able to get only the complete tasks.
@@ -84,3 +86,31 @@
 |----------|-------------------------|-------------------|---------------------------------------|
 | TodoList | String descendingList() | List has items    | String with descending order of tasks |
 |          |                         | List has no items | "List has no tasks"                   |
+
+```
+10. I want to be able to get a task by a unique ID.
+```
+
+| Classes  | Methods                    | Scenario   | Returns                           |
+|----------|----------------------------|------------|-----------------------------------|
+| TodoList | String getTaskById(int id) | Valid id   | String containing info about task |
+|          |                            | Invalid id | "Task does not exist"             |
+
+
+```
+11. I want to update the name of a task by providing its ID and a new name.
+```
+
+| Classes  | Methods                                     | Scenario            | Returns |
+|----------|---------------------------------------------|---------------------|---------|
+| TodoList | boolean updateTaskById(int id, String name) | Task exists         | true    |
+|          |                                             | Task does not exist | false   |
+
+```
+12. I want to be able to see the date and time that I created each task.
+```
+
+| Classes  | Methods                      | Scenario       | Returns                         |
+|----------|------------------------------|----------------|---------------------------------|
+| TodoList | String getCreationDateTask() | List is empty  | "No tasks in list"              |
+|          |                              | List has tasks | String with all dates and times |
