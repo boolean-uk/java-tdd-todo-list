@@ -1,10 +1,9 @@
 package com.booleanuk.extension;
 
 import java.rmi.server.UID;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
-import java.util.UUID;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class TodoListExtension {
@@ -13,6 +12,7 @@ public class TodoListExtension {
         public boolean isCompleted;
         private static int nextId = 0;
         private int id;
+        public LocalDateTime dateCreated;
 
 
 
@@ -20,14 +20,28 @@ public class TodoListExtension {
             this.description = task;
             this.isCompleted = false;
             this.id = nextId++;
+            this.dateCreated = LocalDateTime.now();
         }
         public int getID(){
             return id;
         }
+        public String getDateCreated(){
+            return this.dateCreated.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+        }
+
         public String getDescription(){
             return description;
         }
     }
+    public String getCreationOfTask(int id){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == id){
+                return this.list.get(i).getDateCreated();
+            }
+        }
+        return null;
+    }
+
     ArrayList<Task> list;
 
     public TodoListExtension(){
