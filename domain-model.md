@@ -12,11 +12,12 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | Classes     | Member Variable                             | Method                   | Scenario             | Output             |
 |-------------|---------------------------------------------|--------------------------|----------------------|--------------------|
-| ToDoManager | ArrayList<String> toDoList <br/> Task task  | add(Task task)           | User adds task       | return true        |
+| ToDoManager | ArrayList<String> toDoList <br/> Task task  | add(String task)         | User adds task       | return true        |
 |             | ArrayList<String> toDoList <br/> Task task  | listTasks()              | if list not null     | return list.size() |
 |             | ArrayList<String> toDoList <br/> Task task  | changeStatusOfTask(task) | if task not null     | return true        |
 |             | ArrayList<String> toDoList <br/> Task task  | getCompletedTasks()      | if toDoList not null | return true        |
 |             | ArrayList<String> toDoList <br/> Task task  | getIncompleteTasks()     | if toDoList not null | return true        |
+|             | ArrayList<String> toDoList <br/> Task task  | removeTask(String task)  | if task in list      | return true        |
 |             | ArrayList<String> toDoList <br/> Task task  | searchTask(String task)  | if task is null      | return false       |
 |             | ArrayList<String> toDoList <br/> Task task  | toDoListSortedAsc()      | if toDoList not null | return true        |
 |             | ArrayList<String> toDoList <br/> Task task  | toDoListSortedDes()      | if toDoList not null | return true        |
