@@ -7,6 +7,7 @@ public class TodoList {
 
     public HashMap<String, String> list;
     public HashMap<String, String> listComplete;
+    public HashMap<String, String> listIncomplete;
 
     public String defaultStatus = "Incomplete";
 //    public String displayText = list.keySet().toString();
@@ -52,6 +53,17 @@ public class TodoList {
 
             }
         return this.listComplete.keySet().toString();
+    }
+
+    public String displayIncompleteTodo() {
+        this.listIncomplete = new HashMap<>();
+
+        for (String task : this.list.keySet())
+            if (this.list.get(task).equals("Incomplete")) {
+                listIncomplete.put(task, "Incomplete");
+
+            }
+        return this.listIncomplete.keySet().toString();
     }
 
 
