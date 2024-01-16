@@ -52,7 +52,6 @@ class TodoListTest {
         ArrayList<String> testlistComplete = new ArrayList<>();
         ArrayList<String> testlistInComplete = new ArrayList<>();
 
-
         todolist.add("Do laundry");
         todolist.add("Go fishing");
         todolist.add("Cook");
@@ -68,7 +67,13 @@ class TodoListTest {
                 todolist.getTasksByCompletion(true).containsAll(testlistComplete));
         Assertions.assertTrue(testlistInComplete.containsAll(todolist.getTasksByCompletion(false)) &&
                 todolist.getTasksByCompletion(false).containsAll(testlistInComplete));
-//        Assertions.assertEquals(testlistComplete, todolist.getTasksByCompletion(true));
-//        Assertions.assertEquals(testlistInComplete, todolist.getTasksByCompletion(false));
+    }
+
+    @Test
+    public void testGetTask(){
+        TodoList todolist = new TodoList();
+        Assertions.assertEquals("Task doesnt exist" ,todolist.getTaskName("Go fishing"));
+        todolist.add("Go fishing");
+        Assertions.assertEquals("Go fishing" ,todolist.getTaskName("Go fishing"));
     }
 }
