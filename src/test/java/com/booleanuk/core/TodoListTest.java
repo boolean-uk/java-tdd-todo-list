@@ -53,4 +53,29 @@ class TodoListTest {
         Assertions.assertEquals("Complete", str);
 
     }
+
+    @Test
+    public void testShowAllIncompleteTasks(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        todoList.add("Wash");
+        todoList.add("Shopping");
+        todoList.status("Shopping","Complete");
+        String expected="Wash : Incomplete\nWash clothes : Incomplete\n";
+
+        Assertions.assertEquals(expected,todoList.showIncomplete());
+    }
+
+    @Test
+    public void testShowAllCompleteTasks(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        todoList.add("Wash");
+        todoList.add("Shopping");
+        todoList.status("Wash","Complete");
+        todoList.status("Wash clothes", "Complete");
+        String expected="Wash : Complete\nWash clothes : Complete\n";
+
+        Assertions.assertEquals(expected,todoList.showComplete());
+    }
 }
