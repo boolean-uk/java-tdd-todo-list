@@ -3,6 +3,7 @@ package com.booleanuk.core;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class TodoList {
     public ArrayList<Task> tasks;
@@ -50,7 +51,7 @@ public class TodoList {
 
     public boolean removeTask(String taskName) {
         for(int i = 0; i < tasks.size(); i++) {
-            if(tasks.get(i).name ==  taskName) {
+            if(tasks.get(i).name.equals(taskName)) {
                 tasks.remove(tasks.get(i));
                 return true;
             }
@@ -58,8 +59,17 @@ public class TodoList {
         return false;
     }
 
-//    public ArrayList<Task> sortTasks(boolean descending) {
-//        // Collection.sort(tasks, (a, b) -> a.name)
-//    }
+    public ArrayList<Task> sortTasks(boolean descending) {
+         Collections.sort(tasks, new Comparator<Task>() {
+             @Override
+             public int compare(Task task1, Task task2) {
+                 return task1.name.compareToIgnoreCase(task2.name);
+             }
+         });
+         if(descending) {
+             Collections.reverse(tasks);
+        }
+         return tasks;
+    }
 
 }

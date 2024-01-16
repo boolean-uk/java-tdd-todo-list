@@ -42,9 +42,11 @@ class TodoListTest {
         listOfTasks.add(new Task("Do laundry", false));
         listOfTasks.add(new Task("Walk dog", true));
 
+        ArrayList<Task> shownTasks = todoList.showTasks();
+
         for(int i = 0; i < todoList.tasks.size(); i++) {
-            Assertions.assertEquals(listOfTasks.get(i).name, todoList.tasks.get(i).name);
-            Assertions.assertEquals(listOfTasks.get(i).complete, todoList.tasks.get(i).complete);
+            Assertions.assertEquals(listOfTasks.get(i).name, shownTasks.get(i).name);
+            Assertions.assertEquals(listOfTasks.get(i).complete, shownTasks.get(i).complete);
         }
 
     }
@@ -124,7 +126,7 @@ class TodoListTest {
         }
     }
 
-/*    @Test
+    @Test
     public void sortTasksTest() {
         TodoList todoList = new TodoList();
 
@@ -153,6 +155,6 @@ class TodoListTest {
             Assertions.assertEquals(listOfTasks.get(i).name, sortedTodoList.get(i).name);
             Assertions.assertEquals(listOfTasks.get(i).complete, sortedTodoList.get(i).complete);
         }
-    }*/
+    }
 
 }
