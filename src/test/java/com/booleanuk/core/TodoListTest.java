@@ -52,7 +52,9 @@ class TodoListTest {
     public void testRemoveTask(){
         TodoList list = new TodoList();
         String task = "Workout";
-        Assertions.assertEquals("{Workout=Complete}",list.addTask("Workout", "Complete"));
+        list.addTask(task,"Complete");
+        Assertions.assertEquals("{Workout=Complete}",list.checkAllTasks());
         Assertions.assertEquals("Task removed", list.removeTask(task));
+        Assertions.assertEquals("List is empty", list.checkAllTasks());
     }
 }

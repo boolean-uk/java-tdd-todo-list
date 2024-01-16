@@ -23,6 +23,11 @@ public class TodoList {
         todoList.put(task,status);
         return "Task added";
     }
+
+    public String removeTask(String task){
+        todoList.remove(task);
+        return "Task removed";
+    }
 }
 
 /*
