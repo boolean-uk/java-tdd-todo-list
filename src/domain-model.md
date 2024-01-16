@@ -78,18 +78,18 @@
 ##1
 
 | Classes           | Methods     | Members                  | Scenario                                      | Output |
-|-------------------|-------------|--------------------------|-----------------------------------------------|--------|
-| TodoListExtension | getWithId() | HashMap<Integer, String> | Method is called with id and id exists        | true;  |
-|                   |             |                          | Method is called with id, but id doesnt exist | false; |
-|                   |             |                          |                                               |        |
+|-------------------|-------------|--------------------------|-----------------------------------------------|-------|
+| TodoListExtension | getWithId() | HashMap<Integer, String> | Method is called with id and id exists        | true  |
+|                   |             |                          | Method is called with id, but id doesnt exist | false |
+|                   |             |                          |                                               |       |
 
 ##2
 
-| Classes  | Methods                               | Members | Scenario                | Output                    |
-|----------|---------------------------------------|---------|-------------------------|---------------------------|
-| TodoList | setNewName(int newId, String newName) |         | Parameters are provided | The task gets a new name. |
-|          |                                       |         |                         |                           |
-|          |                                       |         |                         |                           |
+| Classes  | Methods                            | Members | Scenario                | Output                    |
+|----------|------------------------------------|---------|-------------------------|---------------------------|
+| TodoList | setNewName(int id, String newName) |         | Parameters are provided | The task gets a new name. |
+|          |                                    |         |                         |                           |
+|          |                                    |         |                         |                           |
 
 ##3
 

@@ -18,20 +18,20 @@ public class TodoListExtension {
         this.creation = LocalDateTime.now();
 
 
-        tasks.put("Fiske", true);
+
 
 
     }
 
 
-    public boolean addTask(String name, boolean status) {
+    public boolean addTask(int id, String name) {
 
-        if (this.tasks.containsKey(name)) {
+        if (this.taskname.containsKey(name)) {
             return false;
         }
 
 
-        tasks.put(name, status);
+        taskname.put(id, name);
 
 
         return true;
@@ -136,7 +136,15 @@ public class TodoListExtension {
     }
 
 
+    public boolean getTaskWithId(int id) {
 
+        return taskname.containsKey(id);
+    }
+
+    public String setNewName(int id, String newName) {
+
+        return "";
+    }
 
 
 
