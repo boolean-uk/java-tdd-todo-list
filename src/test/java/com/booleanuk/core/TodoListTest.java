@@ -79,7 +79,7 @@ class TodoListTest {
     }
 
     @Test
-    public void getIncompleteStatusTasks() {
+    public void getCompleteStatusTasks() {
         TodoList todo = new TodoList();
 
         todo.addToTodo("wash");
@@ -92,5 +92,6 @@ class TodoListTest {
 
         Assertions.assertEquals(todo.displayCompleteTodo(), "[wash, clean]");
     }
+
 
 }
