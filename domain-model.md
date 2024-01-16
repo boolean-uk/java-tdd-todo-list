@@ -16,10 +16,10 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 ## 1
 
-| Class Variables                   | Methods                        | Scenarios                | Output/Return |
-|-----------------------------------|--------------------------------|--------------------------|---------------|
-| Map<Map<String, boolean> todoList | addTaskToTodolist(String task) | Adds a task to todo list | void          |
-|                                   |                                |                          |               |
-|                                   |                                |                          |               |
+| Class Variables                   | Methods                            | Scenarios                | Output/Return                     |
+|-----------------------------------|------------------------------------|--------------------------|-----------------------------------|
+| Map<Map<String, Boolean> todoList | addTaskToTodolist(String task)     | Adds a task to todo list | void                              |
+|                                   | Map<String, Boolean> getTodoList() | Gets the todoList        | Map<Map<String, boolean> todolist |
+|                                   |                                    |                          |                                   |
 
 
