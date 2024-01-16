@@ -25,6 +25,9 @@ public class TodoList {
     }
 
     public String removeTask(String task){
+        if (!isTaskInList(task)){
+            return "Task does not exist";
+        }
         todoList.remove(task);
         return "Task removed";
     }
