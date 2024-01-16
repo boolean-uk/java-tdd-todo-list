@@ -91,4 +91,26 @@ public class TodoListExtensionTest {
         todoList.todos.add(new Task("1","Work"));
         Assertions.assertEquals(todoList.todos.get(0).creationTime, new Date());
     }
+
+    @Test
+    public void testGetTaskWithTime() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        Assertions.assertEquals("Work: incomplete\n"+new Date(), todoList.getTasksWithTime());
+    }
+
+    @Test
+    public void testGetTaskWithTimeEmptyList() {
+        TodoListExtension todoList = new TodoListExtension();
+        Assertions.assertEquals("List is empty", todoList.getTasksWithTime());
+    }
+
+    @Test
+    public void testGetMultipleTasksWithTime() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        todoList.todos.add(new Task("2","Exercise"));
+        todoList.todos.add(new Task("3","Code"));
+        Assertions.assertEquals("Work: incomplete\n"+new Date()+"\nExercise: incomplete\n"+new Date()+"\nCode: incomplete\n"+new Date(), todoList.getTasksWithTime());
+    }
 }
