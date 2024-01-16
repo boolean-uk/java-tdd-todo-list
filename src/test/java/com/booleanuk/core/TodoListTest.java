@@ -82,8 +82,11 @@ class TodoListTest {
     @Test
     public void testSearchTask() {
         TodoList lst = new TodoList();
-        Task task = new Task("CV");
+        Task task_1 = new Task("CV");
+        Task task_2 = new Task("Sleep");
+        lst.addTask(task_1);
 
-        Assertions.assertTrue(lst.listOfTasks.contains(task));
+        Assertions.assertTrue(lst.listOfTasks.contains(lst.searchTask(task_1)));
+        Assertions.assertFalse(lst.listOfTasks.contains(lst.searchTask(task_2)));
     }
 }

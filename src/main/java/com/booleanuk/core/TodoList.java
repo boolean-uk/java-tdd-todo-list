@@ -64,8 +64,19 @@ public class TodoList {
             return incompleteTasks;
         }
 
-     public Task searchTask() {
-        return new Task("");
+     public Task searchTask(Task task) {
+        try {
+            for (Task t : this.listOfTasks) {
+                if (t.name == task.name) {
+                    return task;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("ERror, returning naked task");
+            return new Task("");
+        }
+         System.out.println("Task does not exist, thus not found");
+         return task;
      }
 
     public static void main(String[] args) {
