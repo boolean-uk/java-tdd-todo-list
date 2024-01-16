@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 class TodoListTest {
 
@@ -83,7 +82,7 @@ class TodoListTest {
 
     @Test
     public void testOrderTasksAsc() {
-        Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum"), new Task("Empty Trash"), new Task("Walk the dog") };
+        Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum"), new Task("Empty trash"), new Task("Walk the dog") };
         todoList.tasks = new ArrayList<>(Arrays.asList(array));
         ArrayList<Task> sortedAsc = todoList.orderTasksAsc();
         Assertions.assertEquals("Dishes", sortedAsc.get(0).getName());

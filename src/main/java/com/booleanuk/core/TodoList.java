@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TodoList {
 
@@ -51,18 +53,37 @@ public class TodoList {
     }
 
     public String search(String name) {
-        return "";
+        for(Task task : this.tasks) {
+            if(task.getName().equals(name)) {
+                return name + " was found";
+            }
+        }
+        return name + " was not found";
     }
 
     public boolean delete(String name) {
+        for(Task task : this.tasks) {
+            if(task.getName().equals(name)) {
+                this.tasks.remove(task);
+                return true;
+            }
+        }
         return false;
     }
 
     public ArrayList<Task> orderTasksAsc() {
-        return new ArrayList<>();
+        this.tasks.sort(new Comparator<Task>() {
+            @Override
+            public int compare(Task t1, Task t2) {
+                return t1.getName().toLowerCase().compareTo(t2.getName().toLowerCase());
+            }
+
+        });
+        return this.tasks;
     }
 
     public ArrayList<Task> orderTasksDesc() {
-        return new ArrayList<>();
+        Collections.reverse(orderTasksAsc());
+        return this.tasks;
     }
 }
