@@ -1,7 +1,9 @@
 package com.booleanuk.core;
 
 import java.awt.*;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class TodoList {
 
@@ -98,6 +100,12 @@ public class TodoList {
             System.out.println("No tasks to remove");
         }
      }
+
+     public ArrayList<Task> showTasksAscending() {
+     }
+
+    public ArrayList<Task> showTasksDescending() {
+    }
 
     public static void main(String[] args) {
 

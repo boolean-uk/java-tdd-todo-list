@@ -113,4 +113,34 @@ class TodoListTest {
 
         Assertions.assertTrue(lst.listOfTasks.isEmpty());
     }
+
+    @Test
+    public void testShowTasksAscending() {
+        TodoList lst = new TodoList();
+        Task task_1 = new Task("CV");
+        Task task_2 = new Task("Sleep");
+        Task task_3 = new Task("Abefest");
+        Task task_4 = new Task("Zoo");
+        lst.addTask(task_1);
+        lst.addTask(task_2);
+        lst.addTask(task_3);
+        lst.addTask(task_4);
+
+        Assertions.assertEquals(lst.showTasksAscending().get(0), lst.listOfTasks.get(0));
+    }
+
+    @Test
+    public void testShowTasksDescending() {
+        TodoList lst = new TodoList();
+        Task task_1 = new Task("CV");
+        Task task_2 = new Task("Sleep");
+        Task task_3 = new Task("Abefest");
+        Task task_4 = new Task("Zoo");
+        lst.addTask(task_1);
+        lst.addTask(task_2);
+        lst.addTask(task_3);
+        lst.addTask(task_4);
+
+        Assertions.assertEquals(lst.showTasksAscending().get(3), lst.listOfTasks.get(4));
+    }
 }
