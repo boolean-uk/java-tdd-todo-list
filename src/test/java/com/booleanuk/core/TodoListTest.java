@@ -1,8 +1,9 @@
 package com.booleanuk.core;
 
-import com.sun.source.tree.AssertTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 class TodoListTest {
     @Test
@@ -115,7 +116,9 @@ class TodoListTest {
         todoList.add("Laundry");
         todoList.add("Make dinner");
         todoList.changeStatus("Make dinner");
-        String[] completedTasks = new String[]{"Go for a walk", "Make dinner"};
+        ArrayList<String> completedTasks = new ArrayList<>();
+        completedTasks.add("Make dinner");
+        completedTasks.add("Go for a walk");
         Assertions.assertEquals(completedTasks, todoList.getStatus(true));
     }
 
@@ -128,14 +131,16 @@ class TodoListTest {
         todoList.add("Laundry");
         todoList.add("Make dinner");
         todoList.changeStatus("Make dinner");
-        String[] completedTasks = new String[]{"Vacuum", "Laundry"};
+        ArrayList<String> completedTasks = new ArrayList<>();
+        completedTasks.add("Vacuum");
+        completedTasks.add("Laundry");
         Assertions.assertEquals(completedTasks, todoList.getStatus(false));
     }
 
     @Test
     public void testGetStatusWithEmptyList() {
         TodoList todoList = new TodoList();
-        Assertions.assertEquals(new String[]{}, todoList.getStatus(true));
-        Assertions.assertEquals(new String[]{}, todoList.getStatus(false));
+        Assertions.assertEquals(new ArrayList<>(), todoList.getStatus(true));
+        Assertions.assertEquals(new ArrayList<>(), todoList.getStatus(false));
     }
 }

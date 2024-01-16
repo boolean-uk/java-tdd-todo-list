@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TodoList {
@@ -58,6 +59,22 @@ public class TodoList {
             }
             else {
                 output += task + " incomplete\n";
+            }
+        }
+        return output;
+    }
+
+    public ArrayList<String> getStatus(boolean status) {
+        if(this.tasks.isEmpty()) {
+            return new ArrayList<>();
+        }
+        ArrayList<String> output = new ArrayList<>();
+        for (String task : this.tasks.keySet()) {
+            if (this.tasks.get(task) && status) {
+                output.add(task);
+            }
+            else if (!this.tasks.get(task) && !status) {
+                output.add(task);
             }
         }
         return output;
