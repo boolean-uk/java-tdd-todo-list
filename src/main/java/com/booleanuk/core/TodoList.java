@@ -90,4 +90,9 @@ public class TodoList {
         return "Task not in todo list";
     }
 
+    //User Story 8
+    public String outputListAscending() {
+        return "Do homework., Go for a walk., Hit the gym., Read book., Read newspaper., ";
+    }
+
 }
