@@ -54,6 +54,7 @@ class TodoListTest {
     public void testChangeStatusComplete() {
         TodoList todo = new TodoList();
 
+        todo.addToTodo("wash");
         todo.statusComplete("wash");
         Assertions.assertEquals(todo.list.get("wash"), "Complete");
     }
@@ -61,18 +62,28 @@ class TodoListTest {
     public void testChangeStatusIncomplete() {
         TodoList todo = new TodoList();
 
+        todo.addToTodo("wash");
         todo.statusComplete("wash");
         todo.statusIncomplete("wash");
         Assertions.assertEquals(todo.list.get("wash"), "Incomplete");
     }
-//    @Test
-//    public void testChangeStatus() {
-//        TodoList todo = new TodoList();
-//        Assertions.assertEquals(todo.list.get("wash"), "Incomplete");
-////        todo.changeStatus("wash");
-////        Assertions.assertEquals(todo.list.get("wash"), "Complete");
-//    }
+    @Test
+    public void testChangeStatus() {
+        TodoList todo = new TodoList();
 
+        todo.addToTodo("wash");
 
+        Assertions.assertEquals(todo.list.get("wash"), "Incomplete");
+        todo.changeStatus("wash");
+        Assertions.assertEquals(todo.list.get("wash"), "Complete");
+    }
+
+    public void getIncompleteStatus() {
+        TodoList todo = new TodoList();
+
+        todo.statusComplete("wash");
+        todo.statusIncomplete("wash");
+        Assertions.assertEquals(todo.list.get("wash"), "Incomplete");
+    }
 
 }

@@ -25,13 +25,13 @@ public class TodoList {
         System.out.println(displayTodo());
     }
 
-//    public void changeStatus(String key) {
-//        if(this.list.get(key).equals("Incomplete")) {
-//            this.list.put(key, "Complete");
-//        } else {
-//            this.list.put(key, "Incomplete");
-//        }
-//    }
+    public void changeStatus(String key) {
+        if(this.list.get(key).equals("Incomplete")) {
+            this.list.put(key, "Complete");
+        } else {
+            this.list.put(key, "Incomplete");
+        }
+    }
 
     public void statusComplete(String key) {
         this.list.put(key, "Complete");
