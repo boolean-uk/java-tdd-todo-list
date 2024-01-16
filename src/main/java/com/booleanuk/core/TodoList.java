@@ -27,7 +27,7 @@ public class TodoList {
     }
 
     public String changeTaskStatus(String task, String status) {
-        return "Task status changed to complete.";
+        return "Task status changed to incomplete.";
     }
 
 }
