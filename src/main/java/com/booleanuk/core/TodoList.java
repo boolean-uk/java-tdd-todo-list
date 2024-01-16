@@ -19,29 +19,9 @@ public class TodoList {
         }
     }
     ArrayList<Task> list;
-    ArrayList<Task> sortedListAscending;
 
     public TodoList(){
         this.list = new ArrayList<>();
-    }
-
-    public void sortedListAsc(){
-        this.list.sort(Comparator.comparing(Task::getDescription));
-        if(!this.list.isEmpty()){
-            for (int i = 0; i < this.list.size(); i++) {
-                System.out.println(this.list.get(i).description);
-                return;
-            }
-        }
-    }
-    public void sortedListDes(){
-        this.list.sort(Comparator.comparing(Task::getDescription).reversed());
-        if(!this.list.isEmpty()){
-            for (int i = 0; i < this.list.size(); i++) {
-                System.out.println(this.list.get(i).description);
-                return;
-            }
-        }
     }
 
     public int getIncompleteTasks(){
@@ -86,6 +66,25 @@ public class TodoList {
         System.out.println("Task is not in list");
         return false;
     }
+    public void sortedListAsc(){
+        if(this.list.isEmpty()){
+            return;
+        }
+        this.list.sort(Comparator.comparing(Task::getDescription));
+        for (int i = 0; i < this.list.size(); i++) {
+            System.out.println(this.list.get(i).description);
+        }
+    }
+    public void sortedListDes(){
+        if(this.list.isEmpty()){
+            return;
+        }
+        this.list.sort(Comparator.comparing(Task::getDescription).reversed());
+        for (int i = 0; i < this.list.size(); i++) {
+            System.out.println(this.list.get(i).description);
+        }
+    }
+
 
 
     public boolean changeTaskStatus(String task){
