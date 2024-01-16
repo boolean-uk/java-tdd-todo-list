@@ -115,7 +115,7 @@ class TodoListTestExtension {
 
     // get Time
     @Test
-    public void addTaskIDTimeTestReturnFalse() {
+    public void getTaskTimeTest() {
         TodoListExtension toDo = new TodoListExtension();
         boolean result = toDo.addTaskID("Clean", "a12ft");
         result = toDo.addTaskIDTime("Dry", "fg83ft");
@@ -125,7 +125,7 @@ class TodoListTestExtension {
         LocalDateTime now = LocalDateTime.now();
         String timeNow = dtf.format(now);
 
-        Assertions.assertEquals(timeNow.substring(19), timeTask.substring(19));
+        Assertions.assertEquals(timeNow, timeTask);
     }
 
 }

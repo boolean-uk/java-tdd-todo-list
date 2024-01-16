@@ -44,6 +44,14 @@ public class TodoListExtension {
         return false;
     }
 
+    public String getTaskTime(String ID) {
+        String time = "";
+        if (mapTaskToTime.containsKey(ID)) {
+            time = mapTaskToTime.get(ID);
+        }
+        return time;
+    }
+
     public String getTask(String ID) {
         String result = "";
         if (mapIDtoTask.containsKey(ID)) {
@@ -51,6 +59,8 @@ public class TodoListExtension {
         }
         return result;
     }
+
+
 
     public boolean newTaskName(String ID, String newName) {
         if (mapIDtoTask.containsKey(ID)) {
