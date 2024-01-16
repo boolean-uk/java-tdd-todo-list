@@ -31,7 +31,8 @@ class TodoListTest {
     @Test
     public void displayTasksTestReturnTrue() {
         TodoList toDo = new TodoList();
-        boolean result = toDo.displayTasks();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.displayTasks();
         Assertions.assertTrue(result);
     }
 

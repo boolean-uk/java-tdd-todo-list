@@ -20,4 +20,16 @@ public class TodoList {
         return false;
     }
 
+    public boolean displayTasks() {
+        if (toDoList.size() == 0){
+            return false;
+        }
+
+        for (String task: toDoList) {
+            System.out.println(task);
+        }
+        return true;
+    }
+
+
 }
