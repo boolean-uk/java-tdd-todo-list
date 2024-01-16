@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TodoList {
     public HashMap<String, String> taskList;
@@ -49,6 +47,12 @@ public class TodoList {
         }
         return "The task not found";
 
+    }
+
+    public ArrayList<String> getTaskAscending (){
+        ArrayList<String> taskListKey = new ArrayList<>(taskList.keySet());
+        Collections.sort(taskListKey);
+        return taskListKey;
     }
     public static void main(String[] arg){
         TodoList object = new TodoList();
