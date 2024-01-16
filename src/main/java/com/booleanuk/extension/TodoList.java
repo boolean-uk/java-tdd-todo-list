@@ -64,14 +64,14 @@ public class TodoList {
         tasks.remove(id);
         return true;
     }
-//
-//    public ArrayList<String> getListInAlphabeticalOrder(boolean ascending) {
-//        ArrayList<String> keys = new ArrayList<>(tasks.keySet());
-//        Collections.sort(keys);
-//        if(ascending) {
-//            return keys;
-//        }
-//        Collections.reverse(keys);
-//        return keys;
-//    }
+
+    public ArrayList<String> getListInAlphabeticalOrder(boolean ascending) {
+        ArrayList<String> keys = new ArrayList<>(tasks.keySet());
+        Collections.sort(keys);
+        if(ascending) {
+            return keys;
+        }
+        Collections.reverse(keys);
+        return keys;
+    }
 }
