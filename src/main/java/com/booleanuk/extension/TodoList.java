@@ -56,14 +56,14 @@ public class TodoList {
     public String doesTaskExist(String id) {
         return tasks.containsKey(id)? "The task exists!" : "The task doesn't exist!";
     }
-//
-//    public boolean remove(String task) {
-//        if(!tasks.containsKey(task)) {
-//            return false;
-//        }
-//        tasks.remove(task);
-//        return true;
-//    }
+
+    public boolean remove(String id) {
+        if(!tasks.containsKey(id)) {
+            return false;
+        }
+        tasks.remove(id);
+        return true;
+    }
 //
 //    public ArrayList<String> getListInAlphabeticalOrder(boolean ascending) {
 //        ArrayList<String> keys = new ArrayList<>(tasks.keySet());

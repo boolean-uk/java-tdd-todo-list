@@ -94,20 +94,20 @@ class TodoListTest {
         todoList.addTask("clean", "123");
         Assertions.assertEquals(	"The task doesn't exist!", todoList.doesTaskExist("456"));
     }
-//
-//    @Test
-//    public void removeExistingTask() {
-//        TodoList todoList = new TodoList();
-//        todoList.addTask("clean");
-//        Assertions.assertTrue(todoList.remove("clean"));
-//    }
-//
-//    @Test
-//    public void removeNonexistingTask() {
-//        TodoList todoList = new TodoList();
-//        todoList.addTask("clean");
-//        Assertions.assertFalse(todoList.remove("make dinner"));
-//    }
+
+    @Test
+    public void removeExistingTask() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertTrue(todoList.remove("123"));
+    }
+
+    @Test
+    public void removeNonexistingTask() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertFalse(todoList.remove("456"));
+    }
 //
 //    @Test
 //    public void seeListInAlphabeticalAscendingOrder() {
