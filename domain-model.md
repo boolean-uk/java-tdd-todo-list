@@ -16,26 +16,34 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 ## 1
 
-| Class Variables                   | Methods                            | Scenarios                | Output/Return                     |
-|-----------------------------------|------------------------------------|--------------------------|-----------------------------------|
-| Map<Map<String, Boolean> todoList | addTaskToTodolist(String task)     | Adds a task to todo list | void                              |
-|                                   | Map<String, Boolean> getTodoList() | Gets the todoList        | Map<Map<String, boolean> todolist |
-|                                   |                                    |                          |                                   |
+| Class Variables               | Methods                            | Scenarios                | Output/Return                     |
+|-------------------------------|------------------------------------|--------------------------|-----------------------------------|
+| Map<String, Boolean> todoList | addTaskToTodolist(String task)     | Adds a task to todo list | void                              |
+|                               | Map<String, Boolean> getTodoList() | Gets the todoList        | Map<Map<String, boolean> todolist |
+|                               |                                    |                          |                                   |
 
 ## 2
 
-| Class Variables                   | Methods                            | Scenarios                    | Output/Return                     |
-|-----------------------------------|------------------------------------|------------------------------|-----------------------------------|
-| Map<Map<String, Boolean> todoList | printTasksFromTodolist()           | prints the tasks of todolist | void                              |
-|                                   | Map<String, Boolean> getTodoList() | Gets the todoList            | Map<Map<String, boolean> todolist |
-|                                   |                                    |                              |                                   |
+| Class Variables               | Methods                            | Scenarios                    | Output/Return                     |
+|-------------------------------|------------------------------------|------------------------------|-----------------------------------|
+| Map<String, Boolean> todoList | printTasksFromTodolist()           | prints the tasks of todolist | void                              |
+|                               | Map<String, Boolean> getTodoList() | Gets the todoList            | Map<Map<String, boolean> todolist |
+|                               |                                    |                              |                                   |
 
 
 ## 3
 
-| Class Variables                   | Methods                                       | Scenarios                           | Output/Return |
-|-----------------------------------|-----------------------------------------------|-------------------------------------|---------------|
-| Map<Map<String, Boolean> todoList | changeTaskToCompleteOrIncomplete(String task) | Changes task value to true or false | void          |
-|                                   |                                               |                                     |               |
-|                                   |                                               |                                     |               |
+| Class Variables               | Methods                                       | Scenarios                           | Output/Return |
+|-------------------------------|-----------------------------------------------|-------------------------------------|---------------|
+| Map<String, Boolean> todoList | changeTaskToCompleteOrIncomplete(String task) | Changes task value to true or false | void          |
+|                               |                                               |                                     |               |
+|                               |                                               |                                     |               |
 
+
+## 4 and 5
+
+| Class Variables               | Methods                                                    | Scenarios                                    | Output/Return              |
+|-------------------------------|------------------------------------------------------------|----------------------------------------------|----------------------------|
+| Map<String, Boolean> todoList | getCompleteOrIncompleteTasks(Boolean CompleteOrIncomplete) | Gets either the complete or incomplete tasks | Map<String, Boolean> tasks |
+|                               |                                                            |                                              |                            |
+|                               |                                                            |                                              |                            |

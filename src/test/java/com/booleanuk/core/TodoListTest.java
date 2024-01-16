@@ -94,4 +94,12 @@ class TodoListTest {
 
 
     }
+
+    @Test
+    public void testGetCompleteOrIncompleteTasks() {
+        TodoList todoList = new TodoList();
+
+
+
+    }
 }
