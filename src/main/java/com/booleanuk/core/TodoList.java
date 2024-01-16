@@ -104,18 +104,41 @@ public class TodoList {
      }
 
      public ArrayList<Task> showTasksAscending() {
-        ArrayList<Task> lst = this.listOfTasks;
         Collections.sort(this.listOfTasks, Comparator.comparing(Task::getName));
-        return lst;
+         System.out.print("Tasks: ");
+         for(Task task : this.listOfTasks) {
+             System.out.print(task.name + " ");
+         }
+         System.out.println();
+        return this.listOfTasks;
     }
 
     public ArrayList<Task> showTasksDescending() {
-        ArrayList<Task> lst = this.listOfTasks;
         Collections.sort(this.listOfTasks, Comparator.comparing(Task::getName, Comparator.reverseOrder()));
-        return lst;
+        System.out.print("Tasks: ");
+        for(Task task : this.listOfTasks) {
+            System.out.print(task.name + " ");
+        }
+        System.out.println();
+        return this.listOfTasks;
     }
 
     public static void main(String[] args) {
+        TodoList lst = new TodoList();
+        Task task_1 = new Task("CV");
+        Task task_2 = new Task("Sleep");
+        Task task_3 = new Task("Abefest");
+        Task task_4 = new Task("Zoo");
+        lst.addTask(task_1);
+        lst.addTask(task_2);
+        lst.addTask(task_3);
+        lst.addTask(task_4);
+
+        lst.showTasksAscending();
+        lst.showTasksDescending();
+
+        lst.removeTask(task_1);
+        lst.removeAllTasks();
 
     }
 
