@@ -58,7 +58,7 @@ class TodoListTestExtension {
     }
 
     @Test
-    public void newTaskNameTestReturnTrue() {
+    public void newTaskNameTestReturnFalse() {
         TodoListExtension toDo = new TodoListExtension();
         boolean result = toDo.addTaskID("Clean", "a12ft");
         result = toDo.addTaskID("Dry", "fg83ft");

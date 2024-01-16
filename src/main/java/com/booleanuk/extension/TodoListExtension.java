@@ -33,6 +33,16 @@ public class TodoListExtension {
         return result;
     }
 
+    public boolean newTaskName(String ID, String newName) {
+        if (mapIDtoTask.containsKey(ID)) {
+            int index = toDoList.indexOf(mapIDtoTask.get(ID));
+            toDoList.set(index, newName);
+            mapIDtoTask.replace(ID, newName);
+            return true;
+        }
+        return false;
+    }
+
     public boolean displayTasks() {
         if (toDoList.size() == 0){
             return false;
