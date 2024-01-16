@@ -1,11 +1,30 @@
 package com.booleanuk.core;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 
 public class TodoList {
+    HashMap<Integer, String> taskname;
+    boolean status;
+    LocalDateTime creation;
 
+    public TodoList() {
+        this.taskname = new HashMap<>();
+        this.status = false;
+        this.creation = LocalDateTime.now();
+        this.taskname.put(1, "Fiske");
+
+    }
 
     public boolean addTask(int id, String name) {
+
+        if (this.taskname.containsKey(id)) {
+            return false;
+        }
+
+            this.taskname.put(id, name);
+            this.creation = LocalDateTime.now();
+
 
         return true;
     }

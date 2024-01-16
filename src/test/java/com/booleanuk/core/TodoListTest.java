@@ -15,7 +15,7 @@ class TodoListTest {
     public void isTaskNew() {
         TodoList task1 = new TodoList();
 
-        boolean result = task1.addTask(1, "Fiske");
+        boolean result = task1.addTask(2, "Football");
         Assertions.assertTrue(result);
     }
 
@@ -23,7 +23,7 @@ class TodoListTest {
     public void isItemAlreadyAdded() {
         TodoList task1 = new TodoList();
 
-        boolean result = task1.addTask(2, "Football");
+        boolean result = task1.addTask(1, "Fiske");
         Assertions.assertFalse(result);
 
     }
