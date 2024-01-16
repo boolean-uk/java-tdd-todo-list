@@ -59,6 +59,10 @@ public class TodoList {
         return false;
     }
 
+    public boolean removeTask(String task) {
+        return !this.todoList.remove(task);
+    }
+
     public static void main(String[] args) {
 //        TodoList test = new TodoList();
 //
