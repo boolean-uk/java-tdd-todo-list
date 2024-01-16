@@ -99,4 +99,20 @@ public class TodoList {
         }
         return todoString.substring(0, todoString.length()-1);
     }
+
+    public String getOrderedDescending() {
+        if (this.todos.isEmpty()) return "No tasks in list";
+        ArrayList<String> todos = new ArrayList<>(this.todos.keySet());
+        Collections.sort(todos);
+        String todoString = "";
+        for(int i = todos.size()-1; i >= 0; i--) {
+            todoString = todoString.concat(todos.get(i)+": ");
+            if (this.todos.get(todos.get(i))) {
+                todoString = todoString.concat("complete\n");
+            } else {
+                todoString = todoString.concat("incomplete\n");
+            }
+        }
+        return todoString.substring(0, todoString.length()-1);
+    }
 }
