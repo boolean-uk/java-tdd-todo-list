@@ -68,7 +68,12 @@ public class TodoList {
         for(int i = 0; i < taskArray.length; i++){
             taskArray[i] = tasks.get(i) +": " + todoList.get(tasks.get(i));
         }
-        Arrays.sort(taskArray);
+        if (order.equals("descending")){
+            Arrays.sort(taskArray, Collections.reverseOrder());
+        }
+        else {
+            Arrays.sort(taskArray);
+        }
         return taskArray;
     }
 }
