@@ -34,4 +34,17 @@ public class TodoList {
         return false;
     }
 
+    public String getTask(String task) {
+        if(this.tasks.containsKey(task)) {
+            boolean status = this.tasks.get(task);
+            if(status) {
+                return task + " is complete.";
+            }
+            else {
+                return task + " is incomplete.";
+            }
+        }
+        return task + " wasn't found.";
+    }
+
 }
