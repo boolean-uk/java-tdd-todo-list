@@ -1,9 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class TodoList {
     public HashMap<String,String> todoList = new HashMap<>();
@@ -60,6 +57,18 @@ public class TodoList {
         for(int i = 0; i < taskArray.length; i++){
             taskArray[i] = tasks.get(i);
         }
+        return taskArray;
+    }
+    public String[] sortTodoList(String order){
+        ArrayList<String> tasks = new ArrayList<>();
+        for (HashMap.Entry<String,String> entry: todoList.entrySet()){
+            tasks.add(entry.getKey());
+        }
+        String [] taskArray = new String[tasks.size()];
+        for(int i = 0; i < taskArray.length; i++){
+            taskArray[i] = tasks.get(i) +": " + todoList.get(tasks.get(i));
+        }
+        Arrays.sort(taskArray);
         return taskArray;
     }
 }

@@ -133,7 +133,7 @@ class TodoListTest {
         list.addTask("Watch TikTok", "Complete");
         list.addTask("Make food", "Incomplete");
         Assertions.assertArrayEquals(new String[]{"Bathe: Complete", "Get to work: Complete",
-                "Make food: Incomplete", "Sleet: Complete", "Watch TikTok: Complete",
-                "Workout: Incomplete"}, list.sortTodoList(ascending));
+                "Make food: Incomplete", "Sleep: Complete", "Watch TikTok: Complete",
+                "Workout: Incomplete"}, list.sortTodoList("ascending"));
     }
 }
