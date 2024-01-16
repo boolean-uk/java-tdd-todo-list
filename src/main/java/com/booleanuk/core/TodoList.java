@@ -10,11 +10,19 @@ public class TodoList {
     }
 
     public boolean add(String task) {
-        if (tasks.containsKey(task)) {
+        if (this.tasks.containsKey(task)) {
             return false;
         }
         this.tasks.put(task, false);
         return true;
+    }
+
+    public boolean remove(String task) {
+        if (this.tasks.containsKey(task)) {
+            this.tasks.remove(task);
+            return true;
+        }
+        return false;
     }
 
 }
