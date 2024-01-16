@@ -7,11 +7,21 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 class TodoListTestExtension {
+
+    // add task with ID
     @Test
-    public void exampleTest() {
-        String hello = "Hello";
-        Assertions.assertEquals("Hello", hello);
-        Assertions.assertNotEquals("Goodbye", hello);
+    public void addTaskTestReturnTrue() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void addTaskTestReturnFalse() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        result = toDo.addTaskID("Clean", "a12ft");
+        Assertions.assertFalse(result);
     }
 
 
