@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 class TodoListTest {
@@ -47,5 +48,19 @@ class TodoListTest {
         todo.addToTodo("cook");
 
         Assertions.assertEquals(todo.displayTodo(), "[shop, cook, wash, clean]");
+    }
+
+    @Test
+    public void testChangeStatusComplete() {
+        TodoList todo = new TodoList();
+        statusComplete(list.get("wash"));
+        Assertions.assertEquals(todo.list.get("wash"), "Complete");
+    }
+    @Test
+    public void testChangeStatusIncomplete() {
+        TodoList todo = new TodoList();
+        statusComplete(list.get("wash"));
+        statusInomplete(list.get("wash"));
+        Assertions.assertEquals(todo.list.get("wash"), "Incomplete");
     }
 }
