@@ -45,4 +45,14 @@ public class TodoListExtensionTest {
         lst.changeStatusByID(0);
         Assertions.assertTrue(task.status);
     }
+
+    @Test
+    public void testDateTime() {
+        TodoListExtension lst = new TodoListExtension();
+        TaskExtension task = new TaskExtension("CV");
+        task.ID = 0;
+        lst.addTask(task);
+
+        Assertions.assertNotNull(task.dateTime);
+    }
 }

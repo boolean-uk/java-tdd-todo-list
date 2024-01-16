@@ -146,6 +146,12 @@ public class TodoListExtension {
         getTaskByID(ID).status = !getTaskByID(ID).status;
     }
 
+    public void showDateTimeForTasks() {
+        for(TaskExtension task : this.listOfTasks) {
+            System.out.println("Task: " + task.name + " created at: " + task.dateTime);
+        }
+    }
+
     public static void main(String[] args) {
         TodoListExtension lst = new TodoListExtension();
         TaskExtension task_1 = new TaskExtension("CV");
@@ -156,6 +162,8 @@ public class TodoListExtension {
         lst.addTask(task_2);
         lst.addTask(task_3);
         lst.addTask(task_4);
+
+        lst.showDateTimeForTasks();
 
         lst.showTasksAscending();
         lst.showTasksDescending();
