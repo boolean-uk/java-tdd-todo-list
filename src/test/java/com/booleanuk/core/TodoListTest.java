@@ -33,8 +33,28 @@ class TodoListTest {
     public void testChangeTaskStatus(){
         TodoList todo = new TodoList();
         todo.add("Wash car");
-        Assertions.assertFalse(todo.list.get(1).isCompleted);
+        todo.add("Make food");
+        Assertions.assertFalse(todo.list.get(0).isCompleted);
         todo.changeTaskStatus("Wash car");
-        Assertions.assertTrue(todo.list.get(1).isCompleted);
+        Assertions.assertTrue(todo.list.get(0).isCompleted);
+        todo.changeTaskStatus("Develop software");
+        Assertions.assertFalse(todo.list.get(1).isCompleted);
+    }
+
+    @Test
+    public void testGetIncompleteTasks(){
+        TodoList todo = new TodoList();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        todo.add("Walk the dog");
+        Assertions.assertEquals(5, todo.getIncompleteTasks());
+
+        todo.changeTaskStatus("Wash car");
+        todo.changeTaskStatus("Brush teeth");
+
+        todo.getIncompleteTasks();
+        Assertions.assertEquals(3, todo.getIncompleteTasks());
     }
 }
