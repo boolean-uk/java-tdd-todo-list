@@ -4,6 +4,9 @@ import com.booleanuk.core.TodoList;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 
 public class TodoListExtensionTest {
 
@@ -63,7 +66,7 @@ public class TodoListExtensionTest {
         task1.addTask(2, "Hello");
 
         String result = task1.timeCreated();
-        Assertions.assertEquals("Hei Created: Hello: Created", result);
+        Assertions.assertEquals("{1=Hei, 2=Hello} Created: " + LocalDate.now(), result);
 
     }
 

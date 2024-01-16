@@ -1,5 +1,6 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,14 +9,14 @@ import java.util.List;
 public class TodoListExtension {
     HashMap<Integer, String> taskname;
     boolean status;
-    LocalDateTime creation;
+    LocalDate creation;
     HashMap<String, Boolean> tasks;
 
     public TodoListExtension() {
         this.tasks = new HashMap<>();
         this.taskname = new HashMap<>();
         this.status = false;
-        this.creation = LocalDateTime.now();
+        this.creation = LocalDate.now();
 
 
 
@@ -176,6 +177,15 @@ public class TodoListExtension {
     }
 
     public String timeCreated() {
+
+        String output = "";
+
+        if (taskname.size() > 1) {
+
+            output += this.taskname.toString() +  " Created: " + this.creation + "";
+
+            return output;
+        }
 
 
 
