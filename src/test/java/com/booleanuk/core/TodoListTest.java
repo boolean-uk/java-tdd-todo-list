@@ -25,4 +25,16 @@ class TodoListTest {
         todoList.addTask("Eat yoghurt");
         Assertions.assertFalse(todoList.addTask("Eat yoghurt"));
     }
+
+    @Test
+    public void testAddMultipleTasks()  {
+        TodoList todoList = new TodoList();
+
+        Assertions.assertTrue(todoList.addTask("Eat yoghurt"));
+        Assertions.assertTrue(todoList.addTask("Paint the Mona Lisa"));
+        Assertions.assertTrue(todoList.addTask("Do laundry"));
+        Assertions.assertTrue(todoList.addTask("Talk to janitor"));
+        Assertions.assertFalse(todoList.addTask("Eat yoghurt"));
+        Assertions.assertTrue(todoList.addTask("Sing a song"));
+    }
 }
