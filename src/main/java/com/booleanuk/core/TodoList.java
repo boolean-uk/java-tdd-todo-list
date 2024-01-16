@@ -16,22 +16,43 @@ public class TodoList {
             toDoList.put(task, "incomplete");
             return true;
     }
-    public String changeStatus(String task){
-        String out = "";
-        for (String i : toDoList.keySet()) {
-            if (i.equals(task)){
-                if (toDoList.get(i).contains("incomplete")){
-                    out =  toDoList.get(i).replace("incomplete", "complete");
-                }else{
-                    this.toDoList.put(task, "Incomplete");
-                    out = toDoList.get(i);
-                }
-            }
+    public String changeStatus(String task) {
+        if (toDoList.containsKey(task)) {
+            String currentStatus = toDoList.get(task);
+            String newStatus = currentStatus.equals("incomplete") ? "complete" : "incomplete";
+            toDoList.put(task, newStatus);
+            return newStatus;
         }
-        return out;
+        return "Task not found";
     }
     public void seeAllTasks(){
         System.out.println(toDoList.toString());
+    }
+    public void getCompleteTask() {
+        StringBuilder sb = new StringBuilder();
+        for (String task : toDoList.keySet()) {
+            if ("complete".equals(toDoList.get(task))) {
+                if (sb.length() > 0) {
+                    sb.append(", ");
+                }
+                sb.append(task);
+            }
+        }
+        String out = sb.toString();
+        System.out.println(out);
+    }
+    public void getIncompleteTask() {
+        StringBuilder sb = new StringBuilder();
+        for (String task : toDoList.keySet()) {
+            if ("incomplete".equals(toDoList.get(task))) {
+                if (sb.length() > 0) {
+                    sb.append(", ");
+                }
+                sb.append(task);
+            }
+        }
+        String out = sb.toString();
+        System.out.println(out);
     }
 
 

@@ -44,6 +44,41 @@ class TodoListTest {
         Assertions.assertEquals("complete", list.changeStatus("paint"));
     }
 
+    @Test
+    public void testGetCompletedTask() {
+        TodoList list = new TodoList();
+        list.addTask("paint");
+        list.addTask("groceries");
+        list.addTask("vacuum");
+
+
+        list.changeStatus("paint");
+        list.changeStatus("groceries");
+        System.setOut(new PrintStream(outContent));
+
+        list.getCompleteTask();
+
+        assertEquals("paint, groceries", outContent.toString().trim());
+    }
+    @Test
+    public void testGetIncompleteTask() {
+        TodoList list = new TodoList();
+
+        list.addTask("paint");
+        list.addTask("groceries");
+        list.addTask("vacuum");
+
+
+        list.changeStatus("paint");
+        list.changeStatus("groceries");
+        System.setOut(new PrintStream(outContent));
+        list.getIncompleteTask();
+
+        assertEquals("vacuum", outContent.toString().trim());
+    }
+
+
+
 
 
 }

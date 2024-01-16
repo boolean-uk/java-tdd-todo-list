@@ -25,10 +25,10 @@
 |                |                   | if list not empty | true                          |
 
 3.
-| Methods                  | Member variables       | Scenario                         | Outputs/Results/Return values |
-|--------------------------|------------------------|----------------------------------|-------------------------------|
-| changStatus(String task) | HashMap(String,String) | if task is changed to incomplete | True                          |
-|                          |                        | if task is changed to complete   | True                          |
+| Methods                   | Member variables       | Scenario                         | Outputs/Results/Return values |
+|---------------------------|------------------------|----------------------------------|-------------------------------|
+| changeStatus(String task) | HashMap(String,String) | if task is changed to incomplete | True                          |
+|                           |                        | if task is changed to complete   | True                          |
 
 4.
 | Methods           | Member variables        | Scenario                  | Outputs/Results/Return values |
