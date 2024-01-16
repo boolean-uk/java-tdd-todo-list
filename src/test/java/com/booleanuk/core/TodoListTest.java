@@ -12,9 +12,16 @@ class TodoListTest {
     }
 
     @Test
+    public void testAddTaskThatAlreadyExists() {
+        TodoList todoList = new TodoList();
+        todoList.add("Code");
+        Assertions.assertFalse(todoList.add("Code"));
+    }
+
+    @Test
     public void testAddEmptyTask() {
         TodoList todoList = new TodoList();
-        Assertions.assertTrue(todoList.add(""));
+        Assertions.assertFalse(todoList.add(""));
     }
 
     @Test

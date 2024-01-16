@@ -2,10 +2,11 @@
 I want to add tasks to my todo list.
 ```
 
-| Method           | Variables                | Scenario           | Return values/Output |
-|------------------|--------------------------|--------------------|----------------------|
-| add(String task) | HashMap<String, boolean> todos | Task added to list | Return true          |
-|                  |                          | No task input      | Return false         |
+| Method           | Variables                      | Scenario             | Return values/Output |
+|------------------|--------------------------------|----------------------|----------------------|
+| add(String task) | HashMap<String, boolean> todos | Task added to list   | Return true          |
+|                  |                                | No task input        | Return false         |
+|                  |                                | Task already in list | Return false         |
 
 ```
 I want to see all the tasks in my todo list.
