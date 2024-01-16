@@ -10,20 +10,20 @@
 - I want to see all the tasks in my list ordered alphabetically in ascending order.
 - I want to see all the tasks in my list ordered alphabetically in descending order.
 
-| Methods                                   | Member                              | Scenario               | Return                    |
-|-------------------------------------------|-------------------------------------|------------------------|---------------------------|
-| addTask(String task)                      | String task                         | Create a new task      | True                      |
-|                                           |                                     |                        | False                     |
-| showTasks()                               | Hashmap<task, status>               | Show tasks             | List taskList             |
-| changeTaskStatus()                        | Hashmap<task, status>               | Change task status     | String task               |
-| getTaskStatus(Boolean status)             | Boolean status                      | Get complete tasks     | List completed tasks      |
-|                                           |                                     | Get incomplete tasks   | List incomplete tasks     |
-| getTask(String task)                      | Hashmap<task, status> , String task | Task exists            | String task               |
-|                                           |                                     | Task non existing      | String Information        |
-| removeTask(String task)                   | Hashmap<task, status>, String task  | Task exists            | String task + Information |
-|                                           |                                     | Task non existing      | String Information        |
-| alphaTasks(String ascendingOrDescending)  | taskList.ascending/descending       | Show tasks ascending   | List ascending            |
-|                                           |                                     | Show task descending   | List descending           |
+| Methods                       | Member                              | Scenario               | Return                    |
+|-------------------------------|-------------------------------------|------------------------|---------------------------|
+| addTask(String task)          | String task                         | Create a new task      | True                      |
+|                               |                                     |                        | False                     |
+| showTasks()                   | Hashmap<task, status>               | Show tasks             | List taskList             |
+| changeTaskStatus()            | Hashmap<task, status>               | Change task status     | String task               |
+| getTaskStatus(Boolean status) | Boolean status                      | Get complete tasks     | List completed tasks      |
+|                               |                                     | Get incomplete tasks   | List incomplete tasks     |
+| getTask(String task)          | Hashmap<task, status> , String task | Task exists            | String task               |
+|                               |                                     | Task non existing      | String Information        |
+| removeTask(String task)       | Hashmap<task, status>, String task  | Task exists            | String task + Information |
+|                               |                                     | Task non existing      | String Information        |
+| alphaTasks(Boolean Ascending) | taskList.ascending/descending       | Show tasks ascending   | List ascending            |
+|                               |                                     | Show task descending   | List descending           |
 
 taskList must have:
 1. Name(descriptive name)
