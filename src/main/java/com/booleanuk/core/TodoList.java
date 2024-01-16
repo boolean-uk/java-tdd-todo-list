@@ -5,24 +5,25 @@ import java.util.HashMap;
 
 public class TodoList {
 
-    ArrayList<String> tasks;
-    HashMap<String, Boolean> tasks2;
+    ArrayList<String> taskList;
+    HashMap<String, String> taskMap;
 
     public TodoList() {
-        tasks = new ArrayList<>();
+        taskList = new ArrayList<>();
+        taskMap = new HashMap<>();
     }
 
     public String add(String task) {
-        this.tasks.add(task);
+        this.taskList.add(task);
 
-        if(this.tasks.contains(task)) {
+        if(this.taskList.contains(task)) {
             return "Task added to todo list.";
         }
         return "Task not added to todo list.";
     }
 
     public String showTasks() {
-        return this.tasks.toString();
+        return this.taskList.toString();
     }
 
 }

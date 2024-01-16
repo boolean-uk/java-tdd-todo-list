@@ -11,15 +11,17 @@ class TodoListTest {
         Assertions.assertNotEquals("Goodbye", hello);
     }
 
+    //User Story 1 Test
     @Test
     public void addTaskToTodoList() {
         TodoList todoList = new TodoList();
 
-        String result = todoList.add("Do homework");
+        String result = todoList.add("Do homework.");
 
         Assertions.assertEquals("Task added to todo list.", result);
     }
 
+    //User Story 2 Test
     @Test
     public void showTasksInTodoList() {
         TodoList todoList = new TodoList();
@@ -33,4 +35,27 @@ class TodoListTest {
         Assertions.assertEquals("[Alice, Bob, Charlie]", result);
     }
 
+    //User Story 3 Test Case 1 - Incomplete to Complete
+    @Test
+    public void changeTaskStatusInTodoList() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskMap.put("Do homework.", "Incomplete");
+
+        String result = changeTaskStatus("Complete");
+
+        Assertions.assertEquals("Task status changed to complete", result);
+    }
+
+    //User Story 3 Test Case 2 - Complete to incomplete
+    @Test
+    public void changeTaskStatusInTodoList() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskMap.put("Do homework.", "Complete");
+
+        String result = changeTaskStatus("Incomplete");
+
+        Assertions.assertEquals("Task status changed to incomplete", result);
+    }
 }

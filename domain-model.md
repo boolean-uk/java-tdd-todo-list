@@ -19,10 +19,10 @@
 
 3. I want to change the status of a task between incomplete and complete.
 
-| Class    | Member Variables         | Methods                   | Scenario              | Output/Result                                                         |
-|----------|--------------------------|---------------------------|-----------------------|-----------------------------------------------------------------------|
-| TodoList | ArrayList<String>        | String changeTaskStatus() | Change status of task | Change status of task in todo list and returns message affirming this |
-|          | HashMap<String, boolean> |                           |                       |                                                                       |
+| Class    | Member Variables        | Methods                                | Scenario              | Output/Result                                                         |
+|----------|-------------------------|----------------------------------------|-----------------------|-----------------------------------------------------------------------|
+| TodoList | ArrayList<String>       | String changeTaskStatus(String status) | Change status of task | Change status of task in todo list and returns message affirming this |
+|          | HashMap<String, String> |                                        |                       |                                                                       |
 
 
 4. I want to be able to get only the complete tasks.
