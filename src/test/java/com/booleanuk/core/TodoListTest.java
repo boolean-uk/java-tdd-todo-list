@@ -96,9 +96,9 @@ class TodoListTest {
         todoList.addTask(new Task("Clean Kitchen"));
         todoList.addTask(new Task("Turn on washing machine", true));
 
-        Task task = new Task("Walk dog", true);
-        Assertions.assertEquals(task.name, todoList.searchTasks("Walk dog").name);
-        Assertions.assertEquals(task.complete, todoList.searchTasks("Walk dog").complete);
+
+        Assertions.assertEquals("Found result for Walk dog", todoList.searchTasks("Walk dog"));
+        Assertions.assertEquals("No results for Mow lawn", todoList.searchTasks("Mow lawn"));
 
     }
 
