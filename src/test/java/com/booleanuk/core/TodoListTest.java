@@ -17,7 +17,15 @@ class TodoListTest {
 
         Assertions.assertTrue(todoList.addTask(new Task("Do laundry", false)));
         Assertions.assertTrue(todoList.addTask(new Task("Walk dog", true)));
-        Assertions.assertTrue(TodoList.tasks.contains(new Task("Do laundry")));
-        Assertions.assertTrue(TodoList.tasks.contains(new Task("Walk dog", true)));
+        Assertions.assertEquals("Do laundry", todoList.tasks.get(0).name);
+        Assertions.assertFalse(todoList.tasks.get(0).complete);
+        Assertions.assertEquals("Walk dog", todoList.tasks.get(1).name);
+        Assertions.assertTrue(todoList.tasks.get(1).complete);
+
+    }
+
+    @Test
+    public void showTasksTest() {
+
     }
 }
