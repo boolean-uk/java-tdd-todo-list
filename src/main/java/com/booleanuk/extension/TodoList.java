@@ -158,6 +158,15 @@ public class TodoList {
         return "Task does not exist";
     }
     public boolean updateTaskById(int id, String name){
+        if(tasks.isEmpty()){
+            return false;
+        }
+        for(Task t : tasks){
+            if(t.getId() == id){
+                t.setName(name);
+                return true;
+            }
+        }
         return false;
     }
 }
