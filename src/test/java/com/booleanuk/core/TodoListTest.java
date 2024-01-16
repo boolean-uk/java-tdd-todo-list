@@ -65,4 +65,10 @@ class TodoListTest {
         todoList.updateTaskStatus("clean", true);
         Assertions.assertEquals(new ArrayList<>(Arrays.asList("clean")), todoList.getCompletedTasks());
     }
+
+    @Test
+    public void getUncompletedTasksEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals(new ArrayList<>(), todoList.getUncompletedTasks());
+    }
 }
