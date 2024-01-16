@@ -26,4 +26,17 @@ public class TodoList {
 		}
 		return sb.toString();
 	}
+
+	public String printListCompleted() {
+		StringBuilder sb = new StringBuilder();
+		list.forEach((key, value) -> {
+			if (value.completed) {
+				sb.append(key + ": " + value + "\n");
+			}
+		});
+		if (!sb.isEmpty()) {
+			sb.deleteCharAt(sb.length() - 1);
+		}
+		return sb.toString();
+	}
 }
