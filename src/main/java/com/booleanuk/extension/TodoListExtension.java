@@ -35,17 +35,12 @@ public class TodoListExtension {
         return taskName;
     }
 
-    public void remove(String taskName) {
-        Task removedTask = todoList.remove(taskName);
-        if (removedTask != null) {
-            taskIdMap.remove(removedTask.getId());
-        }
-    }
-
-    public void changeStatus(String taskName, String status) {
-        Task task = todoList.get(taskName);
-        if (task != null) {
-            task.setStatus(status);
+    public void updateTask(int id, String name) {
+        if (name != null && taskIdMap.containsKey(id)) {
+            Task taskToUpdate = taskIdMap.get(id);
+            taskIdMap.remove(taskToUpdate.getName()); // Remove old entry from taskIdMap
+            taskToUpdate.setName(name);               // Update task name
+            taskIdMap.put(id, taskToUpdate);        // Put updated task back into taskIdMap
         }
     }
 
@@ -54,7 +49,7 @@ public class TodoListExtension {
     // Nested Task class to represent tasks with ID, name, and status
     private static class Task {
         private final int id;
-        private final String name;
+        private String name;
         private String status;
 
         public Task(int id, String name, String status) {
@@ -73,6 +68,10 @@ public class TodoListExtension {
 
         public String getStatus() {
             return status;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
 
         public void setStatus(String status) {

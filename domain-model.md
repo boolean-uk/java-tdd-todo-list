@@ -92,6 +92,8 @@ ordered alphabetically in descending order.
 | descendingOrder() | String[] tasks   | If array *isn't* empty | true           |
 |                   |                  | If array *is* empty    | false          |
 
+
+
 ## Extension requirements
 
 ```
