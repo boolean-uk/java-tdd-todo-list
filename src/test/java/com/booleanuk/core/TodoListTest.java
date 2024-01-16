@@ -15,7 +15,7 @@ class TodoListTest {
     public void isTaskNew() {
         TodoList task1 = new TodoList();
 
-        boolean result = task1.addTask(2, "Football");
+        boolean result = task1.addTask("Football", true);
         Assertions.assertTrue(result);
     }
 
@@ -23,7 +23,7 @@ class TodoListTest {
     public void isTaskAlreadyAdded() {
         TodoList task1 = new TodoList();
 
-        boolean result = task1.addTask(1, "Fiske");
+        boolean result = task1.addTask("Fiske", true);
         Assertions.assertFalse(result);
 
     }
@@ -32,10 +32,36 @@ class TodoListTest {
     public void testPrintTasks() {
         TodoList task1 = new TodoList();
 
+        task1.addTask("Sloss", false);
         String result = task1.allTasks();
 
-        task1.addTask(2, "Football");
-        Assertions.assertEquals("1, Fiske, 2, Football", result);
+
+        Assertions.assertEquals("{Fiske=true, Sloss=false}", result);
+
+
+    }
+
+    @Test
+    public void testSetStatus() {
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        boolean result = task1.setStatus("Sloss", true);
+
+
+        Assertions.assertTrue(result);
+
+
+    }
+    @Test
+    public void testSetStatusUnvalid() {
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        boolean result = task1.setStatus("Nei", true);
+
+
+        Assertions.assertFalse(result);
 
 
     }

@@ -7,24 +7,32 @@ public class TodoList {
     HashMap<Integer, String> taskname;
     boolean status;
     LocalDateTime creation;
+    HashMap<String, Boolean> tasks;
 
     public TodoList() {
+        this.tasks = new HashMap<>();
         this.taskname = new HashMap<>();
         this.status = false;
         this.creation = LocalDateTime.now();
-        this.taskname.put(1, "Fiske");
+
+
+        tasks.put("Fiske", true);
+
 
     }
 
-    public boolean addTask(int id, String name) {
 
-        if (this.taskname.containsKey(id)) {
+
+    public boolean addTask(String name, boolean status) {
+
+        if (this.tasks.containsKey(name)) {
             return false;
         }
 
-            this.taskname.put(id, name);
-            this.status = false;
-            this.creation = LocalDateTime.now();
+
+            tasks.put(name, status);
+
+
 
 
         return true;
@@ -32,18 +40,18 @@ public class TodoList {
 
     public String allTasks() {
 
-        String output = "";
-        for (int i = 0; i < this.taskname.size(); i++) {
-            output += "Taskname: " + this.taskname + "Status: " +
+        return this.tasks.toString();
+    }
+
+    public boolean setStatus(String name, boolean status) {
+
+        if (tasks.containsKey(name)) {
+            tasks.put(name, status);
+            return true;
 
         }
 
-        return "";
-    }
-
-    public boolean setStatus() {
-
-        return true;
+        return false;
     }
 
     public String getComplete() {
@@ -77,6 +85,18 @@ public class TodoList {
         return new HashMap<>();
     }
 
+  /*  public static void main(String[] args) {
+        TodoList task = new TodoList();
+        task.taskname.put(78, "Hei");
+        task.status = true;
+        task.creation = LocalDateTime.now();
+        TodoList task1 = new TodoList();
+
+
+        task1.addTask(10, "Play");
+
+        System.out.println(task1.allTasks());
+    }*/
 
 
 }
