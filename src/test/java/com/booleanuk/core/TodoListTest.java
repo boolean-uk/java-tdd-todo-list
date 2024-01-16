@@ -71,4 +71,18 @@ class TodoListTest {
 
         assertEquals("This task does not exist in your list", listStatus.searchForTask("Watering the plants"));
     }
+
+    @Test
+    public void testListSizeAfterRemoving() {
+        TodoList listStatus = new TodoList();
+
+        listStatus.add("Shovel snow", "Incomplete");
+        listStatus.add("Grocery shopping", "Incomplete");
+
+        assertEquals(2, listStatus.todoList.size());
+
+        listStatus.remove("Grocery Shopping");
+
+        assertEquals(1, listStatus.todoList.size());
+    }
 }
