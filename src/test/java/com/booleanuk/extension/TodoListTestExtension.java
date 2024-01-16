@@ -24,6 +24,27 @@ class TodoListTestExtension {
         Assertions.assertFalse(result);
     }
 
+    // get task from ID
+    @Test
+    public void getTaskTestReturnTask() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        result = toDo.addTaskID("Dry", "fg83ft");
+
+        Assertions.assertEquals("Dry", toDo.getTask("fg83ft"));
+        Assertions.assertEquals("Clean", toDo.getTask("a12ft"));
+    }
+
+    @Test
+    public void getTaskTestReturnEmpty() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        result = toDo.addTaskID("Dry", "fg83ft");
+
+        Assertions.assertEquals("", toDo.getTask("ff83ft"));
+        Assertions.assertEquals("", toDo.getTask("a11ft"));
+    }
+
 
 
 
