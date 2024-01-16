@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class TodoList {
     ArrayList<Task> tasks;
@@ -119,6 +120,22 @@ public class TodoList {
         }
     }
     public String ascendingList(){
-        return "";
+        ArrayList<Task> temp = tasks;
+        temp.sort(Comparator.comparing(Task::getName));
+        return getTodoList(temp);
+    }
+
+    private String getTodoList(ArrayList<Task> taskArr){
+        StringBuilder sb = new StringBuilder();
+        for(Task t : taskArr){
+            if(t.isComplete()){
+                sb.append(t.getName()).append(", Completed\n");
+            }
+            else{
+                sb.append(t.getName()).append(", Not Complete\n");
+            }
+
+        }
+        return sb.toString();
     }
 }
