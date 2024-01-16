@@ -20,6 +20,13 @@ public class TodoList {
         return true;
     }
 
+    public void remove(String task) {
+        if (!todoList.containsKey(task)) {
+        } else {
+            todoList.remove(task);
+        }
+    }
+
     public boolean viewTasks() {
         if (todoList.isEmpty()) {
             return false;

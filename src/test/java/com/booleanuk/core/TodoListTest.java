@@ -73,7 +73,7 @@ class TodoListTest {
     }
 
     @Test
-    public void testListSizeAfterRemoving() {
+    public void testListSizeAfterRemovingTask() {
         TodoList listStatus = new TodoList();
 
         listStatus.add("Shovel snow", "Incomplete");
@@ -81,8 +81,20 @@ class TodoListTest {
 
         assertEquals(2, listStatus.todoList.size());
 
-        listStatus.remove("Grocery Shopping");
+        listStatus.remove("Grocery shopping");
 
         assertEquals(1, listStatus.todoList.size());
+    }
+
+    @Test
+    public void testAscendingOrder() {
+        TodoList sortedList = new TodoList();
+
+        sortedList.add("Shovel snow", "Incomplete");
+        sortedList.add("Grocery shopping", "Incomplete");
+        sortedList.add("Watering plants", "Incomplete");
+        sortedList.add("Cleaning windows", "Incomplete");
+
+        assertEquals("Cleaning windows, Grocery shopping, Shovel snow, Watering plants", sortedList.todoList.ascendingOrder());
     }
 }
