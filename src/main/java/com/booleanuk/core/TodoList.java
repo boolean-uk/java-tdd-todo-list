@@ -2,7 +2,6 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Map;
 
 public class TodoList {
     HashMap<String, Boolean> taskStatus;
@@ -43,7 +42,7 @@ public class TodoList {
                 outputString.append(task);
                 outputString.append("\n");
             }
-            System.out.print(outputString.toString());
+            System.out.print(outputString);
         }   else {
             System.out.print("No tasks to display, todo list is empty");
         }

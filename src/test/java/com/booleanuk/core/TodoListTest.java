@@ -76,4 +76,15 @@ class TodoListTest {
 
         Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testShowNoTasks()
+    {
+        TodoList todoList = new TodoList();
+
+        String expectedString = "No tasks to display, todo list is empty";
+
+        todoList.showAllTasks();
+        Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
+    }
 }
