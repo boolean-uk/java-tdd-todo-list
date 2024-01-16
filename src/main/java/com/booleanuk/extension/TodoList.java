@@ -1,7 +1,5 @@
 package com.booleanuk.extension;
 
-import com.booleanuk.core.Task;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
