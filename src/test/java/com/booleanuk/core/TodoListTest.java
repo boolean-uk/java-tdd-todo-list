@@ -14,13 +14,14 @@ class TodoListTest {
     @Test
     public void testAddTask() {
         Assertions.assertInstanceOf(Task.class, todoList.addTask("Dishes"));
-        Assertions.assertEquals(todoList.tasks.get(1), todoList.addTask("Vacuum"));
+        Task task = todoList.addTask("Vacuum");
+        Assertions.assertEquals(todoList.tasks.get(1), task);
     }
 
     @Test
     public void testShowTasks() {
         Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum") };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String tasksString = todoList.showTasks(todoList.tasks);
         Assertions.assertTrue(tasksString.contains("Dishes"));
         Assertions.assertTrue(tasksString.contains("Incomplete"));
@@ -37,7 +38,7 @@ class TodoListTest {
     @Test
     public void testShowCompleteTasks() {
         Task[] array = new Task[] { new Task("Dishes", false), new Task("Vacuum", true), new Task("Empty Trash", false), new Task("Walk the dog", true) };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String completedTasksString = todoList.showCompleteTasks();
         Assertions.assertTrue(completedTasksString.contains("Vacuum"));
         Assertions.assertTrue(completedTasksString.contains("Walk the dog"));
@@ -47,8 +48,8 @@ class TodoListTest {
 
     @Test
     public void testShowIncompleteTasks() {
-        Task[] array = new Task[] { new Task("Dishes", false), new Task("Vacuum", true), new Task("Empty Trash", false), new Task("Walk the dog", true) };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        Task[] array = new Task[] { new Task("Dishes", false), new Task("Vacuum", true), new Task("Empty trash", false), new Task("Walk the dog", true) };
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String completedTasksString = todoList.showIncompleteTasks();
         Assertions.assertTrue(completedTasksString.contains("Empty trash"));
         Assertions.assertTrue(completedTasksString.contains("Dishes"));
@@ -59,7 +60,7 @@ class TodoListTest {
     @Test
     public void testSearchForNameFound() {
         Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum"), new Task("Empty Trash"), new Task("Walk the dog") };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String foundMessage = todoList.search("Dishes");
         Assertions.assertEquals("Dishes was found", foundMessage);
     }
@@ -67,7 +68,7 @@ class TodoListTest {
     @Test
     public void testSearchForNameNotFound() {
         Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum"), new Task("Empty Trash"), new Task("Walk the dog") };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         String notFoundMessage = todoList.search("Wash floor");
         Assertions.assertEquals("Wash floor was not found", notFoundMessage);
     }
@@ -75,7 +76,7 @@ class TodoListTest {
     @Test
     public void testDeleteExistingTask() {
         Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum"), new Task("Empty Trash"), new Task("Walk the dog") };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         boolean deleted = todoList.delete("Dishes");
         Assertions.assertTrue(deleted);
     }
@@ -83,7 +84,7 @@ class TodoListTest {
     @Test
     public void testOrderTasksAsc() {
         Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum"), new Task("Empty Trash"), new Task("Walk the dog") };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         ArrayList<Task> sortedAsc = todoList.orderTasksAsc();
         Assertions.assertEquals("Dishes", sortedAsc.get(0).getName());
         Assertions.assertEquals("Empty trash", sortedAsc.get(1).getName());
@@ -92,7 +93,7 @@ class TodoListTest {
     @Test
     public void testOrderTasksDesc() {
         Task[] array = new Task[] { new Task("Dishes"), new Task("Vacuum"), new Task("Empty Trash"), new Task("Walk the dog") };
-        todoList.tasks = (ArrayList<Task>) List.of(array);
+        todoList.tasks = new ArrayList<>(Arrays.asList(array));
         ArrayList<Task> sortedAsc = todoList.orderTasksDesc();
         Assertions.assertEquals("Walk the dog", sortedAsc.get(0).getName());
         Assertions.assertEquals("Vacuum", sortedAsc.get(1).getName());
