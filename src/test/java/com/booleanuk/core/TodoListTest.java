@@ -88,5 +88,18 @@ class TodoListTest {
         Assertions.assertFalse(todo.removeTask("Workout"));
         Assertions.assertFalse(todo.removeTask("Trim beard"));
     }
+    @Test
+    public void testAscendingOrderInList(){
+        TodoList todo = new TodoList();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        todo.sortedListAsc();
+        Assertions.assertEquals("Brush teeth", sortedListAsc.get(0));
+        Assertions.assertEquals("Make food", sortedListAsc.get(0));
+        Assertions.assertEquals("Wash car", sortedListAsc.get(2));
+        Assertions.assertEquals("Workout", sortedListAsc.get(3));
+    }
 
 }
