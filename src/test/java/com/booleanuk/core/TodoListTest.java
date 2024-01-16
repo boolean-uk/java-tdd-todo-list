@@ -10,26 +10,39 @@ class TodoListTest {
     public void addingTaskToListReturnsTrue() {
         TodoList list = new TodoList();
 
-        assertTrue(list.add("Shovel snow"));
+        assertTrue(list.add("Shovel snow", "Incomplete"));
     }
 
     @Test
     public void returnsFalseIfListIsEmpty() {
         TodoList list = new TodoList();
 
-        assertEquals(false, list.viewTasks());
+        assertFalse(list.viewTasks());
 
-        list.add("Shovel snow");
+        list.add("Shovel snow", "Incomplete");
 
-        assertEquals(true, list.viewTasks());
+        assertTrue(list.viewTasks());
     }
 
     @Test
     public void testingIfTaskIsCompleted() {
         TodoList listStatus = new TodoList();
 
+        listStatus.add("Shovel snow", "Incomplete");
+
         listStatus.changeStatus("Shovel snow", "Complete");
 
-        assertEquals("Complete", viewStatus("Shovel snow"));
+        assertEquals("Complete", listStatus.viewStatus("Shovel snow"));
+    }
+
+    @Test
+    public void testingIfIOnlyGetCompleteTasks() {
+        TodoList listStatus = new TodoList();
+
+        listStatus.add("Shovel snow", "Incomplete");
+
+        listStatus.changeStatus("Shovel snow", "Complete");
+
+        assertEquals("Shovel snow", listStatus.getCompleteTasks());
     }
 }

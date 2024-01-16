@@ -1,20 +1,21 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TodoList {
-    public ArrayList<String> todoList;
+    public HashMap<String, String> todoList;
 
     public TodoList() {
-        this.todoList = new ArrayList<>();
+        this.todoList = new HashMap<>();
     }
 
-    public boolean add(String task) {
+    public boolean add(String task, String status) {
         if (task == null) {
             return false;
         } else {
-            return todoList.add(task);
+            todoList.put(task, status);
         }
+        return true;
     }
 
     public boolean viewTasks() {
@@ -26,5 +27,16 @@ public class TodoList {
             }
             return true;
         }
+    }
+
+    public void changeStatus(String task, String status) {
+        if (!todoList.containsKey(task)) {
+        } else {
+            todoList.put(task, status);
+        }
+    }
+
+    public String viewStatus(String task) {
+        return todoList.getOrDefault(task, "This task does not exist");
     }
 }
