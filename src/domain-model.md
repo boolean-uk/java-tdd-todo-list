@@ -41,20 +41,20 @@
 #6
 
 
-| Classes  | Methods         | Members | Scenario                  | Output           |
-|----------|-----------------|---------|---------------------------|------------------|
-| TodoList | getTask(int id) |         | if id exists in map       | returns task.    |
-|          |                 |         | if id doesnt exist in map | returns message. |
-|          |                 |         |                           |                  |
+| Classes  | Methods              | Members | Scenario                    | Output                     |
+|----------|----------------------|---------|-----------------------------|----------------------------|
+| TodoList | getTask(String name) |         | if name exists in map       | returns message with task. |
+|          |                      |         | if name doesnt exist in map | returns message.           |
+|          |                      |         |                             |                            |
 
 #7
 
 
-| Classes  | Methods            | Members | Scenario       | Output        |
-|----------|--------------------|---------|----------------|---------------|
-| TodoList | removeTask(int id) |         | An id is given | returns true. |
-|          |                    |         | id not there   | returns false |
-|          |                    |         |                |               |
+| Classes  | Methods                 | Members | Scenario       | Output        |
+|----------|-------------------------|---------|----------------|---------------|
+| TodoList | removeTask(String name) |         | An id is given | returns true. |
+|          |                         |         | id not there   | returns false |
+|          |                         |         |                |               |
 
 #8
 

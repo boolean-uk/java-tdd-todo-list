@@ -139,7 +139,7 @@ class TodoListTest {
     }
 
     @Test
-    public void testRemoveKey() {
+    public void testRemoveKeyRight() {
 
         TodoList task1 = new TodoList();
 
@@ -150,6 +150,23 @@ class TodoListTest {
         task1.addTask("Sloss5", false);
 
         boolean result = task1.removeTask("Sloss");
+
+        Assertions.assertTrue(result);
+
+
+    }
+    @Test
+    public void testRemoveKeyWrong() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        task1.addTask("Sloss2", true);
+        task1.addTask("Sloss3", false);
+        task1.addTask("Sloss4", true);
+        task1.addTask("Sloss5", false);
+
+        boolean result = task1.removeTask("Slossgehewt");
 
         Assertions.assertTrue(result);
 
