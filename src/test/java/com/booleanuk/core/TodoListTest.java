@@ -66,5 +66,41 @@ class TodoListTest {
 
     }
 
+    @Test
+    public void testGetAllComplete() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        task1.addTask("Sloss2", true);
+        task1.addTask("Sloss3", false);
+        task1.addTask("Sloss4", true);
+        task1.addTask("Sloss5", false);
+
+        String result = task1.getComplete();
+
+        Assertions.assertEquals("{Fiske=true, Sloss=false}", result);
+
+
+    }
+
+    @Test
+    public void testGetAllInComplete() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        task1.addTask("Sloss2", true);
+        task1.addTask("Sloss3", false);
+        task1.addTask("Sloss4", true);
+        task1.addTask("Sloss5", false);
+
+        String result = task1.getComplete();
+
+        Assertions.assertEquals("{Fiske=true, Sloss=false}", result);
+
+
+    }
+
 
 }
