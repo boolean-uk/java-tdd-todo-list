@@ -47,6 +47,14 @@
 |                                      | String newName)           | with new name                |                  |
 |                                      |                           | ID not found                 | false            |
 |                                      |                           |                              |                  |
+|                                      | taskStatusID(String ID    | Updates task status with id  | taskstatus       |
+|                                      | boolean status)           | task not found               | false            |
+|                                      |                           |                              |                  |
+|                                      |                           |                              |                  |
+|                                      |                           |                              |                  |
+|                                      |                           |                              |                  |
+|                                      |                           |                              |                  |
+|                                      |                           |                              |                  |
 |                                      |                           |                              |                  |
 |                                      |                           |                              |                  |
 |                                      |                           |                              |                  |

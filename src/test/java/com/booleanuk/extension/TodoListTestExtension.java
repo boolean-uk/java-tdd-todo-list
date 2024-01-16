@@ -81,7 +81,13 @@ class TodoListTestExtension {
         Assertions.assertEquals("Not Found", toDo.searchTasks("Dry"));
     }
 
-
-
-
+    // Status with ID
+    @Test
+    public void taskStatusIDTestReturnTrue() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        result = toDo.addTaskID("Dry", "fg83ft");
+        result = toDo.taskStatusID("fg83ft", true);
+        Assertions.assertTrue(result);
+    }
 }
