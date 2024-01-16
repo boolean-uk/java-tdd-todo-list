@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.HashMap;
+import java.util.IllegalFormatException;
 import java.util.Map;
 
 public class TodoList {
@@ -34,8 +35,27 @@ public class TodoList {
 
     }
 
-    public Map<String, Boolean> getCompleteOrIncompleteTasks(String complete) {
 
-        return new HashMap<>();
+    //Wanted to just pass in boolean value as i could just check the same value when looping, but for readability and eas of use i use String.
+    public Map<String, Boolean> getCompleteOrIncompleteTasks(String completeOrIncomplete) {
+        Map<String, Boolean> returnList = new HashMap<>();
+
+        boolean completeOrNot;
+
+        if(completeOrIncomplete.equalsIgnoreCase("complete") || completeOrIncomplete.equalsIgnoreCase("incomplete")) {
+            completeOrNot = completeOrIncomplete.equalsIgnoreCase("complete");
+        } else {
+            throw new IllegalArgumentException("Must use complete or incomplete as parameter");
+        }
+
+
+        for (Map.Entry<String, Boolean> entry : this.getTodolist().entrySet()) {
+            if(entry.getValue() == completeOrNot) {
+                returnList.put(entry.getKey(), entry.getValue());
+            }
+
+        }
+
+        return new HashMap<>(returnList);
     }
 }

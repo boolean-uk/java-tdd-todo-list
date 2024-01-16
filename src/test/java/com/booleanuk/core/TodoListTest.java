@@ -116,8 +116,8 @@ class TodoListTest {
         Assertions.assertTrue(completeTasks.containsKey("Task2"));
 
 
-        Assertions.assertTrue(incompleteTasks.containsKey("Task2"));
-        Assertions.assertTrue(incompleteTasks.containsKey("Task2"));
+        Assertions.assertTrue(incompleteTasks.containsKey("Task1"));
+        Assertions.assertTrue(incompleteTasks.containsKey("Task3"));
 
     }
 }
