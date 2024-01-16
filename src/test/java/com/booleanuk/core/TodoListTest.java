@@ -39,7 +39,7 @@ class TodoListTest {
         todoList.addTask("Haircut");
         todoList.changeTaskStatus("Dishes");
         todoList.changeTaskStatus("Haircut");
-        Assertions.assertEquals("Dishes=true", seeStatus(true));
+        Assertions.assertEquals("Haircut\nDishes\n", todoList.seeStatus(true));
 
     }
 }

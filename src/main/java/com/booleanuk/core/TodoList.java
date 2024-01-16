@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TodoList {
     HashMap<String, Boolean> tasks;
@@ -29,5 +30,18 @@ public class TodoList {
             return task + " changed to " + newStatus;
         }
         return task + " Not found";
+    }
+    public String seeStatus(boolean status){
+        StringBuilder tasksWithStatus = new StringBuilder();
+
+        for (Map.Entry<String, Boolean> entry : this.tasks.entrySet()) {
+            if (entry.getValue() == status) {
+                tasksWithStatus.append(entry.getKey()).append("\n");
+            }
+        }
+        if (!tasksWithStatus.isEmpty()) {
+            return tasksWithStatus.toString();
+        }
+        return "No tasks with status: " + status;
     }
 }
