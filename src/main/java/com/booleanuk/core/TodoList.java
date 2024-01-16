@@ -20,7 +20,7 @@ public class TodoList {
     }
 
     public String showTasks() {
-        return "[Alice, Bob, Charlie]";
+        return this.tasks.toString();
     }
 
 }
