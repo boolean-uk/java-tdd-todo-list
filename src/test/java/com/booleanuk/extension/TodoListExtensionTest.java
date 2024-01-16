@@ -414,11 +414,11 @@ class TodoListExtensionTest {
         todoListExtension.addTask("Eat yoghurt");
 
         todoListExtension.changeTaskStatus(0);
-        Assertions.assertEquals(true, todoListExtension.getStatus(0));
+        Assertions.assertTrue(todoListExtension.getStatus(0));
     }
 
     @Test
-    public void testUpdateStatusWithID()
+    public void testUpdateStatusWithIDTwice()
     {
         TodoListExtension todoListExtension = new TodoListExtension();
 
@@ -426,14 +426,14 @@ class TodoListExtensionTest {
 
         todoListExtension.changeTaskStatus(0);
         todoListExtension.changeTaskStatus(0);
-        Assertions.assertEquals(false, todoListExtension.getStatus(0));
+        Assertions.assertFalse(todoListExtension.getStatus(0));
     }
 
     @Test
-    public void testUpdateStatusWithID()
+    public void testUpdateStatusWithIDNotExists()
     {
         TodoListExtension todoListExtension = new TodoListExtension();
 
-        Assertions.assertFalse(todoListExtension.changeTaskStatus(0);));
+        Assertions.assertFalse(todoListExtension.changeTaskStatus(0));
     }
 }

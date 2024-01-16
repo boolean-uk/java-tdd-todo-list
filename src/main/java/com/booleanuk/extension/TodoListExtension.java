@@ -45,6 +45,18 @@ public class TodoListExtension {
         return false;
     }
 
+    public boolean changeTaskStatus(int ID)   {
+        for(Task t : taskList)
+        {
+            if(t.ID == (ID))
+            {
+                t.complete = !t.complete;
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String getName(int ID)
     {
         for(Task t : taskList)
@@ -52,6 +64,15 @@ public class TodoListExtension {
             if(t.ID == ID) return t.name;
         }
         return "";
+    }
+
+    public boolean getStatus(int ID)
+    {
+        for(Task t : taskList)
+        {
+            if(t.ID == ID) return t.complete;
+        }
+        return false;
     }
 
     public boolean getTask(String task) {
