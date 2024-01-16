@@ -102,7 +102,7 @@ class TodoListTest {
         result.changeTaskStatus("Do the dishes");
 
         ArrayList<String> expected= new ArrayList<>();
-        expected.add("Do the dishes");
+        expected.add("Clean the bathroom");
         expected.add("Cook dinner");
 
         Assertions.assertEquals(expected, result.getIncompleteTasks());

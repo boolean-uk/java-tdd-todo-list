@@ -41,6 +41,16 @@ public class TodoList {
         return completedTasks;
     }
 
+    public ArrayList<String> getIncompleteTasks() {
+        ArrayList<String> incompleteTasks = new ArrayList<>();
+        for (String task : this.todoList.keySet()) {
+            if (!this.todoList.get(task)) {
+                incompleteTasks.add(task);
+            }
+        }
+        return incompleteTasks;
+    }
+
     public static void main(String[] args) {
 //        TodoList test = new TodoList();
 //
