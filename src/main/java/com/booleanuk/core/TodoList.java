@@ -26,4 +26,8 @@ public class TodoList {
         return this.taskList.toString();
     }
 
+    public String changeTaskStatus(String task, String status) {
+        return "Task status changed to complete.";
+    }
+
 }

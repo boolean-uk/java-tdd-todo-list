@@ -37,25 +37,25 @@ class TodoListTest {
 
     //User Story 3 Test Case 1 - Incomplete to Complete
     @Test
-    public void changeTaskStatusInTodoList() {
+    public void changeTaskStatusInTodoListToComplete() {
         TodoList todoList = new TodoList();
 
         todoList.taskMap.put("Do homework.", "Incomplete");
 
-        String result = changeTaskStatus("Complete");
+        String result = todoList.changeTaskStatus("Do homework.", "Complete");
 
-        Assertions.assertEquals("Task status changed to complete", result);
+        Assertions.assertEquals("Task status changed to complete.", result);
     }
 
     //User Story 3 Test Case 2 - Complete to incomplete
     @Test
-    public void changeTaskStatusInTodoList() {
+    public void changeTaskStatusInTodoListToIncomplete() {
         TodoList todoList = new TodoList();
 
         todoList.taskMap.put("Do homework.", "Complete");
 
-        String result = changeTaskStatus("Incomplete");
+        String result = todoList.changeTaskStatus("Do homework.", "Incomplete");
 
-        Assertions.assertEquals("Task status changed to incomplete", result);
+        Assertions.assertEquals("Task status changed to incomplete.", result);
     }
 }
