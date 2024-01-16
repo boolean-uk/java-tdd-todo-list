@@ -118,4 +118,14 @@ class TodoListTest {
         ArrayList<String> expected = new ArrayList<>(Arrays.asList("bake", "book bowling", "clean"));
         Assertions.assertEquals(expected, todoList.getListInAlphabeticalOrder(true));
     }
+
+    @Test
+    public void seeListInAlphabeticalDescendingOrder() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        todoList.addTask("bake");
+        todoList.addTask("book bowling");
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("clean", "book bowling", "bake"));
+        Assertions.assertEquals(expected, todoList.getListInAlphabeticalOrder(false));
+    }
 }
