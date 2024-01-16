@@ -20,6 +20,8 @@ class TodoListTest {
 
     }
     @Test void testAddExistingTaskToTodoList(){
-
+        TodoList tl = new TodoList();
+        tl.addTask(new Task("Shopping"));
+        Assertions.assertFalse(tl.addTask(new Task("Shopping")));
     }
 }
