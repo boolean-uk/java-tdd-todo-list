@@ -43,4 +43,15 @@ class TodoListTest {
         Assertions.assertFalse(result);
     }
 
+    // update task status
+    @Test
+    public void taskStatusTest() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.taskStatus("Clean", true);
+        Assertions.assertTrue(result);
+        result = toDo.taskStatus("Clean", false);
+        Assertions.assertFalse(result);
+    }
+
 }
