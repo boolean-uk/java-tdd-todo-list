@@ -48,6 +48,10 @@ public class TodoList {
         return completedTasks;
     }
 
+    public ArrayList<Task> getIncompleteTasks() {
+        return new ArrayList<>();
+    }
+
     public static void main(String[] args) {
 
     }
