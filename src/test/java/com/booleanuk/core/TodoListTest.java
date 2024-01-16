@@ -17,4 +17,12 @@ class TodoListTest {
 
         Assertions.assertTrue(todoList.addTask("Eat yoghurt"));
     }
+
+    @Test
+    public void testAddTaskAlreadyInList()  {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        Assertions.assertFalse(todoList.addTask("Eat yoghurt"));
+    }
 }
