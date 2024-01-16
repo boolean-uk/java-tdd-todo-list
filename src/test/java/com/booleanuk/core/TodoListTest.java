@@ -19,4 +19,16 @@ class TodoListTest {
         Assertions.assertEquals("List is empty",list.checkAllTasks());
     }
 
+    @Test
+    public void testIfReturnsAllTasks(){
+        TodoList list = new TodoList();
+        list.todoList = new HashMap<>();
+        list.todoList.put("Clean room","Complete");
+        list.todoList.put("Clean kitchen","Incomplete");
+        list.todoList.put("Walk dog","Complete");
+        Assertions.assertEquals("{Walk dog=Complete, Clean room=Complete, " +
+                "Clean kitchen=Incomplete}",list.checkAllTasks());
+    }
+
+
 }
