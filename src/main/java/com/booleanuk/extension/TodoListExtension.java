@@ -155,7 +155,31 @@ public class TodoListExtension {
 
     public boolean changeStatus(int id) {
 
-        return false;
+        if (taskname.containsKey(id)) {
+            if (this.status) {
+
+                this.status = false;
+                return false;
+            } else if (!this.status) {
+
+                this.status = true;
+                return true;
+            }
+
+
+        }
+
+
+
+            return false;
+
+    }
+
+    public String timeCreated() {
+
+
+
+        return "";
     }
 
 

@@ -55,6 +55,18 @@ public class TodoListExtensionTest {
 
     }
 
+    @Test
+    public void testTimeCreated() {
+        TodoListExtension task1 = new TodoListExtension();
+
+        task1.addTask(1, "Hei");
+        task1.addTask(2, "Hello");
+
+        String result = task1.timeCreated();
+        Assertions.assertEquals("Hei Created: Hello: Created", result);
+
+    }
+
 
 
 
