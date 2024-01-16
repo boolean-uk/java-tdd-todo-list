@@ -40,5 +40,14 @@ public class TodoList {
         return false;
     }
 
+    public ArrayList<String> displayCompletedTasks() {
+        ArrayList<String> completedTasks = new ArrayList<>();
 
+        for (int i = 0; i < taskComplete.size(); i++) {
+            if (taskComplete.get(i)) {
+                completedTasks.add(toDoList.get(i));
+            }
+        }
+        return completedTasks;
+    }
 }
