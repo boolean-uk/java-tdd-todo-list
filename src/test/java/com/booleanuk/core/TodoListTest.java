@@ -141,6 +141,6 @@ class TodoListTest {
         lst.addTask(task_3);
         lst.addTask(task_4);
 
-        Assertions.assertEquals(lst.showTasksAscending().get(3), lst.listOfTasks.get(4));
+        Assertions.assertEquals(lst.showTasksAscending().get(3), lst.listOfTasks.get(3));
     }
 }

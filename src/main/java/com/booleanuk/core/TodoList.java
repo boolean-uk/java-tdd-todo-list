@@ -4,6 +4,8 @@ import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TodoList {
 
@@ -102,9 +104,15 @@ public class TodoList {
      }
 
      public ArrayList<Task> showTasksAscending() {
-     }
+        ArrayList<Task> lst = this.listOfTasks;
+        Collections.sort(this.listOfTasks, Comparator.comparing(Task::getName));
+        return lst;
+    }
 
     public ArrayList<Task> showTasksDescending() {
+        ArrayList<Task> lst = this.listOfTasks;
+        Collections.sort(this.listOfTasks, Comparator.comparing(Task::getName, Comparator.reverseOrder()));
+        return lst;
     }
 
     public static void main(String[] args) {
