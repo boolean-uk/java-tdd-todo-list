@@ -20,4 +20,14 @@ class TodoListTest {
         Assertions.assertTrue(todoList.add(task2));
         Assertions.assertFalse(todoList.add(task));
     }
+
+    @Test
+    public void testViewTask() {
+        TodoList todoList = new TodoList();
+        String task = "Wash";
+        todoList.add(task);
+        String task2 = "Eat";
+        todoList.add(task2);
+        Assertions.assertEquals("Task: Eat, Incomplete Task: Clean, Incomplete", todoList.viewTask());
+    }
 }
