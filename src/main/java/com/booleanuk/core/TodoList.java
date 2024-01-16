@@ -73,4 +73,12 @@ public class TodoList {
         }
         return todo.concat(": incomplete");
     }
+
+    public boolean removeTask(String todo) {
+        if (!this.todos.containsKey(todo)) {
+            return false;
+        }
+        this.todos.remove(todo);
+        return true;
+    }
 }
