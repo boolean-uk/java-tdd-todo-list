@@ -18,4 +18,14 @@ class TodoListTest {
         Assertions.assertTrue(list.toDoList.containsKey("clean"));
 
     }
+    @Test
+    public void seeAllTaskTest() {
+        TodoList list = new TodoList();
+        list.addTask("paint");
+        list.addTask("groceries");
+        list.addTask("vacuum");
+        Assertions.assertEquals(3,list.toDoList.size());
+    }
+
+
 }
