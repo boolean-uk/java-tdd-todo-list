@@ -32,11 +32,10 @@ class TodoListTest {
 
         TodoList result = new TodoList();
 
-        HashMap<String, Boolean> expected = new HashMap<>();
-        expected.put("Do the dishes", false);
-        expected.put("Clean the bathroom", false);
-        expected.put("Train for 60 minutes", false);
-        expected.put("Cook dinner", false);
+        String expected = "Clean the bathroom\n";
+        expected += "Train for 60 minutes\n";
+        expected += "Do the dishes\n";
+        expected += "Cook dinner\n";
 
         result.addTask("Do the dishes");
         result.addTask("Clean the bathroom");
