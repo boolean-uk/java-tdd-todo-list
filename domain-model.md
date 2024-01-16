@@ -18,17 +18,17 @@
 
 ToDo
 
-| Member Variables      | Methods                                   | Scenario                                          | Output                                                           |
-|-----------------------|-------------------------------------------|---------------------------------------------------|------------------------------------------------------------------|
-| ArrayList<Task> tasks | add(String task, boolean status)          | add task to todo-list.                            |                                                                  |
-|                       | remove(String task)                       | remove task from todo-list.                       |                                                                  |
-|                       | showTasks()                               | displays all tasks in list.                       |                                                                  |
+| Member Variables      | Methods                                  | Scenario                                          | Output                                                           |
+|-----------------------|------------------------------------------|---------------------------------------------------|------------------------------------------------------------------|
+| ArrayList<Task> tasks | add(String task)                         | add task to todo-list.                            |                                                                  |
+|                       | remove(String task)                      | remove task from todo-list.                       |                                                                  |
+|                       | showTasks()                              | displays all tasks in list.                       |                                                                  |
 |                       | changeStatus(String task, boolean status) | change between completed and not completed.       |                                                                  |
-|                       | incompleteTasks()                         | display all incomplete tasks.                     |                                                                  |
-|                       | completeTasks()                           | display all complete tasks.                       |                                                                  |
-|                       | searchTask(String task)                   | search the list for a task.                       | the status of the task, a message if task doesn't exist in list. |
-|                       | showTasksAscending()                      | displays tasks alphabetically in ascending order  |                                                                  |
-|                       | showTasksDescending()                     | displays tasks alphabetically in descending order |                                                                  |
+|                       | incompleteTasks()                        | display all incomplete tasks.                     |                                                                  |
+|                       | completeTasks()                          | display all complete tasks.                       |                                                                  |
+|                       | searchTask(String task)                  | search the list for a task.                       | the status of the task, a message if task doesn't exist in list. |
+|                       | showTasksAscending()                     | displays tasks alphabetically in ascending order  |                                                                  |
+|                       | showTasksDescending()                    | displays tasks alphabetically in descending order |                                                                  |
 
 Task
 
