@@ -73,4 +73,20 @@ class TodoListTest {
 
         Assertions.assertEquals("Do homework., Go for a walk., ", result);
     }
+
+    //User Story 5
+    @Test
+    public void returnIncompleteTasksOnly() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskMap.put("Do homework.", "Complete.");
+        todoList.taskMap.put("Hit the gym.", "Incomplete.");
+        todoList.taskMap.put("Go for a walk.", "Complete.");
+        todoList.taskMap.put("Feed cat.", "Incomplete.");
+        todoList.taskMap.put("Read newspaper.", "Incomplete.");
+
+        String result = todoList.getIncompleteTasks();
+
+        Assertions.assertEquals("Hit the gym., Feed cat., Read newspaper.,", result);
+    }
 }
