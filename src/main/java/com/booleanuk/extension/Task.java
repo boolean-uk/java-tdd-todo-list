@@ -13,5 +13,6 @@ public class Task {
         this.name = name;
         status = false;
         time = new SimpleDateFormat("H:mm:ss").format(new Date());
+        date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
     }
 }

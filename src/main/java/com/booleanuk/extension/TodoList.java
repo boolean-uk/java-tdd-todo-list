@@ -90,4 +90,8 @@ public class TodoList {
     public String getTimeCreated(String id) {
         return tasks.get(id).time;
     }
+
+    public String getDateCreated(String id) {
+        return tasks.get(id).date;
+    }
 }
