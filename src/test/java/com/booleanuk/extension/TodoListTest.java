@@ -18,4 +18,13 @@ class TodoListTest {
         int id2 = todoList.add("Go Fishing");
         Assertions.assertEquals(todoList.getTasks().get(1), todoList.getTask(id2));
     }
+
+    @Test
+    public void canRenameTask() {
+        int id1 = todoList.add("Go Shopping");
+        int id2 = todoList.add("Go Fishing");
+        Assertions.assertEquals(1, todoList.renameTask(id2, "Go swimming instead"));
+        Assertions.assertEquals("Go swimming instead", todoList.getTask(id2).getDescription());
+        Assertions.assertEquals(-1, todoList.renameTask(54321, "This id should not exist"));
+    }
 }
