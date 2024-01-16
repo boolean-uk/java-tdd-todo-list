@@ -1,11 +1,13 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-class TodoListTest {
+class TodoListExtensionTest {
     @Test
     public void exampleTest() {
         String hello = "Hello";
@@ -15,13 +17,13 @@ class TodoListTest {
 
     @Test
     public void testAdd() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         Assertions.assertEquals(true, todo.add("Need to wash my hands"));
     }
 
     @Test
     public void testListTasks(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Need to wash my hands");
         todo.add("Wash car");
         todo.listTasks();
@@ -33,7 +35,7 @@ class TodoListTest {
 
     @Test
     public void testChangeTaskStatus(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         todo.add("Make food");
         Assertions.assertFalse(todo.list.get(0).isCompleted);
@@ -45,7 +47,7 @@ class TodoListTest {
 
     @Test
     public void testGetIncompleteTasks(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         todo.add("Make food");
         todo.add("Brush teeth");
@@ -58,7 +60,7 @@ class TodoListTest {
     }
     @Test
     public void testGetCompletedTasks(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         todo.add("Make food");
         todo.add("Brush teeth");
@@ -71,7 +73,7 @@ class TodoListTest {
     }
     @Test
     public void testSearchTask(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         todo.add("Make food");
         todo.add("Brush teeth");
@@ -81,7 +83,7 @@ class TodoListTest {
     }
     @Test
     public void testRemoveTask(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         todo.add("Make food");
         todo.add("Brush teeth");
@@ -92,7 +94,7 @@ class TodoListTest {
     }
     @Test
     public void testAscendingOrderInList(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         todo.add("Make food");
         todo.add("Brush teeth");
@@ -107,7 +109,7 @@ class TodoListTest {
 
     @Test
     public void testDescendingOrderInList(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         todo.add("Make food");
         todo.add("Brush teeth");
@@ -119,4 +121,55 @@ class TodoListTest {
         Assertions.assertEquals("Wash car", todo.list.get(1).description);
         Assertions.assertEquals("Workout", todo.list.get(0).description);
     }
+
+    @Test
+    public void testGetTaskByID(){
+        TodoListExtension todo = new TodoListExtension();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+
+        Assertions.assertEquals("Make food", todo.getTaskByID(1));
+        Assertions.assertEquals("Workout", todo.getTaskByID(3));
+        Assertions.assertEquals(null, todo.getTaskByID(5));
+    }
+    @Test
+    public void testUpdateTaskByID(){
+        TodoListExtension todo = new TodoListExtension();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        Assertions.assertEquals("Brush teeth", todo.list.get(2).description);
+        todo.updateTaskByID(1, "Make Pizza");
+        Assertions.assertEquals("Make Pizza", todo.list.get(1).description);
+    }
+    @Test
+    public void testUpdateStatusTaskByID(){
+        TodoListExtension todo = new TodoListExtension();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        todo.changeTaskStatus("Make food");
+        todo.changeTaskStatus("Workout");
+        Assertions.assertEquals("Toggling isCompleted to false", todo.updateTaskByID(1));
+        Assertions.assertEquals("Toggling isCompleted to false", todo.updateTaskByID(3));
+        Assertions.assertEquals("Toggling isCompleted to true", todo.updateTaskByID(2));
+        Assertions.assertEquals("Toggling isCompleted to true", todo.updateTaskByID(0));
+
+        todo.updateTaskByID(1, "Make Pizza");
+        Assertions.assertEquals("Make Pizza", todo.list.get(1).description);
+    }
+    @Test
+    public void testGetCreationOfTask(){
+        TodoListExtension todo = new TodoListExtension();
+        todo.add("Wash car");
+        LocalDateTime localtime = LocalDateTime.now();
+        Assertions.assertEquals(localtime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                todo.getCreationOfTask(todo.list.get(0).getID()));
+    }
+
+
 }

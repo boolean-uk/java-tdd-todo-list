@@ -1,26 +1,50 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Objects;
+import java.rmi.server.UID;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.concurrent.atomic.AtomicLong;
 
-public class TodoList {
+public class TodoListExtension {
     public static class Task{
         public String description;
         public boolean isCompleted;
+        private static int nextId = 0;
+        private int id;
+        public LocalDateTime dateCreated;
+
+
 
         public Task(String task){
             this.description = task;
             this.isCompleted = false;
+            this.id = nextId++;
+            this.dateCreated = LocalDateTime.now();
+        }
+        public int getID(){
+            return id;
+        }
+        public String getDateCreated(){
+            return this.dateCreated.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
         }
 
         public String getDescription(){
             return description;
         }
     }
+    public String getCreationOfTask(int id){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == id){
+                return this.list.get(i).getDateCreated();
+            }
+        }
+        return null;
+    }
+
     ArrayList<Task> list;
 
-    public TodoList(){
+    public TodoListExtension(){
         this.list = new ArrayList<>();
     }
 
@@ -41,6 +65,42 @@ public class TodoList {
             }
         }
         return completedList.size();
+    }
+
+    public String getTaskByID(int num){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == num){
+                return list.get(i).description;
+            }
+        }
+        return null;
+    }
+
+    public String updateTaskByID(int num, String update){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == num){
+                this.list.get(i).description = update;
+                return this.list.get(i).description;
+            }
+        }
+        System.out.println("No Task found");
+        return null;
+    }
+    public String updateTaskByID(int num){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == num){
+                if(this.list.get(i).isCompleted){
+                    //System.out.println("Toggling isCompleted to false.");
+                    this.list.get(i).isCompleted = false;
+                    return "Toggling isCompleted to false";
+                }
+                System.out.println("Toggling isCompleted to true.");
+                this.list.get(i).isCompleted = true;
+                return "Toggling isCompleted to true";
+            }
+        }
+        System.out.println("No task found");
+        return null;
     }
 
 
@@ -116,20 +176,5 @@ public class TodoList {
             return list.size();
         }
         return 0;
-    }
-
-    public static void main(String[] args) {
-        TodoList todo = new TodoList();
-
-        todo.add("Wash car");
-        todo.add("Make food");
-        todo.add("Brush teeth");
-        todo.add("Workout");
-        todo.add("Walk the dog");
-        System.out.println(todo.getIncompleteTasks());
-        todo.changeTaskStatus("Wash car");
-        todo.changeTaskStatus("Brush teeth");
-        System.out.println(todo.getIncompleteTasks());
-        //System.out.println(t.list.get(0).description + t.list.get(0).isCompleted);
     }
 }
