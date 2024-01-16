@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.IllegalFormatException;
 import java.util.Map;
@@ -68,5 +69,21 @@ public class TodoList {
 
     public void removeTask(String task) {
         this.todolist.remove(task);
+    }
+
+    public void printTasksFromTodolist(String AscOrDesc) {
+
+        ArrayList<String> sortedArray = new ArrayList<>();
+
+
+        if(AscOrDesc.equalsIgnoreCase("Asc")) {
+
+        }
+
+        if(AscOrDesc.equalsIgnoreCase("Desc")) {
+
+        }
+
+
     }
 }

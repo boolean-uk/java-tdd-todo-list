@@ -66,4 +66,10 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |                               | Map<String, Boolean> getTodoList()  | Gets the todoList                 | Map<String, boolean> todolist  |
 |                               |                                     |                                   |                                |
 
+## 8
 
+| Class Variables               | Methods                                  | Scenarios                                   | Output/Return                  |
+|-------------------------------|------------------------------------------|---------------------------------------------|--------------------------------|
+| Map<String, Boolean> todoList | printTasksFromTodolist(String AscOrDesc) | prints sorted list according to Asc or Desc | void                           |
+|                               | Map<String, Boolean> getTodoList()       | Gets the todoList                           | Map<String, boolean> todolist  |
+|   
