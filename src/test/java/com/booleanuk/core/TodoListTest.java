@@ -228,4 +228,27 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertEquals("No tasks in list",todoList.getOrderedAscending());
     }
+
+    @Test
+    public void testGetTasksOrderedDescendingMultipleTasks() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        todoList.todos.put("Work", true);
+        todoList.todos.put("Code", false);
+        todoList.todos.put("Walk", false);
+        Assertions.assertEquals("Work: complete\nWalk: incomplete\nExercise: complete\nCode: incomplete",todoList.getOrderedDescending());
+    }
+
+    @Test
+    public void testGetTasksOrderedDescendingSingleTask() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        Assertions.assertEquals("Exercise: complete",todoList.getOrderedDescending());
+    }
+
+    @Test
+    public void testGetTasksOrderedDescendingEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("No tasks in list",todoList.getOrderedDescending());
+    }
 }
