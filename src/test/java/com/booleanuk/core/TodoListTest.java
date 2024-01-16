@@ -213,4 +213,55 @@ class TodoListTest {
 
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testGetTaskExistsIncomplete()
+    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        String expectedOutput = """
+                Task:
+                [ ] Paint the Mona Lisa
+                """;
+
+        Assertions.assertTrue(todoList.getTask("Paint the Mona Lisa"));
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testGetTaskExistsComplete()
+    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        todoList.changeTaskStatus("Paint the Mona Lisa");
+
+        String expectedOutput = """
+                Task:
+                [X] Paint the Mona Lisa
+                """;
+
+        Assertions.assertTrue(todoList.getTask("Paint the Mona Lisa"));
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testGetTaskNotExists()
+    {
+        TodoList todoList = new TodoList();
+
+        String expectedOutput = "Task not found";
+
+        Assertions.assertFalse(todoList.getTask("Paint the Mona Lisa"));
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
 }
