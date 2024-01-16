@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 class TodoListTest {
     TodoList todoList = new TodoList();
 
@@ -37,5 +40,12 @@ class TodoListTest {
         Assertions.assertTrue(todoList.getTask(id2).isCompleted());
         Assertions.assertEquals(1, todoList.setCompletionStatus(id2, false));
         Assertions.assertFalse(todoList.getTask(id2).isCompleted());
+    }
+
+    @Test
+    public void canGetCreationTimeDate() {
+        int id1 = todoList.add("Go Shopping");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); // FIXME Good enough, ns wont be displayed anyways
+        Assertions.assertEquals(LocalDateTime.now().format(formatter), todoList.getTask(id1).getCreationDate().format(formatter));
     }
 }
