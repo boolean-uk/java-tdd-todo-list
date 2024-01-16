@@ -17,13 +17,13 @@ public class TodoList {
         return true;
     }
 
-//    public String seeList() {
-//        String list = "";
-//        for(String task: tasks.keySet()) {
-//            list += task + "\n";
-//        }
-//        return list.substring(0, list.length()-1);
-//    }
+    public String seeList() {
+        String list = "";
+        for(String task: tasks.keySet()) {
+            list += task + "\n";
+        }
+        return list.substring(0, list.length()-1);
+    }
 //
 //    public boolean updateTaskStatus(String task, boolean newStatus) {
 //        if(!tasks.containsKey(task)) {

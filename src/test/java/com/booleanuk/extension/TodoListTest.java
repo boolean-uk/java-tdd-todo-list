@@ -26,17 +26,17 @@ class TodoListTest {
         todoList.addTask("call bob", "123");
         Assertions.assertFalse(todoList.addTask("clean", "123"));
     }
-//
-//    @Test
-//    public void seeListTest() {
-//        TodoList todoList = new TodoList();
-//        todoList.addTask("book dentist appointment");
-//        todoList.addTask("clean");
-//        todoList.addTask("bake");
-//        String list = todoList.seeList();
-//        Assertions.assertTrue(list.contains("clean") && list.contains("bake") && list.contains("book dentist appointment"));
-//    }
-//
+
+    @Test
+    public void seeListTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("book dentist appointment", "123");
+        todoList.addTask("clean", "456");
+        todoList.addTask("bake", "789");
+        String list = todoList.seeList();
+        Assertions.assertTrue(list.contains("clean") && list.contains("bake") && list.contains("book dentist appointment"));
+    }
+
 //    @Test
 //    public void updateExistingTaskStatusTest() {
 //        TodoList todoList = new TodoList();
