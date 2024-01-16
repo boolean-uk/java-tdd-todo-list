@@ -15,4 +15,21 @@ public class TodoListExtensionTest {
         Assertions.assertEquals(task.ID, 0);
         Assertions.assertSame(task, lst.getTaskByID(0));
     }
+
+    @Test
+    public void testSetNameByID() {
+        TodoListExtension lst = new TodoListExtension();
+        TaskExtension task = new TaskExtension("CV");
+        task.ID = 0;
+        lst.addTask(task);
+
+        Assertions.assertEquals(task.name, "CV");
+        Assertions.assertNotEquals(task.name, "Sleep");
+
+        lst.setNameByID(lst.getTaskByID(0).ID, "Job");
+
+        Assertions.assertNotEquals(task.name, "CV");
+        Assertions.assertEquals(task.name, "Job");
+        Assertions.assertSame(task, lst.getTaskByID(0));
+    }
 }
