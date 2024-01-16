@@ -155,4 +155,12 @@ class TodoListTest {
         String time = new SimpleDateFormat("H:mm:ss").format(new Date());
         Assertions.assertEquals(time, todoList.getTimeCreated("123"));
     }
+
+    @Test
+    public void getDateCreatedTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        String date = new SimpleDateFormat("dd-MM-yyyy").format(new Date());
+        Assertions.assertEquals(date, todoList.getDateCreated("123"));
+    }
 }
