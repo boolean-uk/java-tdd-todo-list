@@ -45,4 +45,15 @@ class TodoListTest {
         result.showAllTasks();
         Assertions.assertEquals(expected, outContent.toString());
     }
+
+    @Test
+    public void markTestAsComplete() {
+        TodoList result = new TodoList();
+
+        result.addTask("Train for 60 minutes");
+
+        Assertions.assertEquals("Task has been marked as completed.", result.changeTaskStatus("Train for 60 minutes"));
+
+        Assertions.assertTrue(result.todoList.get("Train for 60 minutes"));
+    }
 }
