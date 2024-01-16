@@ -16,7 +16,7 @@
 
 | Class    | Members                | Methods                  | Scenario                        | Output/Result                |
 |----------|------------------------|--------------------------|---------------------------------|------------------------------|
-| TodoList | HashMap<String,String> | HashMap<>                | User wants to list all tasks    | returns the current          |
+| TodoList | HashMap<String,String> | String                   | User wants to list all tasks    | returns the current          |
 |          | todoList               | checkAllTasks()          |                                 | todoList                     |
 |          |                        |                          |                                 |                              |
 |          |                        | String changeTaskStatus( | User wants to set specific      | returns "status changed"     |
