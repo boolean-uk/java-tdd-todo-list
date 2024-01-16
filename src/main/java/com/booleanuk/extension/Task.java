@@ -11,7 +11,7 @@ public class Task {
 
 	@Override
 	public String toString() {
-		String s = id+": "+description + ",\t";
+		String s = id + ": " + description + ",\t";
 		if (completed) {
 			s = s + "Complete";
 		} else {
@@ -19,11 +19,18 @@ public class Task {
 		}
 		return s;
 	}
-	public void setCompleted(boolean completed){
-		this.completed=completed;
+
+	public void setCompleted(boolean completed) {
+		this.completed = completed;
+
 	}
-	public void setId(int id){
-		this.id=id;
+
+	public void setId(int id) {
+		this.id = id;
+
+	}
+	public void setDescription(String description){
+		this.description=description;
 	}
 
 }

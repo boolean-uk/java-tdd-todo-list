@@ -97,4 +97,12 @@ public class TodoList {
 		}
 		return sb.toString();
 	}
+	public void setDescription(int id, String description) throws NotInListException {
+		if (list.containsKey(id)){
+			list.get(id).setDescription(description);
+		}
+		else {
+			throw new NotInListException(id);
+		}
+	}
 }
