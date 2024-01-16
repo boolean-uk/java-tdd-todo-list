@@ -108,4 +108,14 @@ class TodoListTest {
         todoList.addTask("clean");
         Assertions.assertFalse(todoList.remove("make dinner"));
     }
+
+    @Test
+    public void seeListInAlphabeticalAscendingOrder() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        todoList.addTask("bake");
+        todoList.addTask("book bowling");
+        ArrayList<String> expected = new ArrayList<>(Arrays.asList("bake", "book bowling", "clean"));
+        Assertions.assertEquals(expected, todoList.getListInAlphabeticalOrder(true));
+    }
 }
