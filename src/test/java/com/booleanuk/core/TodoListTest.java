@@ -153,10 +153,19 @@ class TodoListTest {
     public void printSorted() {
         TodoList todoList = new TodoList();
 
+        todoList.addTaskToTodolist("TaskA");
+        todoList.addTaskToTodolist("TaskB");
+        todoList.addTaskToTodolist("TaskC");
+
+
         todoList.printTasksFromTodolist("Asc");
 
+        Assertions.assertEquals("TaskC\nTaskB\nTaskA", getOutput());
 
         todoList.printTasksFromTodolist("Desc");
+
+        Assertions.assertEquals("TaskA\nTaskB\nTaskC", getOutput());
+
 
     }
 
