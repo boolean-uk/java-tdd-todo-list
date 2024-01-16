@@ -20,4 +20,10 @@ public class TodoList {
     public Map<String, Boolean> getTodolist() {
         return new HashMap<>(todolist);
     }
+
+    public void printTasksFromTodolist() {
+        for(String str : todolist.keySet()) {
+            System.out.println(str);
+        }
+    }
 }

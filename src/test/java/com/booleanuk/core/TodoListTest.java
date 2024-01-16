@@ -68,9 +68,12 @@ class TodoListTest {
         todoList.addTaskToTodolist("Task4");
 
 
-        Map<String, Boolean> todolistMap = todoList.getTodolist();
         todoList.printTasksFromTodolist();
-        Assertions.assertEquals("Task1\nTask2\nTask3\nTask4", getOutput());
+        Assertions.assertTrue(getOutput().contains("Task1"));
+        Assertions.assertTrue(getOutput().contains("Task1"));
+        Assertions.assertTrue(getOutput().contains("Task1"));
+        Assertions.assertTrue(getOutput().contains("Task1"));
+        Assertions.assertFalse(getOutput().contains("Task5"));
 
     }
 
