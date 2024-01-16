@@ -1,7 +1,9 @@
 package com.booleanuk.extension;
 
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Date;
 
 public class TodoListExtension {
     private final Map<Integer, Task> taskIdMap;  // Map to store task IDs
@@ -12,16 +14,19 @@ public class TodoListExtension {
         this.todoList = new HashMap<>();
     }
 
-    public void add(String taskName, String status) {
+    public boolean add(String taskName, String status) {
         if (taskName == null) {
-            return;
+            return false;
         }
 
         int taskId = taskIdMap.size() + 1;
-        Task task = new Task(taskId, taskName, status);
+        Date timeCreated = new Date();
+        Task task = new Task(taskId, taskName, status, timeCreated);
 
         todoList.put(taskName, task);
         taskIdMap.put(taskId, task);
+
+        return true;
     }
 
     public String getTask(int id) {
@@ -60,19 +65,37 @@ public class TodoListExtension {
         }
     }
 
+    public String getDate(int id) {
+        Task taskDate = taskIdMap.get(id);
+        if (taskDate != null) {
+            return taskDate.getFormattedDate();
+        } else {
+            return "Task not found";
+        }
+    }
+
+    public String getTime(int id) {
+        Task taskTime = taskIdMap.get(id);
+        if (taskTime != null) {
+            return taskTime.getFormattedTime();
+        } else {
+            return "Task not found";
+        }
+    }
+
     private static class Task {
         private final int id;
         private String name;
         private String status;
+        private final Date timeCreated;
+        private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM.dd.yyyy HH:mm:ss");
 
-        public Task(int id, String name, String status) {
+
+        public Task(int id, String name, String status, Date timeCreated) {
             this.id = id;
             this.name = name;
             this.status = status;
-        }
-
-        public int getId() {
-            return id;
+            this.timeCreated = timeCreated;
         }
 
         public String getName() {
@@ -89,6 +112,16 @@ public class TodoListExtension {
 
         public void setStatus(String status) {
             this.status = status;
+        }
+
+        private String getFormattedDate() {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("dd.MM.yyyy");
+            return timeFormat.format(timeCreated);
+        }
+
+        private String getFormattedTime() {
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm");
+            return timeFormat.format(timeCreated);
         }
     }
 }
