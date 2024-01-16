@@ -102,4 +102,7 @@ public class TodoList {
             return "Task list is empty";
         }
     }
+    public boolean removeTasks(String[] tasks){
+        return false;
+    }
 }

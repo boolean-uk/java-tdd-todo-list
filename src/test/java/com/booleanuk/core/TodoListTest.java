@@ -76,10 +76,24 @@ class TodoListTest {
     /* domain model user story 6*/
     @Test
     public void testSearchForTaskInList(){
-        TodoList tl= new TodoList();
+        TodoList tl = new TodoList();
         tl.addTask(new Task("Shopping"));
         tl.addTask(new Task("Bowling"));
         String expected = "Bowling" + " exists";
         Assertions.assertEquals(expected, tl.taskExists("Bowling"));
+    }
+
+    /* domain model user story 7 */
+    @Test
+    public void testRemoveTaskFromList(){
+        TodoList tl = new TodoList();
+        tl.addTask(new Task("Shopping"));
+        tl.addTask(new Task("Bowling"));
+        String expected = "Shopping" + ", Not Complete\n"
+                + "Bowling" + ", Not Complete\n";
+        Assertions.assertEquals(expected, tl.getTodoList());
+        tl.removeTasks(new String[]{"Shopping"});
+        expected = "Bowling" + ", Not Complete\n";
+        Assertions.assertEquals(expected, tl.getTodoList());
     }
 }
