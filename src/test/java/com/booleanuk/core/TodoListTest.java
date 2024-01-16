@@ -69,4 +69,23 @@ class TodoListTest {
 		task1.setCompleted(true);
 		Assertions.assertEquals("1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete",todo.printListIncompleted());
 	}
+	public void getTaskTest(){
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		Task task2 = new Task("Code even more");
+		todo.addTask(task1);
+		todo.addTask(task2);
+		try {
+			Task task = todo.getTask(4);
+		}catch (Exception e){
+			Assertions.assertEquals("No task with id 4 in list",e.toString());
+		}
+		try {
+			Task task = todo.getTask(0);
+			Assertions.assertEquals("Code more",task.description);
+			task = todo.getTask(1);
+			Assertions.assertEquals("Code even more",task.description);
+		}catch (Exception e){
+		}
+	}
 }
