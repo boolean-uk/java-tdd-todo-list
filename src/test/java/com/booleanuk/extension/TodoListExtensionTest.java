@@ -24,4 +24,15 @@ public class TodoListExtensionTest {
 
         assertEquals("Clean windows", task.getTask(1));
     }
+
+    @Test
+    public void checkIfStatusGetsUpdated() {
+        TodoListExtension taskStatus = new TodoListExtension();
+
+        taskStatus.add("Shovel snow", "Incomplete");
+
+        taskStatus.updateStatus(1, "Complete");
+
+        assertEquals("Complete", taskStatus.getStatus());
+    }
 }
