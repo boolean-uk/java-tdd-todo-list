@@ -32,4 +32,27 @@ class TodoListTest {
         Assertions.assertTrue(todoList.add("Go for a walk"));
         Assertions.assertFalse(todoList.add("Laundry"));
     }
+
+    @Test
+    public void returnTrueRemoveTaskInList() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        Assertions.assertTrue(todoList.remove("Vacuum"));
+    }
+
+    @Test
+    public void returnFalseRemoveTaskNotInList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertFalse(todoList.remove("Vacuum"));
+    }
+
+    @Test
+    public void removingMultipleTasksWorkCorrectly() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        todoList.add("Laundry");
+        Assertions.assertTrue(todoList.remove("Vacuum"));
+        Assertions.assertFalse(todoList.remove("Go for a walk"));
+        Assertions.assertTrue(todoList.remove("Laundry"));
+    }
 }
