@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import javax.swing.text.html.parser.Entity;
 import java.util.HashMap;
 
 public class TodoList {
@@ -12,5 +13,13 @@ public class TodoList {
 	public void addTask(Task task){
 		list.put(currId,task);
 		currId++;
+	}
+	public String printList(){
+		StringBuilder sb = new StringBuilder();
+		list.forEach((key,value)->{
+			sb.append(key+": "+value+"\n");
+		});
+		sb.deleteCharAt(sb.length()-1);
+		return sb.toString();
 	}
 }
