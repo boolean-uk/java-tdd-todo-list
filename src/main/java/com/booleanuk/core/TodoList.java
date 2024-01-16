@@ -66,20 +66,46 @@ public class TodoList {
         return false;
     }
 
+    public void showTaskAlphabeticallyReversed() {
+        ArrayList<String> tasks = new ArrayList<>();
+
+        tasks.addAll(this.todoList.keySet());
+
+        int indexToPrint;
+
+        while (!tasks.isEmpty()) {
+            indexToPrint = getLastAlphabetically(tasks);
+            System.out.print(tasks.get(indexToPrint) + "\n");
+            tasks.remove(indexToPrint);
+        }
+    }
+
+    public int getLastAlphabetically(ArrayList<String> tasks) {
+        int first = 0;
+        int counter = 0;
+        for (int i = 0; i < tasks.size(); i++) {
+            for (int j = 0; j < tasks.size(); j++) {
+                if (tasks.get(i).compareToIgnoreCase(tasks.get(j)) >= 0) {
+                    counter++;
+                }
+                if (counter == tasks.size()) {
+                    first = i;
+                    break;
+                }
+            }
+        }
+        return first;
+    }
+
     public static void main(String[] args) {
-//        TodoList test = new TodoList();
-//
-//        test.addTask("Do the dishes");
-//        test.addTask("Clean the bathroom");
-//        test.addTask("Train for 60 minutes");
-//        test.addTask("Cook dinner");
-//
-//        System.out.println(test);
+        TodoList result = new TodoList();
 
+        result.addTask("Do the dishes");
+        result.addTask("Clean the bathroom");
+        result.addTask("Train for 60 minutes");
+        result.addTask("Cook dinner");
 
-        String one = "brave";
-        String two = "a";
-        System.out.println(two.compareToIgnoreCase(one));
+        //result.showTaskAlphabetically();
     }
 
 }

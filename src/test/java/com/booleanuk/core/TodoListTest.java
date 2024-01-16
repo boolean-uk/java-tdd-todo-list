@@ -156,7 +156,10 @@ class TodoListTest {
     }
 
     @Test
-    public void printListAlphabeticalOrder() {
+    public void printListAlphabeticalOrderReversed() {
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
         TodoList result = new TodoList();
 
         result.addTask("Do the dishes");
@@ -164,8 +167,9 @@ class TodoListTest {
         result.addTask("Train for 60 minutes");
         result.addTask("Cook dinner");
 
-        String expected = "Clean the bathroom\n" + "Cook dinner\n" + "Do the dishes\n" + "Train for 60 minutes\n";
+        String expected = "Train for 60 minutes\n" + "Do the dishes\n" + "Cook dinner\n" + "Clean the bathroom\n";
 
-        Assertions.assertEquals(expected, result.showTaskAlphabetically());
+        result.showTaskAlphabeticallyReversed();
+        Assertions.assertEquals(expected, outContent.toString());
     }
 }
