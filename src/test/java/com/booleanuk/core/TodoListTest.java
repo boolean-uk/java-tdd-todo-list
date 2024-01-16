@@ -131,10 +131,10 @@ class TodoListTest {
         todoList.add("Laundry");
         todoList.add("Make dinner");
         todoList.changeStatus("Make dinner");
-        ArrayList<String> completedTasks = new ArrayList<>();
-        completedTasks.add("Vacuum");
-        completedTasks.add("Laundry");
-        Assertions.assertEquals(completedTasks, todoList.getStatus(false));
+        ArrayList<String> incompletedTasks = new ArrayList<>();
+        incompletedTasks.add("Vacuum");
+        incompletedTasks.add("Laundry");
+        Assertions.assertEquals(incompletedTasks, todoList.getStatus(false));
     }
 
     @Test
@@ -142,5 +142,38 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertEquals(new ArrayList<>(), todoList.getStatus(true));
         Assertions.assertEquals(new ArrayList<>(), todoList.getStatus(false));
+    }
+
+    @Test
+    public void checkListOrderedAlphabeticallyInAscendingOrder() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        todoList.add("Go for a walk");
+        todoList.add("Laundry");
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("Go for a walk");
+        expected.add("Laundry");
+        expected.add("Vacuum");
+        Assertions.assertEquals(expected, todoList.getTasksOrdered(true));
+    }
+
+    @Test
+    public void checkListOrderedAlphabeticallyInDescendingOrder() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        todoList.add("Go for a walk");
+        todoList.add("Laundry");
+        ArrayList<String> expected = new ArrayList<>();
+        expected.add("Vacuum");
+        expected.add("Laundry");
+        expected.add("Go for a walk");
+        Assertions.assertEquals(expected, todoList.getTasksOrdered(false));
+    }
+
+    @Test
+    public void checkOrderListWithEmptyList(){
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals(new ArrayList<>(), todoList.getTasksOrdered(true));
+        Assertions.assertEquals(new ArrayList<>(), todoList.getTasksOrdered(false));
     }
 }
