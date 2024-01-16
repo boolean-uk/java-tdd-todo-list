@@ -118,7 +118,7 @@ class TodoListTest {
 
     // Remove
     @Test
-    public void addTaskTestReturnTrue() {
+    public void removeTaskTestReturnTrue() {
         TodoList toDo = new TodoList();
         boolean result = toDo.addTask("Clean");
         result = toDo.addTask("Dry");
@@ -127,7 +127,7 @@ class TodoListTest {
     }
 
     @Test
-    public void addTaskTestReturnFalse() {
+    public void removeTaskTestReturnFalse() {
         TodoList toDo = new TodoList();
         boolean result = toDo.addTask("Clean");
         result = toDo.addTask("Dry");

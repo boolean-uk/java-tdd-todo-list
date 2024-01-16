@@ -65,12 +65,20 @@ public class TodoList {
     public String searchTasks(String task) {
         String message = "Not Found";
 
-        for ( String listTask: toDoList) {
-            if (task.equals(listTask)) {
+        if (toDoList.contains(task)) {
                 message = "Found";
-            }
         }
         return message;
+    }
+
+    public boolean removeTask(String task) {
+        if (toDoList.contains(task)) {
+            int idx = toDoList.indexOf(task);
+            toDoList.remove(idx);
+            taskComplete.remove(idx);
+            return true;
+        }
+        return false;
     }
 
 
