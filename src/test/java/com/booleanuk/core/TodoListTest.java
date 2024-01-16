@@ -88,4 +88,23 @@ class TodoListTest {
 
         Assertions.assertEquals(expected, result.getCompletedTasks());
     }
+
+    @Test
+    public void getAllIncompleteTasks() {
+        TodoList result = new TodoList();
+
+        result.addTask("Do the dishes");
+        result.addTask("Clean the bathroom");
+        result.addTask("Train for 60 minutes");
+        result.addTask("Cook dinner");
+
+        result.changeTaskStatus("Train for 60 minutes");
+        result.changeTaskStatus("Do the dishes");
+
+        ArrayList<String> expected= new ArrayList<>();
+        expected.add("Do the dishes");
+        expected.add("Cook dinner");
+
+        Assertions.assertEquals(expected, result.getIncompleteTasks());
+    }
 }
