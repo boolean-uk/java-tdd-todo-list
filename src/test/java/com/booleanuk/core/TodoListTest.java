@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
 import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
@@ -12,6 +10,13 @@ class TodoListTest {
     public void addingTaskToListReturnsTrue() {
         TodoList list = new TodoList();
 
-        Assertions.assertTrue(list.add("Shovel snow"));
+        assertTrue(list.add("Shovel snow"));
+    }
+
+    @Test
+    public void returnsFalseIfListIsEmpty() {
+        TodoList list = new TodoList();
+
+        assertEquals(false, list.viewTasks());
     }
 }
