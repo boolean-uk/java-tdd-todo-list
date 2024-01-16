@@ -130,6 +130,6 @@ class TodoListExtensionTest {
 
         Assertions.assertEquals("Make food", todo.getTaskByID(1));
         Assertions.assertEquals("Workout", todo.getTaskByID(3));
-        Assertions.assertEquals("No task found", todo.getTaskByID(5));
+        Assertions.assertEquals(null, todo.getTaskByID(5));
     }
 }
