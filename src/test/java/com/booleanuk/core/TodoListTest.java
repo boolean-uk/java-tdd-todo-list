@@ -205,4 +205,27 @@ class TodoListTest {
         todoList.add("Write tests :(");
         Assertions.assertTrue(todoList.removeTask("Work"));
     }
+
+    @Test
+    public void testGetTasksOrderedAscendingMultipleTasks() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        todoList.todos.put("Work", true);
+        todoList.todos.put("Code", false);
+        todoList.todos.put("Walk", false);
+        Assertions.assertEquals("Code: incomplete\nExercise: complete\nWalk: incomplete: Work: complete",todoList.getOrderedAscending());
+    }
+
+    @Test
+    public void testGetTasksOrderedAscendingSingleTask() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Exercise", true);
+        Assertions.assertEquals("Exercise: complete",todoList.getOrderedAscending());
+    }
+
+    @Test
+    public void testGetTasksOrderedAscendingEmptyList() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("No tasks in list",todoList.getOrderedAscending());
+    }
 }
