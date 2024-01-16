@@ -173,6 +173,41 @@ class TodoListTest {
 
     }
 
+    @Test
+    public void testAscending() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Ape", false);
+        task1.addTask("Bil", true);
+        task1.addTask("Ceer", false);
+        task1.addTask("Der", true);
+        task1.addTask("Ert", false);
+
+        String result = task1.ascending();
+
+        Assertions.assertEquals("Ape, Bil, Ceer, Der, Ert", result);
+
+
+    }
+    @Test
+    public void testDescending() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        task1.addTask("Sloss2", true);
+        task1.addTask("Sloss3", false);
+        task1.addTask("Sloss4", true);
+        task1.addTask("Sloss5", false);
+
+        String result = task1.descending();
+
+        Assertions.assertEquals("Ert, Der, Ceer, Bil, Ape", result);
+
+
+    }
+
 
 
 

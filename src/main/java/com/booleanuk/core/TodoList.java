@@ -113,14 +113,14 @@ public class TodoList {
 
     }
 
-    public HashMap<Integer, String> ascending() {
+    public String ascending() {
 
-        return new HashMap<>();
+        return "new HashMap<>()";
     }
 
-    public HashMap<Integer, String> descending() {
+    public String descending() {
 
-        return new HashMap<>();
+        return "new HashMap<>()";
     }
 
   /*  public static void main(String[] args) {
