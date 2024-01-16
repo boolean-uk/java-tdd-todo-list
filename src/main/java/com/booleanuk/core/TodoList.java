@@ -25,4 +25,8 @@ public class TodoList {
         return list.substring(0, list.length()-1);
     }
 
+    public boolean updateTaskStatus(String task, boolean newStatus) {
+        return true;
+    }
+
 }
