@@ -1,6 +1,6 @@
 package com.booleanuk.extension;
 
-import com.booleanuk.core.Task;
+import com.booleanuk.extension.Task;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -147,7 +147,14 @@ public class TodoList {
     }
 
     public String getTaskById(int id){
-
-        return "";
+        if(tasks.isEmpty()){
+            return "List is empty";
+        }
+        for(Task t : tasks){
+            if(t.getId() == id){
+                return t.toString();
+            }
+        }
+        return "Task does not exist";
     }
 }
