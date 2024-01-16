@@ -105,4 +105,18 @@ class TodoListTest {
         Assertions.assertEquals("Workout", todo.list.get(3).description);
     }
 
+    @Test
+    public void testDescendingOrderInList(){
+        TodoList todo = new TodoList();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        todo.sortedListAsc();
+
+        Assertions.assertEquals("Brush teeth", todo.list.get(3).description);
+        Assertions.assertEquals("Make food", todo.list.get(2).description);
+        Assertions.assertEquals("Wash car", todo.list.get(1).description);
+        Assertions.assertEquals("Workout", todo.list.get(0).description);
+    }
 }
