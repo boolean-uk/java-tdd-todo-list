@@ -45,8 +45,8 @@ class TodoListTest {
     public void testSetStatus() {
         TodoList task1 = new TodoList();
 
-        task1.addTask("Sloss", false);
-        boolean result = task1.setStatus("Sloss", true);
+        task1.addTask("Sloss", true);
+        boolean result = task1.setStatus("Sloss", false);
 
 
         Assertions.assertTrue(result);
@@ -79,7 +79,7 @@ class TodoListTest {
 
         String result = task1.getComplete();
 
-        Assertions.assertEquals("{Fiske=true, Sloss=false}", result);
+        Assertions.assertEquals("{Fiske=true, Sloss2=true, Sloss4=true}", result);
 
 
     }
@@ -95,9 +95,44 @@ class TodoListTest {
         task1.addTask("Sloss4", true);
         task1.addTask("Sloss5", false);
 
-        String result = task1.getComplete();
+        String result = task1.getInComplete();
 
-        Assertions.assertEquals("{Fiske=true, Sloss=false}", result);
+        Assertions.assertEquals("{Fiske=false, Sloss2=false, Sloss4=false}", result);
+
+
+    }
+
+    @Test
+    public void testGetKeyBySearch() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        task1.addTask("Sloss2", true);
+        task1.addTask("Sloss3", false);
+        task1.addTask("Sloss4", true);
+        task1.addTask("Sloss5", false);
+
+        String result = task1.getTask("Sloss2");
+
+        Assertions.assertEquals("{Sloss2=true}", result);
+
+
+    }
+
+    public void testGetKeyByWrongSearch() {
+
+        TodoList task1 = new TodoList();
+
+        task1.addTask("Sloss", false);
+        task1.addTask("Sloss2", true);
+        task1.addTask("Sloss3", false);
+        task1.addTask("Sloss4", true);
+        task1.addTask("Sloss5", false);
+
+        String result = task1.getTask("Sloss111");
+
+        Assertions.assertEquals("The task wasnt found!", result);
 
 
     }

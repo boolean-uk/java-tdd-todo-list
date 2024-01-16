@@ -2,6 +2,7 @@ package com.booleanuk.core;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TodoList {
     HashMap<Integer, String> taskname;
@@ -54,19 +55,45 @@ public class TodoList {
         return false;
     }
 
-    public String getComplete() {
 
-      return "";
+
+    public String getComplete() {
+        HashMap<String, Boolean> completedTasks = new HashMap<>();
+
+        for (HashMap.Entry<String, Boolean> entry : tasks.entrySet()) {
+            if (entry.getValue()) {
+                completedTasks.put(entry.getKey(), true);
+            }
+        }
+
+        if (!completedTasks.isEmpty()) {
+            return completedTasks.toString();
+        } else {
+            return "didnt find anything";
+        }
     }
 
     public String getInComplete() {
+        HashMap<String, Boolean> inCompletedTasks = new HashMap<>();
 
-        return "";
+        for (HashMap.Entry<String, Boolean> entry : tasks.entrySet()) {
+            if (entry.getValue()) {
+                inCompletedTasks.put(entry.getKey(), false);
+            }
+        }
+
+        if (!inCompletedTasks.isEmpty()) {
+            return inCompletedTasks.toString();
+        } else {
+            return "didnt find anything";
+        }
+
     }
 
-    public String getTask() {
+    public String getTask(String name) {
 
-        return "";
+
+        return "The task wasnt found!";
     }
 
     public boolean removeTask(int id) {
