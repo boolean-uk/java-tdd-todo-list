@@ -112,7 +112,7 @@ class TodoListTest {
         todo.add("Make food");
         todo.add("Brush teeth");
         todo.add("Workout");
-        todo.sortedListAsc();
+        todo.sortedListDes();
 
         Assertions.assertEquals("Brush teeth", todo.list.get(3).description);
         Assertions.assertEquals("Make food", todo.list.get(2).description);

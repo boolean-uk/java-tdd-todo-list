@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Objects;
 
 public class TodoList {
@@ -12,12 +13,37 @@ public class TodoList {
             this.description = task;
             this.isCompleted = false;
         }
+
+        public String getDescription(){
+            return description;
+        }
     }
     ArrayList<Task> list;
+    ArrayList<Task> sortedListAscending;
+
     public TodoList(){
         this.list = new ArrayList<>();
     }
 
+
+    public void sortedListAsc(){
+        this.list.sort(Comparator.comparing(Task::getDescription));
+        if(!this.list.isEmpty()){
+            for (int i = 0; i < this.list.size(); i++) {
+                System.out.println(this.list.get(i).description);
+                return;
+            }
+        }
+    }
+    public void sortedListDes(){
+        this.list.sort(Comparator.comparing(Task::getDescription).reversed());
+        if(!this.list.isEmpty()){
+            for (int i = 0; i < this.list.size(); i++) {
+                System.out.println(this.list.get(i).description);
+                return;
+            }
+        }
+    }
 
     public int getIncompleteTasks(){
         ArrayList<Task> incompleteList = new ArrayList<>();
@@ -37,6 +63,7 @@ public class TodoList {
         }
         return completedList.size();
     }
+
 
     public boolean removeTask(String task){
         for (int i = 0; i < this.list.size(); i++) {
