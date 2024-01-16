@@ -55,11 +55,11 @@ class TodoListTest {
         todoList.addTask(new Task("Do laundry", false));
         todoList.addTask(new Task("Walk dog", true));
         todoList.addTask(new Task("Clean Kitchen"));
-        todoList.addTask(new Task("Turn on washing Machine", true));
+        todoList.addTask(new Task("Turn on washing machine", true));
         ArrayList<Task> completeTasks = todoList.getCompleteTasks();
         ArrayList<Task> listOfTasks = new ArrayList<>();
         listOfTasks.add(new Task("Walk dog", true));
-        listOfTasks.add(new Task("Turn on washing Machine", true));
+        listOfTasks.add(new Task("Turn on washing machine", true));
 
 
         for(int i = 0; i < completeTasks.size(); i++) {
@@ -69,4 +69,21 @@ class TodoListTest {
     }
 
     @Test
+    public void getIncompleteTasksTest() {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask(new Task("Do laundry", false));
+        todoList.addTask(new Task("Walk dog", true));
+        todoList.addTask(new Task("Clean Kitchen"));
+        todoList.addTask(new Task("Turn on washing machine", true));
+        ArrayList<Task> incompleteTasks = todoList.getIncompleteTasks();
+        ArrayList<Task> listOfTasks = new ArrayList<>();
+        listOfTasks.add(new Task("Do laundry", false));
+        listOfTasks.add(new Task("Clean Kitchen"));
+
+        for(int i = 0; i < incompleteTasks.size(); i++) {
+            Assertions.assertEquals(listOfTasks.get(i).name, incompleteTasks.get(i).name);
+            Assertions.assertEquals(listOfTasks.get(i).complete, incompleteTasks.get(i).complete);
+        }
+    }
 }
