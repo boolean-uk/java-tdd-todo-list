@@ -84,3 +84,39 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |                        |                               |           |                                  |
 
 
+## Extension Requirements
+```
+I want to be able to get a task by a unique ID.
+```
+| Methods              | Member variables | Scenario             | Outputs/Results |
+|----------------------|------------------|----------------------|-----------------|
+| int getID()          | int taskID       | if taskID exists     | return true     |
+| searchID(int taskID) |                  | if taskID dont exist | return false    |
+|                      |                  |                      |                 |
+
+```
+I want to update the name of a task by providing its ID and a new name.
+```
+| Methods | Member variables | Scenario | Outputs/Results |
+|---------|------------------|----------|-----------------|
+|         |                  |          |                 |
+|         |                  |          |                 |
+|         |                  |          |                 |
+
+```
+I want to be able to change the status of a task by providing its ID.
+```
+| Methods | Member variables | Scenario | Outputs/Results |
+|---------|------------------|----------|-----------------|
+|         |                  |          |                 |
+|         |                  |          |                 |
+|         |                  |          |                 |
+
+```
+I want to be able to see the date and time that I created each task.
+```
+| Methods | Member variables | Scenario | Outputs/Results |
+|---------|------------------|----------|-----------------|
+|         |                  |          |                 |
+|         |                  |          |                 |
+|         |                  |          |                 |
