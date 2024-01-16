@@ -27,6 +27,12 @@
 
 4. I want to be able to get only the complete tasks.
 
+| Class    | Member Variables        | Methods                    | Scenario                      | Output/Result           |
+|----------|-------------------------|----------------------------|-------------------------------|-------------------------|
+| TodoList | ArrayList<String>       | String getCompletedTasks() | Retrieve completed tasks only | Returns completed tasks |
+|          | HashMap<String, String> |                            |                               |                         |
+
+
 
 5. I want to be able to get only the incomplete tasks.
 
