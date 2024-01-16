@@ -179,4 +179,21 @@ public class TodoList {
         }
         return sb.toString();
     }
+    public boolean toggleStatus(int id){
+        if(tasks.isEmpty()){
+            return false;
+        }
+        for(Task t: tasks){
+            if(t.getId() == id){
+                if(t.isComplete()){
+                    t.setComplete(false);
+                }
+                else{
+                    t.setComplete(true);
+                }
+                return true;
+            }
+        }
+        return false;
+    }
 }

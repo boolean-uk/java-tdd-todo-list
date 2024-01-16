@@ -27,7 +27,7 @@ public class TodoListTest {
         Assertions.assertTrue(tl.updateTaskById(1, "Dinner"));
         Assertions.assertEquals("Dinner, Not completed", tl.getTaskById(1));
     }
-
+    /* test user story 12*/
     @Test
     public void testGettingCorrectDateTimeOfTask(){
         TodoList tl = new TodoList();
@@ -35,5 +35,14 @@ public class TodoListTest {
         tl.addTask(new Task("Shopping"));
         String expected = "Shopping: " + dt + "\n";
         Assertions.assertEquals(expected, tl.getCreationDateTask());
+    }
+    /*test revised user story 3 for extension*/
+    @Test
+    public void testToggleStatusWithId(){
+        TodoList tl = new TodoList();
+        Task task1 = new Task("Shopping");
+        tl.addTask(task1);
+        Assertions.assertTrue(tl.toggleStatus(1));
+
     }
 }
