@@ -57,4 +57,15 @@ class TodoListTest {
         Assertions.assertEquals("Task removed", list.removeTask(task));
         Assertions.assertEquals("List is empty", list.checkAllTasks());
     }
+
+    @Test
+    public void testRemoveNonExistingTask(){
+        TodoList list = new TodoList();
+        String task = "Workout";
+        list.addTask("Go swimming", "Incomplete");
+        list.addTask("Eat dinner", "Incomplete");
+        Assertions.assertEquals("{Eat dinner=Incomplete, Go swimming=Incomplete}", list.checkAllTasks());
+        Assertions.assertEquals("Task does not exist", list.removeTask(task));
+
+    }
 }
