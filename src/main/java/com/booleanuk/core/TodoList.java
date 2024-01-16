@@ -21,6 +21,15 @@ public class TodoList {
         }
     }
 
+    public String changeTaskStatus(String task) {
+        if (this.todoList.get(task)) {
+            this.todoList.replace(task, false);
+            return "Task has been marked as incomplete.";
+        }
+        this.todoList.replace(task, true);
+        return "Task has been marked as complete.";
+    }
+
     public static void main(String[] args) {
 //        TodoList test = new TodoList();
 //

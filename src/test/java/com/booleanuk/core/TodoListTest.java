@@ -52,7 +52,7 @@ class TodoListTest {
 
         result.addTask("Train for 60 minutes");
 
-        Assertions.assertEquals("Task has been marked as completed.", result.changeTaskStatus("Train for 60 minutes"));
+        Assertions.assertEquals("Task has been marked as complete.", result.changeTaskStatus("Train for 60 minutes"));
 
         Assertions.assertTrue(result.todoList.get("Train for 60 minutes"));
     }
