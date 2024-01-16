@@ -89,5 +89,27 @@ class TodoListTest {
 			Assertions.assertEquals("Code even more",task.description);
 		}catch (Exception e){
 		}
+	}@Test
+	public void removeTaskTest(){
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		Task task2 = new Task("Code even more");
+		todo.addTask(task1);
+		todo.addTask(task2);
+		Assertions.assertEquals(2,todo.list.size());
+		Assertions.assertTrue(todo.list.containsKey(2));
+		try {
+			todo.removeTask(2);
+		}catch (Exception e){}
+		Assertions.assertEquals(1,todo.list.size());
+		Assertions.assertFalse(todo.list.containsKey(2));
+		try{
+		todo.removeTask(3);
+		}catch (Exception e){
+			Assertions.assertEquals("com.booleanuk.core.NotInListException: No task with id 3 in list", e.toString());
+		}
+
+
+
 	}
 }
