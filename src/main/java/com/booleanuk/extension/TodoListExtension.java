@@ -1,51 +1,52 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
+import java.util.Comparator;
 
-public class TodoList {
-    HashMap<String, Boolean> taskStatus;
-    ArrayList<String> taskList;
+public class TodoListExtension {
+    ArrayList<Task> taskList;
+    public int lastID = 0;
 
-    public TodoList() {
-        taskStatus = new HashMap<>();
+    public TodoListExtension() {
         taskList = new ArrayList<>();
     }
 
     public boolean addTask(String task)  {
-        if(!taskList.contains(task))
+        Task newTask = new Task(task, this.lastID);
+        this.lastID += 1;
+        taskList.add(newTask);
+        return true;
+    }
+
+    public boolean changeTaskStatus(String task)   {
+        for(Task t : taskList)
         {
-            taskList.add(task);
-            taskStatus.put(task, false);
-            return true;
+            if(t.name.equals(task))
+            {
+                t.complete = !t.complete;
+                return true;
+            }
         }
         return false;
     }
 
-    public boolean changeTaskStatus(String task)   {
-        if(taskList.contains(task))
-        {
-            taskStatus.put(task, !taskStatus.get(task));
-            return true;
-        }   else {
-            System.out.println("Task not in list");
-            return false;
-        }
-    }
-
     public boolean getTask(String task) {
         StringBuilder outputString = new StringBuilder();
-        if(taskList.contains(task))
-        {
-            outputString.append("Task:\n");
-            outputString.append("[");
-            outputString.append(!taskStatus.get(task) ? " " : "X");
-            outputString.append("] ");
-            outputString.append(task);
 
-            System.out.print(outputString);
-            return true;
+        for(Task t : taskList)
+        {
+            if(t.name.equals(task))
+            {
+                outputString.append("Task:\n");
+                outputString.append("[");
+                outputString.append(!t.complete ? " " : "X");
+                outputString.append("] ");
+                outputString.append(t.name);
+
+                System.out.print(outputString);
+                return true;
+            }
         }
         System.out.print("Task not found");
         return false;
@@ -53,11 +54,13 @@ public class TodoList {
 
     public boolean removeTask(String task)
     {
-        if(taskList.contains(task))
+        for(Task t : taskList)
         {
-            taskList.remove(task);
-            taskStatus.remove(task);
-            return true;
+            if(t.name.equals(task))
+            {
+                taskList.remove(t);
+                return true;
+            }
         }
         System.out.print("Task not found");
         return false;
@@ -76,11 +79,11 @@ public class TodoList {
         if(!taskList.isEmpty()) {
             StringBuilder outputString = new StringBuilder();
             outputString.append("Your tasks are:\n");
-            for(String task : taskList)  {
+            for(Task task : taskList)  {
                 outputString.append("[");
-                outputString.append(!taskStatus.get(task) ? " " : "X");
+                outputString.append(!task.complete ? " " : "X");
                 outputString.append(("] "));
-                outputString.append(task);
+                outputString.append(task.name);
                 outputString.append("\n");
             }
             System.out.print(outputString);
@@ -92,9 +95,9 @@ public class TodoList {
     public void showAllTasks(boolean complete)  {
         if(!taskList.isEmpty()) {
             int count = 0;
-            for(String task : taskList)
+            for(Task task : taskList)
             {
-                if(taskStatus.get(task) == complete) count++;
+                if(task.complete == complete) count++;
             }
 
             if(count > 0) {
@@ -105,12 +108,12 @@ public class TodoList {
                 outputString.append(complete ? "complete " : "incomplete ");
                 outputString.append("tasks:\n");
 
-                for (String task : taskList) {
-                    if(taskStatus.get(task) == complete) {
+                for (Task task : taskList) {
+                    if(task.complete == complete) {
                         outputString.append("[");
-                        outputString.append(!taskStatus.get(task) ? " " : "X");
+                        outputString.append(!task.complete ? " " : "X");
                         outputString.append(("] "));
-                        outputString.append(task);
+                        outputString.append(task.name);
                         outputString.append("\n");
                     }
                 }
@@ -126,17 +129,17 @@ public class TodoList {
     public void showAllTasksOrdered(boolean ascending)
     {
         if(!taskList.isEmpty()) {
-            ArrayList<String> taskListCopy = taskList;
-            Collections.sort(taskListCopy);
+            ArrayList<Task> taskListCopy = taskList;
+            taskListCopy.sort(Comparator.comparing(Task::getName));
             if(!ascending) Collections.reverse(taskListCopy);
 
             StringBuilder outputString = new StringBuilder();
             outputString.append("Your tasks are:\n");
-            for(String task : taskList)  {
+            for(Task task : taskList)  {
                 outputString.append("[");
-                outputString.append(!taskStatus.get(task) ? " " : "X");
+                outputString.append(!task.complete ? " " : "X");
                 outputString.append(("] "));
-                outputString.append(task);
+                outputString.append(task.name);
                 outputString.append("\n");
             }
             System.out.print(outputString);

@@ -1,14 +1,14 @@
-package com.booleanuk.extension;
+package com.booleanuk.core;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class TodoList {
-    HashMap<String, Boolean> taskStatus;
-    ArrayList<String> taskList;
+public class TodoListExtension {
+    public HashMap<String, Boolean> taskStatus;
+    public ArrayList<String> taskList;
 
-    public TodoList() {
+    public TodoListExtension() {
         taskStatus = new HashMap<>();
         taskList = new ArrayList<>();
     }
