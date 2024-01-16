@@ -12,7 +12,7 @@
 
 | Classes  | Methods                                                 | Member Variables                         | Scenario                                | Outputs / Return Value |
 |----------|---------------------------------------------------------|------------------------------------------|-----------------------------------------|------------------------|
-| Task     | toggleCompletion()                                      | boolean completed                        | Task set to complete                    | True                   |
+| Task     | setCompletion(boolean completed)                        | boolean completed                        | Task set to complete                    | True                   |
 |          |                                                         |                                          | Task set to incomplete                  | False                  |
 |          | toString()                                              | String description<br/>boolean completed | Get Task as a String                    | String                 |
 | TodoList | add(Task task)                                          | ArrayList\<Task> tasks                   | Task added to todolist                  | True                   |

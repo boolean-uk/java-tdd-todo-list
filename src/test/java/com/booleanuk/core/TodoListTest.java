@@ -42,4 +42,12 @@ class TodoListTest {
         Assertions.assertEquals(listWithTasks, todoList.getTasks());
     }
 
+    @Test
+    public void canToggleCompletion() {
+        todoList.add(task1);
+        Assertions.assertFalse(todoList.getTasks().get(0).isCompleted());
+        todoList.getTasks().get(0).setCompleted(true);
+        Assertions.assertTrue(todoList.getTasks().get(0).isCompleted());
+    }
+
 }
