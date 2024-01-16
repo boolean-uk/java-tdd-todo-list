@@ -17,7 +17,7 @@ class TodoListTest {
     @Test
     public void testEmptyTodoList() {
         TodoList list = new TodoList();
-        Assertions.assertEquals("List is empty", list.checkAllTasks());
+        Assertions.assertArrayEquals(new String[]{"List is empty"}, list.checkAllTasks(""));
     }
 
     @Test
@@ -27,8 +27,9 @@ class TodoListTest {
         list.todoList.put("Clean room", "Complete");
         list.todoList.put("Clean kitchen", "Incomplete");
         list.todoList.put("Walk dog", "Complete");
-        Assertions.assertEquals("{Walk dog=Complete, Clean room=Complete, " +
-                "Clean kitchen=Incomplete}", list.checkAllTasks());
+        Assertions.assertArrayEquals(new String[]{"Walk dog: Complete","Clean room: Complete"
+                ,"Clean kitchen: Incomplete"}, list.checkAllTasks(""));
+
     }
 
     @Test
@@ -37,7 +38,7 @@ class TodoListTest {
         String task = "Workout";
         String status = "Incomplete";
         Assertions.assertEquals("Task added", list.addTask(task, status));
-        Assertions.assertEquals("{Workout=Incomplete}", list.checkAllTasks());
+        Assertions.assertArrayEquals(new String[]{"Workout: Incomplete"}, list.checkAllTasks(""));
     }
 
     @Test
@@ -54,9 +55,9 @@ class TodoListTest {
         TodoList list = new TodoList();
         String task = "Workout";
         list.addTask(task, "Complete");
-        Assertions.assertEquals("{Workout=Complete}", list.checkAllTasks());
+        Assertions.assertArrayEquals(new String[]{"Workout: Complete"}, list.checkAllTasks(""));
         Assertions.assertEquals("Task removed", list.removeTask(task));
-        Assertions.assertEquals("List is empty", list.checkAllTasks());
+        Assertions.assertArrayEquals(new String[]{"List is empty"}, list.checkAllTasks(""));
     }
 
     @Test
@@ -65,7 +66,7 @@ class TodoListTest {
         String task = "Workout";
         list.addTask("Go swimming", "Incomplete");
         list.addTask("Eat dinner", "Incomplete");
-        Assertions.assertEquals("{Eat dinner=Incomplete, Go swimming=Incomplete}", list.checkAllTasks());
+        Assertions.assertArrayEquals(new String[]{"Eat dinner: Incomplete","Go swimming: Incomplete"}, list.checkAllTasks(""));
         Assertions.assertEquals("Task does not exist", list.removeTask(task));
     }
 
@@ -135,7 +136,7 @@ class TodoListTest {
         list.addTask("Make food", "Incomplete");
         Assertions.assertArrayEquals(new String[]{"Bathe: Complete", "Get to work: Complete",
                 "Make food: Incomplete", "Sleep: Complete", "Watch TikTok: Complete",
-                "Workout: Incomplete"}, list.sortTodoList("ascending"));
+                "Workout: Incomplete"}, list.checkAllTasks("ascending"));
     }
 
     @Test
@@ -149,6 +150,6 @@ class TodoListTest {
         list.addTask("Make food", "Incomplete");
         Assertions.assertArrayEquals(new String[]{"Workout: Incomplete", "Watch TikTok: Complete",
                 "Sleep: Complete", "Make food: Incomplete", "Get to work: Complete",
-                "Bathe: Complete"}, list.sortTodoList("descending"));
+                "Bathe: Complete"}, list.checkAllTasks("descending"));
     }
 }
