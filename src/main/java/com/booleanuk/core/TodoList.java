@@ -42,10 +42,20 @@ public class TodoList {
                 completeTask.put(key, "Complete");
             }
         }
-
-
         return "Completed tasks: " + completeTask;
     }
+
+    public String viewIncompletedTask() {
+        HashMap<String, String> incompleteTask = new HashMap<>();
+        for (String key : taskList.keySet()) {
+            if (taskList.get(key).equals("Incomplete")){
+                incompleteTask.put(key, "Incomplete");
+            }
+        }
+        return "Incompleted tasks: " + incompleteTask;
+    }
+
+
 
     public static void main(String[] args) {
         TodoList todoList = new TodoList();
