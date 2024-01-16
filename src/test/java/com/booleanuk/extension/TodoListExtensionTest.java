@@ -144,4 +144,13 @@ class TodoListExtensionTest {
 		todo.addTask(task4);
 		Assertions.assertEquals("3: Take a break,\tIncomplete\n0: Code more,\tIncomplete\n1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete", todo.printListDesc());
 	}
+	@Test
+	public void setDescriptionTest(){
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		todo.addTask(task1);
+		Assertions.assertEquals("Code more",task1.description);
+		todo.setDescription(0,"Stop coding");
+		Assertions.assertEquals("Stop coding",task1.description);
+	}
 }
