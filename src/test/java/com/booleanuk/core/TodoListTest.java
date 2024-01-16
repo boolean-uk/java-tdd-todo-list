@@ -70,4 +70,11 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertEquals("Dishes was not found", todoList.removeTask("Dishes"));
     }
+    @Test
+    public void alphaTasksTest(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Dishes");
+        todoList.addTask("Haircut");
+        Assertions.assertEquals("Dishes\nHaircut\n", todoList.alphaTasks("descending"));
+    }
 }
