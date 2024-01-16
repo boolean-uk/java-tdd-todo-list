@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class TodoList {
     private ArrayList<Task> tasks;
@@ -37,6 +39,15 @@ public class TodoList {
             if (task.isCompleted() == completion) {
                 tmpArray.add(task);
             }
+        }
+        return tmpArray;
+    }
+
+    public ArrayList<Task> getAlphabeticalTasks(boolean ascending) {
+        ArrayList<Task> tmpArray = tasks;
+        tmpArray.sort(Comparator.comparing(Task::getDescription));
+        if (!ascending) {
+            Collections.reverse(tmpArray);
         }
         return tmpArray;
     }
