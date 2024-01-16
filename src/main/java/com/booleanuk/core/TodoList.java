@@ -13,6 +13,10 @@ public class TodoList {
         return tasks.add(task);
     }
 
+    public boolean remove(Task task) {
+        return tasks.remove(task);
+    }
+
     public Task getTask(String description) {
         for (Task task : tasks) {
             // Only exact match
