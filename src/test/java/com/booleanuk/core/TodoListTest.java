@@ -43,4 +43,14 @@ class TodoListTest {
 		Assertions.assertFalse(task2.completed);
 
 	}
+	@Test
+	public void printListCompletedTest(){
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		Task task2 = new Task("Code even more");
+		Task task3 = new Task("Code a bit less");
+		Assertions.assertEquals("",todo.printListCompleted());
+		task1.setCompleted(true);
+		Assertions.assertEquals("0: Code more,\tComplete",todo.printListCompleted());
+	}
 }

@@ -5,21 +5,25 @@ import java.util.HashMap;
 
 public class TodoList {
 	HashMap<Integer, Task> list;
-	int currId =0;
+	int currId = 0;
 
 	public TodoList() {
-	list = new HashMap<>();
+		list = new HashMap<>();
 	}
-	public void addTask(Task task){
-		list.put(currId,task);
+
+	public void addTask(Task task) {
+		list.put(currId, task);
 		currId++;
 	}
-	public String printList(){
+
+	public String printList() {
 		StringBuilder sb = new StringBuilder();
-		list.forEach((key,value)->{
-			sb.append(key+": "+value+"\n");
+		list.forEach((key, value) -> {
+			sb.append(key + ": " + value + "\n");
 		});
-		sb.deleteCharAt(sb.length()-1);
+		if (sb.length() != 0) {
+			sb.deleteCharAt(sb.length() - 1);
+		}
 		return sb.toString();
 	}
 }
