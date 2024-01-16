@@ -110,4 +110,15 @@ class TodoListTest {
         list.addTask("Make food", "Incomplete");
         Assertions.assertArrayEquals(new String[]{"Sleep","Get to work", "Watch TikTok"}, list.getCompleteOrIncomplete(status));
     }
+    @Test
+    public void testGetIncompleted(){
+        TodoList list = new TodoList();
+        String status = "Incomplete";
+        list.addTask("Workout", "Incomplete");
+        list.addTask("Sleep", "Complete");
+        list.addTask("Get to work", "Complete");
+        list.addTask("Watch TikTok", "Complete");
+        list.addTask("Make food", "Incomplete");
+        Assertions.assertArrayEquals(new String[]{"Workout","Make food"}, list.getCompleteOrIncomplete(status));
+    }
 }
