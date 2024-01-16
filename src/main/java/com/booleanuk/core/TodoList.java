@@ -62,6 +62,17 @@ public class TodoList {
         return incompletedTasks;
     }
 
+    public String searchTasks(String task) {
+        String message = "Not Found";
+
+        for ( String listTask: toDoList) {
+            if (task.equals(listTask)) {
+                message = "Found";
+            }
+        }
+        return message;
+    }
+
 
 
 }
