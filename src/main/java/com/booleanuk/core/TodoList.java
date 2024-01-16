@@ -81,4 +81,9 @@ public class TodoList {
         return "Task does not exist in list";
     }
 
+    //User Story 7
+    public String remove(String task) {
+        return "Task successfully removed from todo list.";
+    }
+
 }

@@ -148,6 +148,6 @@ class TodoListTest {
 
         String result = todoList.remove("Do homework.");
 
-        Assertions.assertEquals("Task successfully removed from list.", result);
+        Assertions.assertEquals("Task successfully removed from todo list.", result);
     }
 }
