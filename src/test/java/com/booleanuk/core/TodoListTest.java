@@ -37,6 +37,9 @@ class TodoListTest {
     public void testSetStatus() {
         TodoList lst = new TodoList();
         Task task = new Task("CV");
+        Assertions.assertFalse(task.status);
+
+        task.setStatus(true);
         Assertions.assertTrue(task.status);
     }
 }
