@@ -1,10 +1,13 @@
 package com.booleanuk.core;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class TodoList {
 
     public HashMap<String, String> list;
+    public HashMap<String, String> listComplete;
+
     public String defaultStatus = "Incomplete";
 //    public String displayText = list.keySet().toString();
 
@@ -39,4 +42,17 @@ public class TodoList {
     public void statusIncomplete(String key) {
         this.list.put(key, "Incomplete");
     }
+
+    public String displayCompleteTodo() {
+        this.listComplete = new HashMap<>();
+
+        for (String task : this.list.keySet())
+            if (this.list.get(task).equals("Complete")) {
+                listComplete.put(task, "Complete");
+
+            }
+        return this.listComplete.keySet().toString();
+    }
+
+
 }
