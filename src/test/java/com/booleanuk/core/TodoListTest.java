@@ -77,4 +77,13 @@ class TodoListTest {
 
     }
 
+    @Test
+    public void testChangeTaskToCompleteOrIncomplete() {
+        TodoList todoList = new TodoList();
+
+        todoList.changeTaskToCompleteOrIncomplete("Task1");
+
+
+
+    }
 }

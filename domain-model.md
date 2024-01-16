@@ -31,4 +31,11 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 |                                   |                                    |                              |                                   |
 
 
+## 3
+
+| Class Variables                   | Methods                                       | Scenarios                           | Output/Return |
+|-----------------------------------|-----------------------------------------------|-------------------------------------|---------------|
+| Map<Map<String, Boolean> todoList | changeTaskToCompleteOrIncomplete(String task) | Changes task value to true or false | void          |
+|                                   |                                               |                                     |               |
+|                                   |                                               |                                     |               |
 
