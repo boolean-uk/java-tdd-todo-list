@@ -48,4 +48,14 @@ public class TodoList {
         }
     }
 
+    public boolean changeTaskStatus(String task)   {
+        if(taskList.contains(task))
+        {
+            taskStatus.put(task, !taskStatus.get(task));
+            return true;
+        }   else {
+            System.out.println("Task not in list");
+            return false;
+        }
+    }
 }
