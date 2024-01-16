@@ -10,4 +10,12 @@ class TodoListTest {
         Assertions.assertEquals("Hello", hello);
         Assertions.assertNotEquals("Goodbye", hello);
     }
+
+    @Test
+    public void testAddingTask(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        Assertions.assertTrue(todoList.list.containsKey("Wash clothes"));
+
+    }
 }
