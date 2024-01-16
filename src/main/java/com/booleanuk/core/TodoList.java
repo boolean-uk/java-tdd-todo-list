@@ -28,6 +28,15 @@ public class TodoList {
         }
         return incompleteList.size();
     }
+    public int getCompletedTasks(){
+        ArrayList<Task> completedList = new ArrayList<>();
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).isCompleted){
+                completedList.add(this.list.get(i));
+            }
+        }
+        return completedList.size();
+    }
 
 
     public boolean changeTaskStatus(String task){
@@ -36,7 +45,6 @@ public class TodoList {
         }
         for (Task value : this.list) {
             if (Objects.equals(value.description, task)) {
-                System.out.println("CHANGING isCompleted FROM TRUE TO FALSE");
                 value.isCompleted = true;
                 return true;
             }
