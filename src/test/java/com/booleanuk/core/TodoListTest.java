@@ -262,4 +262,29 @@ class TodoListTest {
         Assertions.assertFalse(todoList.getTask("Paint the Mona Lisa"));
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testRemoveTaskExists()
+    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        Assertions.assertTrue(todoList.removeTask("Do laundry"));
+        String expectedOutput = "Task not found";
+
+        todoList.getTask("Do laundry");
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testRemoveTaskNotExists()
+    {
+        TodoList todoList = new TodoList();
+
+        Assertions.assertFalse(todoList.removeTask("Do laundry"));
+    }
 }
