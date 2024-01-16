@@ -15,7 +15,7 @@ public class TodoList {
         return task+ " added to TodoList";
     }
 
-    public String remove(){
+    public String remove(String task){
         return "";
     }
 

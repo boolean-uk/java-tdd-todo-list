@@ -18,4 +18,13 @@ class TodoListTest {
         Assertions.assertTrue(todoList.list.containsKey("Wash clothes"));
 
     }
+
+    @Test
+    public void testRemovingTask(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        Assertions.assertTrue(todoList.list.containsKey("Wash clothes"));
+        todoList.remove("Wash clothes");
+        Assertions.assertFalse(todoList.list.containsKey("Wash clothes"));
+    }
 }
