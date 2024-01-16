@@ -45,8 +45,16 @@ class TodoListTest {
 
         Assertions.assertEquals(task2+ " " + "Complete", todoList.updateTask(task2));
         Assertions.assertEquals("Speak Incomplete", todoList.updateTask("Speak"));
+    }
 
+    @Test
+    public void testViewCompletedTask() {
+        TodoList todoList = new TodoList();
+        String task = "Wash";
+        todoList.add(task);
+        String task2 = "Eat";
+        todoList.add(task2);
 
-
+        Assertions.assertEquals("Task:{Speak=Complete, Drink=Complete}", todoList.viewCompletedTask());
     }
 }
