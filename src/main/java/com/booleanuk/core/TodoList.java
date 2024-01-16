@@ -83,4 +83,19 @@ public class TodoList {
 		}
 		return sb.toString();
 	}
+	public String printListDesc(){
+		TaskComparator taskComp = new TaskComparator();
+		StringBuilder sb = new StringBuilder();
+		Collection<Task> values = list.values();
+		List<Task> valueList = new ArrayList<>(values);
+		valueList.sort(taskComp);
+		Collections.reverse(valueList);
+		for(Task task :valueList){
+			sb.append(task+"\n");
+		}
+		if (!sb.isEmpty()) {
+			sb.deleteCharAt(sb.length() - 1);
+		}
+		return sb.toString();
+	}
 }
