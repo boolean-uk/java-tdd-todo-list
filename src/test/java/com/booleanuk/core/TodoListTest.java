@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import com.sun.tools.javac.Main;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -12,9 +13,9 @@ class TodoListTest {
     }
     @Test
     public void testAddTaskToList() {
-        Main main = new Main();
-        main.add("clean");
-        Assertions.assertEquals("clean",main.toDoList.Contain("clean"));
+        TodoList list = new TodoList();
+        list.addTask("clean");
+        Assertions.assertTrue(list.toDoList.containsKey("clean"));
 
     }
 }
