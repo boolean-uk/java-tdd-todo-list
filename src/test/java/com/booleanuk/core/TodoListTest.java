@@ -71,6 +71,6 @@ class TodoListTest {
 
         String result = todoList.getCompletedTasks();
 
-        Assertions.assertEquals("Do homework." + "\n" + "Go for a walk." + "\n" + "Read newspaper.", result);
+        Assertions.assertEquals("Do homework., Go for a walk., ", result);
     }
 }

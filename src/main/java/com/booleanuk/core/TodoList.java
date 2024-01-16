@@ -49,7 +49,16 @@ public class TodoList {
 
     //User Story 4
     public String getCompletedTasks() {
-        return "Do homework." + "\n" + "Go for a walk." + "\n" + "Read newspaper.";
+
+        String completedTask = "";
+        String getStatus;
+        for(String task : this.taskMap.keySet()) {
+            getStatus = this.taskMap.get(task);
+            if("Complete.".equals(getStatus)) {
+                completedTask = completedTask + task + ", ";
+            }
+        }
+        return completedTask.toString();
     }
 
 }
