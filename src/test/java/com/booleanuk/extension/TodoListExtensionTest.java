@@ -69,6 +69,12 @@ public class TodoListExtensionTest {
     }
 
     @Test
+    public void testChangeStatusNoneExistingId() {
+        TodoListExtension todoList = new TodoListExtension();
+        Assertions.assertFalse(todoList.setTaskStatus("1"));
+    }
+
+    @Test
     public void testChangeStatusTwice() {
         TodoListExtension todoList = new TodoListExtension();
         todoList.todos.add(new Task("1","Work"));
