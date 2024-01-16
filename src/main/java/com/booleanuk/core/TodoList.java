@@ -17,6 +17,16 @@ public class TodoList {
         return tasks;
     }
 
+    public ArrayList<Task> getTasks(boolean completion) {
+        ArrayList<Task> tmpArray = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.isCompleted() == completion) {
+                tmpArray.add(task);
+            }
+        }
+        return tmpArray;
+    }
+
     public void clear() {
         this.tasks.clear();
     }
