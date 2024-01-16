@@ -18,4 +18,13 @@ class TodoListTest {
         boolean result = toDo.addTask("Clean");
         Assertions.assertTrue(result);
     }
+
+    @Test
+    public void addTaskTestReturnFalse() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.addTask("Clean");
+        Assertions.assertFalse(result);
+    }
+
 }
