@@ -462,4 +462,15 @@ class TodoListExtensionTest {
         todoListExtension.showDateAndTime();
         Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testSeeDatesOfTasksNoTasks()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
+
+        String expectedString = "No tasks to display, todo list is empty";
+
+        todoListExtension.showDateAndTime();
+        Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
+    }
 }

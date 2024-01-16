@@ -17,9 +17,7 @@ public class TodoListExtension {
         Task newTask = new Task(task, this.lastID);
         this.lastID += 1;
         taskList.add(newTask);
-        if(taskList.contains(newTask))
-            return true;
-        else return false;
+        return taskList.contains(newTask);
     }
 
     public void changeTaskName(int ID, String name)
