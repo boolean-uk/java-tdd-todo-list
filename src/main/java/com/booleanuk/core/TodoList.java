@@ -1,5 +1,7 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class TodoList {
@@ -80,5 +82,21 @@ public class TodoList {
         }
         this.todos.remove(todo);
         return true;
+    }
+
+    public String getOrderedAscending() {
+        if (this.todos.isEmpty()) return "No tasks in list";
+        ArrayList<String> todos = new ArrayList<>(this.todos.keySet());
+        Collections.sort(todos);
+        String todoString = "";
+        for(String todo: todos) {
+            todoString = todoString.concat(todo+": ");
+            if (this.todos.get(todo)) {
+                todoString = todoString.concat("complete\n");
+            } else {
+                todoString = todoString.concat("incomplete\n");
+            }
+        }
+        return todoString.substring(0, todoString.length()-1);
     }
 }

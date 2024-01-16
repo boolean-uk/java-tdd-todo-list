@@ -213,7 +213,7 @@ class TodoListTest {
         todoList.todos.put("Work", true);
         todoList.todos.put("Code", false);
         todoList.todos.put("Walk", false);
-        Assertions.assertEquals("Code: incomplete\nExercise: complete\nWalk: incomplete: Work: complete",todoList.getOrderedAscending());
+        Assertions.assertEquals("Code: incomplete\nExercise: complete\nWalk: incomplete\nWork: complete",todoList.getOrderedAscending());
     }
 
     @Test
