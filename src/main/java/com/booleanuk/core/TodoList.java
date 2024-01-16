@@ -33,4 +33,9 @@ public class TodoList {
         }
 
     }
+
+    public Map<String, Boolean> getCompleteOrIncompleteTasks(String complete) {
+
+        return new HashMap<>();
+    }
 }
