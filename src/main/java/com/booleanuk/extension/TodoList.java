@@ -157,4 +157,7 @@ public class TodoList {
         }
         return "Task does not exist";
     }
+    public boolean updateTaskById(int id, String name){
+        return false;
+    }
 }

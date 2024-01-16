@@ -15,4 +15,12 @@ public class TodoListTest {
         Assertions.assertEquals("Bowling, Not completed", tl.getTaskById(2));
 
     }
+
+    /* test user story 11 */
+    @Test
+    public void testUpdateTaskById(){
+        TodoList tl = new TodoList();
+        tl.addTask(new Task("Shopping"));
+        Assertions.assertTrue(tl.updateTaskById(1, "Dinner"));
+    }
 }
