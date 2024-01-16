@@ -36,13 +36,6 @@ class TodoListTest {
         Assertions.assertEquals("incomplete", todoList.taskList.get("Task1"));
     }
     @Test
-    public void testCompletedTask(){
-        TodoList todoList = new TodoList();
-        todoList.addTask("Task1", "complete");
-        todoList.addTask("Task2", "complete");
-
-    }
-    @Test
     public void removingTaskReturnTrue(){
         TodoList todoList = new TodoList();
         todoList.addTask("Task1", "incomplete");
@@ -60,6 +53,19 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         todoList.addTask("Task1", "incomplete");
         Assertions.assertEquals("incomplete", todoList.searchTask("Task1"));
+    }
+    @Test
+    public void getTaskAscendingOrder(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Fork daily assignment", "incomplete");
+        todoList.addTask("Create a todo app", "incomplete");
+        todoList.addTask("Watch video on JUnit", "incomplete");
+        ArrayList<String> todoToday = todoList.getTaskAscending();
+        Assertions.assertEquals("Create a todo app", todoToday.get(0));
+        Assertions.assertEquals("Fork daily assignment", todoToday.get(1));
+        Assertions.assertEquals("Watch video on JUnit", todoToday.get(2));
+
+
     }
 
 }
