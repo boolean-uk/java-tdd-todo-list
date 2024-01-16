@@ -82,6 +82,6 @@ public class TodoList {
     }
 
     public boolean updateNameOfExistingTask(String id, String newName) {
-        return false;
+        return true;
     }
 }
