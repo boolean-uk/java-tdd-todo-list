@@ -62,6 +62,17 @@ public class TodoListExtension {
         return null;
     }
 
+    public String updateTaskByID(int num, String update){
+        for (int i = 0; i < this.list.size(); i++) {
+            if(this.list.get(i).id == num){
+                this.list.get(i).description = update;
+                return this.list.get(i).description;
+            }
+        }
+        System.out.println("No Task found");
+        return null;
+    }
+
 
     public boolean removeTask(String task){
         for (int i = 0; i < this.list.size(); i++) {
