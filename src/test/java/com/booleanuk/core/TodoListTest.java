@@ -54,4 +54,13 @@ class TodoListTest {
         Assertions.assertFalse(result);
     }
 
+    // Print Completed Tasks
+    @Test
+    public void displayCompletedTasksTestReturnTrue() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.taskStatus("Clean", true);
+        result = toDo.displayCompletedTasks();
+        Assertions.assertTrue(result);
+    }
 }

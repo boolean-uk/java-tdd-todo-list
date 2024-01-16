@@ -11,4 +11,19 @@
 |                                 | taskStatus(String Task, | Task status updated         | task status |
 |                                 | boolean status) (true = | Task was not found          | false       |
 |                                 | complete)               |                             |             |
+|                                 |                         |                             |             |
+|                                 | displayCompletedTasks() | Iterate through and print   |             |
+|                                 |                         | completed tasks             |             |
+|                                 |                         | If completed list printed   | true        |
+|                                 |                         | If no completed tasks       | false       |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
+|                                 |                         |                             |             |
 
