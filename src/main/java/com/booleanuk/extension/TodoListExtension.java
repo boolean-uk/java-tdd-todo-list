@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class TodoList {
+public class TodoListExtension {
     public static class Task{
         public String description;
         public boolean isCompleted;
@@ -20,7 +20,7 @@ public class TodoList {
     }
     ArrayList<Task> list;
 
-    public TodoList(){
+    public TodoListExtension(){
         this.list = new ArrayList<>();
     }
 
@@ -119,7 +119,7 @@ public class TodoList {
     }
 
     public static void main(String[] args) {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.add("Wash car");
         todo.add("Make food");
