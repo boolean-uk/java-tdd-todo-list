@@ -1,26 +1,26 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class TodoList {
+public class TodoListExtension {
 
-    public ArrayList<Task> tasks;
+    public ArrayList<TaskExtension> tasks;
 
-    public TodoList() {
+    public TodoListExtension() {
         this.tasks = new ArrayList<>();
     }
 
-    public Task addTask(String name) {
-        Task task = new Task(name);
+    public TaskExtension addTask(String name) {
+        TaskExtension task = new TaskExtension(name);
         this.tasks.add(task);
         return task;
     }
 
-    public String showTasks(ArrayList<Task> tasksToPrint) {
+    public String showTasks(ArrayList<TaskExtension> tasksToPrint) {
         StringBuilder tasksString = new StringBuilder("Name\t\t\t\tStatus\n");
-        for(Task task : tasksToPrint) {
+        for(TaskExtension task : tasksToPrint) {
             tasksString.append(task.getName()).append("\t\t\t\t");
             if(task.getStatus()) {
                 tasksString.append("Complete\n");
@@ -33,8 +33,8 @@ public class TodoList {
     }
 
     public String showCompleteTasks() {
-        ArrayList<Task> tasksToPrint = new ArrayList<>();
-        for(Task task : this.tasks) {
+        ArrayList<TaskExtension> tasksToPrint = new ArrayList<>();
+        for(TaskExtension task : this.tasks) {
             if(task.getStatus()) {
                 tasksToPrint.add(task);
             }
@@ -43,8 +43,8 @@ public class TodoList {
     }
 
     public String showIncompleteTasks() {
-        ArrayList<Task> tasksToPrint = new ArrayList<>();
-        for(Task task : this.tasks) {
+        ArrayList<TaskExtension> tasksToPrint = new ArrayList<>();
+        for(TaskExtension task : this.tasks) {
             if(!task.getStatus()) {
                 tasksToPrint.add(task);
             }
@@ -53,7 +53,7 @@ public class TodoList {
     }
 
     public String search(String name) {
-        for(Task task : this.tasks) {
+        for(TaskExtension task : this.tasks) {
             if(task.getName().equals(name)) {
                 return name + " was found";
             }
@@ -62,7 +62,7 @@ public class TodoList {
     }
 
     public boolean delete(String name) {
-        for(Task task : this.tasks) {
+        for(TaskExtension task : this.tasks) {
             if(task.getName().equals(name)) {
                 this.tasks.remove(task);
                 return true;
@@ -71,10 +71,10 @@ public class TodoList {
         return false;
     }
 
-    public ArrayList<Task> orderTasksAsc() {
-        this.tasks.sort(new Comparator<Task>() {
+    public ArrayList<TaskExtension> orderTasksAsc() {
+        this.tasks.sort(new Comparator<TaskExtension>() {
             @Override
-            public int compare(Task t1, Task t2) {
+            public int compare(TaskExtension t1, TaskExtension t2) {
                 return t1.getName().toLowerCase().compareTo(t2.getName().toLowerCase());
             }
 
@@ -82,8 +82,36 @@ public class TodoList {
         return this.tasks;
     }
 
-    public ArrayList<Task> orderTasksDesc() {
+    public ArrayList<TaskExtension> orderTasksDesc() {
         Collections.reverse(orderTasksAsc());
         return this.tasks;
+    }
+
+    public TaskExtension searchById(int id) {
+        for (TaskExtension task : this.tasks) {
+            if (task.getId() == id) {
+                return task;
+            }
+        }
+        return null;
+    }
+
+    public boolean setNameById(int id, String newName) {
+        TaskExtension task = searchById(id);
+        if (task != null) {
+            task.setName(newName);
+            return true;
+        }
+        return false;
+    }
+
+
+    public boolean setStatusById(int id, boolean newStatus) {
+        TaskExtension task = searchById(id);
+        if(task != null) {
+            task.setStatus(newStatus);
+            return true;
+        }
+        return false;
     }
 }
