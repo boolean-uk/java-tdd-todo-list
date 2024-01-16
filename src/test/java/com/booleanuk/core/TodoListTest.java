@@ -169,7 +169,6 @@ class TodoListTest {
 
         Assertions.assertEquals( new ArrayList<String>(Arrays.asList("TaskA", "TaskB", "TaskC")), ascendedList);
 
-
     }
 
 }

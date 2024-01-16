@@ -73,3 +73,50 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 | Map<String, Boolean> todoList | printTasksFromTodolist(String AscOrDesc) | prints sorted list according to Asc or Desc | void                           |
 |                               | Map<String, Boolean> getTodoList()       | Gets the todoList                           | Map<String, boolean> todolist  |
 |   
+
+
+
+Extensions
+``
+I want to be able to get a task by a unique ID.
+I want to update the name of a task by providing its ID and a new name.
+I want to be able to change the status of a task by providing its ID.
+I want to be able to see the date and time that I created each task.
+``
+## 1
+
+| Class Variables            | Methods            | Scenarios           | Output/Return |
+|----------------------------|--------------------|---------------------|---------------|
+| Map<Integer,Task> todoList | Task getTaskById() | Gets the task by id | Task          |
+|                            |                    |                     |               |
+
+
+## 2
+
+| Class Variables            | Methods                         | Scenarios                     | Output/Return |
+|----------------------------|---------------------------------|-------------------------------|---------------|
+| Map<Integer,Task> todoList | updateTask(int id, String name) | Changes task name by using id | void          |
+|                            |                                 |                               |               |
+
+
+
+## 3
+
+| Class Variables            | Methods                          | Scenarios                                  | Output/Return |
+|----------------------------|----------------------------------|--------------------------------------------|---------------|
+| Map<Integer,Task> todoList | changeTaskCompleteOrIncomplete() | Changes complete or incomplete by using id | void          |
+|                            |                                  |                                            |               |
+
+
+## 4
+
+Class Task 
+
+| Class Variables | Methods     | Scenarios                   | Output/Return  |
+|-----------------|-------------|-----------------------------|----------------|
+| Date date       | getDate()   | Gets the task by id         | Task           |
+| boolean status  | getStatus() | Gets the status of the Task | Boolean status |
+|                 | setStatus() | Sets status of the Task     | void           |
+|                 |             |                             |                |
+
+
