@@ -5,9 +5,47 @@ import org.junit.jupiter.api.Test;
 
 class TodoListTest {
     @Test
-    public void exampleTest() {
-        String hello = "Hello";
-        Assertions.assertEquals("Hello", hello);
-        Assertions.assertNotEquals("Goodbye", hello);
+    public void testAdd(){
+
+    }
+
+    @Test
+    public void testShowTasks(){
+
+    }
+
+    @Test
+    public void testTaskStatus(){
+
+    }
+
+    @Test
+    public void testComplete(){
+
+    }
+
+    @Test
+    public void testIncomplete(){
+
+    }
+
+    @Test
+    public void testSearch(){
+
+    }
+
+    @Test
+    public void testRemove(){
+
+    }
+
+    @Test
+    public void testAscending(){
+
+    }
+
+    @Test
+    public void testDescending(){
+
     }
 }
