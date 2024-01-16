@@ -365,4 +365,33 @@ class TodoListExtensionExtensionTest {
 
         Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testGetTaskExistsByID()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
+
+        todoListExtension.addTask("Eat yoghurt");
+        todoListExtension.addTask("Paint the Mona Lisa");
+        todoListExtension.addTask("Do laundry");
+        todoListExtension.addTask("Talk to janitor");
+
+        String expectedOutput = """
+                Task:
+                [X] Paint the Mona Lisa""";
+
+        Assertions.assertTrue(todoListExtension.getTask(1));
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testGetTaskExistsByIDNotExists()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
+
+        String expectedOutput = "Task not found";
+
+        Assertions.assertTrue(todoListExtension.getTask(1));
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
 }
