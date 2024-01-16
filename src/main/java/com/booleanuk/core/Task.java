@@ -14,6 +14,14 @@ public class Task {
         this.complete = false;
     }
 
+    public void setComplete() {
+        complete = true;
+    }
+
+    public void setIncomplete() {
+        complete = false;
+    }
+
 
 
 }

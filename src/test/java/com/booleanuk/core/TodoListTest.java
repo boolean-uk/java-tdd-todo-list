@@ -153,7 +153,6 @@ class TodoListTest {
             Assertions.assertEquals(listOfTasks.get(i).name, sortedTodoList.get(i).name);
             Assertions.assertEquals(listOfTasks.get(i).complete, sortedTodoList.get(i).complete);
         }
-
     }
 
 }
