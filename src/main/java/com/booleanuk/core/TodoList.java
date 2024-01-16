@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class TodoList {
 
@@ -24,7 +25,12 @@ public class TodoList {
     }
 
     public String show(){
-        return "";
+        String str="";
+        for (Map.Entry<String, String> entry : list.entrySet()) {
+            System.out.println(entry.getKey()+" : "+entry.getValue());
+            str += entry.getKey()+ " : "+ entry.getValue() + "\n";
+        }
+        return str;
     }
 
     public String status(){

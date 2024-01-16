@@ -37,7 +37,7 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         todoList.add("Wash clothes");
         todoList.add("Wash");
-        String expected="Wash : Incomplete\nWash clothes : Incomplete";
+        String expected="Wash : Incomplete\nWash clothes : Incomplete\n";
 
 
         Assertions.assertEquals(expected,todoList.show());
