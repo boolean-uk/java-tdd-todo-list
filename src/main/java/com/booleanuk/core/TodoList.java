@@ -88,6 +88,13 @@ public class TodoList {
         return alphabetizedList;
     }
 
+    public ArrayList<String> alphabetizeDown() {
+        ArrayList<String> alphabetizedList = toDoList;
+        Collections.sort(alphabetizedList);
+        Collections.reverse(alphabetizedList);
+        return alphabetizedList;
+    }
+
 
 
 
