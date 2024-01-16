@@ -48,4 +48,10 @@ class TodoListTest {
         todoList.addTask("Haircut");
         Assertions.assertEquals("Haircut\nDishes\n", todoList.seeStatus(false));
     }
+    @Test
+    public void getTaskTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("Dishes");
+        Assertions.assertEquals("Dishes=false", todoList.getTask("Dishes"));
+    }
 }
