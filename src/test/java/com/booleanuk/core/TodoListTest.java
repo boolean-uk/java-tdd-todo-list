@@ -86,4 +86,20 @@ class TodoListTest {
             Assertions.assertEquals(listOfTasks.get(i).complete, incompleteTasks.get(i).complete);
         }
     }
+
+    @Test
+    public void searchTasksTest() {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask(new Task("Do laundry", false));
+        todoList.addTask(new Task("Walk dog", true));
+        todoList.addTask(new Task("Clean Kitchen"));
+        todoList.addTask(new Task("Turn on washing machine", true));
+
+        Task task = new Task("Walk dog", true);
+        Assertions.assertEquals(task.name, todoList.searchTasks("Walk dog").name);
+        Assertions.assertEquals(task.complete, todoList.searchTasks("Walk dog").complete);
+
+    }
+
 }
