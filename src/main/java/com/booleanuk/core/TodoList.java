@@ -58,6 +58,10 @@ public class TodoList {
     }
 
     public boolean remove(String task) {
+        if(!tasks.containsKey(task)) {
+            return false;
+        }
+        tasks.remove(task);
         return true;
     }
 }
