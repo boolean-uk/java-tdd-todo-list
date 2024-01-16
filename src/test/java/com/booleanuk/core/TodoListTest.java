@@ -98,4 +98,16 @@ class TodoListTest {
         Assertions.assertEquals("Status changed", list.changeTaskStatus(task,status));
         Assertions.assertEquals("Workout: Complete", list.checkOneTask("Workout"));
     }
+
+    @Test
+    public void testGetComplete(){
+        TodoList list = new TodoList();
+        String status = "Complete";
+        list.addTask("Workout", "Incomplete");
+        list.addTask("Sleep", status);
+        list.addTask("Get to work", status);
+        list.addTask("Watch TikTok", status);
+        list.addTask("Make food", "Incomplete");
+        Assertions.assertEquals("[Sleep, Get to work, Watch TikTok]", list.GetCompleteOrIncomplete(status));
+    }
 }

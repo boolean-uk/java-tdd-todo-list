@@ -37,5 +37,10 @@
 |          |                        |                          |                                 |                              |
 |          |                        | boolean                  | Checks if a task is in the list | returns true if it exists    |
 |          |                        | isTaskInList()           |                                 | returns false if it does not |
+|          |                        |                          |                                 |                              |
+|          |                        | String []                | User wants to see all complete  | returns String [] containing |
+|          |                        | getCompleteOrIncomplete  | or incomplete tasks             | all wanted tasks             |
+|          |                        | (String status)          |                                 |                              |
+|          |                        |                          |                                 |                              |
 
 
