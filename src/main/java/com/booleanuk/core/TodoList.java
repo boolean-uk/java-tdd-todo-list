@@ -26,8 +26,8 @@ public class TodoList {
         return new ArrayList<>();
     }
 
-    public boolean getTask(String name) {
-        return false;
+    public String getTask(String name) {
+        return "";
     }
 
     public String remove(){

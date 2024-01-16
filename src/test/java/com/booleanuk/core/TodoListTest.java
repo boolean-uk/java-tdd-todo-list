@@ -6,8 +6,10 @@ import org.junit.jupiter.api.Test;
 class TodoListTest {
     @Test
     public void testAdd() {
-        String hello = "Hello";
-        Assertions.assertEquals("Hello", hello);
-        Assertions.assertNotEquals("Goodbye", hello);
+        TodoList todolist = new TodoList();
+
+        todolist.add("Do laundry");
+        Assertions.assertEquals("Do laundry", todolist.getTask("Do laundry"));
+        Assertions.assertEquals("Task already in list", todolist.add("Do laundry"));
     }
 }
