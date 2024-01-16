@@ -49,10 +49,14 @@ public class TodoList {
 
     }
 
-    public ArrayList<String> getTaskAscending (){
+    public ArrayList<String> getTaskAscending(){
         ArrayList<String> taskListKey = new ArrayList<>(taskList.keySet());
         Collections.sort(taskListKey);
         return taskListKey;
+    }
+
+    public ArrayList<String> getTaskDescending() {
+
     }
     public static void main(String[] arg){
         TodoList object = new TodoList();

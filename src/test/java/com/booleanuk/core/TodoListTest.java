@@ -67,5 +67,17 @@ class TodoListTest {
 
 
     }
+    @Test
+    public void getTaskDescendingOrder(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Fork daily assignment", "incomplete");
+        todoList.addTask("Create a todo app", "incomplete");
+        todoList.addTask("Watch video on JUnit", "incomplete");
+        ArrayList<String> todoToday = todoList.getTaskDescending();
+        Assertions.assertEquals("Watch video on JUnit", todoToday.get(0));
+        Assertions.assertEquals("Fork daily assignment", todoToday.get(1));
+        Assertions.assertEquals("Create a todo app", todoToday.get(2));
+
+    }
 
 }
