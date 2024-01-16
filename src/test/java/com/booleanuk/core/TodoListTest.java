@@ -18,7 +18,7 @@ class TodoListTest {
     }
 
     @Test
-    public void testListAllTasks(){
+    public void testListTasks(){
         TodoList todo = new TodoList();
         todo.add("Need to wash my hands");
         todo.add("Wash car");
