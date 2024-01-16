@@ -56,4 +56,16 @@ class TodoListTest {
 
         Assertions.assertTrue(result.todoList.get("Train for 60 minutes"));
     }
+
+    @Test
+    public void markTestAsIncomplete() {
+        TodoList result = new TodoList();
+
+        result.addTask("Train for 60 minutes");
+        result.changeTaskStatus("Train for 60 minutes");
+
+        Assertions.assertEquals("Task has been marked as incomplete.", result.changeTaskStatus("Train for 60 minutes"));
+
+        Assertions.assertFalse(result.todoList.get("Train for 60 minutes"));
+    }
 }
