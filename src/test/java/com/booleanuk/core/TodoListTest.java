@@ -119,4 +119,15 @@ class TodoListTest {
 
         Assertions.assertTrue(result.doesTaskExist("Train for 60 minutes"));
     }
+
+    @Test
+    public void doesTaskExistReturnFalse() {
+        TodoList result = new TodoList();
+
+        result.addTask("Do the dishes");
+        result.addTask("Clean the bathroom");
+        result.addTask("Cook dinner");
+
+        Assertions.assertTrue(result.doesTaskExist("Train for 60 minutes"));
+    }
 }
