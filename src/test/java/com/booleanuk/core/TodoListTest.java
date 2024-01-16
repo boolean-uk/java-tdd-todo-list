@@ -7,7 +7,9 @@ class TodoListTest {
     @Test
     public void TestAdd() {
         TodoList lst = new TodoList();
-        Assertions.assertEquals(true, lst.addTask());
-        Assertions.assertNotEquals("Goodbye", hello);
+        Task task = new Task("CV");
+        
+        Assertions.assertEquals(true, lst.addTask(task));
+        Assertions.assertTrue(lst.addTask(new Task("Sleep")));
     }
 }
