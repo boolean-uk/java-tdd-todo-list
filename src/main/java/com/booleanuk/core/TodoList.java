@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TodoList {
@@ -28,6 +29,16 @@ public class TodoList {
         }
         this.todoList.replace(task, true);
         return "Task has been marked as complete.";
+    }
+
+    public ArrayList<String> getCompletedTasks() {
+        ArrayList<String> completedTasks = new ArrayList<>();
+        for (String task : this.todoList.keySet()) {
+            if (this.todoList.get(task)) {
+                completedTasks.add(task);
+            }
+        }
+        return completedTasks;
     }
 
     public static void main(String[] args) {
