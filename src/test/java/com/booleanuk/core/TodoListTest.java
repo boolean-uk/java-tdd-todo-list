@@ -143,8 +143,20 @@ class TodoListTest {
         Assertions.assertTrue(todoList.checkTask("Task1"));
 
         todoList.removeTask("Task1");
+        todoList.removeTask("Task28");
 
         Assertions.assertFalse(todoList.checkTask("Task1"));
+
+    }
+
+    @Test
+    public void printSorted() {
+        TodoList todoList = new TodoList();
+
+        todoList.printTasksFromTodolist("Asc");
+
+
+        todoList.printTasksFromTodolist("Desc");
 
     }
 
