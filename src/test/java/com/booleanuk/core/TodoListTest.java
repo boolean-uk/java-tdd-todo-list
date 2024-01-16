@@ -13,8 +13,8 @@ class TodoListTest {
         todo.add("buy milk");
         todo.add("brush teeth");
         
-        Assertions.assertTrue(todo.tasks.contains("buy milk"));
-        Assertions.assertTrue(todo.tasks.contains("brush teeth"));
+        Assertions.assertTrue(todo.contains("buy milk"));
+        Assertions.assertTrue(todo.contains("brush teeth"));
     }
 
     @Test
@@ -40,8 +40,8 @@ class TodoListTest {
         todo.changeStatus("pet cat", true);
         todo.changeStatus("scream", true);
 
-        Assertions.assertEquals(2, todo.completeTasks().length());
-        Assertions.assertEquals(1, todo.incompleteTasks().length());
+        Assertions.assertEquals(2, todo.completeTasks().size());
+        Assertions.assertEquals(1, todo.incompleteTasks().size());
         Assertions.assertTrue(todo.contains("scream", todo.completeTasks()));
         Assertions.assertFalse(todo.contains("scream", todo.incompleteTasks()));
     }
@@ -89,8 +89,8 @@ class TodoListTest {
         todo.add("brunch");
         todo.tasksAscending();
 
-        Assertions.assertTrue(todo.tasks[0].description.equals("brunch"));
-        Assertions.assertTrue(todo.tasks[2].description.equals("acrobatics"));
+        Assertions.assertTrue(todo.tasks.get(0).description.equals("brunch"));
+        Assertions.assertTrue(todo.tasks.get(2).description.equals("acrobatics"));
     }
 
     @Test

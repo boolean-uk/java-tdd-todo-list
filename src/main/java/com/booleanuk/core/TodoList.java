@@ -1,5 +1,62 @@
 package com.booleanuk.core;
 
-public class TodoList {
+import java.util.ArrayList;
 
+public class TodoList {
+    public ArrayList<Task> tasks;
+
+    public TodoList(){
+        tasks = new ArrayList<>();
+    }
+
+    public void add(String task){
+        if (!contains(task)){
+            tasks.add(new Task(task));
+        }
+    }
+
+    public void remove(String task){
+        if (contains(task)){
+            tasks.removeIf(t -> t.description.equals(task));
+        } else {
+            System.out.println("Task not in ToDo list.");
+        }
+    }
+
+    public void changeStatus(String task, boolean newStatus){
+
+    }
+
+    public ArrayList<Task> completeTasks(){
+        return null;
+    }
+
+    public ArrayList<Task> incompleteTasks(){
+        return null;
+    }
+
+    public ArrayList<Task> tasksAscending(){
+        return null;
+    }
+
+    public boolean contains(String task){
+        return contains(task, this.tasks);
+    }
+
+    public boolean contains(String task, ArrayList<Task> tasks){
+        for (Task t : tasks){
+            if (t.description.equals(task)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean status(String task){
+        return true;
+    }
+
+    public boolean search(String task){
+        return true;
+    }
 }
