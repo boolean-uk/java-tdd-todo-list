@@ -44,4 +44,11 @@ public class TodoList {
         }
         return "No tasks with status: " + status;
     }
+    public String getTask(String task) {
+        if (this.tasks.containsKey(task)){
+            String status = String.valueOf(this.tasks.get(task));
+            return task + "=" + status;
+        }
+        return task + " wasn't found";
+    }
 }
