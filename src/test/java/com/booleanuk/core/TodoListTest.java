@@ -67,4 +67,16 @@ class TodoListTest {
         todo.changeTaskStatus("Brush teeth");
         Assertions.assertEquals(2, todo.getCompletedTasks());
     }
+    @Test
+    public void testSearchTask(){
+        TodoList todo = new TodoList();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        Assertions.assertTrue(todo.searchList("Workout"));
+        Assertions.assertFalse(todo.searchList("Trim beard"));
+    }
+
+
 }
