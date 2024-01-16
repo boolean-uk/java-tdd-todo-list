@@ -148,7 +148,10 @@ class TodoListTest {
         todo.addToTodo("a");
         todo.addToTodo("z");
 
-        Assertions.assertTrue(todo.todoAlphabeticalAsc(), "[a, clean, cook, shop, wash, z");
+        Assertions.assertTrue(todo.removeTask("wash"));
+
+
+
     }
     @Test
     public void testSortAlphabetical() {
@@ -156,6 +159,14 @@ class TodoListTest {
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
+        todo.addToTodo("shop");
+        todo.addToTodo("cook");
+        todo.addToTodo("a");
+        todo.addToTodo("z");
+
+        todo.todoAlphabeticalAsc();
+
+        Assertions.assertEquals(todo.todoAlphabeticalAsc(), "[a, clean, cook, shop, wash, z]");
     }
 
 }

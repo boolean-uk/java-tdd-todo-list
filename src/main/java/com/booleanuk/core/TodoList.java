@@ -1,5 +1,7 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -77,6 +79,17 @@ public class TodoList {
         } else {
             return false;
         }
+
+    }
+
+    public String todoAlphabeticalAsc(){
+        ArrayList<String> listAsc = new ArrayList<>(this.list.keySet());
+        Collections.sort(listAsc);
+        return listAsc.toString();
+
+//        for(String key : listAsc){
+//            this.list.put(key, this.list.get(key));
+//        }
 
     }
 
