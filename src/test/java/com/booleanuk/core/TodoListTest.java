@@ -54,4 +54,9 @@ class TodoListTest {
         todoList.addTask("Dishes");
         Assertions.assertEquals("Dishes=false", todoList.getTask("Dishes"));
     }
+    @Test
+    public void getTaskNotExistingTest() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("Dishes wasn't found", todoList.getTask("Dishes"));
+    }
 }
