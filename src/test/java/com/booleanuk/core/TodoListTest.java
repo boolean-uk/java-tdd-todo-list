@@ -104,12 +104,12 @@ class TodoListTest {
     }
 
     @Test
-    public void testPrintTasksInAlphabeticalOrder() {
+    public void testPrintTasksInAscOrder() {
         TodoList list = new TodoList();
         list.addTask("vacuum");
         list.addTask("paint");
         list.addTask("groceries");
-        list.printTasksInAlphabeticalOrder();
+        list.printTasksInAscOrder();
         String expectedOutput = String.join(System.lineSeparator(), "groceries", "paint", "vacuum");
         assertEquals(expectedOutput, outContent.toString().trim());
     }
