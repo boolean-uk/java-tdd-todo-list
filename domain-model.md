@@ -16,19 +16,19 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 ## 1
 
-| Class Variables               | Methods                            | Scenarios                | Output/Return                     |
-|-------------------------------|------------------------------------|--------------------------|-----------------------------------|
-| Map<String, Boolean> todoList | addTaskToTodolist(String task)     | Adds a task to todo list | void                              |
-|                               | Map<String, Boolean> getTodoList() | Gets the todoList        | Map<Map<String, boolean> todolist |
-|                               |                                    |                          |                                   |
+| Class Variables               | Methods                            | Scenarios                | Output/Return                 |
+|-------------------------------|------------------------------------|--------------------------|-------------------------------|
+| Map<String, Boolean> todoList | addTaskToTodolist(String task)     | Adds a task to todo list | void                          |
+|                               | Map<String, Boolean> getTodoList() | Gets the todoList        | Map<String, boolean> todolist |
+|                               |                                    |                          |                               |
 
 ## 2
 
-| Class Variables               | Methods                            | Scenarios                    | Output/Return                     |
-|-------------------------------|------------------------------------|------------------------------|-----------------------------------|
-| Map<String, Boolean> todoList | printTasksFromTodolist()           | prints the tasks of todolist | void                              |
-|                               | Map<String, Boolean> getTodoList() | Gets the todoList            | Map<Map<String, boolean> todolist |
-|                               |                                    |                              |                                   |
+| Class Variables               | Methods                            | Scenarios                    | Output/Return                 |
+|-------------------------------|------------------------------------|------------------------------|-------------------------------|
+| Map<String, Boolean> todoList | printTasksFromTodolist()           | prints the tasks of todolist | void                          |
+|                               | Map<String, Boolean> getTodoList() | Gets the todoList            | Map<String, boolean> todolist |
+|                               |                                    |                              |                               |
 
 
 ## 3
@@ -56,3 +56,14 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 | Map<String, Boolean> todoList | checkTask(String task) | Checks if task is already in map      | True if it is in the listOfTasks |
 |                               |                        | Also prints out that it was not found | and false if not                 |
 |                               |                        |                                       |                                  |
+
+
+## 7
+
+| Class Variables               | Methods                             | Scenarios                         | Output/Return                  |
+|-------------------------------|-------------------------------------|-----------------------------------|--------------------------------|
+| Map<String, Boolean> todoList | removeTask(String task)             | Removes wanted task from Todolist | void                           |
+|                               | Map<String, Boolean> getTodoList()  | Gets the todoList                 | Map<String, boolean> todolist  |
+|                               |                                     |                                   |                                |
+
+
