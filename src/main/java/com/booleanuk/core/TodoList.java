@@ -1,6 +1,9 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class TodoList {
     public HashMap<String, String> todoList;
@@ -38,5 +41,21 @@ public class TodoList {
 
     public String viewStatus(String task) {
         return todoList.getOrDefault(task, "This task does not exist");
+    }
+
+    public String getCompleteTasks() {
+        ArrayList<String> completeTasks = new ArrayList<>();
+
+        for (Map.Entry<String, String> entry : todoList.entrySet()) {
+            if (entry.getValue().equals("Complete")) {
+                completeTasks.add(entry.getKey());
+            }
+        }
+
+        if (completeTasks.isEmpty()) {
+            return "None of your tasks are complete";
+        } else {
+            return String.join(", ", completeTasks);
+        }
     }
 }
