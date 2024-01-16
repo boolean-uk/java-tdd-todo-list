@@ -1,5 +1,6 @@
 # Domain Model
 
+## Core Requirements
 - I want to add tasks to my todo list.
 - I want to see all the tasks in my todo list.
 - I want to change the status of a task between incomplete and complete.
@@ -25,6 +26,22 @@
 | alphaTasks(Boolean Ascending) | taskList.ascending/descending       | Show tasks ascending   | List ascending            |
 |                               |                                     | Show task descending   | List descending           |
 
-taskList must have:
-1. Name(descriptive name)
-2. Status (True/False)
+## Extension Requirements
+- I want to be able to get a task by a unique ID.
+- I want to update the name of a task by providing its ID and a new name.
+- I want to be able to change the status of a task by providing its ID.
+- I want to be able to see the date and time that I created each task.
+
+| Methods                             | Member                | Scenario              | Return                     |
+|-------------------------------------|-----------------------|-----------------------|----------------------------|
+| getTask(int ID)                     | int ID                | Show task             | String task                |
+|                                     |                       | Task non existing     | String task + Information  |
+| updateTaskName(int ID, String name) | Map<ArrayList<task>>  | Update task           | String task                |
+|                                     |                       | Task non existing     | String task + Information  |
+| updateTaskStatus(int ID)            | Map<ArrayList<task>>  | Update task           | String task                |
+|                                     |                       | Task non existing     | String task + Information  |
+| getTaskTime(int ID)                 | Map<ArrayList<task>>  | Update task           | String task                |                          
+|                                     |                       | Task non existing     | String task + Information  |                         
+
+Map<Integer, ArrayList<Object>>
+object = name(str), status(bool), time(int)
