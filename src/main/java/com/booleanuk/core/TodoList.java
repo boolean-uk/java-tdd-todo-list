@@ -1,9 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class TodoList {
 
@@ -80,5 +77,20 @@ public class TodoList {
             System.out.println(task);
         }
     }
+    public void showTasksInDescOrder() {
+        StringBuilder sb = new StringBuilder();
+        List<String> tasks = new ArrayList<>(toDoList.keySet());
+        tasks.sort(Comparator.reverseOrder());
+
+        for (int i = 0; i < tasks.size(); i++) {
+            sb.append(tasks.get(i)).append(" - ").append(toDoList.get(tasks.get(i)));
+            if (i < tasks.size() - 1) {
+                sb.append("\n");
+            }
+        }
+
+        System.out.println(sb.toString());
+    }
+
 
 }
