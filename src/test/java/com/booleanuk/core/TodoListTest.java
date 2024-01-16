@@ -19,9 +19,22 @@ class TodoListTest {
 
 
     }
-    @Test void testAddExistingTaskToTodoList(){
+    @Test
+    public void testAddExistingTaskToTodoList(){
         TodoList tl = new TodoList();
         tl.addTask(new Task("Shopping"));
         Assertions.assertFalse(tl.addTask(new Task("Shopping")));
+    }
+
+    /*Domain model user story 2 test*/
+    @Test
+    public void testGetTodoList(){
+        TodoList tl = new TodoList();
+        tl.addTask(new Task("Shopping"));
+        tl.addTask(new Task("Bowling"));
+        String expected = "Shopping" + ", Not Complete\n"
+                + "Bowling" + ", Not Complete";
+
+        Assertions.assertEquals(expected, tl.getTodoList());
     }
 }
