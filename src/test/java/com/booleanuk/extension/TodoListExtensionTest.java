@@ -26,4 +26,37 @@ public class TodoListExtensionTest {
         TodoListExtension todoList = new TodoListExtension();
         Assertions.assertEquals("List is empty",todoList.getTaskById("1"));
     }
+
+    @Test
+    public void testSetTaskNameByIdWithSingleTaskInList() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        Assertions.assertTrue(todoList.SetTaskName("1", "Code"));
+        Assertions.assertEquals(todoList.getTaskById("1").split(": ")[0], "Code");
+    }
+
+    @Test
+    public void testSetTaskNameByIdWithMultipleTasksInList() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        todoList.todos.add(new Task("2","Exercise"));
+        todoList.todos.add(new Task("3","Train"));
+        Assertions.assertTrue(todoList.SetTaskName("3", "Code"));
+        Assertions.assertEquals(todoList.getTaskById("3").split(": ")[0], "Code");
+    }
+
+    @Test
+    public void testSetTaskNameByIdWithEmptyList() {
+        TodoListExtension todoList = new TodoListExtension();
+        Assertions.assertFalse(todoList.SetTaskName("1", "Code"));
+    }
+
+    @Test
+    public void testSetTaskNameByIdWithNoneExistingId() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        todoList.todos.add(new Task("2","Exercise"));
+        todoList.todos.add(new Task("3","Train"));
+        Assertions.assertFalse(todoList.SetTaskName("4", "Code"));
+    }
 }
