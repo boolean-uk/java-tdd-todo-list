@@ -99,4 +99,18 @@ class TodoListTest {
 
         assertEquals("Cleaning windows, Grocery shopping, Shovel snow, Watering plants", ascendingOrder);
     }
+
+    @Test
+    public void testDescendingOrder() {
+        TodoList sortedList = new TodoList();
+
+        sortedList.add("Shovel snow", "Incomplete");
+        sortedList.add("Grocery shopping", "Incomplete");
+        sortedList.add("Watering plants", "Incomplete");
+        sortedList.add("Cleaning windows", "Incomplete");
+
+        String descendingOrder = sortedList.descendingOrder();
+
+        assertEquals("Watering plants, Shovel snow, Grocery shopping, Cleaning windows", descendingOrder);
+    }
 }
