@@ -86,4 +86,8 @@ public class TodoList {
         tasks.get(id).name = newName;
         return true;
     }
+
+    public String getTimeCreated(String id) {
+        return tasks.get(id).time;
+    }
 }
