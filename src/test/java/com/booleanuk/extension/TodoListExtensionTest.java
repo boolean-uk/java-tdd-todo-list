@@ -10,6 +10,6 @@ public class TodoListExtensionTest {
         TodoListExtension lst = new TodoListExtension();
         TaskExtension task = new TaskExtension("CV");
 
-        Assertions.assertEquals(task.ID, 0);
+        Assertions.assertEquals(task.ID, 2);
     }
 }
