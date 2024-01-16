@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class TodoListExtension {
+public class TodoList {
     public HashMap<String, Boolean> taskStatus;
     public ArrayList<String> taskList;
 
-    public TodoListExtension() {
+    public TodoList() {
         taskStatus = new HashMap<>();
         taskList = new ArrayList<>();
     }

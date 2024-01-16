@@ -16,7 +16,9 @@ public class TodoListExtension {
         Task newTask = new Task(task, this.lastID);
         this.lastID += 1;
         taskList.add(newTask);
-        return true;
+        if(taskList.contains(newTask))
+            return true;
+        else return false;
     }
 
     public boolean changeTaskStatus(String task)   {
@@ -37,6 +39,27 @@ public class TodoListExtension {
         for(Task t : taskList)
         {
             if(t.name.equals(task))
+            {
+                outputString.append("Task:\n");
+                outputString.append("[");
+                outputString.append(!t.complete ? " " : "X");
+                outputString.append("] ");
+                outputString.append(t.name);
+
+                System.out.print(outputString);
+                return true;
+            }
+        }
+        System.out.print("Task not found");
+        return false;
+    }
+
+    public boolean getTask(int ID) {
+        StringBuilder outputString = new StringBuilder();
+
+        for(Task t : taskList)
+        {
+            if(t.ID == ID)
             {
                 outputString.append("Task:\n");
                 outputString.append("[");
