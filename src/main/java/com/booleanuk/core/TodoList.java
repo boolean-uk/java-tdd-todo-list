@@ -13,6 +13,16 @@ public class TodoList {
         return tasks.add(task);
     }
 
+    public Task getTask(String description) {
+        for (Task task : tasks) {
+            // Only exact match
+            if (task.getDescription().equals(description)) {
+                return task;
+            }
+        }
+        return null;
+    }
+
     public ArrayList<Task> getTasks() {
         return tasks;
     }
