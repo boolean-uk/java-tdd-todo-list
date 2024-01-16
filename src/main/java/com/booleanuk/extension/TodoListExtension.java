@@ -177,22 +177,4 @@ public class TodoListExtension {
         }
         return 0;
     }
-
-    public static void main(String[] args) {
-        TodoListExtension todo = new TodoListExtension();
-
-        todo.add("Wash car");
-        todo.add("Make food");
-        todo.add("Brush teeth");
-        todo.add("Workout");
-        todo.add("Walk the dog");
-        for (int i = 0; i < todo.list.size(); i++) {
-            System.out.println(todo.list.get(i).id);
-        }
-        System.out.println(todo.getIncompleteTasks());
-        todo.changeTaskStatus("Wash car");
-        todo.changeTaskStatus("Brush teeth");
-        System.out.println(todo.getIncompleteTasks());
-        //System.out.println(t.list.get(0).description + t.list.get(0).isCompleted);
-    }
 }
