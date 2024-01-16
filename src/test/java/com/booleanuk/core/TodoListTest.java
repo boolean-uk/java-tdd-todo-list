@@ -168,5 +168,21 @@ class TodoListTest {
 
         Assertions.assertEquals(todo.todoAlphabeticalAsc(), "[a, clean, cook, shop, wash, z]");
     }
+    @Test
+    public void testSortAlphabeticalDesc() {
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("wash");
+        todo.addToTodo("clean");
+        todo.addToTodo("shop");
+        todo.addToTodo("cook");
+        todo.addToTodo("a");
+        todo.addToTodo("z");
+
+        todo.todoAlphabeticalAsc();
+
+        Assertions.assertEquals(todo.todoAlphabeticalAsc(), "[z, wash, shop, cook, clean, a]");
+    }
+
 
 }
