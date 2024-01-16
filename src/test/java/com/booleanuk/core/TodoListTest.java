@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 class TodoListTest {
     @Test
-    public void exampleTest() {
+    public void testAdd() {
         String hello = "Hello";
         Assertions.assertEquals("Hello", hello);
         Assertions.assertNotEquals("Goodbye", hello);

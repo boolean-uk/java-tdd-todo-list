@@ -20,31 +20,31 @@
 9 I want to see all the tasks in my list ordered alphabetically in descending order.
 ...
 
-| Classes     | Methods                                  | Member Variables         | Scenarios                         | OutPut/Result                                       |
-|-------------|------------------------------------------|--------------------------|-----------------------------------|-----------------------------------------------------|
-| TaskManager |                                          | ArrayList<Task> todoList |                                   |                                                     |
-|             |                                          |                          |                                   |                                                     |
-|             | Add(String name)                         |                          | 1 Adds a task to the list         | creates a new instance of task and adds to todoList |
-|             | getToDos()                               |                          | 2 show all tasks                  | Returns the name of all tasks in list               |
-|             | changeCompletion(Task)                   |                          | 3 completes/incompletes a task    | Changes isComplete to true/false                    |
-|             | getTasksByCompletion(Boolean completion) |                          | 4 if completion is true           | Return names of completed tasks                     |
-|             |                                          |                          | 5 if completion is false          | Return names of uncompleted tasks                   |
-|             | getTask (String name)                    |                          | 6 if name is in list of tasks     | Return name of task                                 |
-|             |                                          |                          | 6 if name is not in list of tasks | Return "Task doesnt exist"                          |
-|             |                                          |                          |                                   |                                                     |
-|             | Remove(Task)                             |                          | if task in list                   | Remove task                                         |
-|             |                                          |                          | if task not in list               | Return "task doesnt exist"                          |
-|             |                                          |                          |                                   |                                                     |
-|             | getListAlphabeticly(String order)        |                          | if order is ascending             | return tasks ascending                              |
-|             |                                          |                          | if order is descending            | return tasks descending                             |
+| Classes  | Methods                                  | Member Variables         | Scenarios                         | OutPut/Result                                       |
+|----------|------------------------------------------|--------------------------|-----------------------------------|-----------------------------------------------------|
+| TodoList |                                          | ArrayList<Task> todoList |                                   |                                                     |
+|          |                                          |                          |                                   |                                                     |
+|          | Add(String name)                         |                          | 1 Adds a task to the list         | creates a new instance of task and adds to todoList |
+|          | getToDos()                               |                          | 2 show all tasks                  | Returns the name of all tasks in list               |
+|          | changeCompletion(String name)            |                          | 3 completes/incompletes a task    | Changes isComplete to true/false                    |
+|          | getTasksByCompletion(Boolean completion) |                          | 4 if completion is true           | Return names of completed tasks                     |
+|          |                                          |                          | 5 if completion is false          | Return names of uncompleted tasks                   |
+|          | getTask (String name)                    |                          | 6 if name is in list of tasks     | Return name of task                                 |
+|          |                                          |                          | 6 if name is not in list of tasks | Return "Task doesnt exist"                          |
+|          |                                          |                          |                                   |                                                     |
+|          | Remove(String name)                      |                          | if task in list                   | Remove task                                         |
+|          |                                          |                          | if task not in list               | Return "task doesnt exist"                          |
+|          |                                          |                          |                                   |                                                     |
+|          | getListAlphabeticly(String order)        |                          | if order is ascending             | return tasks ascending                              |
+|          |                                          |                          | if order is descending            | return tasks descending                             |
 
 
-| Classes | Methods                           | Member Variables   | Scenarios | OutPut/Result                  |
-|---------|-----------------------------------|--------------------|-----------|--------------------------------|
-| Task    |                                   | String name        |           |                                |
-|         |                                   | boolean isComplete |           |                                |
-|         | getName()                         |                    |           | 2 Returns the name of the task |
-|         | setIsComplete(boolean isComplete) |                    |           | 3 Changes status of isComplete |
-|         |                                   |                    |           |                                |
-|         |                                   |                    |           |                                |
-|         |                                   |                    |           |                                |
+| Classes | Methods                               | Member Variables   | Scenarios | OutPut/Result                  |
+|---------|---------------------------------------|--------------------|-----------|--------------------------------|
+| Task    |                                       | String name        |           |                                |
+|         |                                       | boolean isComplete |           |                                |
+|         | getName()                             |                    |           | 2 Returns the name of the task |
+|         | changeCompletion (boolean isComplete) |                    |           | 3 Changes status of isComplete |
+|         |                                       |                    |           |                                |
+|         |                                       |                    |           |                                |
+|         |                                       |                    |           |                                |
