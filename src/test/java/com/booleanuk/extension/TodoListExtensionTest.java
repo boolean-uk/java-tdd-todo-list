@@ -143,4 +143,21 @@ class TodoListExtensionTest {
         todo.updateTaskByID(1, "Make Pizza");
         Assertions.assertEquals("Make Pizza", todo.list.get(1).description);
     }
+    @Test
+    public void testUpdateStatusTaskByID(){
+        TodoListExtension todo = new TodoListExtension();
+        todo.add("Wash car");
+        todo.add("Make food");
+        todo.add("Brush teeth");
+        todo.add("Workout");
+        todo.changeTaskStatus("Make food");
+        todo.changeTaskStatus("Workout");
+        Assertions.assertTrue(todo.updateTaskByID(1));
+        Assertions.assertTrue(todo.updateTaskByID(3));
+        Assertions.assertFalse(todo.updateTaskByID(0));
+        Assertions.assertFalse(todo.updateTaskByID(2));
+
+        todo.updateTaskByID(1, "Make Pizza");
+        Assertions.assertEquals("Make Pizza", todo.list.get(1).description);
+    }
 }
