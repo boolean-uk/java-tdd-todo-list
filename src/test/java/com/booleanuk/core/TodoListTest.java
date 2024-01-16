@@ -12,8 +12,20 @@ class TodoListTest {
     }
 
     @Test
-    public void add() {
+    public void testAdd() {
         TodoList todo = new TodoList();
         Assertions.assertEquals(true, todo.add("Need to wash my hands"));
+    }
+
+    @Test
+    public void testListAllTasks(){
+        TodoList todo = new TodoList();
+        todo.add("Need to wash my hands");
+        todo.add("Wash car");
+        todo.listTasks();
+        Assertions.assertEquals(2, todo.listTasks());
+        todo.add("Trim beard");
+        todo.listTasks();
+        Assertions.assertEquals(3, todo.listTasks());
     }
 }
