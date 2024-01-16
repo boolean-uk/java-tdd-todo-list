@@ -129,4 +129,17 @@ class TodoListTest {
 		todo.addTask(task4);
 		Assertions.assertEquals("2: Code a bit less,\tIncomplete\n1: Code even more,\tIncomplete\n0: Code more,\tIncomplete\n3: Take a break,\tIncomplete",todo.printListAsc());
 	}
+	@Test
+	public void printListDescTest() {
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		Task task2 = new Task("Code even more");
+		Task task3 = new Task("Code a bit less");
+		Task task4 = new Task("Take a break");
+		todo.addTask(task1);
+		todo.addTask(task2);
+		todo.addTask(task3);
+		todo.addTask(task4);
+		Assertions.assertEquals("3: Take a break,\tIncomplete\n0: Code more,\tIncomplete\n1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete",todo.printListDesc());
+	}
 }
