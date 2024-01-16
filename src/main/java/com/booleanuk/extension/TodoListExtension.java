@@ -1,35 +1,38 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.*;
-
-public class TodoList {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+public class TodoListExtension {
     HashMap<Integer, String> taskname;
     boolean status;
-    LocalDateTime creation;
+    LocalDate creation;
     HashMap<String, Boolean> tasks;
 
-    public TodoList() {
+    public TodoListExtension() {
         this.tasks = new HashMap<>();
         this.taskname = new HashMap<>();
         this.status = false;
-        this.creation = LocalDateTime.now();
+        this.creation = LocalDate.now();
 
 
-        tasks.put("Fiske", true);
+
 
 
     }
 
 
-    public boolean addTask(String name, boolean status) {
+    public boolean addTask(int id, String name) {
 
-        if (this.tasks.containsKey(name)) {
+        if (this.taskname.containsKey(name)) {
             return false;
         }
 
 
-        tasks.put(name, status);
+        taskname.put(id, name);
 
 
         return true;
@@ -134,5 +137,62 @@ public class TodoList {
     }
 
 
+    public boolean getTaskWithId(int id) {
+
+        return taskname.containsKey(id);
+    }
+
+    public String setNewName(int id, String newName) {
+
+
+        if (taskname.containsKey(id)) {
+            taskname.put(id, newName);
+            return taskname.get(id).toString();
+        }
+
+
+        return "It no work";
+    }
+
+    public boolean changeStatus(int id) {
+
+        if (taskname.containsKey(id)) {
+            if (this.status) {
+
+                this.status = false;
+                return false;
+            } else if (!this.status) {
+
+                this.status = true;
+                return true;
+            }
+
+
+        }
+
+
+
+            return false;
+
+    }
+
+    public String timeCreated() {
+
+        String output = "";
+
+        if (taskname.size() > 1) {
+
+            output += this.taskname.toString() +  " Created: " + this.creation + "";
+
+            return output;
+        }
+
+
+
+        return "";
+    }
+
+
 
 }
+
