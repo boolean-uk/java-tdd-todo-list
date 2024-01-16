@@ -35,6 +35,17 @@ class TodoListTest {
         todo.addToTodo("clean");
         todo.addToTodo("wash");
 
-        Assertions.assertEquals(displayTodo(), "[clean, wash]");
+        Assertions.assertEquals(todo.displayTodo(), "[wash, clean]");
+    }
+    @Test
+    public void testDisplayText4() {
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("clean");
+        todo.addToTodo("wash");
+        todo.addToTodo("shop");
+        todo.addToTodo("cook");
+
+        Assertions.assertEquals(todo.displayTodo(), "[shop, cook, wash, clean]");
     }
 }
