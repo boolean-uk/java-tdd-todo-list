@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.time.LocalDate;
 
 class TodoListExtensionTest {
     private final PrintStream standardOut = System.out;
@@ -435,5 +436,23 @@ class TodoListExtensionTest {
         TodoListExtension todoListExtension = new TodoListExtension();
 
         Assertions.assertFalse(todoListExtension.changeTaskStatus(0));
+    }
+
+    @Test
+    public void testSeeDatesOfTasks()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
+        LocalDate timeNow = LocalDate.now();
+
+        todoListExtension.addTask("Eat yoghurt");
+        todoListExtension.addTask("Paint the Mona Lisa");
+
+
+        String expectedString = """
+                2024-01-16 15:42 Eat yoghurt
+                2024-01-16 15:42 Paint the Mona Lisa
+                """;
+
+        Assertions.assertEquals(expectedString, outputStreamCaptor.toString());
     }
 }
