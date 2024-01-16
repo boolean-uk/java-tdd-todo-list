@@ -51,4 +51,11 @@ public class TodoList {
         }
         return task + " wasn't found";
     }
+    public String removeTask(String task) {
+        if (this.tasks.containsKey(task)){
+            this.tasks.remove(task);
+            return task + " was removed from list";
+        }
+        return task + " was not found";
+    }
 }

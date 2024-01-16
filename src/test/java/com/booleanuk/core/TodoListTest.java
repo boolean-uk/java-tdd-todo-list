@@ -62,6 +62,12 @@ class TodoListTest {
     @Test
     public void removeTaskTest() {
         TodoList todoList = new TodoList();
+        todoList.addTask("Dishes");
         Assertions.assertEquals("Dishes was removed from list", todoList.removeTask("Dishes"));
+    }
+    @Test
+    public void removeNonExistingTaskTest() {
+        TodoList todoList = new TodoList();
+        Assertions.assertEquals("Dishes was not found", todoList.removeTask("Dishes"));
     }
 }
