@@ -87,4 +87,14 @@ class TodoListTest {
         Assertions.assertEquals("Dry", completedTasks.get(0));
     }
 
+    @Test
+    public void displayIncompletedTasksTestCleanDry() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.addTask("Dry");
+        ArrayList<String> completedTasks = toDo.displayIncompletedTasks();
+        Assertions.assertEquals("Clean", completedTasks.get(0));
+        Assertions.assertEquals("Dry", completedTasks.get(1));
+    }
+
 }
