@@ -52,4 +52,8 @@ public class TodoList {
         }
         return tasksWithTheSuppliedStatus;
     }
+
+    public boolean doesTaskExist(String task) {
+        return true;
+    }
 }
