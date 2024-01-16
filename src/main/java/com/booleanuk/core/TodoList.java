@@ -25,6 +25,10 @@ public class TodoList {
         }
     }
 
+    public void showTasks(){
+        System.out.println(tasks);
+    }
+
     public void changeStatus(String task, boolean newStatus){
         find(task).status = newStatus;
     }
@@ -51,10 +55,12 @@ public class TodoList {
 
     public void tasksAscending(){
         Collections.sort(tasks, Collections.reverseOrder());
+        showTasks();
     }
 
     public void tasksDescending(){
         Collections.sort(tasks);
+        showTasks();
     }
 
     public boolean status(String task){
@@ -68,6 +74,7 @@ public class TodoList {
                 return true;
             }
         }
+        System.out.println("This task is not in the ToDo list.");
         return false;
     }
 
@@ -81,6 +88,7 @@ public class TodoList {
                 return t;
             }
         }
+        System.out.println("This task is not in the ToDo list.");
         return null;
     }
 }

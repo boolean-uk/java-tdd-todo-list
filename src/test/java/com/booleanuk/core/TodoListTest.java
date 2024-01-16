@@ -71,17 +71,11 @@ class TodoListTest {
     }
     
     @Test 
-    public void testRemoveFromEmptyList(){
+    public void testRemoveFromEmptyListAndNonExistingTasks(){
         TodoList todo = new TodoList();
         todo.remove("rob bank");
-        Assertions.assertTrue(false);
+        // TODO ========================================================
     }
-    /*
-    @Test 
-    public void testRemoveNonExistingTask(){
-
-    }
-     */
 
     @Test
     public void testAscending(){

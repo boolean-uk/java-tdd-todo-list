@@ -36,3 +36,12 @@ Task
 |--------------------|-------------|---------------------------------------|
 | String description |             |                                       |
 | boolean status     | getStatus() | true if complete, false if incomplete |
+
+## User Stories - Extension
+
+```
+- I want to be able to get a task by a unique ID.
+- I want to update the name of a task by providing its ID and a new name.
+- I want to be able to change the status of a task by providing its ID.
+- I want to be able to see the date and time that I created each task.
+```
