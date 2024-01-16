@@ -62,7 +62,13 @@ public class TodoList {
         return taskListKey;
     }
     public ArrayList<String> getCompleteTask(){
-
+        ArrayList<String> completeTask = new ArrayList<>();
+        for (Map.Entry<String, String> entry : taskList.entrySet()){
+            if(entry.getValue().equals("complete")){
+                completeTask.add(entry.getKey());
+            }
+        }
+        return completeTask;
     }
     public static void main(String[] arg){
         TodoList object = new TodoList();
