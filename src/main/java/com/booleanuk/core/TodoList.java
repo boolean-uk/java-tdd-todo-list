@@ -53,16 +53,18 @@ public class TodoList {
         if(this.tasks.isEmpty()) {
             return "";
         }
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (String task : this.tasks.keySet()) {
             if (this.tasks.get(task)) {
-                output += task + " complete\n";
+                String taskOutput = task + " complete\n";
+                output.append(taskOutput);
             }
             else {
-                output += task + " incomplete\n";
+                String taskOutput = task + " incomplete\n";
+                output.append(taskOutput);
             }
         }
-        return output;
+        return output.toString();
     }
 
     public ArrayList<String> getStatus(boolean status) {
