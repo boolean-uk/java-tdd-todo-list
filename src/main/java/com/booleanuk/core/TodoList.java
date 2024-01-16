@@ -11,7 +11,12 @@ public class TodoList {
     }
 
     public String add(String task) {
-        return "Task added to todo list.";
+        this.tasks.add(task);
+
+        if(this.tasks.contains(task)) {
+            return "Task added to todo list.";
+        }
+        return "Task not added to todo list.";
     }
 
 }
