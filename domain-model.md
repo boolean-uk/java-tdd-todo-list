@@ -46,6 +46,11 @@
 
 6. I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
 
+| Class    | Member Variables        | Methods              | Scenario             | Output/Result                      |
+|----------|-------------------------|----------------------|----------------------|------------------------------------|
+| TodoList | ArrayList<String>       | String searchTasks() | If task is found     | Returns "Task is in todo list"     |
+|          | HashMap<String, String> |                      | if task is not found | Returns "Task is not in todo list" |
+
 
 7. I want to remove tasks from my list.
 
