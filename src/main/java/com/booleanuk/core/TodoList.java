@@ -24,4 +24,19 @@ public class TodoList {
     public void printTodo() {
         System.out.println(displayTodo());
     }
+
+//    public void changeStatus(String key) {
+//        if(this.list.get(key).equals("Incomplete")) {
+//            this.list.put(key, "Complete");
+//        } else {
+//            this.list.put(key, "Incomplete");
+//        }
+//    }
+
+    public void statusComplete(String key) {
+        this.list.put(key, "Complete");
+    }
+    public void statusIncomplete(String key) {
+        this.list.put(key, "Incomplete");
+    }
 }

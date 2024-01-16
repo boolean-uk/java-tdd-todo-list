@@ -23,11 +23,11 @@ I want to see all the tasks in my todo list.
 ```
 I want to change the status of a task between incomplete and complete.
 ```
-| Methods            | Member variables              | Scenario                             | Outputs/Results             |
-|--------------------|-------------------------------|--------------------------------------|-----------------------------|
-| getStatus()        | HashMap<String, String> todo | status automatically false           |                             |
-| statusComplete()   | String status                | statusComplete()                     | Change status to complete   |
-| statusIncomplete() |                               | statusIncomplete()                   | Change status to incomplete |
+| Methods            | Member variables             | Scenario                             | Outputs/Results             |
+|--------------------|------------------------------|--------------------------------------|-----------------------------|
+| changeStatus()     | HashMap<String, String> todo | status automatically false           |                             |
+| statusComplete()   |                              | statusComplete()                     | Change status to Complete   |
+| statusIncomplete() |                              | statusIncomplete()                   | Change status to Incomplete |
 
 ```
 I want to be able to get only the complete tasks.
