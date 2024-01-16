@@ -90,28 +90,6 @@ class TodoListTest {
         String result2 = list.searchTask("clean");
         assertEquals("Task not found", result2);
     }
-
-    Certainly! To create a method for removing tasks from your list and a corresponding unit test, you will first need a method in your TodoList class that handles task removal. Then, you can write a test to ensure this method works as expected.
-
-            1. removeTask Method in TodoList Class
-    This method will remove a task from your toDoList. I'm assuming toDoList is a Map<String, String> where the key is the task name.
-
-    java
-    Copy code
-    public boolean removeTask(String task) {
-        if (toDoList.containsKey(task)) {
-            toDoList.remove(task);
-            return true; // Task was found and removed
-        }
-        return false; // Task was not found
-    }
-    This method checks if the task exists in the list. If it does, it removes the task and returns true. If the task is not found, it returns false.
-
-            2. Corresponding Test Method for removeTask
-    The test will check whether the removeTask method correctly removes a specified task from the toDoList.
-
-    java
-    Copy code
     @Test
     public void testRemoveTask() {
         TodoList list = new TodoList();

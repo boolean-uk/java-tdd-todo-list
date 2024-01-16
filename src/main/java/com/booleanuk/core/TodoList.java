@@ -62,5 +62,12 @@ public class TodoList {
             return "Task not found";
         }
     }
+    public boolean removeTask(String task) {
+        if (toDoList.containsKey(task)) {
+            toDoList.remove(task);
+            return true;
+        }
+        return false;
+    }
 
 }
