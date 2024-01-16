@@ -11,7 +11,6 @@ public class Task {
     private boolean isComplete;
     public Task(String name){
         this.name = name;
-        this.id = generateUniqueId();
         this.isComplete = false;
         this.currentDateTime = LocalDateTime.now();
     }
@@ -26,10 +25,11 @@ public class Task {
     public LocalDateTime getCreationDateAndTime(){
         return currentDateTime;
     }
-
-    private synchronized int generateUniqueId() {
-        return counter++;
+    public void setId(int id){
+        this.id = id;
     }
+
+
     public int getId(){
         return this.id;
     }

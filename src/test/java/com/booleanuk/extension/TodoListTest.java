@@ -14,6 +14,7 @@ public class TodoListTest {
         TodoList tl = new TodoList();
         tl.addTask(new Task("Shopping"));
         tl.addTask(new Task("Bowling"));
+        tl.addTask(new Task("Gaming"));
         Assertions.assertEquals("Bowling, Not completed", tl.getTaskById(2));
 
     }
@@ -30,8 +31,9 @@ public class TodoListTest {
     @Test
     public void testGettingCorrectDateTimeOfTask(){
         TodoList tl = new TodoList();
+        LocalDateTime dt = LocalDateTime.now().withNano(0);
         tl.addTask(new Task("Shopping"));
-        System.out.println(LocalDateTime.now().toLocalDate());
-        Assertions.assertEquals(LocalDateTime.now().toLocalDate(), tl.getCreationDateTask());
+        String expected = "Shopping: " + dt + "\n";
+        Assertions.assertEquals(expected, tl.getCreationDateTask());
     }
 }

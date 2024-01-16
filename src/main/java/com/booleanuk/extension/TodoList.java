@@ -7,6 +7,7 @@ import java.util.Comparator;
 
 public class TodoList {
     ArrayList<Task> tasks;
+    private int nextTaskId = 1;
 
     public TodoList(){
         tasks = new ArrayList<>();
@@ -15,6 +16,7 @@ public class TodoList {
         if(taskExists(task)){
             return false;
         }
+        task.setId(nextTaskId++);
         tasks.add(task);
         return true;
     }
@@ -151,6 +153,7 @@ public class TodoList {
             return "List is empty";
         }
         for(Task t : tasks){
+            System.out.println(t.getId() + t.toString());
             if(t.getId() == id){
                 return t.toString();
             }
@@ -170,6 +173,10 @@ public class TodoList {
         return false;
     }
     public String getCreationDateTask(){
-        return "";
+        StringBuilder sb = new StringBuilder();
+        for(Task t : tasks){
+            sb.append(t.getName()).append(": ").append(t.getCreationDateAndTime().withNano(0)).append("\n");
+        }
+        return sb.toString();
     }
 }
