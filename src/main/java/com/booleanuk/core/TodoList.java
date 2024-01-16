@@ -100,7 +100,8 @@ public class TodoList {
 
     //User Story 9
     public String outputListDescending() {
-        return "[Read newspaper., Read book., Hit the gym., Go for a walk., Do homework.]";
+        Collections.sort(this.taskList, Comparator.reverseOrder());
+        return this.taskList.toString();
     }
 
 }
