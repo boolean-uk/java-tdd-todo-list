@@ -134,4 +134,20 @@ class TodoListTest {
 
         Assertions.assertEquals("Task does not exist in list", result);
     }
+
+    //User Story 7 Test
+    @Test
+    public void removeTaskFromTodoList() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskList.add("Do homework.");
+        todoList.taskList.add("Read book.");
+        todoList.taskList.add("Hit the gym.");
+        todoList.taskList.add("Go for a walk.");
+        todoList.taskList.add("Read newspaper.");
+
+        String result = todoList.remove("Do homework.");
+
+        Assertions.assertEquals("Task successfully removed from list.", result);
+    }
 }
