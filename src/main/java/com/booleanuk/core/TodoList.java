@@ -26,4 +26,9 @@ public class TodoList {
             System.out.println(str);
         }
     }
+
+    public void changeTaskToCompleteOrIncomplete(String task1) {
+
+
+    }
 }

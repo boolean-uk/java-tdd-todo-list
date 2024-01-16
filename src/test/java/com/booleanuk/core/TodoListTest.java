@@ -83,7 +83,9 @@ class TodoListTest {
 
         todoList.changeTaskToCompleteOrIncomplete("Task1");
 
+        Map<String, Boolean> todolistMap = todoList.getTodolist();
 
+        Assertions.assertTrue(todolistMap.containsKey("Task1"));
 
     }
 }
