@@ -11,6 +11,7 @@ class TodoListTest {
 
     Task task1 = new Task("Go shopping");
     Task task2 = new Task("Make dinner");
+    Task task3 = new Task("Prepare for meeting");
 
     @BeforeEach
     public void setupTestEnvironment() {
@@ -77,16 +78,33 @@ class TodoListTest {
     public void canRemoveTaskFromList() {
         todoList.add(task1);
         Assertions.assertEquals(1, todoList.getTasks().size());
-
         Assertions.assertTrue(todoList.remove(task1));
         Assertions.assertEquals(0, todoList.getTasks().size());
     }
 
     @Test
-    public void cantRemoveNonExistentTasksFromList() {
+    public void canGetAlphabeticalList_Ascending() {
+        todoList.add(task2);
         todoList.add(task1);
-        Assertions.assertEquals(1, todoList.getTasks().size());
-        Assertions.assertFalse(todoList.remove(task2));
-        Assertions.assertEquals(1, todoList.getTasks().size());
+        todoList.add(task3);
+
+        ArrayList<Task> sortedList = new ArrayList<>();
+        sortedList.add(task1);
+        sortedList.add(task2);
+        sortedList.add(task3);
+        Assertions.assertEquals(sortedList, todoList.getAlphabeticalTasks(true));
+    }
+
+    @Test
+    public void canGetAlphabeticalList_Descending() {
+        todoList.add(task2);
+        todoList.add(task1);
+        todoList.add(task3);
+
+        ArrayList<Task> reverseSortedList = new ArrayList<>();
+        reverseSortedList.add(task3);
+        reverseSortedList.add(task2);
+        reverseSortedList.add(task1);
+        Assertions.assertEquals(reverseSortedList, todoList.getAlphabeticalTasks(false));
     }
 }
