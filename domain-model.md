@@ -41,7 +41,17 @@ HashMap<String, Boolean> taskList
 
 | Classes  | Methods                        | Member Variables | Scenario                                          | Output/Result/Return Value           |
 |----------|--------------------------------|------------------|---------------------------------------------------|--------------------------------------|
-| TodoList | showAllTasks(boolean complete) |                  | There are completed tasks in list                 | Show all completed tasks             |
+| TodoList | showAllTasks(boolean complete) | complete = true  | There are completed tasks in list                 | Show all completed tasks             |
 |          |                                |                  | There are only incomplete tasks, or list is empty | Show message saying no tasks to show |
 
+````dtd
+I want to be able to get only the incomplete tasks.
+````
+
+HashMap<String, Boolean> taskList
+
+| Classes  | Methods                        | Member Variables | Scenario                                        | Output/Result/Return                 |
+|----------|--------------------------------|------------------|-------------------------------------------------|--------------------------------------|
+| TodoList | showAllTasks(boolean complete) | complete = false | There are incompleted tasks in list             | Show all incompleted tasks           |
+|          |                                |                  | There are only complete tasks, or list is empty | Show message saying no tasks to show |
 
