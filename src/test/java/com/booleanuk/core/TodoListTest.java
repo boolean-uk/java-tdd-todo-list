@@ -109,5 +109,31 @@ class TodoListTest {
         Assertions.assertEquals("Found", foundStatus);
     }
 
+    public void searchTasksTestReturnNotFound() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        String foundStatus = toDo.searchTasks("Dry");
+        Assertions.assertEquals("Not Found", foundStatus);
+    }
+
+    // Remove
+    @Test
+    public void addTaskTestReturnTrue() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.addTask("Dry");
+        result = toDo.removeTask("Dry");
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void addTaskTestReturnFalse() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.addTask("Dry");
+        result = toDo.removeTask("Dust");
+        Assertions.assertFalse(result);
+    }
+
 
 }
