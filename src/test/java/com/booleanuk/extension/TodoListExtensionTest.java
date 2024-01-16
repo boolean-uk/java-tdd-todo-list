@@ -405,4 +405,35 @@ class TodoListExtensionTest {
         todoListExtension.changeTaskName(0, "Eat porridge");
         Assertions.assertEquals("", todoListExtension.getName(0));
     }
+
+    @Test
+    public void testUpdateStatusWithID()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
+
+        todoListExtension.addTask("Eat yoghurt");
+
+        todoListExtension.changeTaskStatus(0);
+        Assertions.assertEquals(true, todoListExtension.getStatus(0));
+    }
+
+    @Test
+    public void testUpdateStatusWithID()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
+
+        todoListExtension.addTask("Eat yoghurt");
+
+        todoListExtension.changeTaskStatus(0);
+        todoListExtension.changeTaskStatus(0);
+        Assertions.assertEquals(false, todoListExtension.getStatus(0));
+    }
+
+    @Test
+    public void testUpdateStatusWithID()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
+
+        Assertions.assertFalse(todoListExtension.changeTaskStatus(0);));
+    }
 }
