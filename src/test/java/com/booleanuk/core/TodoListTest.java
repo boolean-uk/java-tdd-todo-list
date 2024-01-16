@@ -55,5 +55,13 @@ class TodoListTest {
         todoList.addTask("Task2", "incomplete");
         Assertions.assertFalse(todoList.removeTask("Task1"));
     }
+    @Test
+    public void searchTask(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Task1", "incomplete");
+        todoList.addTask("Task2", "incomplete");
+        Assertions.assertEquals("incomplete", todoList.searchTask("Task2"));
+        Assertions.assertEquals("incomplete", todoList.searchTask("Task1"));
+    }
 
 }

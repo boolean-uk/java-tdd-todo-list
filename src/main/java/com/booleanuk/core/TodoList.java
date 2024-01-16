@@ -37,9 +37,16 @@ public class TodoList {
         if (taskList.containsKey(task)) {
             taskList.remove(task);
             return true;
-        } else
+        }
             System.out.println("There is no matching task");
-        return false;
+            return false;
+    }
+
+    public String searchTask(String task){
+        if(taskList.containsKey(task)){
+            return "The task you are searching is " + taskList.get(task);
+        }
+        return "The task not found";
 
     }
     public static void main(String[] arg){
@@ -64,6 +71,12 @@ public class TodoList {
         object.getAllTask();
 
         object.removeTask("Task1");
+
+        object.addTask("Task4", "incomplete");
+        object.addTask("Task5", "incomplete");
+        System.out.println(object.searchTask("Task4"));
+        System.out.println(object.searchTask("Task6"));
+
 
 
 
