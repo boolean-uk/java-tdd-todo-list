@@ -100,4 +100,15 @@ public class TodoList {
             return String.join(", ", ascendingOrder);
         }
     }
+
+    public String descendingOrder() {
+        ArrayList<String> descendingOrder = new ArrayList<>(todoList.keySet());
+        Collections.sort(descendingOrder, Collections.reverseOrder());
+
+        if (descendingOrder.isEmpty()) {
+            return "The list is empty!";
+        } else {
+            return String.join(", ", descendingOrder);
+        }
+    }
 }
