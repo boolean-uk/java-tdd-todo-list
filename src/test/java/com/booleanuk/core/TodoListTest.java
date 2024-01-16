@@ -60,4 +60,15 @@ class TodoListTest {
 
         assertEquals("Grocery shopping", listStatus.getIncompleteTasks());
     }
+
+    @Test
+    public void testReturnsMessageIfTaskNotFound() {
+        TodoList listStatus = new TodoList();
+
+        listStatus.add("Shovel snow", "Incomplete");
+
+        listStatus.add("Grocery shopping", "Incomplete");
+
+        assertEquals("This task does not exist in your list", listStatus.searchForTask("Watering the plants"));
+    }
 }
