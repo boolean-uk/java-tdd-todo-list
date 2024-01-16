@@ -11,20 +11,8 @@ public class Task {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public boolean isCompleted() {
-        return completed;
-    }
-
     public int getId() {
         return id;
-    }
-
-    public void setCompleted(boolean completed) {
-        this.completed = completed;
     }
 
     @Override
