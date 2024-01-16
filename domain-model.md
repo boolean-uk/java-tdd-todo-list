@@ -24,7 +24,8 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 
 | Class | Attribute   |
 |-------|-------------|
-| Task  | Description |
+| Task  | ID          |
+|       | Description |
 |       | Complete    |
 |       | Incomplete  |
 
