@@ -55,3 +55,46 @@ HashMap<String, Boolean> taskList
 | TodoList | showAllTasks(boolean complete) | complete = false | There are incompleted tasks in list             | Show all incompleted tasks           |
 |          |                                |                  | There are only complete tasks, or list is empty | Show message saying no tasks to show |
 
+````dtd
+I want to search for a task and receive a message that says it wasn't found if it doesn't exist.
+````
+
+HashMap<String, Boolean> taskList
+
+| Classes  | Methods               | Member Variables | Scenario            | Output/Result/Return                             |
+|----------|-----------------------|------------------|---------------------|--------------------------------------------------|
+| TodoList | showTask(String task) |                  | Task is in list     | Show task and task status. Return true           |
+|          |                       |                  | Task is not in list | Show message saying task not found. Return false |
+
+````dtd
+I want to remove tasks from my list.
+````
+
+HashMap<String, Boolean> taskList
+
+| Classes  | Methods                 | Member Variables | Scenario            | Output/Result/Return Value                |
+|----------|-------------------------|------------------|---------------------|-------------------------------------------|
+| TodoList | removeTask(String task) |                  | Task is in list     | Remove task, display message, return true |
+|          |                         |                  | Task is not in list | Do nothing, display message, return false |
+
+````dtd
+I want to see all the tasks in my list ordered alphabetically in ascending order.
+````
+
+HashMap<String, Boolean> taskList
+
+| Classes  | Methods                                | Member Variables | Scenario            | Output/Result/Return Value                                |
+|----------|----------------------------------------|------------------|---------------------|-----------------------------------------------------------|
+| TodoList | showAllTasksOrdered(boolean ascending) | ascending = true | Task list not empty | Show all tasks in ascending order. Return true            |
+|          |                                        |                  | Task list empty     | Show message to user about list being empty. Return false |
+
+````dtd
+I want to see all the tasks in my list ordered alphabetically in descending order.
+````
+
+HashMap<String, Boolean> taskList
+
+| Classes  | Methods                                | Member Variables  | Scenario            | Output/Result/Return Value                        |
+|----------|----------------------------------------|-------------------|---------------------|---------------------------------------------------|
+| TodoList | showAllTasksOrdered(boolean ascending) | ascending = false | Task list not empty | Show all tasks in descending order. Return true   |
+|          |                                        |                   | Task list empty     | Show message about list being empty. Return false |
