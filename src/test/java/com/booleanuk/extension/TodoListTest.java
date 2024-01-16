@@ -43,14 +43,14 @@ class TodoListTest {
         todoList.addTask("clean", "123");
         Assertions.assertTrue(todoList.updateTaskStatus("123", true));
     }
-//
-//    @Test
-//    public void updateNonExistingTaskStatusTest() {
-//        TodoList todoList = new TodoList();
-//        todoList.addTask("clean");
-//        Assertions.assertFalse(todoList.updateTaskStatus("bake", true));
-//    }
-//
+
+    @Test
+    public void updateNonExistingTaskStatusTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertFalse(todoList.updateTaskStatus("456", true));
+    }
+
 //    @Test
 //    public void getCompletedTasksEmptyList() {
 //        TodoList todoList = new TodoList();
