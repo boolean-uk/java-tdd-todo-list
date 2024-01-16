@@ -1,27 +1,27 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-class TodoListTest {
+class TodoListExtensionTest {
     @Test
     public void testAddingTask1() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         Assertions.assertTrue(todo.addToTodo("clean"));
     }
 
     @Test
     public void testAddingTask2() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         Assertions.assertTrue(todo.addToTodo("wash"));
     }
 
     @Test
     public void isDisplayNotEmpty(){
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("clean");
         todo.addToTodo("wash");
@@ -31,7 +31,7 @@ class TodoListTest {
     }
     @Test
     public void testDisplayText() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("clean");
         todo.addToTodo("wash");
@@ -40,7 +40,7 @@ class TodoListTest {
     }
     @Test
     public void testDisplayText4() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("clean");
         todo.addToTodo("wash");
@@ -52,7 +52,7 @@ class TodoListTest {
 
     @Test
     public void testChangeStatusComplete() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.statusComplete("wash");
@@ -60,7 +60,7 @@ class TodoListTest {
     }
     @Test
     public void testChangeStatusIncomplete() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.statusComplete("wash");
@@ -69,7 +69,7 @@ class TodoListTest {
     }
     @Test
     public void testChangeStatus() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
 
@@ -80,7 +80,7 @@ class TodoListTest {
 
     @Test
     public void getCompleteStatusTasks() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
@@ -95,7 +95,7 @@ class TodoListTest {
 
     @Test
     public void getIncompleteStatusTasks() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
@@ -110,7 +110,7 @@ class TodoListTest {
 
     @Test
     public void testSearchForTaskInList() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
@@ -124,7 +124,7 @@ class TodoListTest {
     }
     @Test
     public void testSearchForTaskNotInList() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
@@ -139,7 +139,7 @@ class TodoListTest {
 
     @Test
     public void testRemoveTasks() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
@@ -155,7 +155,7 @@ class TodoListTest {
     }
     @Test
     public void testSortAlphabetical() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
@@ -170,7 +170,7 @@ class TodoListTest {
     }
     @Test
     public void testSortAlphabeticalDesc() {
-        TodoList todo = new TodoList();
+        TodoListExtension todo = new TodoListExtension();
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");

@@ -1,11 +1,11 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TodoList {
+public class TodoListExtension {
 
     public HashMap<String, String> list;
     public HashMap<String, String> listComplete;
@@ -14,7 +14,7 @@ public class TodoList {
     public String defaultStatus = "Incomplete";
 //    public String displayText = list.keySet().toString();
 
-    public TodoList() {
+    public TodoListExtension() {
         this.list = new HashMap<>();
     }
     public boolean addToTodo(String taskName) {
