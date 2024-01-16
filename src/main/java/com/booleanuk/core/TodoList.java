@@ -17,6 +17,10 @@ public class TodoList {
             taskList.put(task, "Incomplete");
             return true;
         }
-
     }
+
+    public String viewTask() {
+        return "Task:"+ taskList;
+    }
+
 }
