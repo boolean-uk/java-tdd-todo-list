@@ -15,6 +15,6 @@ public class Task {
     }
     public boolean isComplete(){
 
-        return isComplete;
+        return this.isComplete;
     }
 }

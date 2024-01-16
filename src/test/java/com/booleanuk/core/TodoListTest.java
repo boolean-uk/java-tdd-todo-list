@@ -53,7 +53,9 @@ class TodoListTest {
         Task t1 = new Task("Shopping");
         t1.setComplete(true);
         Task t2 = new Task("Bowling");
-        String expected = "Completed tasks\nShopping";
+        tl.addTask(t1);
+        tl.addTask(t2);
+        String expected = "Completed Tasks\n" + t1.getName() + "\n";
         Assertions.assertEquals(expected, tl.getCompletedTasks());
 
     }

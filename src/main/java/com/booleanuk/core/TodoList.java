@@ -9,7 +9,6 @@ public class TodoList {
         tasks = new ArrayList<>();
     }
     public boolean addTask(Task task){
-        boolean taskExists;
         if(taskExists(task)){
             return false;
         }
@@ -51,6 +50,14 @@ public class TodoList {
         return false;
     }
     public String getCompletedTasks(){
-        return "";
+        StringBuilder sb = new StringBuilder("Completed Tasks\n");
+        for(Task t : tasks){
+            System.out.println(t.getName());
+            if(t.isComplete()){
+
+                sb.append(t.getName()).append("\n");
+            }
+        }
+        return sb.toString();
     }
 }
