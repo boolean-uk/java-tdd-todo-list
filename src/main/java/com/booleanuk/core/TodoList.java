@@ -28,18 +28,19 @@ public class TodoList {
     }
 
     public boolean changeCompletion(String name) {
-        return false;
+        getTask(name).changeCompletion();
+        return getTask(name).isComplete;
     }
 
     public ArrayList<String> getTasksByCompletion(){
         return new ArrayList<>();
     }
 
-    public String getTask(String name) {
-        if(!getToDos().contains(name)){
-            return "Task not in list";
+    public Task getTask(String name) {
+        if(getToDos().contains(name)){
+            return this.todoList.get(name);
         }
-        return this.todoList.get(name).getName();
+        return null;
     }
 
     public String remove(){
