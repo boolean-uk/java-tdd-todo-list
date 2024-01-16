@@ -25,6 +25,7 @@ class TodoListTest {
         list.addTask("groceries");
         list.addTask("vacuum");
         Assertions.assertEquals(3,list.toDoList.size());
+        Assertions.assertTrue(list.seeAllTasks());
     }
 
 

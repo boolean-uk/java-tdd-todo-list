@@ -16,6 +16,9 @@ public class TodoList {
             toDoList.put(task, "incomplete");
             return true;
     }
+    public void seeAllTasks(){
+        System.out.println();
+    }
 
 
 }
