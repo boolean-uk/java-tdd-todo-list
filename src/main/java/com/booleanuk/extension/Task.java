@@ -1,14 +1,18 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+
 public class Task {
     private int id;
     private String description;
     private boolean completed;
+    private LocalDateTime creationDate;
 
     public Task(int id, String description) {
         this.description = description;
         this.completed = false;
         this.id = id;
+        this.creationDate = LocalDateTime.now();
     }
 
     public int getId() {
@@ -21,6 +25,10 @@ public class Task {
 
     public boolean isCompleted() {
         return completed;
+    }
+
+    public LocalDateTime getCreationDate() {
+        return creationDate;
     }
 
     public void setDescription(String description) {
