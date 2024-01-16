@@ -41,4 +41,4 @@ I want to be able to see the date and time that I created each task.
 | ToDoManager | ArrayList<String> toDoList <br/> Task task  | getTaskByID(int id)                   | User gets task object by ID                                             | return task.description |
 |             | ArrayList<String> toDoList <br/> Task task  | updateTaskByID(int id, String task)   | User gets task object by id<br/> and change description of task with ID | void                    |
 |             | ArrayList<String> toDoList <br/> Task task  | updateTaskByID(int id)                | User gets task object by id<br/> and change the status of task with ID  | void                    |
-|             | ArrayList<String> toDoList <br/> Task task  | getDateOfCreation(int id)             | User gets task object by id<br/> and sees the date task is created      | void                    |
+|             | ArrayList<String> toDoList <br/> Task task  | getCreationOfTask(int id)             | User gets task object by id<br/> and sees the date task is created      | void                    |
