@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class TodoList {
     public ArrayList<Task> tasks;
@@ -47,12 +49,12 @@ public class TodoList {
         return incomplete;
     }
 
-    public ArrayList<Task> tasksAscending(){
-        return null;
+    public void tasksAscending(){
+        Collections.sort(tasks, Collections.reverseOrder());
     }
 
-    public ArrayList<Task> tasksDescending(){
-        return null;
+    public void tasksDescending(){
+        Collections.sort(tasks);
     }
 
     public boolean status(String task){
@@ -60,8 +62,9 @@ public class TodoList {
     }
 
     public boolean contains(String task, ArrayList<Task> tasks){
+
         for (Task t : tasks){
-            if (t.description.equals(task)){
+            if (t.compareTo(task) == 0){
                 return true;
             }
         }
@@ -74,7 +77,7 @@ public class TodoList {
 
     public Task find(String task){
         for (Task t : tasks){
-            if (t.description.equals(task)){
+            if (t.compareTo(task) == 0){
                 return t;
             }
         }
