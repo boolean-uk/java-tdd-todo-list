@@ -42,6 +42,12 @@ public class TodoList {
         return sb.toString();
     }
     public boolean toggleStatus(String name){
+        for(Task t: tasks){
+            if(t.getName().equals(name)){
+                t.setComplete(true);
+                return true;
+            }
+        }
         return false;
     }
 }
