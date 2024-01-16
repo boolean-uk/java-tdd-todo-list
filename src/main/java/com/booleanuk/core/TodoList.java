@@ -17,4 +17,26 @@ public class TodoList {
         this.todos.put(todo, false);
         return true;
     }
+
+    public String getTodoList() {
+        if (this.todos.isEmpty()) return "List is empty";
+        String todoString = "";
+        for (String todo: this.todos.keySet()) {
+            todoString = todoString.concat(todo+": ");
+            if (this.todos.get(todo)) {
+                todoString = todoString.concat("Complete\n");
+            } else {
+                todoString = todoString.concat("Incomplete\n");
+            }
+        }
+        return todoString.substring(0,todoString.length()-1);
+    }
+
+    public boolean completeTask(String todo) {
+        if (!this.todos.containsKey(todo) || this.todos.get(todo)) {
+            return false;
+        }
+        this.todos.put(todo, true);
+        return true;
+    }
 }
