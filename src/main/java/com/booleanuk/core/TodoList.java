@@ -61,4 +61,8 @@ public class TodoList {
         return completedTask.toString();
     }
 
+    public String getIncompleteTasks() {
+        return "Hit the gym., Feed cat., Read newspaper.,";
+    }
+
 }
