@@ -167,9 +167,8 @@ class TodoListExtensionTest {
         TodoListExtension todo = new TodoListExtension();
         todo.add("Wash car");
         LocalDateTime localtime = LocalDateTime.now();
-        localtime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
-        todo.getCreationOfTask(todo.list.get(0).getID());
-        Assertions.assertEquals(localtime, todo.getCreaionOfTask());
+        Assertions.assertEquals(localtime.format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss")),
+                todo.getCreationOfTask(todo.list.get(0).getID()));
     }
 
 
