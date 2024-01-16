@@ -75,6 +75,6 @@ class TodoListTest {
         list.addTask(task, "Incomplete");
         list.addTask("Shower", "Complete");
         list.addTask("Go party", "Incomplete");
-        Assertions.assertEquals("{Workout=Incomplete}", list.checkOneTask);
+        Assertions.assertEquals("Workout: Incomplete", list.checkOneTask(task));
     }
 }

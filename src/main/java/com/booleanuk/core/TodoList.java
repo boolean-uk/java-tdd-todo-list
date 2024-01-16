@@ -31,6 +31,10 @@ public class TodoList {
         todoList.remove(task);
         return "Task removed";
     }
+
+    public String checkOneTask(String task){
+        return task +": "+ todoList.get(task);
+    }
 }
 
 /*
