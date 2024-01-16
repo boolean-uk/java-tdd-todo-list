@@ -32,4 +32,17 @@ public class TodoListExtensionTest {
         Assertions.assertEquals(task.name, "Job");
         Assertions.assertSame(task, lst.getTaskByID(0));
     }
+
+    @Test
+    public void testChangeStatusByID() {
+        TodoListExtension lst = new TodoListExtension();
+        TaskExtension task = new TaskExtension("CV");
+        task.ID = 0;
+        lst.addTask(task);
+
+        Assertions.assertFalse(task.status);
+
+        lst.changeStatusByID(0);
+        Assertions.assertTrue(task.status);
+    }
 }

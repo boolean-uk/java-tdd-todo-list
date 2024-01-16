@@ -142,6 +142,10 @@ public class TodoListExtension {
         System.out.println("Name has not been changed");
     }
 
+    public void changeStatusByID(int ID) {
+        getTaskByID(ID).status = !getTaskByID(ID).status;
+    }
+
     public static void main(String[] args) {
         TodoListExtension lst = new TodoListExtension();
         TaskExtension task_1 = new TaskExtension("CV");
