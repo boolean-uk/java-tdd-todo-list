@@ -25,11 +25,13 @@ public class TodoList {
         return list.substring(0, list.length()-1);
     }
 
-    public boolean updateTaskStatus(String task, boolean newStatus) {
-        if(!tasks.containsKey(task)) {
+    public boolean updateTaskStatus(String id, boolean newStatus) {
+        if(!tasks.containsKey(id)) {
             return false;
         }
-        tasks.put(task, newStatus);
+        Task task = tasks.get(id);
+        task.status = newStatus;
+        tasks.put(id, task);
         return true;
     }
 
