@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 class TodoListTest {
     @Test
@@ -112,7 +113,7 @@ class TodoListTest {
         todoList.addTask(new Task("Turn on washing machine", true));
 
         ArrayList<Task> listOfTasks = new ArrayList<>();
-        listOfTasks.add(new Task("Do Laundry"));
+        listOfTasks.add(new Task("Do laundry"));
         listOfTasks.add(new Task("Walk dog", true));
         listOfTasks.add(new Task("Turn on washing machine", true));
 
@@ -121,6 +122,38 @@ class TodoListTest {
             Assertions.assertEquals(listOfTasks.get(i).name, todoList.tasks.get(i).name);
             Assertions.assertEquals(listOfTasks.get(i).complete, todoList.tasks.get(i).complete);
         }
+    }
+
+    @Test
+    public void sortTasksTest() {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask(new Task("Do laundry", false));
+        todoList.addTask(new Task("Walk dog", true));
+        todoList.addTask(new Task("Clean Kitchen"));
+        todoList.addTask(new Task("Turn on washing machine", true));
+
+        ArrayList<Task> listOfTasks = new ArrayList<>();
+        listOfTasks.add(new Task("Clean Kitchen"));
+        listOfTasks.add(new Task("Do laundry"));
+        listOfTasks.add(new Task("Turn on washing machine", true));
+        listOfTasks.add(new Task("Walk dog", true));
+
+        ArrayList<Task> sortedTodoList = todoList.sortTasks(false);
+
+        for(int i = 0; i < sortedTodoList.size(); i++) {
+            Assertions.assertEquals(listOfTasks.get(i).name, sortedTodoList.get(i).name);
+            Assertions.assertEquals(listOfTasks.get(i).complete, sortedTodoList.get(i).complete);
+        }
+
+        sortedTodoList = todoList.sortTasks(true);
+        Collections.reverse(listOfTasks);
+
+        for(int i = 0; i < sortedTodoList.size(); i++) {
+            Assertions.assertEquals(listOfTasks.get(i).name, sortedTodoList.get(i).name);
+            Assertions.assertEquals(listOfTasks.get(i).complete, sortedTodoList.get(i).complete);
+        }
+
     }
 
 }

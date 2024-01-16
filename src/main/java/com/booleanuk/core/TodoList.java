@@ -46,6 +46,14 @@ public class TodoList {
         return "No results for " + taskName;
     }
 
-
+    public boolean removeTask(String taskName) {
+        for(int i = 0; i < tasks.size(); i++) {
+            if(tasks.get(i).name ==  taskName) {
+                tasks.remove(tasks.get(i));
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
