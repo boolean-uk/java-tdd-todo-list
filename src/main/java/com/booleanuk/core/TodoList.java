@@ -48,6 +48,40 @@ public class TodoList {
         }
     }
 
+    public void showAllTasks(boolean complete)  {
+        if(!taskList.isEmpty()) {
+            int count = 0;
+            for(String task : taskList)
+            {
+                if(taskStatus.get(task) == complete) count++;
+            }
+
+            if(count > 0) {
+                StringBuilder outputString = new StringBuilder();
+                outputString.append("You have ");
+                outputString.append(count);
+                outputString.append(" ");
+                outputString.append(complete ? "complete " : "incomplete ");
+                outputString.append("tasks:\n");
+
+                for (String task : taskList) {
+                    if(taskStatus.get(task) == complete) {
+                        outputString.append("[");
+                        outputString.append(!taskStatus.get(task) ? " " : "X");
+                        outputString.append(("] "));
+                        outputString.append(task);
+                        outputString.append("\n");
+                    }
+                }
+                System.out.print(outputString);
+            } else {
+                System.out.print("No tasks to show");
+            }
+        }   else {
+            System.out.print("No tasks to show");
+        }
+    }
+
     public boolean changeTaskStatus(String task)   {
         if(taskList.contains(task))
         {
