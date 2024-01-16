@@ -25,10 +25,10 @@
 3. I want to change the status of a task between incomplete and complete.
 ```
 
-| Classes  | Methods                          | Scenario                   | Returns                              |
-|----------|----------------------------------|----------------------------|--------------------------------------|
-| TodoList | String toggleStatus(String name) | Task exists and is changed | "Status changed to (Current status)" |
-|          |                                  | Task does not exist        | "Task does not exist"                |
+| Classes  | Methods                           | Scenario                   | Returns |
+|----------|-----------------------------------|----------------------------|---------|
+| TodoList | boolean toggleStatus(String name) | Task exists and is changed | true    |
+|          |                                   | Task does not exist        | false   |
 
 ```
 4. I want to be able to get only the complete tasks.

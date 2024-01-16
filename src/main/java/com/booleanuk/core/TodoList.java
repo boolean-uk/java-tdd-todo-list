@@ -29,6 +29,19 @@ public class TodoList {
         return exists;
     }
     public String getTodoList(){
-        return "";
+        StringBuilder sb = new StringBuilder();
+        for(Task t : tasks){
+            if(t.isComplete()){
+                sb.append(t.getName()).append(", Completed\n");
+            }
+            else{
+                sb.append(t.getName()).append(", Not Complete\n");
+            }
+
+        }
+        return sb.toString();
+    }
+    public boolean toggleStatus(String name){
+        return false;
     }
 }

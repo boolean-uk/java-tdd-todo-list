@@ -33,8 +33,16 @@ class TodoListTest {
         tl.addTask(new Task("Shopping"));
         tl.addTask(new Task("Bowling"));
         String expected = "Shopping" + ", Not Complete\n"
-                + "Bowling" + ", Not Complete";
+                + "Bowling" + ", Not Complete\n";
 
         Assertions.assertEquals(expected, tl.getTodoList());
+    }
+
+    /*Domain model user story 3 test*/
+    @Test
+    public void testToggleStatusOfTask(){
+        TodoList tl = new TodoList();
+        tl.addTask(new Task("Shopping"));
+        Assertions.assertTrue(tl.toggleStatus("Shopping"));
     }
 }
