@@ -1,10 +1,12 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class TodoList {
 
     ArrayList<String> tasks;
+    HashMap<String, Boolean> tasks2;
 
     public TodoList() {
         tasks = new ArrayList<>();

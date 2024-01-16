@@ -32,4 +32,5 @@ class TodoListTest {
 
         Assertions.assertEquals("[Alice, Bob, Charlie]", result);
     }
+
 }
