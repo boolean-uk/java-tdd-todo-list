@@ -92,4 +92,24 @@ class TodoListTest {
         Assertions.assertEquals(1,todoList.taskList.size());
     }
 
+    @Test
+    public void testAscTaskList() {
+        TodoList todoList = new TodoList();
+        todoList.add("eat");
+        todoList.add("fish");
+        todoList.add("sleep");
+
+        Assertions.assertEquals("",todoList.sortAscTask());
+    }
+
+    @Test
+    public void testDescTaskList() {
+        TodoList todoList = new TodoList();
+        todoList.add("eat");
+        todoList.add("fish");
+        todoList.add("sleep");
+
+        Assertions.assertEquals("",todoList.sortDescTask());
+    }
+
 }
