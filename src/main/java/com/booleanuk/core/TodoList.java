@@ -20,6 +20,17 @@ public class TodoList {
         return true;
     }
 
+    public ArrayList<Task> retrieveTasks () {
+        try {
+            for(Task task : this.listOfTasks) {
+                System.out.println(task.name);
+            }
+        } catch (Exception e) {
+            return new ArrayList<>();
+        }
+        return this.listOfTasks;
+    }
+
     public static void main(String[] args) {
 
     }

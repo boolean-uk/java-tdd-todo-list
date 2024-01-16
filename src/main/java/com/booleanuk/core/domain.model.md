@@ -14,13 +14,13 @@
 
 ### Class ToDoList
  
-| Member Variables  | Methods      | Scenario                         | Return                               | Type       |
-|-------------------|--------------|----------------------------------|--------------------------------------|------------|
-| listOfTasks: List | addTasks()   | I want to add task to list       | Add the list to the to-do-list       | Boolean    |
-|                   | printTasks() | I want to know what tasks I have | Print the tasks, and return the list | List<Task> |
-|                   |              |                                  |                                      |            |
-|                   |              |                                  |                                      |            |
-|                   |              |                                  |                                      |            |
+| Member Variables  | Methods         | Scenario                         | Return                               | Type       |
+|-------------------|-----------------|----------------------------------|--------------------------------------|------------|
+| listOfTasks: List | addTasks()      | I want to add task to list       | Add the list to the to-do-list       | Boolean    |
+|                   | retrieveTasks() | I want to know what tasks I have | Print the tasks, and return the list | List<Task> |
+|                   |                 |                                  |                                      |            |
+|                   |                 |                                  |                                      |            |
+|                   |                 |                                  |                                      |            |
 
 
 ### Task
