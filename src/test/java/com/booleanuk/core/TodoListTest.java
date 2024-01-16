@@ -52,4 +52,26 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertEquals("List is empty", todoList.getTodoList());
     }
+
+    @Test
+    public void testChangeTaskToComplete() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        Assertions.assertTrue(todoList.completeTask("Work"));
+        Assertions.assertTrue(todoList.todos.get("Work"));
+    }
+
+    @Test
+    public void testChangeTaskToCompleteWhichIsComplete() {
+        TodoList todoList = new TodoList();
+        todoList.todos.put("Work", true);
+        Assertions.assertFalse(todoList.completeTask("Work"));
+    }
+
+    @Test
+    public void testChangeTaskNotInListToComplete() {
+        TodoList todoList = new TodoList();
+        todoList.add("Work");
+        Assertions.assertFalse(todoList.completeTask("Eat"));
+    }
 }
