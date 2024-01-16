@@ -89,4 +89,28 @@ class TodoListTest {
         Assertions.assertTrue(lst.listOfTasks.contains(lst.searchTask(task_1)));
         Assertions.assertFalse(lst.listOfTasks.contains(lst.searchTask(task_2)));
     }
+
+    @Test
+    public void testRemoveTask() {
+        TodoList lst = new TodoList();
+        Task task_1 = new Task("CV");
+        lst.addTask(task_1);
+
+        lst.removeTask(task_1);
+
+        Assertions.assertTrue(lst.listOfTasks.isEmpty());
+    }
+
+    @Test
+    public void testRemoveAllTasks() {
+        TodoList lst = new TodoList();
+        Task task_1 = new Task("CV");
+        Task task_2 = new Task("Sleep");
+        lst.addTask(task_1);
+        lst.addTask(task_2);
+
+        lst.removeAllTasks();
+
+        Assertions.assertTrue(lst.listOfTasks.isEmpty());
+    }
 }

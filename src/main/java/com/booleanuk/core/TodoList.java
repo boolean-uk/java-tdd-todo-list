@@ -79,6 +79,14 @@ public class TodoList {
          return task;
      }
 
+     public void removeTask(Task task) {
+
+     }
+
+     public void removeAllTasks() {
+
+     }
+
     public static void main(String[] args) {
 
     }
