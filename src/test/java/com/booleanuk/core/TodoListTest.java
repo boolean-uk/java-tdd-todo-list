@@ -226,8 +226,7 @@ class TodoListTest {
 
         String expectedOutput = """
                 Task:
-                [ ] Paint the Mona Lisa
-                """;
+                [ ] Paint the Mona Lisa""";
 
         Assertions.assertTrue(todoList.getTask("Paint the Mona Lisa"));
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
@@ -247,8 +246,7 @@ class TodoListTest {
 
         String expectedOutput = """
                 Task:
-                [X] Paint the Mona Lisa
-                """;
+                [X] Paint the Mona Lisa""";
 
         Assertions.assertTrue(todoList.getTask("Paint the Mona Lisa"));
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());

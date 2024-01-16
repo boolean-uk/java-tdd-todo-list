@@ -22,6 +22,34 @@ public class TodoList {
         return false;
     }
 
+    public boolean changeTaskStatus(String task)   {
+        if(taskList.contains(task))
+        {
+            taskStatus.put(task, !taskStatus.get(task));
+            return true;
+        }   else {
+            System.out.println("Task not in list");
+            return false;
+        }
+    }
+
+    public boolean getTask(String task) {
+        StringBuilder outputString = new StringBuilder();
+        if(taskList.contains(task))
+        {
+            outputString.append("Task:\n");
+            outputString.append("[");
+            outputString.append(!taskStatus.get(task) ? " " : "X");
+            outputString.append("] ");
+            outputString.append(task);
+
+            System.out.print(outputString);
+            return true;
+        }
+        System.out.print("Task not found");
+        return false;
+    }
+
     /*
     expectedString = """
         Your tasks are:
@@ -82,14 +110,5 @@ public class TodoList {
         }
     }
 
-    public boolean changeTaskStatus(String task)   {
-        if(taskList.contains(task))
-        {
-            taskStatus.put(task, !taskStatus.get(task));
-            return true;
-        }   else {
-            System.out.println("Task not in list");
-            return false;
-        }
-    }
+
 }
