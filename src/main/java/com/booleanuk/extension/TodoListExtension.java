@@ -28,4 +28,14 @@ public class TodoListExtension {
         }
         return false;
     }
+
+    public boolean setTaskStatus(String taskId) {
+        for(Task task: todos) {
+            if (taskId.equals(task.taskId)) {
+                task.status = !task.status;
+                return true;
+            }
+        }
+        return false;
+    }
 }
