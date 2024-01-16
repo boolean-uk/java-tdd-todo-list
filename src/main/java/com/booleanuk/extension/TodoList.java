@@ -19,8 +19,8 @@ public class TodoList {
 
     public String seeList() {
         String list = "";
-        for(String task: tasks.keySet()) {
-            list += task + "\n";
+        for(Task task: tasks.values()) {
+            list += task.name + "\n";
         }
         return list.substring(0, list.length()-1);
     }
