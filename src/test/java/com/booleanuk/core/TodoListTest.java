@@ -157,4 +157,60 @@ class TodoListTest {
 
         Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
     }
+
+    @Test
+    public void testGetIncompleteTasks()
+    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        todoList.changeTaskStatus(("Eat yoghurt"));
+        todoList.changeTaskStatus("Talk to janitor");
+
+        String expectedOutput = """
+                You have 2 incomplete tasks:
+                [ ] Paint the Mona Lisa
+                [ ] Do laundry
+                """;
+
+        todoList.showAllTasks(false);
+
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testGetInompleteTasksOnlyIncomplete()    {
+        TodoList todoList = new TodoList();
+
+        todoList.addTask("Eat yoghurt");
+        todoList.addTask("Paint the Mona Lisa");
+        todoList.addTask("Do laundry");
+        todoList.addTask("Talk to janitor");
+
+        todoList.changeTaskStatus(("Eat yoghurt"));
+        todoList.changeTaskStatus("Paint the Mona Lisa");
+        todoList.changeTaskStatus(("Do laundry"));
+        todoList.changeTaskStatus("Talk to janitor");
+
+        String expectedOutput = "No tasks to show";
+
+        todoList.showAllTasks(false);
+
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
+
+    @Test
+    public void testGetIncompleteTasksNoTasks()    {
+        TodoList todoList = new TodoList();
+
+        String expectedOutput = "No tasks to show";
+
+        todoList.showAllTasks(false);
+
+        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+    }
 }
