@@ -44,4 +44,9 @@ public class TodoList {
         }
         return completedTasks;
     }
+
+    public ArrayList<String> getUncompletedTasks() {
+
+        return new ArrayList<>();
+    }
 }
