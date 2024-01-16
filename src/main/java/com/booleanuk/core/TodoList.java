@@ -39,4 +39,16 @@ public class TodoList {
         this.todos.put(todo, true);
         return true;
     }
+
+    public String getCompleteTasks() {
+        if (this.todos.isEmpty()) return "No tasks completed";
+        String todoString = "";
+        for (String todo: this.todos.keySet()) {
+            if (this.todos.get(todo)) {
+                todoString = todoString.concat(todo+"\n");
+            }
+        }
+        if (todoString.isBlank()) return "No tasks completed";
+        return todoString.substring(0,todoString.length()-1);
+    }
 }
