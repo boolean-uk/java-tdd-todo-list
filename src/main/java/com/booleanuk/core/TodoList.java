@@ -16,7 +16,11 @@ public class TodoList {
     }
 
     public String remove(String task){
-        return "";
+        if (!list.containsKey(task)){
+            return task + " not in TodoList";
+        }
+        list.remove(task);
+        return task + " removed from TodoList";
     }
 
     public String show(){

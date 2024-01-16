@@ -24,6 +24,7 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         todoList.add("Wash clothes");
         Assertions.assertTrue(todoList.list.containsKey("Wash clothes"));
+        Assertions.assertEquals(todoList.remove("Wash clothes"),"Wash clothes removed from TodoList");
         todoList.remove("Wash clothes");
         Assertions.assertFalse(todoList.list.containsKey("Wash clothes"));
     }
