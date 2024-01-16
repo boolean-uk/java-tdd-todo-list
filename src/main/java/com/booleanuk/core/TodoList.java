@@ -93,13 +93,19 @@ public class TodoList {
     public String getTask(String name) {
 
 
+        if (tasks.containsKey(name)) {
+            return "This was your task: " + name + " status: " + tasks.get(name);
+        }
+
+
         return "The task wasnt found!";
     }
 
-    public boolean removeTask(int id) {
+    public boolean removeTask(String name) {
+
+        return false;
 
 
-        return true;
     }
 
     public HashMap<Integer, String> ascending() {

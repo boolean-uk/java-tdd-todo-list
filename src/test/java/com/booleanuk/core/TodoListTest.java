@@ -115,7 +115,7 @@ class TodoListTest {
 
         String result = task1.getTask("Sloss2");
 
-        Assertions.assertEquals("{Sloss2=true}", result);
+        Assertions.assertEquals("This was your task: Sloss2 status: true", result);
 
 
     }
