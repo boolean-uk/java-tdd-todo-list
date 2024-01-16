@@ -75,6 +75,23 @@ public class TodoList {
     }
     public String getIncompleteTasks(){
         StringBuilder sb = new StringBuilder("Incomplete Tasks\n");
-        return "";
+        int count = 0;
+        if(!tasks.isEmpty()){
+            for(Task t : tasks){
+                if(!t.isComplete()){
+                    count++;
+                    sb.append(t.getName()).append("\n");
+                }
+            }
+            if(count >0){
+                return sb.toString();
+            }
+            else {
+                return "There are no incomplete tasks";
+            }
+        }
+        else{
+            return "Task list is empty";
+        }
     }
 }
