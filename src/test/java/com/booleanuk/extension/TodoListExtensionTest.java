@@ -392,7 +392,9 @@ class TodoListExtensionTest {
 
         todoListExtension.addTask("Eat yoghurt");
 
-        todoListExtension.changeName(0, "Eat porridge");
+        todoListExtension.changeTaskName(0, "Eat porridge");
         Assertions.assertEquals("Eat porridge", todoListExtension.getName(0));
     }
+
+
 }
