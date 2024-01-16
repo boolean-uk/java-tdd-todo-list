@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class TodoList {
@@ -76,6 +78,18 @@ public class TodoList {
             else if (!this.tasks.get(task) && !status) {
                 output.add(task);
             }
+        }
+        return output;
+    }
+
+    public ArrayList<String> getTasksOrdered(boolean asc) {
+        if (this.tasks.isEmpty()) {
+            return new ArrayList<>();
+        }
+        ArrayList<String> output = new ArrayList<>(this.tasks.keySet());
+        Collections.sort(output);
+        if (!asc) {
+            Collections.reverse(output);
         }
         return output;
     }
