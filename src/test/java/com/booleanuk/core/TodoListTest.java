@@ -40,4 +40,11 @@ class TodoListTest {
         todoList.addTask("clean");
         Assertions.assertTrue(todoList.updateTaskStatus("clean", true));
     }
+
+    @Test
+    public void updateNonExistingTaskStatusTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        Assertions.assertFalse(todoList.updateTaskStatus("bake", true));
+    }
 }
