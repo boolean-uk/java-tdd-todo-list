@@ -3,6 +3,8 @@ package com.booleanuk.extension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+
 public class TodoListExtensionTest {
 
     @Test
@@ -81,5 +83,12 @@ public class TodoListExtensionTest {
         Assertions.assertTrue(todoList.setTaskStatus("1"));
         Assertions.assertTrue(todoList.setTaskStatus("1"));
         Assertions.assertFalse(todoList.todos.get(0).status);
+    }
+
+    @Test
+    public void testCheckDateSetToTimeOfCreation() {
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.todos.add(new Task("1","Work"));
+        Assertions.assertEquals(todoList.todos.get(0).creationTime, new Date());
     }
 }
