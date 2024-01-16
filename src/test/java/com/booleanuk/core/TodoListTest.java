@@ -64,10 +64,10 @@ public class TodoListTest {
         _todo.toggleTaskCompletion("Clean Room");
         _todo.toggleTaskCompletion("Wash Clothes");
 
-        Assertions.assertEquals("Make Dinner", _todo.viewIncompleteTasks());
-        Assertions.assertEquals("Clean Room\nWash Clothes", _todo.viewCompletedTasks());
+        Assertions.assertArrayEquals(new String[]{ "Fix Car", "Make Dinner" }, _todo.viewIncompleteTasks());
+        Assertions.assertArrayEquals(new String[]{ "Clean Room", "Wash Clothes" }, _todo.viewCompletedTasks());
 
-        Assertions.assertEquals("Clean Room\nFix Car\nMake Dinner\nWash Clothes", _todo.printAllTasksOrdered(true));
-        Assertions.assertEquals("Wash Clothes\nMake Dinner\nFix Car\nClean Room", _todo.printAllTasksOrdered(false));
+        Assertions.assertArrayEquals(new String[]{ "Clean Room", "Fix Car", "Make Dinner", "Wash Clothes" }, _todo.printAllTasksOrdered(true));
+        Assertions.assertArrayEquals(new String[]{ "Wash Clothes", "Make Dinner", "Fix Car", "Clean Room" }, _todo.printAllTasksOrdered(false));
     }
 }
