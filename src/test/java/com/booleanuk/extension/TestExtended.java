@@ -3,6 +3,7 @@ package com.booleanuk.extension;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 class TestExtended {
@@ -149,8 +150,7 @@ class TestExtended {
     public void testGetDateAndTime(){
         TodoListExtended todolist = new TodoListExtended();
         todolist.add("Eat");
-        TaskExtended test = new TaskExtended("Sleep", "18:20 : 2024-01-16");
-
-        Assertions.assertEquals(test.getTimeCreated(), todolist.getTask("Eat").getTimeCreated());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm : yyyy-MM-dd");
+        Assertions.assertEquals(java.time.LocalDateTime.now().format(formatter), todolist.getTimeCreated("Eat"));
     }
 }

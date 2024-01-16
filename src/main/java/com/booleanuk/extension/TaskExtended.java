@@ -1,5 +1,7 @@
 package com.booleanuk.extension;
 
+import java.time.format.DateTimeFormatter;
+
 public class TaskExtended {
 
     String name;
@@ -7,12 +9,18 @@ public class TaskExtended {
     int id;
     static int order = 1000;
     String timeCreated;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm : yyyy-MM-dd");
 
+    public TaskExtended(String name, String timeCreated){
+        this(name);
+        this.timeCreated = timeCreated;
+    }
     public TaskExtended(String name){
         this.name = name;
         this.isComplete = false;
         this.id = order;
         order ++;
+        this.timeCreated = java.time.LocalDateTime.now().format(formatter);
     }
 
     public String getName(){
@@ -32,7 +40,8 @@ public class TaskExtended {
     }
 
     public String getTimeCreated(){
-        return "";
+
+        return this.timeCreated;
     }
     public void changeCompletion(){
         this.isComplete = !this.isComplete;

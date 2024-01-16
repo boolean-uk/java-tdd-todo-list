@@ -90,7 +90,9 @@ public class TodoListExtended {
 
     public TaskExtended getTask(int id){
         if(getIdNameMap().containsKey(id)){
-            return this.todoList.get(getIdNameMap().get(id));
+            if(getIdNameMap().get(id) != null){
+                return this.todoList.get(getIdNameMap().get(id));
+            }
         }
         return null;
     }
@@ -103,12 +105,11 @@ public class TodoListExtended {
     }
 
     public void changeCompletion(int id) {
-
         getTask(id).changeCompletion();
     }
 
-    public void getTimeCreated(String name) {
-
+    public String getTimeCreated(String name) {
+        return getTask(name).getTimeCreated();
     }
 
     public HashMap<Integer, String> getIdNameMap(){
