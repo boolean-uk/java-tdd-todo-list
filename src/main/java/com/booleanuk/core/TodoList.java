@@ -70,6 +70,10 @@ public class TodoList {
         }
         return completeTask;
     }
+
+    public ArrayList<String> getInCompleteTask(){
+
+    }
     public static void main(String[] arg){
         TodoList object = new TodoList();
         // print all tasks

@@ -89,8 +89,19 @@ class TodoListTest {
         Assertions.assertTrue(completeTask.contains("Fork daily assignment"));
         Assertions.assertTrue(completeTask.contains("Create a todo app"));
         Assertions.assertFalse(completeTask.contains("Watch video on JUnit"));
-
-
     }
+    @Test
+    public void getInCompleteTask(){
+        TodoList todoList = new TodoList();
+        todoList.addTask("Fork daily assignment", "complete");
+        todoList.addTask("Create a todo app", "incomplete");
+        todoList.addTask("Watch video on JUnit", "incomplete");
+        ArrayList<String> completeTask = todoList.getInCompleteTask();
+        Assertions.assertFalse(completeTask.contains("Fork daily assignment"));
+        Assertions.assertTrue(completeTask.contains("Create a todo app"));
+        Assertions.assertTrue(completeTask.contains("Watch video on JUnit"));
+    }
+
+
 
 }
