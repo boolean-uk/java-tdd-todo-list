@@ -47,3 +47,12 @@ I want to see all the tasks in my list ordered alphabetically in descending orde
 | Map<String, Boolean> todoList | getCompleteOrIncompleteTasks(String CompleteOrIncomplete) | Gets either the complete or incomplete tasks | Map<String, Boolean> tasks |
 |                               |                                                           |                                              |                            |
 |                               |                                                           |                                              |                            |
+
+
+## 6
+
+| Class Variables               | Methods                | Scenarios                        | Output/Return                    |
+|-------------------------------|------------------------|----------------------------------|----------------------------------|
+| Map<String, Boolean> todoList | checkTask(String task) | Checks if task is already in map | True if it is in the listOfTasks |
+|                               |                        |                                  | and false if not                 |
+|                               |                        |                                  |                                  |

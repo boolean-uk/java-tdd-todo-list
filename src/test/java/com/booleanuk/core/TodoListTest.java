@@ -120,4 +120,9 @@ class TodoListTest {
         Assertions.assertTrue(incompleteTasks.containsKey("Task3"));
 
     }
+
+    @Test
+    public void testCheckTask() {
+
+    }
 }
