@@ -29,8 +29,8 @@
 |                                 | alphabetizeUp()           | Alphabetizes the todolist    | alphabetizedList |
 |                                 |                           | in rising order              |                  |
 |                                 |                           |                              |                  |
-|                                 |                           |                              |                  |
-|                                 |                           |                              |                  |
+|                                 | alphabetizeDown()         | Alphabetizes the todolist    | alphabetizedList |
+|                                 |                           | in decreasing order          |                  |
 |                                 |                           |                              |                  |
 |                                 |                           |                              |                  |
 |                                 |                           |                              |                  |
