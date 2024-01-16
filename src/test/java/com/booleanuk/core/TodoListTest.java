@@ -93,5 +93,20 @@ class TodoListTest {
         Assertions.assertEquals(todo.displayCompleteTodo(), "[wash, clean]");
     }
 
+    @Test
+    public void getIncompleteStatusTasks() {
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("wash");
+        todo.addToTodo("clean");
+        todo.addToTodo("shop");
+        todo.addToTodo("cook");
+
+        todo.changeStatus("wash");
+        todo.changeStatus("clean");
+
+        Assertions.assertEquals(todo.displayIncompleteTodo(), "[shop, cook]");
+    }
+
 
 }
