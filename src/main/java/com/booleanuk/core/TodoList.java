@@ -124,6 +124,11 @@ public class TodoList {
         temp.sort(Comparator.comparing(Task::getName));
         return getTodoList(temp);
     }
+    public String descendingList(){
+        ArrayList<Task> temp = tasks;
+        temp.sort(Comparator.comparing(Task::getName, Comparator.reverseOrder()));
+        return getTodoList(temp);
+    }
 
     private String getTodoList(ArrayList<Task> taskArr){
         StringBuilder sb = new StringBuilder();
