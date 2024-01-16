@@ -61,6 +61,6 @@ public class TodoList {
 
     public boolean checkTask(String task1) {
 
-        return true;
+        return this.getTodolist().containsKey(task1);
     }
 }
