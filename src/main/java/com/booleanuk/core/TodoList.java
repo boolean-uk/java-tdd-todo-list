@@ -83,7 +83,11 @@ public class TodoList {
 
     //User Story 7
     public String remove(String task) {
-        return "Task successfully removed from todo list.";
+        if(this.taskList.contains(task)) {
+            this.taskList.remove(task);
+            return "Task successfully removed from todo list.";
+        }
+        return "Task not in todo list";
     }
 
 }
