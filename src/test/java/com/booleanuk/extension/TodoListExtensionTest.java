@@ -35,4 +35,22 @@ public class TodoListExtensionTest {
 
         assertEquals("Complete", taskStatus.taskStatus(1));
     }
+
+    @Test
+    public void checkingDateCreated() {
+        TodoListExtension dateCreated = new TodoListExtension();
+
+        dateCreated.add("Shovel snow", "Incomplete");
+
+        assertEquals("16.01.2024", dateCreated.getDate(1));
+    }
+
+    @Test
+    public void checkingTimeCreated() {
+        TodoListExtension dateCreated = new TodoListExtension();
+
+        dateCreated.add("Shovel snow", "Incomplete");
+
+        assertEquals("22:00", dateCreated.getTime(1));
+    }
 }
