@@ -48,7 +48,7 @@ see all the tasks in my list ordered alphabetically in descending order.
 | changeTaskStatus(String task) |                               |
 | getCompletedTasks()           |                               |
 | getIncompleteTasks()          |                               |
-| showTask()                    |                               |
+| doesTaskExist()               |                               |
 | removeTask()                  |                               |
 | showTasksReversed()           |                               |
 
