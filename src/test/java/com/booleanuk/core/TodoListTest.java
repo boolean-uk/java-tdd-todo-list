@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 class TodoListTest {
@@ -67,5 +68,24 @@ class TodoListTest {
         Assertions.assertEquals("Task has been marked as incomplete.", result.changeTaskStatus("Train for 60 minutes"));
 
         Assertions.assertFalse(result.todoList.get("Train for 60 minutes"));
+    }
+
+    @Test
+    public void getAllCompletedTasks() {
+        TodoList result = new TodoList();
+
+        result.addTask("Do the dishes");
+        result.addTask("Clean the bathroom");
+        result.addTask("Train for 60 minutes");
+        result.addTask("Cook dinner");
+
+        result.changeTaskStatus("Train for 60 minutes");
+        result.changeTaskStatus("Do the dishes");
+
+        ArrayList<String> expected= new ArrayList<>();
+        expected.add("Train for 60 minutes");
+        expected.add("Do the dishes");
+
+        Assertions.assertEquals(expected, result.getCompletedTasks());
     }
 }
