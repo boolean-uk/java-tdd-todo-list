@@ -26,4 +26,19 @@
 |                                 |                           | task if found                |                  |
 |                                 |                           | if not found                 | false            |
 |                                 |                           |                              |                  |
+|                                 | alphabetizeUp()           | Alphabetizes the todolist    | alphabetizedList |
+|                                 |                           | in rising order              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
+|                                 |                           |                              |                  |
 

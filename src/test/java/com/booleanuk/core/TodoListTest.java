@@ -135,5 +135,22 @@ class TodoListTest {
         Assertions.assertFalse(result);
     }
 
+    // Alphabetize
+    @Test
+    public void alphabetizeUpTest() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.addTask("Dry");
+        result = toDo.addTask("Zap");
+        result = toDo.addTask("Tilt");
+        result = toDo.addTask("Work");
+        result = toDo.addTask("Bath");
+        ArrayList<String> alphabetizedList = toDo.alphabetizeUp();
+        Assertions.assertEquals("Bath", alphabetizedList.get(0));
+        Assertions.assertEquals("Clean", alphabetizedList.get(1));
+        Assertions.assertEquals("Work", alphabetizedList.get(4));
+        Assertions.assertEquals("Zap", alphabetizedList.get(5));
+    }
+
 
 }
