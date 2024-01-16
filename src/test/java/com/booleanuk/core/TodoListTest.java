@@ -85,14 +85,14 @@ class TodoListTest {
     public void doesExistingTaskExist() {
         TodoList todoList = new TodoList();
         todoList.addTask("clean");
-        Assertions.assertTrue(todoList.doesTaskExist("clean"));
+        Assertions.assertEquals(	"The task exists!", todoList.doesTaskExist("clean"));
     }
 
     @Test
     public void doesNonexistingTaskExist() {
         TodoList todoList = new TodoList();
         todoList.addTask("clean");
-        Assertions.assertFalse(todoList.doesTaskExist("call bob"));
+        Assertions.assertEquals(	"The task doesn't exist!", todoList.doesTaskExist("call bob"));
     }
 
     @Test
