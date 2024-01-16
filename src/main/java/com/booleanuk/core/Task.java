@@ -8,4 +8,17 @@ public class Task {
         this.description = description;
         this.completed = false;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    @Override
+    public String toString() {
+        return "[\"" + description + "\", " + (completed ? "complete" : "incomplete") + "]";
+    }
 }
