@@ -77,3 +77,43 @@ TodoList
 | method           | object variable        | context                                                                                                           | output/return                       |
 |------------------|------------------------|-------------------------------------------------------------------------------------------------------------------|-------------------------------------|
 | orderTasksDesc() | ArrayList\<Task\> list | If there are elements in ArrayList, use sort-method and Collections.reverseOrder() to sort it in descending order | (ArrayList\<Task\>) tasksSortedDesc |
+
+```I want to be able to get a task by a unique ID.```
+
+TodoList
+
+| method             | object variable         | context                                                                                                          | output/return            |
+|--------------------|-------------------------|------------------------------------------------------------------------------------------------------------------|--------------------------|
+| searchById(int id) | ArrayList\<Task\> tasks | iterates over elements in ArrayList and checks if any element's id matches id. If found, return positive message | (String) foundMessage    |
+|                    |                         | if not found, return negative message                                                                            | (String) notFoundMessage |
+
+---
+```I want to update the name of a task by providing its ID and a new name.```
+
+TodoList
+
+| method                            | object variable         | context                                                                                                                        | output/return            |
+|-----------------------------------|-------------------------|--------------------------------------------------------------------------------------------------------------------------------|--------------------------|
+| setNameById(int id, name newName) | ArrayList\<Task\> tasks | iterates over elements in ArrayList and checks if any element's id matches id. If found, set the name to new name, return true | (boolean) changedName    |
+|                                   |                         | if not found, return false                                                                                                     | (boolean) notChangedName |
+
+---
+```I want to be able to change the status of a task by providing its ID.```
+
+TodoList
+
+| method                                   | object variable         | context                                                                                                                            | output/return              |
+|------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------------------|----------------------------|
+| setStatusById(int id, boolean newStatus) | ArrayList\<Task\> tasks | iterates over elements in ArrayList and checks if any element's id matches id. If found, set the status to new status, return true | (boolean) changedStatus    |
+|                                          |                         | if not found, return false                                                                                                         | (boolean) notChangedStatus |
+
+---
+```I want to be able to see the date and time that I created each task.```
+
+Task
+
+| method | object variable     | context                                                                                                   | output/return |
+|--------|---------------------|-----------------------------------------------------------------------------------------------------------|---------------|
+| Task   | String name         | add a new object variable "createdAt" of type TimeStamp. Upon creation of object, set createdAt to 'now'  |               |
+|        | boolean status      |                                                                                                           |               |
+|        | TimeStamp createdAt |                                                                                                           |               |
