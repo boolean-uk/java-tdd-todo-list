@@ -51,6 +51,14 @@ public class TodoList {
         return incompleteTasks;
     }
 
+    public boolean doesTaskExist(String task) {
+        if (this.todoList.containsKey(task)) {
+            return true;
+        }
+        System.out.print("Task does not exist\n");
+        return false;
+    }
+
     public static void main(String[] args) {
 //        TodoList test = new TodoList();
 //
