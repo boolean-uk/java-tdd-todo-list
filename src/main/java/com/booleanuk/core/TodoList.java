@@ -50,4 +50,7 @@ public class TodoList {
         }
         return false;
     }
+    public String getCompletedTasks(){
+        return "";
+    }
 }
