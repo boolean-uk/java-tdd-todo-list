@@ -28,6 +28,20 @@ class TodoListTest {
         todoList.add(task);
         String task2 = "Eat";
         todoList.add(task2);
+
         Assertions.assertEquals("Task:{Eat=Incomplete, Wash=Incomplete}", todoList.viewTask());
+    }
+
+    @Test
+    public void testUpdateTask() {
+        TodoList todoList = new TodoList();
+        String task = "Wash";
+        todoList.add(task);
+        String task2 = "Eat";
+        todoList.add(task2);
+
+        Assertions.assertEquals("Task:[Eat=Complete]", todoList.update(task2));
+
+
     }
 }
