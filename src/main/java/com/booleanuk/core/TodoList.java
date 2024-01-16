@@ -43,11 +43,24 @@ public class TodoList {
     }
 
     public String showComplete(){
-        return "";
+        String str="";
+        for (Map.Entry<String, String> entry : list.entrySet()) {
+            if (entry.getValue().equals("Complete")) {
+                str += entry.getKey() + " : " + entry.getValue()+"\n";
+            }
+        }
+        return str;
     }
 
     public String showIncomplete(){
-        return "";
+        String str="";
+        for (Map.Entry<String, String> entry : list.entrySet()) {
+            if (entry.getValue().equals("Incomplete")) {
+                str += entry.getKey() + " : " + entry.getValue()+"\n";
+            }
+        }
+        return str;
+
     }
 
     public String search(){
