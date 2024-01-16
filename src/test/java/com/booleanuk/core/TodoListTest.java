@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import com.sun.source.tree.AssertTree;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -54,5 +55,20 @@ class TodoListTest {
         Assertions.assertTrue(todoList.remove("Vacuum"));
         Assertions.assertFalse(todoList.remove("Go for a walk"));
         Assertions.assertTrue(todoList.remove("Laundry"));
+    }
+
+    @Test
+    public void returnTrueChangeStatusOfExistingTask() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        Assertions.assertTrue(todoList.changeStatus("Vacuum"));
+        Assertions.assertTrue(todoList.changeStatus("Vacuum"));
+    }
+
+    @Test
+    public void returnFalseChangeStatusOfNonExistingTask() {
+        TodoList todoList = new TodoList();
+        todoList.add("Vacuum");
+        Assertions.assertFalse(todoList.changeStatus("Laundry"));
     }
 }
