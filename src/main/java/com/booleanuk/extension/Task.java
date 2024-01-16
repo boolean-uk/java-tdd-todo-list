@@ -1,14 +1,19 @@
 package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+
 public class Task {
     private static int counter = 1;
     private String name;
     private int id;
+
+    private LocalDateTime currentDateTime;
     private boolean isComplete;
     public Task(String name){
         this.name = name;
         this.id = generateUniqueId();
         this.isComplete = false;
+        this.currentDateTime = LocalDateTime.now();
     }
     public String getName(){
         return name;
@@ -16,6 +21,10 @@ public class Task {
 
     public void setName(String name){
         this.name = name;
+    }
+
+    public LocalDateTime getCreationDateAndTime(){
+        return currentDateTime;
     }
 
     private synchronized int generateUniqueId() {
