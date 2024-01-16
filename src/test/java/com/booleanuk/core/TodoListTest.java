@@ -9,6 +9,8 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -150,7 +152,7 @@ class TodoListTest {
     }
 
     @Test
-    public void printSorted() {
+    public void testPrintSorted() {
         TodoList todoList = new TodoList();
 
         todoList.addTaskToTodolist("TaskA");
@@ -158,13 +160,14 @@ class TodoListTest {
         todoList.addTaskToTodolist("TaskC");
 
 
-        todoList.printTasksFromTodolist("Asc");
+        ArrayList<String> ascendedList = todoList.printTasksFromTodolist("Asc");
+        ArrayList<String> descendedList = todoList.printTasksFromTodolist("Asc");
 
-        Assertions.assertEquals("TaskC\nTaskB\nTaskA", getOutput());
+        Assertions.assertEquals( new ArrayList<String>(Arrays.asList("TaskA", "TaskB", "TaskC")), ascendedList);
 
         todoList.printTasksFromTodolist("Desc");
 
-        Assertions.assertEquals("TaskA\nTaskB\nTaskC", getOutput());
+        Assertions.assertEquals( new ArrayList<String>(Arrays.asList("TaskA", "TaskB", "TaskC")), ascendedList);
 
 
     }

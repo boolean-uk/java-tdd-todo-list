@@ -1,9 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.IllegalFormatException;
-import java.util.Map;
+import java.util.*;
 
 public class TodoList {
 
@@ -71,19 +68,24 @@ public class TodoList {
         this.todolist.remove(task);
     }
 
-    public void printTasksFromTodolist(String AscOrDesc) {
+    public ArrayList<String> printTasksFromTodolist(String AscOrDesc) {
 
-        ArrayList<String> sortedArray = new ArrayList<>();
+
+        ArrayList<String> sortedArray = new ArrayList<>(this.getTodolist().keySet());
 
 
         if(AscOrDesc.equalsIgnoreCase("Asc")) {
-
+            sortedArray.sort(Comparator.naturalOrder());
         }
 
         if(AscOrDesc.equalsIgnoreCase("Desc")) {
+            sortedArray.sort(Comparator.reverseOrder());
 
         }
+        for(String str: sortedArray) {
+            System.out.println(str);
+        }
 
-
+        return new ArrayList<>(sortedArray);
     }
 }
