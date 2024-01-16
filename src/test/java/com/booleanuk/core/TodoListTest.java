@@ -9,6 +9,7 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         String task = "Wash";
         Assertions.assertTrue(todoList.add(task));
+        Assertions.assertEquals(1, todoList.taskList.size());
     }
 
     @Test
@@ -19,6 +20,8 @@ class TodoListTest {
         Assertions.assertTrue(todoList.add(task));
         Assertions.assertTrue(todoList.add(task2));
         Assertions.assertFalse(todoList.add(task));
+        Assertions.assertEquals(2, todoList.taskList.size());
+
     }
 
     @Test
@@ -29,7 +32,7 @@ class TodoListTest {
         String task2 = "Eat";
         todoList.add(task2);
 
-        Assertions.assertEquals("Task:{Eat=Incomplete, Wash=Incomplete}", todoList.viewTask());
+        Assertions.assertEquals("Task:{Wash=Incomplete, Eat=Incomplete}", todoList.viewTask());
     }
 
     @Test
@@ -37,10 +40,12 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         String task = "Wash";
         todoList.add(task);
-        String task2 = "Eat";
+        String task2 = "Drink";
         todoList.add(task2);
 
-        Assertions.assertEquals("Task:[Eat=Complete]", todoList.update(task2));
+        Assertions.assertEquals(task2+ " " + "Complete", todoList.updateTask(task2));
+        Assertions.assertEquals("Speak Incomplete", todoList.updateTask("Speak"));
+
 
 
     }

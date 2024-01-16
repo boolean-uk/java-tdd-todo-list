@@ -8,6 +8,7 @@ public class TodoList {
 
     public TodoList() {
         this.taskList = new HashMap<>();
+        taskList.put("Speak","Complete");
     }
 
     public boolean add(String task) {
@@ -21,6 +22,14 @@ public class TodoList {
 
     public String viewTask() {
         return "Task:"+ taskList;
+    }
+
+    public String updateTask(String task) {
+        if (taskList.get(task).equals("Incomplete")){
+            taskList.put(task,"Complete");
+        } else taskList.put(task,"Incomplete");
+
+        return task + " " + taskList.get(task);
     }
 
 }
