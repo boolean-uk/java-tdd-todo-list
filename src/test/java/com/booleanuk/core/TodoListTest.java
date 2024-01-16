@@ -67,4 +67,6 @@ class TodoListTest {
             Assertions.assertEquals(listOfTasks.get(i).complete, completeTasks.get(i).complete);
         }
     }
+
+    @Test
 }
