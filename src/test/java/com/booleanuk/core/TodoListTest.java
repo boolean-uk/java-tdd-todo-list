@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 class TodoListTest {
     @Test
@@ -90,7 +91,18 @@ class TodoListTest {
     public void testRemoveTaskWhenTaskNotInList(){
         TodoList todolist = new TodoList();
         Assertions.assertEquals("Task is not in list", todolist.remove("Do laundry"));
+    }
 
+    @Test
+    public void testSortAlphabetically(){
+        TodoList todolist = new TodoList();
+        ArrayList<String> testListAscending = (ArrayList<String>) Arrays.asList("Do homework", "Eat lunch", "Sleep");
+        ArrayList<String> testListDescending = (ArrayList<String>) Arrays.asList("Sleep", "Eat lunch", "Do homework");
+        todolist.add("Do homework");
+        todolist.add("Eat lunch");
+        todolist.add("Sleep");
 
+        Assertions.assertEquals(testListAscending, todolist.getListAlphabeticly(true));
+        Assertions.assertEquals(testListAscending, todolist.getListAlphabeticly(false));
     }
 }
