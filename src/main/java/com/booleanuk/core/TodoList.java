@@ -31,5 +31,14 @@ public class TodoList {
         return true;
     }
 
+    public boolean taskStatus(String task, boolean status) {
+        if (toDoList.contains(task)) {
+            int idx = toDoList.indexOf(task);
+            taskComplete.set(idx, status);
+            return taskComplete.get(idx);
+        }
+        return false;
+    }
+
 
 }
