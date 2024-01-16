@@ -58,4 +58,9 @@ public class TodoList {
 
         return new HashMap<>(returnList);
     }
+
+    public boolean checkTask(String task1) {
+
+        return true;
+    }
 }
