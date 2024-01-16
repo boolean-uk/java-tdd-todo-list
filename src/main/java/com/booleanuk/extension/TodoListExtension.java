@@ -153,6 +153,11 @@ public class TodoListExtension {
         return "It no work";
     }
 
+    public boolean changeStatus(int id) {
+
+        return false;
+    }
+
 
 
 }

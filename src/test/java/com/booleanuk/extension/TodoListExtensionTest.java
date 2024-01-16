@@ -34,6 +34,29 @@ public class TodoListExtensionTest {
 
     }
 
+    @Test
+    public void testChangeStatusTrue() {
+        TodoListExtension task1 = new TodoListExtension();
+
+        task1.addTask(1, "Hei");
+        task1.status = true;
+        boolean result = task1.changeStatus(1);
+        Assertions.assertFalse(result);
+
+    }
+    @Test
+    public void testChangeStatusFalse() {
+        TodoListExtension task1 = new TodoListExtension();
+
+        task1.addTask(1, "Hei");
+        task1.status = false;
+        boolean result = task1.changeStatus(1);
+        Assertions.assertTrue(result);
+
+    }
+
+
+
 
 
 
