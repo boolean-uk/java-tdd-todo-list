@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-public class TodoListTestExtended {
+class TestExtended {
 
     @Test
     public void testAdd() {
@@ -113,7 +113,7 @@ public class TodoListTestExtended {
         Assertions.assertEquals(testListDescending, todolist.getListAlphabeticly(false));
     }
 
-    // Extension
+
 
     @Test
     public void testGetTaskWithId(){
@@ -135,6 +135,7 @@ public class TodoListTestExtended {
     @Test
     public void testChangeStatusWithId(){
         TodoListExtended todolist = new TodoListExtended();
+
         todolist.add("Do laundry");
 
         Assertions.assertFalse((todolist.getTask("Do laundry")).isComplete);
@@ -148,7 +149,7 @@ public class TodoListTestExtended {
     public void testGetDateAndTime(){
         TodoListExtended todolist = new TodoListExtended();
         todolist.add("Eat");
-        TaskExtended test = new TaskExtended("Sleep");
+        TaskExtended test = new TaskExtended("Sleep", "18:20 : 2024-01-16");
 
         Assertions.assertEquals(test.getTimeCreated(), todolist.getTask("Eat").getTimeCreated());
     }
