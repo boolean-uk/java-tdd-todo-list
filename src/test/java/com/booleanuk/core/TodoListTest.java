@@ -23,6 +23,7 @@ class TodoListTest {
 
         Map<String, Boolean> todolist = todoList.getTodolist();
 
+        Assertions.assertFalse(todolist.get("Task1"));
 
 
     }
