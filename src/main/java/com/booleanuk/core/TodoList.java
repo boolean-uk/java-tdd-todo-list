@@ -55,5 +55,12 @@ public class TodoList {
         System.out.println(out);
     }
 
+    public String searchTask(String task) {
+        if (toDoList.containsKey(task)) {
+            return "Task found: " + task;
+        } else {
+            return "Task not found";
+        }
+    }
 
 }
