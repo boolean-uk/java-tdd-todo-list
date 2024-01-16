@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TodoList {
     ArrayList<String> toDoList;
@@ -80,6 +81,14 @@ public class TodoList {
         }
         return false;
     }
+
+    public ArrayList<String> alphabetizeUp() {
+        ArrayList<String> alphabetizedList = toDoList;
+        Collections.sort(alphabetizedList);
+        return alphabetizedList;
+    }
+
+
 
 
 
