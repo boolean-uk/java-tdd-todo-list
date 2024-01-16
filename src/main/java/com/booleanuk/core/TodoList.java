@@ -33,8 +33,13 @@ public class TodoList {
         return str;
     }
 
-    public String status(String task, String newStatus){
-        return "";
+    public void status(String task, String newStatus){
+        if (!list.containsKey(task)){
+            System.out.println("That task is not in list");
+            return;
+        }
+        list.put(task, newStatus);
+        System.out.println("Status on " + task + " changed to " +newStatus);
     }
 
     public String showComplete(){
