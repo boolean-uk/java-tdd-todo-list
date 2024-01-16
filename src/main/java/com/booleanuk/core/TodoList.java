@@ -21,4 +21,13 @@ public class TodoList {
     public String showTasks() {
         return this.tasks.toString();
     }
+    public String changeTaskStatus(String task) {
+        if (this.tasks.containsKey(task)){
+            boolean currentStatus = this.tasks.get(task);
+            boolean newStatus = !currentStatus;
+            this.tasks.put(task, newStatus);
+            return task + " changed to " + newStatus;
+        }
+        return task + " Not found";
+    }
 }
