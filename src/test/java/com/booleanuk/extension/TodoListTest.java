@@ -41,7 +41,9 @@ class TodoListTest {
     public void updateExistingTaskStatusTest() {
         TodoList todoList = new TodoList();
         todoList.addTask("clean", "123");
+        Assertions.assertFalse(todoList.tasks.get("123").status);
         Assertions.assertTrue(todoList.updateTaskStatus("123", true));
+        Assertions.assertTrue(todoList.tasks.get("123").status);
     }
 
     @Test
@@ -134,6 +136,7 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         todoList.addTask("clean", "123");
         Assertions.assertTrue(todoList.updateNameOfExistingTask("123", "clean bedroom"));
+        Assertions.assertEquals("clean bedroom", todoList.tasks.get("123").name);
     }
 
     @Test

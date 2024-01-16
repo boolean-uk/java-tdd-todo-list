@@ -29,9 +29,7 @@ public class TodoList {
         if(!tasks.containsKey(id)) {
             return false;
         }
-        Task task = tasks.get(id);
-        task.status = newStatus;
-        tasks.put(id, task);
+        tasks.get(id).status = newStatus;
         return true;
     }
 
@@ -82,6 +80,10 @@ public class TodoList {
     }
 
     public boolean updateNameOfExistingTask(String id, String newName) {
+        if(!tasks.containsKey(id)) {
+            return false;
+        }
+        tasks.get(id).name = newName;
         return true;
     }
 }
