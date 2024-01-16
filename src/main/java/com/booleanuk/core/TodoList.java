@@ -63,4 +63,14 @@ public class TodoList {
         if (todoString.isBlank()) return "No tasks incomplete";
         return todoString.substring(0,todoString.length()-1);
     }
+
+    public String getTask(String todo) {
+        if (!this.todos.containsKey(todo)) {
+            return "Task not found";
+        }
+        if (this.todos.get(todo)) {
+            return todo.concat(": complete");
+        }
+        return todo.concat(": incomplete");
+    }
 }
