@@ -3,6 +3,8 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 class TodoListTest {
     @Test
     public void exampleTest() {
@@ -96,10 +98,11 @@ class TodoListTest {
         todo.add("Brush teeth");
         todo.add("Workout");
         todo.sortedListAsc();
-        Assertions.assertEquals("Brush teeth", sortedListAsc.get(0));
-        Assertions.assertEquals("Make food", sortedListAsc.get(0));
-        Assertions.assertEquals("Wash car", sortedListAsc.get(2));
-        Assertions.assertEquals("Workout", sortedListAsc.get(3));
+
+        Assertions.assertEquals("Brush teeth", todo.list.get(0).description);
+        Assertions.assertEquals("Make food", todo.list.get(1).description);
+        Assertions.assertEquals("Wash car", todo.list.get(2).description);
+        Assertions.assertEquals("Workout", todo.list.get(3).description);
     }
 
 }
