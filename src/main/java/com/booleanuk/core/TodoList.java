@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class TodoList {
@@ -122,5 +123,26 @@ public class TodoList {
         }
     }
 
+    public void showAllTasksOrdered(boolean ascending)
+    {
+        if(!taskList.isEmpty()) {
+            ArrayList<String> taskListCopy = taskList;
+            Collections.sort(taskListCopy);
+            if(!ascending) Collections.reverse(taskListCopy);
+
+            StringBuilder outputString = new StringBuilder();
+            outputString.append("Your tasks are:\n");
+            for(String task : taskList)  {
+                outputString.append("[");
+                outputString.append(!taskStatus.get(task) ? " " : "X");
+                outputString.append(("] "));
+                outputString.append(task);
+                outputString.append("\n");
+            }
+            System.out.print(outputString);
+        }   else {
+            System.out.print("No tasks to display, todo list is empty");
+        }
+    }
 
 }
