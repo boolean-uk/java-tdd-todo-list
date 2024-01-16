@@ -36,17 +36,20 @@ public class TodoList {
     }
 
     public ArrayList<String> getCompletedTasks() {
-        ArrayList<String> completedTasks = new ArrayList<>();
-        for(Map.Entry<String, Boolean> e: tasks.entrySet()) {
-            if(e.getValue()) {
-                completedTasks.add(e.getKey());
-            }
-        }
-        return completedTasks;
+        return getTasks(true);
     }
 
     public ArrayList<String> getUncompletedTasks() {
+        return getTasks(false);
+    }
 
-        return new ArrayList<>();
+    private ArrayList<String> getTasks(boolean status) {
+        ArrayList<String> tasksWithTheSuppliedStatus = new ArrayList<>();
+        for(Map.Entry<String, Boolean> e: tasks.entrySet()) {
+            if(e.getValue() == status) {
+                tasksWithTheSuppliedStatus.add(e.getKey());
+            }
+        }
+        return tasksWithTheSuppliedStatus;
     }
 }
