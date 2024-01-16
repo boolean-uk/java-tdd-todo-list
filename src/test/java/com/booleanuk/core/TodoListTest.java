@@ -58,4 +58,19 @@ class TodoListTest {
 
         Assertions.assertEquals("Task status changed to incomplete.", result);
     }
+
+    @Test
+    public void returnCompletedTasksOnly() {
+        TodoList todoList = new TodoList();
+
+        todoList.taskMap.put("Do homework.", "Complete.");
+        todoList.taskMap.put("Hit the gym.", "Incomplete.");
+        todoList.taskMap.put("Go for a walk.", "Complete.");
+        todoList.taskMap.put("Feed cat.", "Incomplete.");
+        todoList.taskMap.put("Read newspaper.", "Incomplete.");
+
+        String result = todoList.getCompletedTasks();
+
+        Assertions.assertEquals("Do homework." + "\n" + "Go for a walk." + "\n" + "Read newspaper.", result);
+    }
 }
