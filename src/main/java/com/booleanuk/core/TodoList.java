@@ -1,8 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TodoList {
     HashMap<String, Boolean> tasks;
@@ -57,5 +55,22 @@ public class TodoList {
             return task + " was removed from list";
         }
         return task + " was not found";
+    }
+    public String alphaTasks(boolean ascending) {
+        List<String> sorted = new ArrayList<>(this.tasks.keySet());
+
+        if (ascending) {
+            Collections.sort(sorted);
+        } else {
+            Collections.sort(sorted, Collections.reverseOrder(String::compareTo));
+        }
+
+        StringBuilder result = new StringBuilder();
+
+        for (String key : sorted) {
+            result.append(key).append(": ").append(this.tasks.get(key)).append("\n");
+        }
+
+        return result.toString();
     }
 }
