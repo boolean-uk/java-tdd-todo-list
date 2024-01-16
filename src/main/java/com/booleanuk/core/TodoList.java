@@ -75,7 +75,10 @@ public class TodoList {
 
     //User Story 6
     public String findTask(String task) {
-        return "Task exists in todo list";
+        if(this.taskList.contains(task)) {
+            return "Task exists in todo list";
+        }
+        return "Task does not exist in list";
     }
 
 }
