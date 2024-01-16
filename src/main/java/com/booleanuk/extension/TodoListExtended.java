@@ -104,6 +104,7 @@ public class TodoListExtended {
 
     public void changeCompletion(int id) {
 
+        getTask(id).changeCompletion();
     }
 
     public void getTimeCreated(String name) {
