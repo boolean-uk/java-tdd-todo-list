@@ -32,17 +32,40 @@ public class TodoList {
         }
 
     }
-    public boolean removeTask(String task){
+
+    public boolean removeTask(String task) {
+        if (taskList.containsKey(task)) {
+            taskList.remove(task);
+            return true;
+        } else
+            System.out.println("There is no matching task");
+        return false;
 
     }
     public static void main(String[] arg){
         TodoList object = new TodoList();
+        // print all tasks
         object.addTask("Task1", "incomplete");
         object.addTask("Task2", "incomplete");
+        System.out.println("Task list: ");
         object.getAllTask();
+        // change task status
         object.changeStatus("Task1", "complete");
         object.changeStatus("Task2", "complete");
+        System.out.println("Update task status: ");
         object.getAllTask();
+        // remove task 1
+        object.removeTask("Task1");
+        System.out.println("Task list after remove one task: ");
+        object.getAllTask();
+        // remove task 2
+        object.removeTask("Task2");
+        System.out.println("After remove two task: ");
+        object.getAllTask();
+
+        object.removeTask("Task1");
+
+
 
 
     }
