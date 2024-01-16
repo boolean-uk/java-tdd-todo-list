@@ -18,4 +18,23 @@ class TodoListTest {
         Assertions.assertTrue(todo.addToTodo("wash"));
     }
 
+    @Test
+    public void isDisplayNotEmpty(){
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("clean");
+        todo.addToTodo("wash");
+
+        Assertions.assertFalse(todo.list.isEmpty());
+
+    }
+    @Test
+    public void testDisplayText() {
+        TodoList todo = new TodoList();
+
+        todo.addToTodo("clean");
+        todo.addToTodo("wash");
+
+        Assertions.assertEquals(displayTodo(), "[clean, wash]");
+    }
 }
