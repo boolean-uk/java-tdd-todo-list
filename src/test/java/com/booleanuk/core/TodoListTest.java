@@ -49,8 +49,17 @@ class TodoListTest {
     }
 
     @Test
-    public void getCompletedTasksEmptyTest() {
+    public void getCompletedTasksEmptyList() {
         TodoList todoList = new TodoList();
         Assertions.assertEquals("", todoList.getCompletedTasks());
+    }
+
+    @Test
+    public void getCompletedTasksNotEmptyList() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        todoList.addTask("book dentist");
+        todoList.updateTaskStatus("clean", true);
+        Assertions.assertEquals("clean", todoList.getCompletedTasks());
     }
 }
