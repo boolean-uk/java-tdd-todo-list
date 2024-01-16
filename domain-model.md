@@ -30,7 +30,7 @@
 |          |                              |                                | Task does not exist.                 | String "The task .. wasn't found".               |
 | TodoList | remove(String task)          | HashMap<String, boolean> tasks | Task in list.                        | Remove given task. Return true.                  |
 |          |                              |                                | Task not in list.                    | Return false.                                    |
-| TodoList | getTasksOrdered(boolean asc) | HashMap<String, boolean> tasks | List not empty. Asc = true.          | Return list in ascending order.                  |
-|          |                              |                                | List not empty. Asc = false.         | Return list in descending order.                 |
-|          |                              |                                | List is empty.                       | Return empty list.                               |
+| TodoList | getTasksOrdered(boolean asc) | HashMap<String, boolean> tasks | List not empty. Asc = true.          | Return ArrayList<String> in ascending order.     |
+|          |                              |                                | List not empty. Asc = false.         | Return ArrayList<String>  in descending order.   |
+|          |                              |                                | List is empty.                       | Return empty ArrayList<String>.                  |
 
