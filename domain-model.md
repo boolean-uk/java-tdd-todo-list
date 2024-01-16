@@ -11,6 +11,12 @@
 2. I want to see all the tasks in my todo list.
 
 
+| Class    | Member Variables  | Methods            | Scenario                    | Output/Result                                   |
+|----------|-------------------|--------------------|-----------------------------|-------------------------------------------------|
+| TodoList | ArrayList<String> | String showTasks() | Show all tasks in todo list | Output tasks in todo list and returns todo list |
+|          |                   |                    |                             |                                                 |
+
+
 3. I want to change the status of a task between incomplete and complete.
 
 

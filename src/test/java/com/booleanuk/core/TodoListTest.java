@@ -18,7 +18,6 @@ class TodoListTest {
         String result = todoList.add("Do homework");
 
         Assertions.assertEquals("Task added to todo list.", result);
-
-
     }
+
 }
