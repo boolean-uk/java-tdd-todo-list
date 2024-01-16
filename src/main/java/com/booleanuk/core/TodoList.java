@@ -55,7 +55,7 @@ public class TodoList {
         if (this.todoList.containsKey(task)) {
             return true;
         }
-        System.out.print("Task does not exist\n");
+        System.out.print("Task does not exist!\n");
         return false;
     }
 

@@ -9,12 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 class TodoListTest {
-    @Test
-    public void exampleTest() {
-        String hello = "Hello";
-        Assertions.assertEquals("Hello", hello);
-        Assertions.assertNotEquals("Goodbye", hello);
-    }
 
     @Test
     public void addOneNewTask() {
@@ -122,12 +116,19 @@ class TodoListTest {
 
     @Test
     public void doesTaskExistReturnFalse() {
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(outContent));
+
         TodoList result = new TodoList();
 
         result.addTask("Do the dishes");
         result.addTask("Clean the bathroom");
         result.addTask("Cook dinner");
 
-        Assertions.assertTrue(result.doesTaskExist("Train for 60 minutes"));
+        boolean expected = result.doesTaskExist("Train for 60 minutes");
+
+        Assertions.assertEquals("Task does not exist!\n", outContent.toString());
+
+        Assertions.assertFalse(expected);
     }
 }
