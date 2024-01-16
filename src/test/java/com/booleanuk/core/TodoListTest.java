@@ -126,7 +126,6 @@ class TodoListTest {
         list.changeStatus("paint");
         System.setOut(new PrintStream(outContent));
         list.showTasksInDescOrder();
-
         String actualOutput = outContent.toString().trim();
         String expectedOutput = "vacuum - incomplete\npaint - complete\ngroceries - incomplete";
         assertEquals(expectedOutput, actualOutput);
