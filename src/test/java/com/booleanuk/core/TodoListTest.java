@@ -92,7 +92,7 @@ class TodoListTest {
         String expected = "Shopping" + ", Not Complete\n"
                 + "Bowling" + ", Not Complete\n";
         Assertions.assertEquals(expected, tl.getTodoList());
-        tl.removeTasks(new String[]{"Shopping"});
+        tl.removeTasks("Shopping");
         expected = "Bowling" + ", Not Complete\n";
         Assertions.assertEquals(expected, tl.getTodoList());
     }

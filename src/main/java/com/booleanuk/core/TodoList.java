@@ -102,7 +102,20 @@ public class TodoList {
             return "Task list is empty";
         }
     }
-    public boolean removeTasks(String[] tasks){
-        return false;
+    public boolean removeTasks(String name){
+        Task temp = null;
+        for(Task t :  tasks){
+            if(t.getName().equals(name)){
+                temp = t;
+                break;
+            }
+        }
+        if(temp != null){
+            tasks.remove(temp);
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }

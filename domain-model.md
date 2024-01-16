@@ -62,10 +62,10 @@
 7. I want to remove tasks from my list.
 ```
 
-| Classes  | Methods                             | Scenario           | Returns |
-|----------|-------------------------------------|--------------------|---------|
-| TodoList | boolean removeTasks(String[] tasks) | Tasks exist        | true    |
-|          |                                     | Tasks do not exist | false   |
+| Classes  | Methods                          | Scenario           | Returns |
+|----------|----------------------------------|--------------------|---------|
+| TodoList | boolean removeTasks(String name) | Tasks exist        | true    |
+|          |                                  | Tasks do not exist | false   |
 
 ```
 8. I want to see all the tasks in my list ordered alphabetically in ascending order.
