@@ -13,10 +13,10 @@ class TodoListTest {
 
 
     @Test
-    public void addTaskToTodolist() {
+    public void TestAddTaskToTodolist() {
         TodoList todoList = new TodoList();
 
-        todoList.addTaskToTodolist(String task);
+        todoList.addTaskToTodolist("Task1");
 
 
     }
