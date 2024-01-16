@@ -1,5 +1,6 @@
 package com.booleanuk.core;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -44,7 +45,7 @@ public class TodoList {
 
     public String searchTask(String task){
         if(taskList.containsKey(task)){
-            return "The task you are searching is " + taskList.get(task);
+            return taskList.get(task);
         }
         return "The task not found";
 
