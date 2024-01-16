@@ -85,8 +85,6 @@ public class TodoList {
         }
     }
 
-
-
     public boolean changeTaskStatus(String task){
         if(task.isEmpty()){
             return false;
