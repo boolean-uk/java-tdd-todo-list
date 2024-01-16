@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 
 public class TodoList {
@@ -74,7 +76,12 @@ public class TodoList {
 
     }
 
-    public ArrayList<String> getListAlphabeticly(String order){
-        return new ArrayList<>();
+    public ArrayList<String> getListAlphabeticly(boolean ascending){
+        ArrayList<String> res = getToDos();
+        Collections.sort(res);
+        if (!ascending){
+            Collections.reverse(res);
+        }
+        return res;
     }
 }
