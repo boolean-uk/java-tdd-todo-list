@@ -147,33 +147,35 @@ class TodoListExtensionTest {
 		todo.addTask(task4);
 		Assertions.assertEquals("3: Take a break,\tIncomplete\n0: Code more,\tIncomplete\n1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete", todo.printListDesc());
 	}
+
 	@Test
-	public void setDescriptionTest(){
+	public void setDescriptionTest() {
 		TodoList todo = new TodoList();
 		Task task1 = new Task("Code more");
 		todo.addTask(task1);
-		Assertions.assertEquals("Code more",task1.description);
+		Assertions.assertEquals("Code more", task1.description);
 		try {
-			todo.setDescription(0,"Stop coding");
+			todo.setDescription(0, "Stop coding");
 		} catch (NotInListException e) {
 			throw new RuntimeException(e);
 		}
-		Assertions.assertEquals("Stop coding",task1.description);
+		Assertions.assertEquals("Stop coding", task1.description);
 		try {
-			todo.setDescription(1,"Stop coding");
+			todo.setDescription(1, "Stop coding");
 		} catch (NotInListException e) {
-			Assertions.assertEquals("com.booleanuk.extension.NotInListException: No task with id 1 in list",e.toString());
+			Assertions.assertEquals("com.booleanuk.extension.NotInListException: No task with id 1 in list", e.toString());
 		}
 
 	}
+
 	@Test
-	public void getTimeTest(){
+	public void getTimeTest() {
 		TodoList todo = new TodoList();
 		Task task1 = new Task("Code more");
 		todo.addTask(task1);
 		LocalDateTime currentDateTime = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 		String date = currentDateTime.format(formatter);
-		Assertions.assertEquals(date,task1.getDate());
+		Assertions.assertEquals(date, task1.getDate());
 	}
 }
