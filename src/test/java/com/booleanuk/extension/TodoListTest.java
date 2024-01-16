@@ -135,4 +135,11 @@ class TodoListTest {
         todoList.addTask("clean", "123");
         Assertions.assertTrue(todoList.updateNameOfExistingTask("123", "clean bedroom"));
     }
+
+    @Test
+    public void updateNameOfNonexistingTaskTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean", "123");
+        Assertions.assertFalse(todoList.updateNameOfExistingTask("122", "clean bedroom"));
+    }
 }
