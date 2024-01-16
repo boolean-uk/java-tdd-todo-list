@@ -38,6 +38,11 @@ public class TodoList {
         }
         return task +": "+ todoList.get(task);
     }
+
+    public String changeTaskStatus(String task, String status){
+        todoList.replace(task,status);
+        return "Status changed";
+    }
 }
 
 /*

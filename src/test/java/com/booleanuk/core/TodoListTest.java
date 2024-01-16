@@ -92,9 +92,10 @@ class TodoListTest {
     public void testChangeTaskStatus(){
         TodoList list = new TodoList();
         String status = "Complete";
-        list.addTask("Workout", "Incomplete");
+        String task = "Workout";
+        list.addTask(task, "Incomplete");
         list.addTask(" Walk dog", "Incomplete");
-        Assertions.assertEquals("Status changed", list.changeTaskStatus(status));
+        Assertions.assertEquals("Status changed", list.changeTaskStatus(task,status));
         Assertions.assertEquals("Workout: Complete", list.checkOneTask("Workout"));
     }
 }
