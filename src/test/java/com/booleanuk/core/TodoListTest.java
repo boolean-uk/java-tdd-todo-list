@@ -56,4 +56,17 @@ class TodoListTest {
 		task1.setCompleted(true);
 		Assertions.assertEquals("0: Code more,\tComplete",todo.printListCompleted());
 	}
+	@Test
+	public void printListInompletedTest(){
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		Task task2 = new Task("Code even more");
+		Task task3 = new Task("Code a bit less");
+		todo.addTask(task1);
+		todo.addTask(task2);
+		todo.addTask(task3);
+		Assertions.assertEquals("0: Code more,\tIncomplete\n1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete",todo.printListIncompleted());
+		task1.setCompleted(true);
+		Assertions.assertEquals("1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete",todo.printListIncompleted());
+	}
 }
