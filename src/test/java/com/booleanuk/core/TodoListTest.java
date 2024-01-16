@@ -48,5 +48,16 @@ class TodoListTest {
         assertEquals("Shovel snow", listStatus.getCompleteTasks());
     }
 
+    @Test
+    public void testingIfIOnlyGetIncompleteTasks() {
+        TodoList listStatus = new TodoList();
 
+        listStatus.add("Shovel snow", "Incomplete");
+
+        listStatus.add("Grocery shopping", "Incomplete");
+
+        listStatus.changeStatus("Shovel snow", "Complete");
+
+        assertEquals("Grocery shopping", listStatus.getIncompleteTasks());
+    }
 }
