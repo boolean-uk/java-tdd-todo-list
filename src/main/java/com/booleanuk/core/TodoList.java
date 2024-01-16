@@ -80,11 +80,23 @@ public class TodoList {
      }
 
      public void removeTask(Task task) {
-
+        if (this.listOfTasks.contains(task)) {
+            this.listOfTasks.remove(this.listOfTasks.indexOf(task));
+            System.out.println("Task: " + task.name + " was successfully removed");
+        } else {
+            System.out.println("Task: " + task.name + " is not currently in To-Do List");
+        }
      }
 
      public void removeAllTasks() {
-
+        if (!this.listOfTasks.isEmpty()) {
+            for (int i = 0; i <= this.listOfTasks.size(); i++) {
+                System.out.println("Task: " + this.listOfTasks.get(0).name + " was successfully removed");
+                this.listOfTasks.remove(0);
+            }
+        } else {
+            System.out.println("No tasks to remove");
+        }
      }
 
     public static void main(String[] args) {
