@@ -273,11 +273,16 @@ class TodoListTest {
         todoList.addTask("Do laundry");
         todoList.addTask("Talk to janitor");
 
+        String expectedOutput1 = """
+                Task:
+                [ ] Talk to janitor""";
+        Assertions.assertEquals(expectedOutput1, outputStreamCaptor.toString());
+
         Assertions.assertTrue(todoList.removeTask("Do laundry"));
-        String expectedOutput = "Task not found";
+        String expectedOutput2 = "Task not found";
 
         todoList.getTask("Do laundry");
-        Assertions.assertEquals(expectedOutput, outputStreamCaptor.toString());
+        Assertions.assertEquals(expectedOutput2, outputStreamCaptor.toString());
     }
 
     @Test
