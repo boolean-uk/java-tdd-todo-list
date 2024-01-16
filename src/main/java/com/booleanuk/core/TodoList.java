@@ -22,18 +22,15 @@ public class TodoList {
     }
 
     public void remove(String task) {
-        if (!todoList.containsKey(task)) {
-        } else {
-            todoList.remove(task);
-        }
+        todoList.remove(task);
     }
 
     public boolean viewTasks() {
         if (todoList.isEmpty()) {
             return false;
         } else {
-            for (int i = 0; i < todoList.size(); i++) {
-                System.out.print(todoList.get(i));
+            for (Map.Entry<String, String> s : todoList.entrySet()) {
+                System.out.println(s);
             }
             return true;
         }
@@ -103,7 +100,7 @@ public class TodoList {
 
     public String descendingOrder() {
         ArrayList<String> descendingOrder = new ArrayList<>(todoList.keySet());
-        Collections.sort(descendingOrder, Collections.reverseOrder());
+        descendingOrder.sort(Collections.reverseOrder());
 
         if (descendingOrder.isEmpty()) {
             return "The list is empty!";
