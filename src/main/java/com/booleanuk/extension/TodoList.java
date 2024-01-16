@@ -45,8 +45,8 @@ public class TodoList {
 
     private ArrayList<String> getTasks(boolean status) {
         ArrayList<String> tasksWithTheSuppliedStatus = new ArrayList<>();
-        for(Map.Entry<String, Boolean> e: tasks.entrySet()) {
-            if(e.getValue() == status) {
+        for(Map.Entry<String, Task> e: tasks.entrySet()) {
+            if(e.getValue().status == status) {
                 tasksWithTheSuppliedStatus.add(e.getKey());
             }
         }
