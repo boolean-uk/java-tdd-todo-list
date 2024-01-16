@@ -64,5 +64,12 @@
 8. I want to see all the tasks in my list ordered alphabetically in ascending order.
 
 
+| Class    | Member Variables  | Methods                      | Scenario                                           | Output/Result                                       |
+|----------|-------------------|------------------------------|----------------------------------------------------|-----------------------------------------------------|
+| TodoList | ArrayList<String> | String outputListAscending() | Output todo list alphabetically in ascending order | Returns todo list in alphabetically ascending order |
+|          |                   |                              |                                                    |                                                     |
+
+
+
 9. I want to see all the tasks in my list ordered alphabetically in descending order.
 
