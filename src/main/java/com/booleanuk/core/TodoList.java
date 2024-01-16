@@ -72,6 +72,13 @@ public class TodoList {
     }
 
     public ArrayList<String> getInCompleteTask(){
+        ArrayList<String> inCompleteTask = new ArrayList<>();
+        for(Map.Entry<String, String> entry : taskList.entrySet()){
+            if(entry.getValue().equals("incomplete")){
+                inCompleteTask.add(entry.getKey());
+            }
+        }
+        return inCompleteTask;
 
     }
     public static void main(String[] arg){
