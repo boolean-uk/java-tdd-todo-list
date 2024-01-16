@@ -154,4 +154,18 @@ class TodoListTest {
 
         Assertions.assertFalse(result.removeTask("Clean the bathroom"));
     }
+
+    @Test
+    public void printListAlphabeticalOrder() {
+        TodoList result = new TodoList();
+
+        result.addTask("Do the dishes");
+        result.addTask("Clean the bathroom");
+        result.addTask("Train for 60 minutes");
+        result.addTask("Cook dinner");
+
+        String expected = "Clean the bathroom\n" + "Cook dinner\n" + "Do the dishes\n" + "Train for 60 minutes\n";
+
+        Assertions.assertEquals(expected, result.showTaskAlphabetically());
+    }
 }
