@@ -18,9 +18,9 @@
 |                                 | displayIncompletedTasks() | Iterate through and get     | incompletedTasks |
 |                                 |                           | completed tasks             |                  |
 |                                 |                           |                             |                  |
-|                                 |                           |                             |                  |
-|                                 |                           |                             |                  |
-|                                 |                           |                             |                  |
+|                                 | searchTask(String task)   | Iterate through and get     | "Found"          |
+|                                 |                           | task                        |                  |
+|                                 |                           | Not found during search     | "Not Found"      |
 |                                 |                           |                             |                  |
 |                                 |                           |                             |                  |
 |                                 |                           |                             |                  |

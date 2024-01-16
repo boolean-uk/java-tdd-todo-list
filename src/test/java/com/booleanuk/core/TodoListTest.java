@@ -97,4 +97,17 @@ class TodoListTest {
         Assertions.assertEquals("Dry", completedTasks.get(1));
     }
 
+    // Search
+    @Test
+    public void searchTasksTestReturnFound() {
+        TodoList toDo = new TodoList();
+        boolean result = toDo.addTask("Clean");
+        result = toDo.addTask("Dry");
+        String foundStatus = toDo.searchTasks("Dry");
+        Assertions.assertEquals("Found", foundStatus);
+        foundStatus = toDo.searchTasks("Clean");
+        Assertions.assertEquals("Found", foundStatus);
+    }
+
+
 }
