@@ -18,4 +18,14 @@ public class TodoListExtension {
         }
         return "Task not found";
     }
+
+    public boolean setTaskName(String taskId, String name) {
+        for(Task task: todos) {
+            if (taskId.equals(task.taskId)) {
+                task.name = name;
+                return true;
+            }
+        }
+        return false;
+    }
 }
