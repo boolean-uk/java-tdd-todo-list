@@ -25,4 +25,13 @@ public class TodoList {
         return false;
     }
 
+    public boolean changeStatus(String task) {
+        if (this.tasks.containsKey(task)) {
+            boolean status = this.tasks.get(task);
+            this.tasks.replace(task, !status);
+            return true;
+        }
+        return false;
+    }
+
 }
