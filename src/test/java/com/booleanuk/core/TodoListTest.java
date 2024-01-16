@@ -16,4 +16,11 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         Assertions.assertTrue(todoList.addTask("clean"));
     }
+
+    @Test
+    public void addAlreadyExistingTaskTest() {
+        TodoList todoList = new TodoList();
+        todoList.addTask("clean");
+        Assertions.assertFalse(todoList.addTask("clean"));
+    }
 }
