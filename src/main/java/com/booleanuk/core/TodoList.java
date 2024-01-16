@@ -64,6 +64,10 @@ public class TodoList {
             return incompleteTasks;
         }
 
+     public Task searchTask() {
+        return new Task("");
+     }
+
     public static void main(String[] args) {
 
     }

@@ -78,4 +78,12 @@ class TodoListTest {
         Assertions.assertNotSame(task_1, lst.getIncompleteTasks().get(0));
         Assertions.assertSame(task_2, lst.getIncompleteTasks().get(0));
     }
+
+    @Test
+    public void testSearchTask() {
+        TodoList lst = new TodoList();
+        Task task = new Task("CV");
+
+        Assertions.assertTrue(lst.listOfTasks.contains(task));
+    }
 }
