@@ -84,7 +84,13 @@ class TodoListTest {
     @Test
     public void testAscending(){
         TodoList todo = new TodoList();
+        todo.add("acrobatics");
+        todo.add("arson");
+        todo.add("brunch");
+        todo.tasksAscending();
 
+        Assertions.assertTrue(todo.tasks[0].description.equals("brunch"));
+        Assertions.assertTrue(todo.tasks[2].description.equals("acrobatics"));
     }
 
     @Test
