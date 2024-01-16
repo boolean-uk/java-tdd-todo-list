@@ -396,5 +396,13 @@ class TodoListExtensionTest {
         Assertions.assertEquals("Eat porridge", todoListExtension.getName(0));
     }
 
+    @Test
+    public void testUpdateNameWithIDNotExist()
+    {
+        TodoListExtension todoListExtension = new TodoListExtension();
 
+
+        todoListExtension.changeTaskName(0, "Eat porridge");
+        Assertions.assertEquals("", todoListExtension.getName(0));
+    }
 }
