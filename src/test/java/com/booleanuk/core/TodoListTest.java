@@ -131,6 +131,6 @@ class TodoListTest {
         Assertions.assertFalse(todoList.checkTask("Task2"));
 
 
-
+        Assertions.assertEquals("The task (" + "Task1" + ") does not exist in your Todolist.", getOutput());
     }
 }
