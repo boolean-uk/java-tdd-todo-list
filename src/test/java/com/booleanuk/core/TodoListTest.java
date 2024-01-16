@@ -130,5 +130,6 @@ class TodoListTest {
         Assertions.assertEquals("Task does not exist!\n", outContent.toString());
 
         Assertions.assertFalse(expected);
+
     }
 }
