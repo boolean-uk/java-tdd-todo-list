@@ -164,7 +164,7 @@ class TodoListTest {
 
         String result = todoList.outputListAscending();
 
-        Assertions.assertEquals("Do homework., Go for a walk., Hit the gym., Read book., Read newspaper., ", result);
+        Assertions.assertEquals("[Do homework., Go for a walk., Hit the gym., Read book., Read newspaper.]", result);
 
 
     }

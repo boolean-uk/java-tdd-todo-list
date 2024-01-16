@@ -1,6 +1,8 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class TodoList {
@@ -92,7 +94,8 @@ public class TodoList {
 
     //User Story 8
     public String outputListAscending() {
-        return "Do homework., Go for a walk., Hit the gym., Read book., Read newspaper., ";
+        Collections.sort(this.taskList);
+        return this.taskList.toString();
     }
 
 }
