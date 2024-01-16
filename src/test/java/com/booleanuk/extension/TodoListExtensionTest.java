@@ -1,9 +1,13 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
+
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class TodoListTest {
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+class TodoListExtensionTest {
 	@Test
 	public void exampleTest() {
 		String hello = "Hello";
@@ -83,7 +87,7 @@ class TodoListTest {
 		try {
 			Task task = todo.getTask(4);
 		} catch (Exception e) {
-			Assertions.assertEquals("com.booleanuk.core.NotInListException: No task with id 4 in list", e.toString());
+			Assertions.assertEquals("com.booleanuk.extension.NotInListException: No task with id 4 in list", e.toString());
 		}
 		try {
 			Task task = todo.getTask(0);
@@ -112,7 +116,7 @@ class TodoListTest {
 		try {
 			todo.removeTask(3);
 		} catch (Exception e) {
-			Assertions.assertEquals("com.booleanuk.core.NotInListException: No task with id 3 in list", e.toString());
+			Assertions.assertEquals("com.booleanuk.extension.NotInListException: No task with id 3 in list", e.toString());
 		}
 	}
 
@@ -127,8 +131,9 @@ class TodoListTest {
 		todo.addTask(task2);
 		todo.addTask(task3);
 		todo.addTask(task4);
-		Assertions.assertEquals("2: Code a bit less,\tIncomplete\n1: Code even more,\tIncomplete\n0: Code more,\tIncomplete\n3: Take a break,\tIncomplete",todo.printListAsc());
+		Assertions.assertEquals("2: Code a bit less,\tIncomplete\n1: Code even more,\tIncomplete\n0: Code more,\tIncomplete\n3: Take a break,\tIncomplete", todo.printListAsc());
 	}
+
 	@Test
 	public void printListDescTest() {
 		TodoList todo = new TodoList();
@@ -140,6 +145,37 @@ class TodoListTest {
 		todo.addTask(task2);
 		todo.addTask(task3);
 		todo.addTask(task4);
-		Assertions.assertEquals("3: Take a break,\tIncomplete\n0: Code more,\tIncomplete\n1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete",todo.printListDesc());
+		Assertions.assertEquals("3: Take a break,\tIncomplete\n0: Code more,\tIncomplete\n1: Code even more,\tIncomplete\n2: Code a bit less,\tIncomplete", todo.printListDesc());
+	}
+
+	@Test
+	public void setDescriptionTest() {
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		todo.addTask(task1);
+		Assertions.assertEquals("Code more", task1.description);
+		try {
+			todo.setDescription(0, "Stop coding");
+		} catch (NotInListException e) {
+			throw new RuntimeException(e);
+		}
+		Assertions.assertEquals("Stop coding", task1.description);
+		try {
+			todo.setDescription(1, "Stop coding");
+		} catch (NotInListException e) {
+			Assertions.assertEquals("com.booleanuk.extension.NotInListException: No task with id 1 in list", e.toString());
+		}
+
+	}
+
+	@Test
+	public void getTimeTest() {
+		TodoList todo = new TodoList();
+		Task task1 = new Task("Code more");
+		todo.addTask(task1);
+		LocalDateTime currentDateTime = LocalDateTime.now();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		String date = currentDateTime.format(formatter);
+		Assertions.assertEquals(date, task1.getDate());
 	}
 }
