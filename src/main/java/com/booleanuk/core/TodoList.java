@@ -27,6 +27,9 @@ public class TodoList {
         }
         return exists;
     }
+    public String taskExists(String name){
+        return "";
+    }
     public String getTodoList(){
         StringBuilder sb = new StringBuilder();
         for(Task t : tasks){

@@ -72,4 +72,14 @@ class TodoListTest {
         String expected = "Incomplete Tasks\n" + t2.getName() + "\n";
         Assertions.assertEquals(expected, tl.getIncompleteTasks());
     }
+
+    /* domain model user story 6*/
+    @Test
+    public void testSearchForTaskInList(){
+        TodoList tl= new TodoList();
+        tl.addTask(new Task("Shopping"));
+        tl.addTask(new Task("Bowling"));
+        String expected = "Gaming" + " exists";
+        Assertions.assertEquals(expected, tl.taskExists("Gaming"));
+    }
 }
