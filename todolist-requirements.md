@@ -41,17 +41,19 @@ see all the tasks in my list ordered alphabetically in descending order.
 
 ### TodoList Class
 
-| Methods                           | Member Variables              |
-|-----------------------------------|-------------------------------|
-| addTask(String task)              | HashMap<String, Boolean> todo |
-| showAllTasks()                    |                               |
-| changeTaskStatus(String task)     |                               |
-| getCompletedTasks()               |                               |
-| getIncompleteTasks()              |                               |
-| doesTaskExist(String task)        |                               |
-| removeTask(String task)           |                               |
-| showTaskAlphabetically()          |                               |
-| showTasksAlphabeticallyReversed() |                               |
+| Methods                                         | Member Variables              |
+|-------------------------------------------------|-------------------------------|
+| addTask(String task)                            | HashMap<String, Boolean> todo |
+| showAllTasks()                                  |                               |
+| changeTaskStatus(String task)                   |                               |
+| getCompletedTasks()                             |                               |
+| getIncompleteTasks()                            |                               |
+| doesTaskExist(String task)                      |                               |
+| removeTask(String task)                         |                               |
+| showTaskAlphabetically()                        |                               |
+| showTasksAlphabeticallyReversed()               |                               |
+| getLastAlphabetically(ArrayList<String> tasks)  |                               |
+| getFirstAlphabetically(ArrayList<String> tasks) |                               |
 
 | Scenario                                                            | Return Value/Output/Result                                                             |
 |---------------------------------------------------------------------|----------------------------------------------------------------------------------------|

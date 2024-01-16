@@ -79,9 +79,8 @@ public class TodoList {
             tasks.remove(indexToPrint);
         }
     }
-
     public int getLastAlphabetically(ArrayList<String> tasks) {
-        int first = 0;
+        int last = 0;
         int counter = 0;
         for (int i = 0; i < tasks.size(); i++) {
             for (int j = 0; j < tasks.size(); j++) {
@@ -89,9 +88,44 @@ public class TodoList {
                     counter++;
                 }
                 if (counter == tasks.size()) {
+                    last = i;
+                    break;
+                }
+            }
+        }
+        return last;
+    }
+
+    public void showTaskAlphabetically() {
+        ArrayList<String> tasks = new ArrayList<>();
+        tasks.addAll(this.todoList.keySet());
+
+        int size = tasks.size();
+        int indexToPrint;
+
+        while (!tasks.isEmpty()) {
+            indexToPrint = getFirstAlphabetically(tasks, size);
+            System.out.print(tasks.get(indexToPrint) + "\n");
+            tasks.remove(indexToPrint);
+            size--;
+        }
+    }
+    public int getFirstAlphabetically(ArrayList<String> tasks, int size) {
+        int first = 0;
+        int counter;
+        for (int i = 0; i < size; i++) {
+            counter = 0;
+            for (int j = 0; j < size; j++) {
+                if (tasks.get(j).compareToIgnoreCase(tasks.get(i)) >= 0) {
+                    counter++;
+                }
+                if (counter == size) {
                     first = i;
                     break;
                 }
+            }
+            if (counter == tasks.size()) {
+                break;
             }
         }
         return first;
@@ -105,7 +139,7 @@ public class TodoList {
         result.addTask("Train for 60 minutes");
         result.addTask("Cook dinner");
 
-        //result.showTaskAlphabetically();
+        result.showTaskAlphabetically();
     }
 
 }
