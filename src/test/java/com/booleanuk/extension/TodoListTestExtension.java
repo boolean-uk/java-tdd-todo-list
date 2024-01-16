@@ -102,4 +102,13 @@ class TodoListTestExtension {
         Assertions.assertFalse(result);
     }
 
+    // Log Time
+    @Test
+    public void addTaskIDTimeTestReturnFalse() {
+        TodoListExtension toDo = new TodoListExtension();
+        boolean result = toDo.addTaskID("Clean", "a12ft");
+        result = toDo.addTaskIDTime("Dry", "fg83ft");
+        Assertions.assertTrue(result);
+    }
+
 }
