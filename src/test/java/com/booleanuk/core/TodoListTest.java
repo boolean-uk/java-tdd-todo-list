@@ -120,7 +120,7 @@ class TodoListTest {
         todo.changeStatus("wash");
         todo.changeStatus("clean");
 
-        Assertions.assertTrue(searchTodo("wash"));
+        Assertions.assertTrue(todo.searchTodo("wash"));
     }
     @Test
     public void testSearchForTaskNotInList() {
@@ -134,7 +134,7 @@ class TodoListTest {
         todo.changeStatus("wash");
         todo.changeStatus("clean");
 
-        Assertions.assertFalse(searchTodo("becomerich"));
+        Assertions.assertFalse(todo.searchTodo("becomerich"));
 
 
     }

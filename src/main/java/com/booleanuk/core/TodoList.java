@@ -66,5 +66,9 @@ public class TodoList {
         return this.listIncomplete.keySet().toString();
     }
 
+    public boolean searchTodo(String taskName) {
+        return this.list.containsKey(taskName);
+    }
+
 
 }
