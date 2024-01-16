@@ -45,4 +45,25 @@ class TodoListTest {
 
        Assertions.assertTrue((todolist.getTask("Do laundry")).isComplete);
     }
+
+    @Test
+    public void testGetTasksByCompletion() {
+        TodoList todolist = new TodoList();
+        ArrayList<String> testlistComplete = new ArrayList<>();
+        ArrayList<String> testlistInComplete = new ArrayList<>();
+
+
+        todolist.add("Do laundry");
+        todolist.add("Go fishing");
+        todolist.add("Cook");
+
+        todolist.changeCompletion("Do laundry");
+
+        testlistComplete.add("Do laundry");
+        testlistInComplete.add("Go fishing");
+        testlistInComplete.add("Cook");
+
+        Assertions.assertEquals(testlistComplete, todolist.getTasksByCompletion(true));
+        Assertions.assertEquals(testlistInComplete, todolist.getTasksByCompletion(false));
+    }
 }
