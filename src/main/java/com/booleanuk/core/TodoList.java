@@ -26,6 +26,10 @@ public class TodoList {
     }
 
     public boolean updateTaskStatus(String task, boolean newStatus) {
+        if(!tasks.containsKey(task)) {
+            return false;
+        }
+        tasks.put(task, newStatus);
         return true;
     }
 
