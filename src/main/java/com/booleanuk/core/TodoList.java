@@ -73,4 +73,12 @@ public class TodoList {
             return String.join(", ", incompleteTasks);
         }
     }
+
+    public String searchForTask(String task) {
+        if (!todoList.containsKey(task)) {
+            return "This task does not exist in your list";
+        } else {
+            return "This task is in your list";
+        }
+    }
 }
