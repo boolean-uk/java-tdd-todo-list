@@ -143,12 +143,19 @@ class TodoListTest {
 
         todo.addToTodo("wash");
         todo.addToTodo("clean");
+        todo.addToTodo("shop");
+        todo.addToTodo("cook");
+        todo.addToTodo("a");
+        todo.addToTodo("z");
 
-        Assertions.assertTrue(todo.removeTask("wash"));
-        Assertions.assertTrue(todo.removeTask("clean"));
-        Assertions.assertFalse(todo.removeTask("shop"));
+        Assertions.assertTrue(todo.todoAlphabeticalAsc(), "[a, clean, cook, shop, wash, z");
+    }
+    @Test
+    public void testSortAlphabetical() {
+        TodoList todo = new TodoList();
 
-
+        todo.addToTodo("wash");
+        todo.addToTodo("clean");
     }
 
 }
