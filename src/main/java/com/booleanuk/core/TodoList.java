@@ -60,7 +60,9 @@ public class TodoList {
     }
 
     public boolean checkTask(String task1) {
-
+        if(!this.getTodolist().containsKey(task1)) {
+            System.out.println("The task (" + task1 + ") does not exist in your Todolist.") ;
+        }
         return this.getTodolist().containsKey(task1);
     }
 }
