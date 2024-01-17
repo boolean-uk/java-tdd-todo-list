@@ -18,17 +18,19 @@
 
 ToDo
 
-| Member Variables      | Methods                                  | Scenario                                          | Output                                                           |
-|-----------------------|------------------------------------------|---------------------------------------------------|------------------------------------------------------------------|
-| ArrayList<Task> tasks | add(String task)                         | add task to todo-list.                            |                                                                  |
-|                       | remove(String task)                      | remove task from todo-list.                       |                                                                  |
-|                       | showTasks()                              | displays all tasks in list.                       |                                                                  |
-|                       | changeStatus(String task, boolean status) | change between completed and not completed.       |                                                                  |
-|                       | incompleteTasks()                        | display all incomplete tasks.                     |                                                                  |
-|                       | completeTasks()                          | display all complete tasks.                       |                                                                  |
-|                       | searchTask(String task)                  | search the list for a task.                       | the status of the task, a message if task doesn't exist in list. |
-|                       | showTasksAscending()                     | displays tasks alphabetically in ascending order  |                                                                  |
-|                       | showTasksDescending()                    | displays tasks alphabetically in descending order |                                                                  |
+| Member Variables      | Methods                                      | Scenario                                                 | Output                                                                   |
+|-----------------------|----------------------------------------------|----------------------------------------------------------|--------------------------------------------------------------------------|
+| ArrayList<Task> tasks | add(String task)                             | add task to todo-list.                                   |                                                                          |
+|                       | remove(String task)                          | remove task from todo-list.                              |                                                                          |
+|                       | showTasks()                                  | displays all tasks in list.                              | prints name of tasks if list.                                            |
+|                       | changeStatus(String task, boolean newStatus) | change between completed and not completed.              | identifies task by name and changes status to <newStatus>.               |
+|                       | incompleteTasks()                            | display all incomplete tasks.                            | returns all tasks where status is false.                                 |
+|                       | completeTasks()                              | display all complete tasks.                              | returns all tasks where status is true.                                  |
+|                       | tasksAscending()                             | displays tasks alphabetically in ascending order         | orders tasks in opposite alphabetical order and prints.                  |
+|                       | tasksDescending()                            | displays tasks alphabetically in descending order        | orders tasks in alphabetical order and prints.                           |
+|                       | status(String task)                          | takes name of a task and returns status.                 | true if task if complete, false if not complete, message if not in list. |
+|                       | contains(String task, ArrayList<Task> tasks) | checks if task is in list of tasks.                      | true if task is found, false and displays message if not found.          |
+|                       | find(String task)                            | takes name of task and returns the task-object if found. | displays message if task not found in list.                              |
 
 Task
 
@@ -45,3 +47,22 @@ Task
 - I want to be able to change the status of a task by providing its ID.
 - I want to be able to see the date and time that I created each task.
 ```
+
+ToDoExtension
+
+| Member Variables   | Methods                                    | Scenario                                                   | Output/Result                                      |
+|--------------------|--------------------------------------------|------------------------------------------------------------|----------------------------------------------------|
+| ArrayList<IDTask\> | add(String ID, String name)                | adds a task to todoList, takes unique ID and name of task. | adds task to todo-list if ID is not already there. |
+|                    | getTask(String ID)                         | takes ID as input and returns matching task in list.       | returns matching task if it exists, else null.     |
+|                    | changeName(String ID, String newName)      | identifies task with ID and changes name to <newName>.     | changes name if ID is found, else nothing.         |
+|                    | changeStatus(String ID, boolean newStatus) | identifies task with ID and changes status to <newStatus>. | changes status if ID is found, else nothing.       |
+|                    | displayTimeCreated()                       | displays all tasks and the time they were created.         | full list with following date and time.            |
+
+IDTask
+
+| Member Variables      | Scenario                              |
+|-----------------------|---------------------------------------|
+| String ID             | a unique identifier of the task.      |
+| LocalDateTime created | is set to now when task is created.   |
+| String description    | a description of task, name.          |
+| boolean status        | true is task is complete, else false. |
