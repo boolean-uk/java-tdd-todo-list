@@ -1,7 +1,7 @@
 
 | Class     | Task                                                                                                        | Description                                                                                     |
 |-----------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
-| Task      | Integer id<br> String title<br> String description <br> String status<br> DateTime creationDateTime         | Represents task with a unique id, title, description, status and creation date and time.        |
+| Task      | Integer id<br> String title<br> String description <br> Boolean status<br> DateTime creationDateTime        | Represents task with a unique id, title, description, status and creation date and time.        |
 |-----------| ----------------------------------------------------------------------------------------------------------  | -------------------------------------------------------------------------------------------------- |
 | TodoList  | tasks (List of Task objects)                                                                                | Represents collection of tasks                                                                  |
 |           | Methods:                                                                                                    |                                                                                                 |                                         
