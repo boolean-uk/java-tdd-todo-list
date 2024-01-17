@@ -2,6 +2,8 @@ package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+
 public class TaskTest {
 
 
@@ -9,7 +11,7 @@ public class TaskTest {
     public void testGetDate() {
         Task task = new Task();
 
-        task.getTaskDate();
+        Date date1 = task.getTaskDate();
     }
 
     @Test
@@ -17,7 +19,7 @@ public class TaskTest {
 
         Task task = new Task();
 
-        task.getStatus("Task1");
+        boolean status = task.getStatus();
 
     }
 
@@ -25,7 +27,7 @@ public class TaskTest {
     public void testGetSetStatus() {
         Task task = new Task();
 
-        task.setStatusOfTask("Task");
+        task.setStatusOfTask(true);
 
     }
 }
