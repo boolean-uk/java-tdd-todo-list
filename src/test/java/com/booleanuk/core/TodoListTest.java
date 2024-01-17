@@ -14,6 +14,14 @@ class ToDoListTest {
     }
 
     @Test
+    public void alreadyTaskInList() {
+        TodoList todoList = new TodoList();
+        todoList.add("Task");
+        Assertions.assertFalse(todoList.add("Task"));
+
+    }
+
+    @Test
     public void canRemove(){
         TodoList todoList = new TodoList();
         todoList.add("Task");
