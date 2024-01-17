@@ -63,7 +63,15 @@ public class TodoList {
     }
 
     public String search(String task){
-        return "";
+
+        if (list.containsKey(task)) {
+            System.out.println(task + " : " + list.get(task) );
+            return task + " : " + list.get(task);
+        } else {
+            System.out.println( task + " not a task in TodoList");
+            return task + " not a task in TodoList";
+        }
+
     }
 
 
