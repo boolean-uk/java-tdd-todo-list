@@ -5,9 +5,11 @@ import java.util.Date;
 public class Task {
 
     private Date date;
+    private boolean status;
 
     public Task() {
         this.date = new Date();
+        this.status = false;
 
 
     }
@@ -18,13 +20,11 @@ public class Task {
 
     public boolean getStatus() {
         
-        return true;
+        return this.status;
     }
 
     public void setStatusOfTask(boolean b) {
-
+        this.status = b;
     }
-
-
 
 }
