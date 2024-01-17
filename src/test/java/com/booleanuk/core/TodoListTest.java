@@ -22,7 +22,7 @@ class ToDoListTest {
     }
 
     @Test
-    public void canRemove(){
+    public void canRemove() {
         TodoList todoList = new TodoList();
         todoList.add("Task");
         Assertions.assertTrue(todoList.remove("Task"));
@@ -31,18 +31,29 @@ class ToDoListTest {
     }
 
     @Test
-    public void cantRemove(){
+    public void cantRemove() {
         TodoList todoList = new TodoList();
         Assertions.assertTrue(todoList.remove("Task"));
 
     }
 
     @Test
-    public void changeStatusTasks(){
+    public void changeStatusTasks() {
         TodoList todoList = new TodoList();
         todoList.add("Run");
         Assertions.assertTrue(todoList.setStatus("Run"));
+        Assertions.assertTrue(todoList.setStatus("Run"));
     }
 
+    @Test
+    public void getTasksTest(){
+        TodoList todoList = new TodoList();
+        todoList.add("Run");
+        todoList.add("Shop");
+        todoList.setStatus("Run");
+        String res = "Shop incomplete\nRun complete\n";
+        Assertions.assertEquals(res, todoList.fetchMultipleTask());
+
+    }
 
 }
