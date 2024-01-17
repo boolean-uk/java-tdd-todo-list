@@ -80,4 +80,16 @@ class TodoListTest {
 
         Assertions.assertEquals(expected,todoList.showComplete());
     }
+
+    @Test
+    public void testSortedAlphabetically(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        todoList.add("Eat");
+        todoList.add("Shopping");
+        String expected="Eat : Incomplete\nShopping : Incomplete\nWash clothes : Incomplete";
+        Assertions.assertEquals(expected,todoList.sortAlphabetically());
+
+
+    }
 }

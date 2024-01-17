@@ -68,7 +68,7 @@ public class TodoList {
     }
 
 
-    public String sort(){
+    public String sortAlphabetically(){
         return "";
     }
 
