@@ -4,12 +4,16 @@ import java.util.Date;
 
 public class Task {
 
+    private Date date;
+
     public Task() {
+        this.date = new Date();
+
 
     }
 
     public Date getTaskDate() {
-        return new Date();
+        return this.date;
     }
 
     public boolean getStatus() {
