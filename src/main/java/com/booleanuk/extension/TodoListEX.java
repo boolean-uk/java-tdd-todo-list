@@ -26,10 +26,14 @@ public class TodoListEX {
         this.todolist.put(task.getId(), task);
     }
 
-    public void updateTaskName(int id, String name) {
-        Task task = this.getTaskById(id);
-        task.setName(name);
+    public boolean updateTaskName(int id, String name) {
+        if(this.todolist.containsKey(id)) {
+            Task task = this.getTaskById(id);
+            task.setName(name);
+            return true;
+        }
 
+        return false;
     }
 
 

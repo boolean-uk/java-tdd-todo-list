@@ -36,6 +36,11 @@ public class TodoListEXTest {
         todoListEX.updateTaskName(task.getId(), "TaskNew");
 
         Assertions.assertEquals("TaskNew", task.getName());
+        Assertions.assertFalse(todoListEX.updateTaskName(2, "WrongTaskId"));
 
     }
+
+
+
+
 }
