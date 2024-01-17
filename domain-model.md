@@ -102,10 +102,10 @@ I want to be able to see the date and time that I created each task.
 
 ## 3
 
-| Class Variables            | Methods                          | Scenarios                                  | Output/Return |
-|----------------------------|----------------------------------|--------------------------------------------|---------------|
-| Map<Integer,Task> todoList | changeTaskCompleteOrIncomplete() | Changes complete or incomplete by using id | void          |
-|                            |                                  |                                            |               |
+| Class Variables            | Methods                              | Scenarios                                  | Output/Return |
+|----------------------------|--------------------------------------|--------------------------------------------|---------------|
+| Map<Integer,Task> todoList | changeTaskCompleteOrIncomplete(task) | Changes complete or incomplete by using id | void          |
+|                            |                                      |                                            |               |
 
 
 ## 4

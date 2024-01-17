@@ -41,6 +41,25 @@ public class TodoListEXTest {
     }
 
 
+    @Test
+    public void testChangeTaskCompleteOrIncomplete() {
+        TodoListEX todoListEX = new TodoListEX();
+
+        Task task = new Task(1, "Task1");
+
+        todoListEX.addTaskToTodolist(task);
+
+        Assertions.assertFalse(task.getStatus());
+
+        todoListEX.changetaskCompleteOrIncomplete(1);
+
+        Task task2 = todoListEX.getTaskById(1);
+
+        Assertions.assertTrue(task2.getStatus());
+
+    }
+
+
 
 
 }
