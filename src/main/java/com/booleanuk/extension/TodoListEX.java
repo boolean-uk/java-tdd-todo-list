@@ -5,11 +5,11 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TodoEXList {
+public class TodoListEX {
 
    private Map<String, Boolean> todolist = new HashMap<>();
 
-    public TodoEXList() {
+    public TodoListEX() {
 
     }
 
