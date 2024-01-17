@@ -9,7 +9,9 @@ public class Task {
 
     private int Id;
 
-    public Task(int i) {
+    private String name;
+
+    public Task(int i, String name) {
         this.date = new Date();
         this.status = false;
         this.Id = i;
@@ -31,5 +33,13 @@ public class Task {
 
     public int getId() {
         return this.Id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

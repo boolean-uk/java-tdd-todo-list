@@ -12,7 +12,7 @@ public class TaskTest {
 
     @Test
     public void testGetDate() throws InterruptedException {
-        Task task = new Task(1);
+        Task task = new Task(1, "Task1");
 
 
         Date date1 = task.getTaskDate();
@@ -25,7 +25,7 @@ public class TaskTest {
 
     @Test
     public void testGetSetStatus() {
-        Task task = new Task(1);
+        Task task = new Task(1, "Task1");
 
         Assertions.assertFalse(task.getStatus());
 
@@ -38,7 +38,7 @@ public class TaskTest {
 
     @Test
     public void testGetId() {
-        Task task = new Task(1);
+        Task task = new Task(1, "Task1");
 
 
         Assertions.assertEquals(1, task.getId());
