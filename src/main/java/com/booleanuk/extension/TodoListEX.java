@@ -19,11 +19,17 @@ public class TodoListEX {
 
 
     public Task getTaskById(int i) {
-        return new Task(i);
+        return this.todolist.get(i);
     }
 
     public void addTaskToTodolist(Task task) {
         this.todolist.put(task.getId(), task);
+    }
+
+    public void updateTaskName(int id, String name) {
+        Task task = this.getTaskById(id);
+        task.setName(name);
+
     }
 
 

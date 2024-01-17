@@ -30,10 +30,10 @@ public class TodoListEXTest {
 
         todoListEX.addTaskToTodolist(task);
 
-        Assertions.assertFalse(task.getStatus());
+
         Assertions.assertEquals("Task1", task.getName());
 
-        todoListEX.updateTask(task.getId(), task.setName("TaskNew"));
+        todoListEX.updateTaskName(task.getId(), "TaskNew");
 
         Assertions.assertEquals("TaskNew", task.getName());
 

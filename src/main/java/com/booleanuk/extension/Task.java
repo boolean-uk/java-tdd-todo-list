@@ -15,6 +15,7 @@ public class Task {
         this.date = new Date();
         this.status = false;
         this.Id = i;
+        this.name = name;
 
     }
 
