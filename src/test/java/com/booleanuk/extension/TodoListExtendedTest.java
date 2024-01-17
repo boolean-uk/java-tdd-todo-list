@@ -1,12 +1,12 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
-// import org.junit.jupiter.api.Assertions;
-import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
+import java.time.LocalDateTime;
 import java.util.List;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-class TodoListTest {
+class TodoListExtendedTest {
     @Test
     public void addTaskGetAllTasks() {
         TodoList todoList = new TodoList();
@@ -98,5 +98,46 @@ class TodoListTest {
         todoList.changeTaskStatus(task1, true);
         assertTrue(task1.getStatus());
     }
+    @Test
+    void getTaskById() {
+        TodoList todoList = new TodoList();
+        Task task = new Task(1, "Fork repo", "Go to Github repo and click fork", false);
+        todoList.addTask(task);
+
+        assertEquals(task, todoList.getTaskById(1));
+        assertNull(todoList.getTaskById(2));
+    }
+
+    @Test
+    void updateTaskNameById() {
+        TodoList todoList = new TodoList();
+        Task task = new Task(1, "Fork repo", "Go to Github repo and click fork", false);
+        todoList.addTask(task);
+
+        todoList.updateTaskName(1, "Updated Fork repo");
+        assertEquals("Updated Fork repo", task.getTitle());
+    }
+
+    @Test
+    void changeTaskStatusById() {
+        TodoList todoList = new TodoList();
+        Task task = new Task(1, "Fork repo", "Go to Github repo and click fork", false);
+        todoList.addTask(task);
+
+        todoList.changeTaskStatusById(1, true);
+        assertTrue(task.getStatus());
+    }
+    @Test
+    void getCreationDateTime() {
+        TodoList todoList = new TodoList();
+        Task task = new Task(1, "Fork repo", "Go to Github repo and click fork", false);
+        todoList.addTask(task);
+
+        LocalDateTime creationDateTime = task.getCreationDateTime();
+
+        assertNotNull(creationDateTime);
+        assertTrue(creationDateTime.isBefore(LocalDateTime.now().plusSeconds(1)));
+    }
+
 
 }

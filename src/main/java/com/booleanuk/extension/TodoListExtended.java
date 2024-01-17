@@ -1,9 +1,10 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
-// import javax.print.attribute.standard.DateTimeAtCreation;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -12,12 +13,14 @@ class Task {
     private String title;
     private String description;
     private boolean status;
+    private LocalDateTime creationDateTime;
 
     public Task(int id, String title, String description, Boolean status) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.status = status;
+        this.creationDateTime = LocalDateTime.now();
     }
 
     public String getTitle() {
@@ -31,10 +34,21 @@ class Task {
     public void setStatus(boolean status) {
         this.status = status;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     public String toString() {
         return "Task{id=" + id + ", title='" + title + "', description='" + description + "', status='" + status + "'}";
     }
-
+    public LocalDateTime getCreationDateTime() {
+        return creationDateTime;
+    }
 }
 
 class TodoList {
@@ -89,11 +103,29 @@ class TodoList {
         if (!ascending) {
             Collections.reverse(sortedTasks);
         }
-
         return sortedTasks;
     }
 
     public void changeTaskStatus(Task task, Boolean status) {
         task.setStatus(status);
+    }
+
+    public Task getTaskById(int taskId) {
+        for (Task task : tasks) {
+            if (task.getId() == taskId) {
+                return task;
+            }
+        }
+        return null;
+    }
+
+    public void updateTaskName(int taskId, String newTitle) {
+        Task task = getTaskById(taskId);
+        task.setTitle(newTitle);
+    }
+
+    public void changeTaskStatusById(int taskId, boolean newStatus) {
+        Task task = getTaskById(taskId);
+        task.setStatus(newStatus);
     }
 }
