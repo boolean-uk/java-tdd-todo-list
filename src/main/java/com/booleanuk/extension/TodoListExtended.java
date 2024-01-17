@@ -98,8 +98,7 @@ public class TodoListExtended {
     }
 
     public void changeName(int id, String name){
-        System.out.println(getTask(id).getName());
-        System.out.println(getTask(id).getId());
+
         getTask(id).setName(id, name);
 
     }

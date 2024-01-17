@@ -120,7 +120,8 @@ class TestExtended {
     public void testGetTaskWithId(){
         TodoListExtended todolist = new TodoListExtended();
         todolist.add("Go fishing");
-        Assertions.assertEquals("Go fishing" ,todolist.getTask(1000).getName());
+        TaskExtended task = todolist.getTask(1000);
+        Assertions.assertEquals("Go fishing" ,task.getName());
     }
 
     @Test
