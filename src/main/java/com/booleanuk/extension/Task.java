@@ -7,10 +7,12 @@ public class Task {
     private Date date;
     private boolean status;
 
+    private int Id;
+
     public Task(int i) {
         this.date = new Date();
         this.status = false;
-
+        this.Id = i;
 
     }
 
@@ -28,6 +30,6 @@ public class Task {
     }
 
     public int getId() {
-        return 0;
+        return this.Id;
     }
 }
