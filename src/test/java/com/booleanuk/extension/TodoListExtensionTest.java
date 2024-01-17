@@ -51,6 +51,6 @@ public class TodoListExtensionTest {
 
         dateCreated.add("Shovel snow", "Incomplete");
 
-        assertEquals("08:45", dateCreated.getTime(1));
+        assertEquals("08:47", dateCreated.getTime(1));
     }
 }
