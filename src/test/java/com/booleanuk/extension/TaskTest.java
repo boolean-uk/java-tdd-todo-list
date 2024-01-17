@@ -22,20 +22,16 @@ public class TaskTest {
         Assertions.assertEquals(date1.getTime(), date2.getTime());
     }
 
-    @Test
-    public void testGetStatus() {
-
-        Task task = new Task();
-
-        boolean status = task.getStatus();
-
-    }
 
     @Test
     public void testGetSetStatus() {
         Task task = new Task();
 
+        Assertions.assertFalse(task.getStatus());
+
         task.setStatusOfTask(true);
+
+        Assertions.assertTrue(task.getStatus());
 
 
     }
