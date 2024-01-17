@@ -104,4 +104,15 @@ class TodoListTest {
 
     }
 
+    @Test
+    public void testSearchForTask(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        todoList.add("Eat");
+        todoList.add("Shopping");
+        todoList.search("");
+        Assertions.assertEquals(todoList.search("Eat"),"Eat : Incomplete");
+
+    }
+
 }
