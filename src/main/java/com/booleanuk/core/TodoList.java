@@ -85,6 +85,24 @@ public class TodoList {
 
         return str;
     }
+    public String sortAlphabeticallyReverse(){
+        String str="";
+
+        List<Map.Entry<String, String>> entryList = new ArrayList<>(list.entrySet());
+
+        entryList.sort((entry1, entry2) -> entry2.getKey().compareTo(entry1.getKey()));
+
+        Map<String, String> sortedMap = new LinkedHashMap<>();
+
+        for (Map.Entry<String, String> entry : entryList) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+            str += entry.getKey() + " : " + entry.getValue()+"\n";
+
+        }
+        System.out.println(str);
+
+        return str;
+    }
 
 
 }
