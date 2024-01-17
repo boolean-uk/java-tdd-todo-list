@@ -92,4 +92,16 @@ class TodoListTest {
 
 
     }
+    @Test
+    public void testSortedAlphabeticallyReverse(){
+        TodoList todoList = new TodoList();
+        todoList.add("Wash clothes");
+        todoList.add("Eat");
+        todoList.add("Shopping");
+        String expected="Wash clothes : Incomplete\nShopping : Incomplete\nEat : Incomplete\n";
+        Assertions.assertEquals(expected,todoList.sortAlphabeticallyReverse());
+
+
+    }
+
 }
