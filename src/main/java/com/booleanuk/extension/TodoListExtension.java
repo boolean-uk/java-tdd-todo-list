@@ -25,6 +25,13 @@ public class TodoListExtension {
     }
 
     public boolean setTaskCompletionStatus(int id, boolean status) {
+        TaskExtension _task = getTask(id);
+
+        if (_task != null) {
+            _task.completed = status;
+            return true;
+        }
+
         return false;
     }
 
@@ -70,9 +77,9 @@ public class TodoListExtension {
     }
 
     public boolean getTaskStatus(int id) {
-        for (TaskExtension t : listOfTasks)
-            if (t.id == id)
-                return t.completed;
+        TaskExtension _task = getTask(id);
+        if (_task != null)
+            return _task.completed;
         return false;
     }
 
@@ -91,14 +98,31 @@ public class TodoListExtension {
     }
 
     public String getTaskByID(int id) {
+        TaskExtension _task = getTask(id);
+
+        if (_task != null)
+            return _task.text;
+
         return null;
     }
 
     public boolean updateTaskText(int id, String newText) {
+        TaskExtension _task = getTask(id);
+
+        if (_task != null) {
+            _task.text = newText;
+            return true;
+        }
+
         return false;
     }
 
     public String getTaskDate(int id) {
-        return "";
+        TaskExtension _task = getTask(id);
+
+        if (_task != null)
+            return _task.creationDate;
+
+        return "INVALID";
     }
 }

@@ -9,10 +9,14 @@ public class TaskExtension {
     public final String creationDate;
     public final int id;
 
+    public TaskExtension(int id) {
+        this.id = id;
+        creationDate = getDateTime();
+    }
+
     public TaskExtension(int id, String text) {
         this.text = text;
         this.id = id;
-
         creationDate = getDateTime();
     }
 
