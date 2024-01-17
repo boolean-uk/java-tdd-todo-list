@@ -27,4 +27,7 @@ public class Task {
         this.status = b;
     }
 
+    public int getId() {
+        return 0;
+    }
 }
