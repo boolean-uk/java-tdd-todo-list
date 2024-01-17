@@ -40,7 +40,8 @@ public class TaskTest {
     public void testGetId() {
         Task task = new Task(1);
 
-        int id = task.getId();
+
+        Assertions.assertEquals(1, task.getId());
 
 
     }
