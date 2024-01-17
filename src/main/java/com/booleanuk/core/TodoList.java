@@ -1,10 +1,11 @@
 package com.booleanuk.core;
 
-import javax.print.attribute.standard.DateTimeAtCreation;
+// import javax.print.attribute.standard.DateTimeAtCreation;
 import java.util.Collections;
-// import java.util.Comparator;
+import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.List;
+
 
 class Task {
     private int id;
@@ -51,7 +52,7 @@ class TodoList {
     public List<Task> getCompleteTasks() {
         List<Task> completeTasks = new ArrayList<>();
         for (Task task : tasks) {
-            if ("complete".equals(task.getStatus())) {
+            if (task.getStatus()) {
                 completeTasks.add(task);
             }
         }
@@ -61,7 +62,7 @@ class TodoList {
     public List<Task> getIncompleteTasks() {
         List<Task> incompleteTasks = new ArrayList<>();
         for (Task task : tasks) {
-            if ("incomplete".equals(task.getStatus())) {
+            if (!task.getStatus()) {
                 incompleteTasks.add(task);
             }
         }
@@ -82,8 +83,8 @@ class TodoList {
     }
 
     public List<Task> getAlphabeticalTasks(boolean ascending) {
-        List<Task> sortedTasks = new ArrayList<>(tasks);
-        //Collections.sort(sortedTasks);
+        tasks.sort(Comparator.comparing(Task::getTitle));
+        ArrayList<Task> sortedTasks = new ArrayList<>(tasks);
 
         if (!ascending) {
             Collections.reverse(sortedTasks);
