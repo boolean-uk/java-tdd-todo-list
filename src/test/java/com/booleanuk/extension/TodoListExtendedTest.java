@@ -114,7 +114,7 @@ class TodoListExtendedTest {
         Task task = new Task(1, "Fork repo", "Go to Github repo and click fork", false);
         todoList.addTask(task);
 
-        todoList.setTask(1, "Updated Fork repo");
+        todoList.updateTaskName(1, "Updated Fork repo");
         assertEquals("Updated Fork repo", task.getTitle());
     }
 
