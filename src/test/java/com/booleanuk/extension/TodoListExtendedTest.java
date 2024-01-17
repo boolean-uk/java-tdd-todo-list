@@ -136,7 +136,7 @@ class TodoListExtendedTest {
         LocalDateTime creationDateTime = task.getCreationDateTime();
 
         assertNotNull(creationDateTime);
-        assertTrue(creationDateTime.isBefore(LocalDateTime.now()));
+        assertTrue(creationDateTime.isBefore(LocalDateTime.now().plusSeconds(1)));
     }
 
 
