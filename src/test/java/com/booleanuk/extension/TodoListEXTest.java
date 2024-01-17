@@ -7,13 +7,15 @@ public class TodoListEXTest {
 
 
     @Test
-    public void testGetId() {
+    public void testGetTaskById() {
         TodoListEX todoListEX = new TodoListEX();
 
-        todoListEX.addTaskToTodolist(Task task);
+        Task task = new Task(1);
+
+        todoListEX.addTaskToTodolist(task);
 
 
-        Task task = todoListEX.getTaskById();
+        Task task2 = todoListEX.getTaskById(1);
 
         Assertions.assertEquals(1, task.getId());
 

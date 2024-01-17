@@ -85,10 +85,10 @@ I want to be able to see the date and time that I created each task.
 ``
 ## 1
 
-| Class Variables            | Methods            | Scenarios           | Output/Return |
-|----------------------------|--------------------|---------------------|---------------|
-| Map<Integer,Task> todoList | Task getTaskById() | Gets the task by id | Task          |
-|                            |                    |                     |               |
+| Class Variables            | Methods                  | Scenarios           | Output/Return |
+|----------------------------|--------------------------|---------------------|---------------|
+| Map<Integer,Task> todoList | Task getTaskById(int id) | Gets the task by id | Task          |
+|                            |                          |                     |               |
 
 
 ## 2
