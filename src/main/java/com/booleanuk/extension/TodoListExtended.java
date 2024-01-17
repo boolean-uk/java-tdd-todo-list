@@ -1,14 +1,16 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
+
+import com.booleanuk.core.Task;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-public class TodoList {
+public class TodoListExtended {
 
-    HashMap<String, Task> todoList;
+    HashMap<String, TaskExtended> todoList;
 
-    public TodoList(){
+    public TodoListExtended(){
         this.todoList = new HashMap<>();
     }
 
@@ -16,13 +18,13 @@ public class TodoList {
         if(getToDos().contains(name)){
             return "Task already in list";
         }
-        this.todoList.put(name, new Task(name));
+        this.todoList.put(name, new TaskExtended(name));
         return name + "Added to tasks";
     }
 
     public ArrayList<String> getToDos(){
         ArrayList<String> listOfNames = new ArrayList<>();
-        for(Task task : this.todoList.values()){
+        for(TaskExtended task : this.todoList.values()){
             listOfNames.add(task.getName());
         }
         return listOfNames;
@@ -36,7 +38,7 @@ public class TodoList {
         ArrayList<String> resComplete = new ArrayList<>();
         ArrayList<String> resInComplete = new ArrayList<>();
 
-        for(Task task: this.todoList.values()){
+        for(TaskExtended task: this.todoList.values()){
             if(task.isComplete){
                 resComplete.add(task.getName());
             }else {
@@ -51,7 +53,7 @@ public class TodoList {
         return resInComplete;
     }
 
-    public Task getTask(String name) {
+    public TaskExtended getTask(String name) {
         if(getToDos().contains(name)){
             return this.todoList.get(name);
         }
@@ -82,5 +84,38 @@ public class TodoList {
             Collections.reverse(res);
         }
         return res;
+    }
+
+    //Extention
+
+    public TaskExtended getTask(int id){
+        if(getIdNameMap().containsKey(id)){
+            if(getIdNameMap().get(id) != null){
+                return this.todoList.get(getIdNameMap().get(id));
+            }
+        }
+        return null;
+    }
+
+    public void changeName(int id, String name){
+
+        getTask(id).setName(id, name);
+
+    }
+
+    public void changeCompletion(int id) {
+        getTask(id).changeCompletion();
+    }
+
+    public String getTimeCreated(String name) {
+        return getTask(name).getTimeCreated();
+    }
+
+    public HashMap<Integer, String> getIdNameMap(){
+        HashMap<Integer, String> idsAndNames = new HashMap<>();
+        for(TaskExtended task : this.todoList.values()){
+            idsAndNames.put(task.getId(), task.getName());
+        }
+        return idsAndNames;
     }
 }
