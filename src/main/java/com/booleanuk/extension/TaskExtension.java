@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class TaskExtension {
     public String text;
+    public boolean completed;
     public final String creationDate;
     public final int id;
 
@@ -12,6 +13,10 @@ public class TaskExtension {
         this.text = text;
         this.id = id;
 
-        creationDate = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now());
+        creationDate = getDateTime();
+    }
+
+    public static String getDateTime() {
+        return DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss").format(LocalDateTime.now());
     }
 }
