@@ -37,4 +37,9 @@ public class TodoListEX {
     }
 
 
+    public void testChangeTaskStatus(int i) {
+        Task task = this.getTaskById(i);
+        task.setStatusOfTask(!task.getStatus());
+
+    }
 }

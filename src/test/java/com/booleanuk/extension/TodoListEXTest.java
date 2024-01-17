@@ -42,7 +42,7 @@ public class TodoListEXTest {
 
 
     @Test
-    public void testChangeTaskCompleteOrIncomplete() {
+    public void testChangeTaskStatus() {
         TodoListEX todoListEX = new TodoListEX();
 
         Task task = new Task(1, "Task1");
@@ -51,7 +51,7 @@ public class TodoListEXTest {
 
         Assertions.assertFalse(task.getStatus());
 
-        todoListEX.changetaskCompleteOrIncomplete(1);
+        todoListEX.testChangeTaskStatus(1);
 
         Task task2 = todoListEX.getTaskById(1);
 
