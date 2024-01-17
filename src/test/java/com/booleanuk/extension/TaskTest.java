@@ -12,7 +12,7 @@ public class TaskTest {
 
     @Test
     public void testGetDate() throws InterruptedException {
-        Task task = new Task();
+        Task task = new Task(1);
 
 
         Date date1 = task.getTaskDate();
@@ -25,13 +25,22 @@ public class TaskTest {
 
     @Test
     public void testGetSetStatus() {
-        Task task = new Task();
+        Task task = new Task(1);
 
         Assertions.assertFalse(task.getStatus());
 
         task.setStatusOfTask(true);
 
         Assertions.assertTrue(task.getStatus());
+
+
+    }
+
+    @Test
+    public void testGetId() {
+        Task task = new Task(1);
+
+        int id = task.getId();
 
 
     }

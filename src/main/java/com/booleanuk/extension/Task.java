@@ -7,7 +7,7 @@ public class Task {
     private Date date;
     private boolean status;
 
-    public Task() {
+    public Task(int i) {
         this.date = new Date();
         this.status = false;
 
