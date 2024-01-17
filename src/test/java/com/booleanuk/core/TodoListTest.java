@@ -31,6 +31,13 @@ class ToDoListTest {
     }
 
     @Test
+    public void cantRemove(){
+        TodoList todoList = new TodoList();
+        Assertions.assertTrue(todoList.remove("Task"));
+
+    }
+
+    @Test
     public void changeStatusTasks(){
         TodoList todoList = new TodoList();
         todoList.add("Run");
