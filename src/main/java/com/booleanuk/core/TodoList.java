@@ -1,7 +1,6 @@
 package com.booleanuk.core;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class TodoList {
 
@@ -69,7 +68,22 @@ public class TodoList {
 
 
     public String sortAlphabetically(){
-        return "";
+        String str="";
+
+        List<Map.Entry<String, String>> entryList = new ArrayList<>(list.entrySet());
+
+        entryList.sort(Map.Entry.comparingByKey());
+
+        Map<String, String> sortedMap = new LinkedHashMap<>();
+
+        for (Map.Entry<String, String> entry : entryList) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+            str += entry.getKey() + " : " + entry.getValue()+"\n";
+
+        }
+        System.out.println(str);
+
+        return str;
     }
 
 
