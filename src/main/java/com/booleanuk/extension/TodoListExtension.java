@@ -84,6 +84,13 @@ public class TodoListExtension {
         }
         return "Task not found";
     }
+    public boolean updateTaskName(int id, String newName) {
+        if (toDoList.containsKey(id)) {
+            toDoList.get(id)[0] = newName; // Update the task name
+            return true;
+        }
+        return false;
+    }
 }
 
 
