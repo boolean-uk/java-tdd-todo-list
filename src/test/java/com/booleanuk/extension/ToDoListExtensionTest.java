@@ -10,7 +10,7 @@ public class ToDoListExtensionTest {
     void testGetTaskById() {
         todoList = new TodoListExtension();
         String taskName = "Test Task";
-        todoList.addTask(taskName); // This should get ID 1
+        todoList.addTask(taskName);
         String expected = "ID: 1, Task: Test Task, Status: incomplete";
         assertEquals(expected, todoList.getTaskById(1));
     }
