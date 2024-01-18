@@ -74,7 +74,7 @@ class ToDoListTest {
     }
 
     @Test
-    public void incompleteTask(){
+    public void completeTask(){
         TodoList todoList = new TodoList();
         todoList.add("Run");
         todoList.add("Shop");
@@ -88,6 +88,42 @@ class ToDoListTest {
     }
 
     @Test
-    public void
+    public void incompleteTasks(){
+        TodoList todoList = new TodoList();
+        todoList.add("Run");
+        todoList.add("Shop");
+        todoList.add("Training");
+        todoList.setStatus("Run");
+        todoList.setStatus("Training");
+        List<String> incompleteTasks = new ArrayList<>();
+        incompleteTasks.add("Shop");
+        Assertions.assertEquals(incompleteTasks, todoList.showStatus(false));
+    }
+
+    @Test
+    public void ascendinngOrder(){
+        TodoList todoList = new TodoList();
+        todoList.add("Run");
+        todoList.add("Shop");
+        todoList.add("Training");
+        ArrayList<String> orderList = new ArrayList<>();
+        orderList.add("Run");
+        orderList.add("Shop");
+        orderList.add("Training");
+        Assertions.assertEquals(orderList, todoList.sort(true));
+    }
+
+    @Test
+    public void descendinngOrder(){
+        TodoList todoList = new TodoList();
+        todoList.add("Run");
+        todoList.add("Shop");
+        todoList.add("Training");
+        ArrayList<String> descendingList = new ArrayList<>();
+        descendingList.add("Training");
+        descendingList.add("Shop");
+        descendingList.add("Run");
+        Assertions.assertEquals(descendingList, todoList.sort(false));
+    }
 
 }
