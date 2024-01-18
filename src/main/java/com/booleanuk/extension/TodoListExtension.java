@@ -20,15 +20,6 @@ public class TodoListExtension {
         return true;
     }
 
-    public String changeStatus(int id) {
-        if (toDoList.containsKey(id)) {
-            String[] task = toDoList.get(id);
-            task[1] = task[1].equals("incomplete") ? "complete" : "incomplete";
-            return task[1];
-        }
-        return "Task not found";
-    }
-
     public void seeAllTasks() {
         toDoList.forEach((id, task) -> System.out.println("ID: " + id + ", Task: " + task[0] + ", Status: " + task[1]));
     }
@@ -90,6 +81,14 @@ public class TodoListExtension {
             return true;
         }
         return false;
+    }
+    public String changeStatus(int id) {
+        if (toDoList.containsKey(id)) {
+            String[] task = toDoList.get(id);
+            task[1] = task[1].equals("incomplete") ? "complete" : "incomplete";
+            return "Status changed to: " + task[1];
+        }
+        return "Task not found";
     }
 }
 
