@@ -2,6 +2,9 @@ package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ToDoListExtensionTest {
@@ -9,9 +12,9 @@ public class ToDoListExtensionTest {
     @Test
     public void testGetTaskById() {
         todoList = new TodoListExtension();
-        String taskName = "Test Task";
+        String taskName = "run";
         todoList.addTask(taskName);
-        String expected = "ID: 1, Task: Test Task, Status: incomplete";
+        String expected = "ID: 1, Task: run, Status: incomplete";
         assertEquals(expected, todoList.getTaskById(1));
     }
 
@@ -38,4 +41,18 @@ public class ToDoListExtensionTest {
         String result2 = todoList.changeStatus(taskId);
         assertEquals("Status changed to: incomplete", result2);
     }
+    @Test
+    public void testTaskCreationTime(){
+        todoList = new TodoListExtension();
+        todoList.addTask("walk");
+        String taskInfo = todoList.getTaskWithTimestampById(1);
+        String creationTime = LocalDateTime.now().toString();
+
+        assertTrue(taskInfo.contains("walk"));
+        assertTrue(taskInfo.contains("incomplete"));
+        assertTrue(taskInfo.contains("2024"));
+
+    }
+
+
 }
