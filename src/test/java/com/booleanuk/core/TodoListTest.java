@@ -11,7 +11,6 @@ class ToDoListTest {
     @Test
     public void canAddTask() {
         TodoList todoList = new TodoList();
-        todoList.add("Task");
         Assertions.assertTrue(todoList.add("Task"));
 
     }
@@ -36,6 +35,7 @@ class ToDoListTest {
     @Test
     public void cantRemove() {
         TodoList todoList = new TodoList();
+        todoList.add("Task");
         Assertions.assertTrue(todoList.remove("Task"));
 
     }
