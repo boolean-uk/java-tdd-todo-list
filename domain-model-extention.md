@@ -13,11 +13,11 @@
 |------------------|------------------------------------|-------------------------------------------------------|----------------------|---------------------------------------|
 | TodoListExtended | add(String task)                   | HashMap<Integer id, String task> tasks                | Task is new.         | Output generated id.                  |
 |                  |                                    |                                                       | Task already exists. | Output generated id for new instance. |
-| TodoListExtended | get(int id)                        | HashMap<Integer id, String task> tasks                | Task exists.         | Return String task.                   |
+| TodoListExtended | getTask(int id)                    | HashMap<Integer id, String task> tasks                | Task exists.         | Return String task.                   |
 |                  |                                    |                                                       | Task does not exist. | Return empty string.                  |
 | TodoListExtended | updateName(int id, String newName) | HashMap<Integer id, String task> tasks                | Id exists            | Return true.                          |
 |                  |                                    |                                                       | Id does not exist.   | Return false.                         |
 | TodoListExtended | changeStatus(int id)               | HashMap<Integer id, Boolean status> taskStatus        | Id exists.           | Return true.                          |
 |                  |                                    |                                                       | Id does not exist.   | Return false.                         |
-| TodoListExtended | showDateTimeTask(int id)           | HashMap<Integer id, LocalDateTime dateTime> dateTimes | Id exists.           | Return LocalDateTime.                 |
+| TodoListExtended | getDateTimeTask(int id)            | HashMap<Integer id, LocalDateTime dateTime> dateTimes | Id exists.           | Return LocalDateTime.                 |
 |                  |                                    |                                                       | Id does not exist.   | Return empty object.                  |
