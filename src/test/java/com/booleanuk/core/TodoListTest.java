@@ -53,6 +53,7 @@ class TodoListTest {
         TodoList todoList = new TodoList();
         todoList.addTask("Task1", "incomplete");
         Assertions.assertEquals("incomplete", todoList.searchTask("Task1"));
+
     }
     @Test
     public void getTaskAscendingOrder(){

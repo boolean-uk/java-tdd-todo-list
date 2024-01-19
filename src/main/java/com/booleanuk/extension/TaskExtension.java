@@ -1,18 +1,13 @@
 package com.booleanuk.extension;
-
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.chrono.ChronoLocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
-import static java.time.format.DateTimeFormatter.ofLocalizedDateTime;
 
 public class TaskExtension {
     String name, dateTime;
     int id;
     boolean status;
+    LocalDateTime datetime;
     public TaskExtension(int id, String name, boolean status ){
 
         this.id= id;
@@ -22,6 +17,10 @@ public class TaskExtension {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         this.dateTime = localDate.format(formatter);
 
+    }
+    @Override
+    public String toString(){
+        return "Task: "+ name+ " " + "Created: "+ dateTime;
     }
 
 }
