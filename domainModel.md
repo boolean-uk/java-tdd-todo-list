@@ -34,3 +34,21 @@ Class: TodoList
 |                                          | list is empty                  | empty message             |
 | getTaskDescending()                      | list is not empty              | tasks in descending order |
 |                                          | list is empty                  | empty message             |                              |                          |
+
+
+I want to be able to get a task by a unique ID.
+I want to update the name of a task by providing its ID and a new name.
+I want to be able to change the status of a task by providing its ID.
+I want to be able to see the date and time that I created each task.
+
+| Methods          | Scenarios                                        | Outputs       |
+|------------------|--------------------------------------------------|---------------|
+| getTaskById()    | task exists                                      | true          |
+|                  | task doesn't exit                                | false/message |
+| updateTaskName() | task is found by providing its id                | true          |
+|                  | task doesn't find                                | false         |
+| changeStatus()   | task is found by providing its id                | true/message  |
+|                  | task doesn't find                                | false/message |
+| getDateTime()    | user want to get date and time each task created | message       |
+
+
