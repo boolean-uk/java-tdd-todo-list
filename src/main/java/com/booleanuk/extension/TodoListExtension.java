@@ -32,5 +32,15 @@ public class TodoListExtension {
         return false;
     }
 
+    public boolean updateTaskStatus(int id, String newStatus){
+        for (Task task : tasks){
+            if (task.getId() == id){
+                task.setStatus(newStatus);
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
