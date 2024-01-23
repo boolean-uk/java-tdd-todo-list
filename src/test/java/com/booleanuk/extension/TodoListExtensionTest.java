@@ -59,4 +59,16 @@ public class TodoListExtensionTest {
                 "}", todoList.getTaskByID(002));
     }
 
+    @Test
+    public void testUpdateTaskName(){
+        Task task = new Task(001,"Vacuum","Incomplete");
+        Task task2 = new Task(002,"Eat","Complete");
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.addTask(task);
+        todoList.addTask(task2);
+
+        Assertions.assertEquals(true, todoList.updateTaskName(002,"Sleep"));
+        Assertions.assertEquals(false, todoList.updateTaskName(123,"Sleep"));
+        Assertions.assertEquals("Sleep",task2.getName());
+    }
 }
