@@ -43,7 +43,7 @@ public class Task {
     }
 
     public String toString(){
-        return "Task{ \n"
+        return "Task\n{ \n"
                 +"ID: "+getId()+"\n"
                 +"Name: "+getName()+"\n"
                 +"Status: "+getStatus()+"\n"
