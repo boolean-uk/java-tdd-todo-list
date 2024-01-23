@@ -10,4 +10,11 @@ class TodoListTest {
         Assertions.assertEquals("Hello", hello);
         Assertions.assertNotEquals("Goodbye", hello);
     }
+
+    //User story 1
+    @Test
+    public void returnTrueIfTaskIsCreated() {
+        boolean created = new Task("Buy groceries");
+        Assertions.assertTrue(created);
+    }
 }
