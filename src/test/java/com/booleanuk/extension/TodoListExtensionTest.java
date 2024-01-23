@@ -35,4 +35,28 @@ public class TodoListExtensionTest {
         Assertions.assertEquals("Task added", todoList.addTask(task));
     }
 
+    @Test
+    public void testGetTaskById(){
+        Task task = new Task(001,"Vacuum","Incomplete");
+        Task task2 = new Task(002,"Eat","Complete");
+        TodoListExtension todoList = new TodoListExtension();
+        todoList.addTask(task);
+        todoList.addTask(task2);
+        Assertions.assertEquals("Task\n" +
+                "{ \n" +
+                "ID: 1\n" +
+                "Name: Vacuum\n" +
+                "Status: Incomplete\n" +
+                "Created: 23-01-2024 \n" +
+                "}", todoList.getTaskByID(001));
+
+        Assertions.assertEquals("Task\n" +
+                "{ \n" +
+                "ID: 2\n" +
+                "Name: Eat\n" +
+                "Status: Complete\n" +
+                "Created: 23-01-2024 \n" +
+                "}", todoList.getTaskByID(002));
+    }
+
 }

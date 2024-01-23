@@ -28,7 +28,7 @@
 | TodoListExtension | Arraylist<String> | String addTask()           | Adds task to list of  | returns task added if,    |
 |                   | tasks             |                            | tasks with all        | changes attribute         |
 |                   |                   |                            | attributes            |                           |
-|                   |                   | Task getTaskByID()         | Accesses the list     | returns the entire task   |
+|                   |                   | String getTaskByID()       | Accesses the list     | returns the entire task   |
 |                   |                   |                            | of tasks to get task  | if it exists              |
 |                   |                   |                            | by unique ID          |                           |
 |                   |                   | boolean updateTaskName()   | Changes the name of   | changes attribute,        |
