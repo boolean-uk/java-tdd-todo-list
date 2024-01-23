@@ -14,7 +14,7 @@ public class Task {
         this.name = name;
         this.status = status;
 
-        String pattern = "dd-MM-yyyy";
+        String pattern = "dd-MM-yyyy / HH:mm";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
         this.created = simpleDateFormat.format(new Date());
     }
@@ -47,7 +47,7 @@ public class Task {
                 +"ID: "+getId()+"\n"
                 +"Name: "+getName()+"\n"
                 +"Status: "+getStatus()+"\n"
-                +"Created: "+getCreated()+" \n}";
+                +"Created: "+getCreated()+"\n}";
     }
 
 }
