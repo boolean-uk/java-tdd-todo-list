@@ -2,7 +2,7 @@ package com.booleanuk.core;
 
 import java.util.*;
 
-public class TodoList {
+public class  TodoList {
     public HashMap<String,String> todoList = new HashMap<>();
 
     public boolean isTaskInList(String task){
