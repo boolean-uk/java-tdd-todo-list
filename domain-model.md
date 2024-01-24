@@ -54,10 +54,10 @@ User story 4
 I want to be able to get only the complete tasks.
 ```
 #### Class TodoList
-| Method              | Test                           | Return |
-|---------------------|--------------------------------|--------|
-| getCompletedTasks() | If all tasks are completed     | true   |
-|                     | If all tasks are not completed | false  |
+| Method              | Test                                            | Return |
+|---------------------|-------------------------------------------------|--------|
+| getCompletedTasks() | If all tasks in returned list are completed     | true   |
+|                     | If all tasks in returned list are not completed | false  |
 
 ```
 User story 5

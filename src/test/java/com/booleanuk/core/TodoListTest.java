@@ -22,18 +22,36 @@ class TodoListTest {
     public void checkIfAllTasksAreShown() {
         Task task1 = new Task("Buy groceries");
         Task task2 = new Task("Clean apartment");
-        ArrayList<String> expectedTasksNames = new ArrayList<>();
-        expectedTasksNames.add(task1.getName());
-        expectedTasksNames.add(task2.getName());
+        ArrayList<Task> expectedTasks = new ArrayList<>();
+        expectedTasks.add(task1);
+        expectedTasks.add(task2);
         TodoList todoList = new TodoList();
         todoList.addTask(task1);
         todoList.addTask(task2);
-        ArrayList<String> actualTasksNames = todoList.getTasks();
-        Assertions.assertEquals(actualTasksNames, expectedTasksNames);
+        ArrayList<Task> actualTasks = todoList.getTasks();
+        Assertions.assertEquals(actualTasks, expectedTasks);
     }
 
     //User story 3 is in TaskTest
 
     //User story 4
+    @Test
+    public void shouldReturnTrueIfAllTasksAreCompleted() {
+        TodoList todoList = new TodoList();
+        Task completedTask = new Task("Buy groceries");
+        completedTask.setCompleted(true);
+        Task uncompletedTask = new Task("Clean apartment");
+
+        ArrayList<Task> expectedCompletedTasks = new ArrayList<>();
+        expectedCompletedTasks.add(completedTask);
+        expectedCompletedTasks.add(uncompletedTask);
+
+        todoList.addTask(completedTask);
+        todoList.addTask(uncompletedTask);
+
+        ArrayList<Task> actualCompletedTasks = todoList.getCompletedTasks();
+
+        Assertions.assertEquals(actualCompletedTasks, expectedCompletedTasks);
+    }
 
 }

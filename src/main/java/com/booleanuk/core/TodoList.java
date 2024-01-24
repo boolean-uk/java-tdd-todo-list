@@ -27,11 +27,11 @@ public class TodoList {
         return false;
     }
 
-    public ArrayList<String> getTasks() {
+    public ArrayList<Task> getTasks() {
         ArrayList<String> tasksNames = new ArrayList<>();
         for(Task task : tasks) {
             tasksNames.add(task.getName());
         }
-        return tasksNames;
+        return tasks;
     }
 }
