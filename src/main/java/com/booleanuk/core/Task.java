@@ -1,5 +1,7 @@
 package com.booleanuk.core;
 
+import java.util.Map;
+
 public class Task {
     private String name;
     private boolean completed;
@@ -8,4 +10,5 @@ public class Task {
         this.name = name;
         completed = false;
     }
+
 }

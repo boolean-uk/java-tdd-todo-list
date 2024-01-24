@@ -15,16 +15,17 @@ User story 1
 I want to add tasks to my todo list.
 ```
 #### Class Task
-| Method            | Test                              | Return |
-|-------------------|-----------------------------------|--------|
-| Task(String name) | If task was created (has name)    | true   |
-|                   | If task was not created (no name) | false  |
+| Method            | Test | Return |
+|-------------------|------|--------|
+| Task(String name) |      |        |
 
 #### Class TodoList
 | Method             | Test                  | Return |
 |--------------------|-----------------------|--------|
 | addTask(Task task) | If task was added     | true   |
 |                    | If task was not added | false  |
+| getTask(Task task) | If task is found      | true   |
+|                    | If task is not found  | false  |
 
 ```
 User story 2

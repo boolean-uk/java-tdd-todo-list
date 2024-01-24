@@ -10,7 +10,13 @@ public class TodoList {
     }
 
     public boolean addTask(Task task) {
-        tasks.add(task);
-        return true;
+        try {
+            tasks.add(task);
+            return true;
+        }
+        catch (Exception e) {
+        }
+
+        return false;
     }
 }

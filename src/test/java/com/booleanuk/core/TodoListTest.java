@@ -7,10 +7,12 @@ class TodoListTest {
 
     //User story 1
     @Test
-    public void returnTrueIfTaskIsAdded() {
+    public void checkIfTaskIsAdded() {
         Task task = new Task("Buy groceries");
         TodoList todoList = new TodoList();
-        boolean added = todoList.addTask(task);
-        Assertions.assertTrue(added);
+        todoList.addTask(task);
+        Task task2 = todoList.getTask(task);
+        Assertions.assertEquals(task, task2);
     }
+
 }
