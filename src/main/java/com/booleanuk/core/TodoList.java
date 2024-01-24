@@ -58,6 +58,14 @@ public class TodoList {
     }
 
     public String searchForTask(Task task) {
-        return "Buy groceries wasn't found";
+        String found = task.getName();
+
+        if(tasks.contains(task)) {
+            found += " was found";
+        }
+        else {
+            found += " wasn't found";
+        }
+        return found;
     }
 }
