@@ -81,4 +81,15 @@ class TodoListTest {
         Assertions.assertEquals("Buy groceries wasn't found", found);
     }
 
+    //User story 7
+    @Test
+    public void assertThatTaskIsRemoved() {
+        TodoList todoList = new TodoList();
+        Task task = new Task("Buy groceries");
+        todoList.addTask(task);
+        todoList.removeTask(task);
+        String found = todoList.searchForTask(task);
+        Assertions.assertEquals("Buy groceries wasn't found", found);
+    }
+
 }
