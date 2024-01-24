@@ -45,4 +45,15 @@ public class TodoList {
         }
         return completedTasks;
     }
+
+    public ArrayList<Task> getUncompletedTasks() {
+        ArrayList<Task> unCompletedTasks = new ArrayList<>();
+
+        for(Task task : tasks) {
+            if (!task.isCompleted()) {
+                unCompletedTasks.add(task);
+            }
+        }
+        return unCompletedTasks;
+    }
 }
