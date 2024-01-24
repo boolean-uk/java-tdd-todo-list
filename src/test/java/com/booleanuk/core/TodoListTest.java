@@ -116,7 +116,6 @@ class TodoListTest {
             expectedTasksNames.add(task.getName());
         }
         Collections.sort(expectedTasksNames);
-        System.out.println(expectedTasksNames);
 
         ArrayList<String> actualTasksNames = todoList.getTasksSortedAlphabeticallyInAscendingOrder();
 

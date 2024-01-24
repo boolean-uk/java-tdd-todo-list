@@ -1,6 +1,7 @@
 package com.booleanuk.core;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class TodoList {
     ArrayList<Task> tasks;
@@ -76,10 +77,13 @@ public class TodoList {
     }
 
     public ArrayList<String> getTasksSortedAlphabeticallyInAscendingOrder() {
-        ArrayList<String> sortedNames = new ArrayList<>();
-        sortedNames.add("A");
-        sortedNames.add("R");
-        sortedNames.add("W");
-        return sortedNames;
+        ArrayList<String> sortedTasksNames = new ArrayList<>();
+
+        for(Task task : tasks) {
+            sortedTasksNames.add(task.getName());
+        }
+        Collections.sort(sortedTasksNames);
+
+        return sortedTasksNames;
     }
 }
