@@ -56,4 +56,8 @@ public class TodoList {
         }
         return unCompletedTasks;
     }
+
+    public String searchForTask(Task task) {
+        return "Buy groceries wasn't found";
+    }
 }
