@@ -86,4 +86,17 @@ public class TodoList {
 
         return sortedTasksNames;
     }
+
+    public ArrayList<String> getTasksSortedAlphabeticallyInDescendingOrder() {
+        ArrayList<String> sortedTasks = new ArrayList<>();
+
+        sortedTasks.add("A");
+        sortedTasks.add("W");
+        sortedTasks.add("R");
+
+        Collections.sort(sortedTasks);
+        Collections.reverse(sortedTasks);
+
+        return sortedTasks;
+    }
 }
