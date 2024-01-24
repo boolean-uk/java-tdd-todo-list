@@ -68,4 +68,10 @@ public class TodoList {
         }
         return found;
     }
+
+    public void removeTask(Task task) {
+        if(tasks.contains(task)) {
+            tasks.remove(task);
+        }
+    }
 }
