@@ -64,10 +64,10 @@ User story 5
 I want to be able to get only the incomplete tasks.
 ```
 #### Class TodoList
-| Method               | Test                             | Return |
-|----------------------|----------------------------------|--------|
-| getIncompleteTasks() | If all tasks are incompleted     | true   |
-|                      | If all tasks are not incompleted | false  |
+| Method                | Test                             | Return |
+|-----------------------|----------------------------------|--------|
+| getUncompletedTasks() | If all tasks are uncompleted     | true   |
+|                       | If all tasks are not uncompleted | false  |
 
 ```
 User story 6

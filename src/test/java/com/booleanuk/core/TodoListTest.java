@@ -53,4 +53,23 @@ class TodoListTest {
         Assertions.assertEquals(actualCompletedTasks, expectedCompletedTasks);
     }
 
+    //User story 5
+    @Test
+    public void shouldReturnTrueIfAllTasksAreUncompleted() {
+        TodoList todoList = new TodoList();
+        Task completedTask = new Task("Buy groceries");
+        completedTask.setCompleted(true);
+        Task uncompletedTask = new Task("Clean apartment");
+
+        ArrayList<Task> expectedUncompletedTasks = new ArrayList<>();
+        expectedUncompletedTasks.add(uncompletedTask);
+
+        todoList.addTask(completedTask);
+        todoList.addTask(uncompletedTask);
+
+        ArrayList<Task> actualUncompletedTasks = todoList.getUncompletedTasks();
+
+        Assertions.assertEquals(actualUncompletedTasks, expectedUncompletedTasks);
+    }
+
 }
