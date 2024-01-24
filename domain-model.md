@@ -32,10 +32,10 @@ User story 2
 I want to see all the tasks in my todo list.
 ```
 #### Class TodoList
-| Method      | Test                       | Return |
-|-------------|----------------------------|--------|
-| showTasks() | If all tasks are shown     | true   |
-|             | If all tasks are not shown | false  |
+| Method      | Test                                      | Return |
+|-------------|-------------------------------------------|--------|
+| getTasks()  | if all tasks from todo list are shown     | true   |
+|             | if all tasks from todo list are not shown | false  |
 
 ```
 User story 3

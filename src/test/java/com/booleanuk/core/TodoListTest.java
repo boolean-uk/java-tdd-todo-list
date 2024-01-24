@@ -3,6 +3,8 @@ package com.booleanuk.core;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 class TodoListTest {
 
     //User story 1
@@ -13,6 +15,21 @@ class TodoListTest {
         todoList.addTask(task);
         boolean taskFound = todoList.getTask(task);
         Assertions.assertTrue(taskFound);
+    }
+
+    //User story 2
+    @Test
+    public void checkIfAllTasksAreShown() {
+        Task task1 = new Task("Buy groceries");
+        Task task2 = new Task("Clean apartment");
+        ArrayList<Task> expectedTasks = new ArrayList<>();
+        expectedTasks.add(task1);
+        expectedTasks.add(task2);
+        TodoList todoList = new TodoList();
+        todoList.addTask(task1);
+        todoList.addTask(task2);
+        ArrayList<Task> actualTasks = todoList.getTasks();
+        Assertions.assertEquals(actualTasks, expectedTasks);
     }
 
 }
