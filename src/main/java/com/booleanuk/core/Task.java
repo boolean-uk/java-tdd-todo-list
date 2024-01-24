@@ -14,4 +14,12 @@ public class Task {
     public String getName() {
         return this.name;
     }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
+    }
+
+    public boolean isCompleted() {
+        return true;
+    }
 }
