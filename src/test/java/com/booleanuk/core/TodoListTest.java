@@ -32,4 +32,8 @@ class TodoListTest {
         Assertions.assertEquals(actualTasksNames, expectedTasksNames);
     }
 
+    //User story 3 is in TaskTest
+
+    //User story 4
+
 }

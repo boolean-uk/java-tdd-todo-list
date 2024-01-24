@@ -42,10 +42,12 @@ User story 3
 I want to change the status of a task between incomplete and complete.
 ```
 #### Class Task
-| Method              | Test                            | Return |
-|---------------------|---------------------------------|--------|
-| isComplete(boolean) | If task is set as completed     | true   |
-|                     | If task is not set as completed | false  |
+| Method                | Test                            | Return |
+|-----------------------|---------------------------------|--------|
+| setCompleted(boolean) |                                 |        |
+|                       |                                 |        |
+| isComplete()          | If task is set as completed     | true   |
+|                       | If task is not set as completed | false  |
 
 ```
 User story 4
