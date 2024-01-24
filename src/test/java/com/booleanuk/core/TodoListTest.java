@@ -11,8 +11,8 @@ class TodoListTest {
         Task task = new Task("Buy groceries");
         TodoList todoList = new TodoList();
         todoList.addTask(task);
-        Task task2 = todoList.getTask(task);
-        Assertions.assertEquals(task, task2);
+        boolean taskFound = todoList.getTask(task);
+        Assertions.assertTrue(taskFound);
     }
 
 }

@@ -19,4 +19,11 @@ public class TodoList {
 
         return false;
     }
+
+    public boolean getTask(Task task) {
+        if(tasks.contains(task)) {
+            return true;
+        }
+        return false;
+    }
 }
