@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 class TodoListTest {
 
@@ -92,4 +95,30 @@ class TodoListTest {
         Assertions.assertEquals("Buy groceries wasn't found", found);
     }
 
+    //User story 8
+    @Test
+    public void assertAllTasksSortedAlphabeticallyInAscendingOrder() {
+        TodoList todoList = new TodoList();
+        Task task1 = new Task("R");
+        todoList.addTask(task1);
+        Task task2 = new Task("A");
+        todoList.addTask(task2);
+        Task task3 = new Task("W");
+        todoList.addTask(task3);
+
+        ArrayList<Task> expectedTasks = new ArrayList<>();
+        expectedTasks.add(task1);
+        expectedTasks.add(task2);
+        expectedTasks.add(task3);
+
+        ArrayList<String> expectedTasksNames = new ArrayList<>();
+        for(Task task : expectedTasks) {
+            expectedTasksNames.add(task.getName());
+        }
+        Collections.sort(expectedTasksNames);
+
+        ArrayList<String> actualTasksNames = todoList.getTasksSortedAlphabeticallyInAscendingOrder();
+
+        Assertions.assertEquals(expectedTasksNames, actualTasksNames);
+    }
 }

@@ -86,24 +86,24 @@ I want to remove tasks from my list.
 #### Class TodoList
 | Method       | Test                    | Return |
 |--------------|-------------------------|--------|
-| removeTask() | If task is removed      | true   |
-|              | If tasks is not removed | false  |
+| removeTask() | If task is removed      | String |
+|              | If tasks is not removed | String |
 
 ```
 User story 8
 I want to see all the tasks in my list ordered alphabetically in ascending order.
 ```
 #### Class TodoList
-| Method                                    | Test                                                       | Return |
-|-------------------------------------------|------------------------------------------------------------|--------|
-| sortTasksAlphabeticallyInAscendingOrder() | If tasks are ordered alphabetically in ascending order     | true   |
-|                                           | If tasks are not ordered alphabetically in ascending order | false  |
+| Method                                         | Test                                                       | Return |
+|------------------------------------------------|------------------------------------------------------------|--------|
+| getTasksSortedAlphabeticallyInAscendingOrder() | If tasks are ordered alphabetically in ascending order     | true   |
+|                                                | If tasks are not ordered alphabetically in ascending order | false  |
 ```
 User story 9
 I want to see all the tasks in my list ordered alphabetically in descending order.
 ```
 #### Class TodoList
-| Method                                     | Test                                                        | Return |
-|--------------------------------------------|-------------------------------------------------------------|--------|
-| sortTasksAlphabeticallyInDescendingOrder() | If tasks are ordered alphabetically in descending order     | true   |
-|                                            | If tasks are not ordered alphabetically in descending order | false  |
+| Method                                          | Test                                                        | Return |
+|-------------------------------------------------|-------------------------------------------------------------|--------|
+| getTasksSortedAlphabeticallyInDescendingOrder() | If tasks are ordered alphabetically in descending order     | true   |
+|                                                 | If tasks are not ordered alphabetically in descending order | false  |
