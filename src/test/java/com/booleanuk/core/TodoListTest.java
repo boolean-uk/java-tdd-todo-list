@@ -44,7 +44,6 @@ class TodoListTest {
 
         ArrayList<Task> expectedCompletedTasks = new ArrayList<>();
         expectedCompletedTasks.add(completedTask);
-        expectedCompletedTasks.add(uncompletedTask);
 
         todoList.addTask(completedTask);
         todoList.addTask(uncompletedTask);
