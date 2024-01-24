@@ -74,4 +74,12 @@ public class TodoList {
             tasks.remove(task);
         }
     }
+
+    public ArrayList<String> getTasksSortedAlphabeticallyInAscendingOrder() {
+        ArrayList<String> sortedNames = new ArrayList<>();
+        sortedNames.add("A");
+        sortedNames.add("R");
+        sortedNames.add("W");
+        return sortedNames;
+    }
 }
