@@ -11,4 +11,7 @@ public class Task {
         completed = false;
     }
 
+    public String getName() {
+        return this.name;
+    }
 }

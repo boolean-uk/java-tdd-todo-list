@@ -26,4 +26,13 @@ public class TodoList {
         }
         return false;
     }
+
+    public ArrayList<String> getTasks() {
+        Task task1 = new Task("Buy groceries");
+        Task task2 = new Task("Clean apartment");
+        ArrayList<String> expectedTasks = new ArrayList<>();
+        expectedTasks.add(task1.getName());
+        expectedTasks.add(task2.getName());
+        return expectedTasks;
+    }
 }

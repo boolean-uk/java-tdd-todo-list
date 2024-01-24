@@ -22,14 +22,14 @@ class TodoListTest {
     public void checkIfAllTasksAreShown() {
         Task task1 = new Task("Buy groceries");
         Task task2 = new Task("Clean apartment");
-        ArrayList<Task> expectedTasks = new ArrayList<>();
-        expectedTasks.add(task1);
-        expectedTasks.add(task2);
+        ArrayList<String> expectedTasksNames = new ArrayList<>();
+        expectedTasksNames.add(task1.getName());
+        expectedTasksNames.add(task2.getName());
         TodoList todoList = new TodoList();
         todoList.addTask(task1);
         todoList.addTask(task2);
-        ArrayList<Task> actualTasks = todoList.getTasks();
-        Assertions.assertEquals(actualTasks, expectedTasks);
+        ArrayList<String> actualTasksNames = todoList.getTasks();
+        Assertions.assertEquals(actualTasksNames, expectedTasksNames);
     }
 
 }
