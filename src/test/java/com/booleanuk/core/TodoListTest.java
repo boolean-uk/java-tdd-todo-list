@@ -121,4 +121,33 @@ class TodoListTest {
 
         Assertions.assertEquals(expectedTasksNames, actualTasksNames);
     }
+
+    //User story 9
+    @Test
+    public void assertAllTasksSortedAlphabeticallyInDescendingOrder() {
+        TodoList todoList = new TodoList();
+        Task task1 = new Task("R");
+        todoList.addTask(task1);
+        Task task2 = new Task("A");
+        todoList.addTask(task2);
+        Task task3 = new Task("W");
+        todoList.addTask(task3);
+
+        ArrayList<Task> expectedTasks = new ArrayList<>();
+        expectedTasks.add(task1);
+        expectedTasks.add(task2);
+        expectedTasks.add(task3);
+
+        ArrayList<String> expectedTasksNames = new ArrayList<>();
+        for(Task task : expectedTasks) {
+            expectedTasksNames.add(task.getName());
+        }
+        Collections.sort(expectedTasksNames);
+        Collections.reverse(expectedTasksNames);
+
+        ArrayList<String> actualTasksNames = todoList.getTasksSortedAlphabeticallyInDescendingOrder();
+
+        Assertions.assertEquals(expectedTasksNames, actualTasksNames);
+    }
+
 }
