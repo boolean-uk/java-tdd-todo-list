@@ -1,8 +1,9 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
+
 
 public class TodoList {
 
@@ -49,10 +50,11 @@ public class TodoList {
         return notCompletedTask.toString();
     }
 
-    public Tasks searchForTasks(Tasks task) {
+    public Tasks searchForTasksByUniqueID(Tasks task) {
 
         for (Tasks listOfTask : listOfTasks) {
-            if(task.equals(listOfTask)) {
+            if(task.getUuid().equals(listOfTask.getUuid())) {
+                System.out.println(task);
                 return task;
             }
         }
@@ -60,26 +62,46 @@ public class TodoList {
         return null;
     }
 
+    public String updateNameByUniqueID(Tasks task, String newName) {
+        for (Tasks listOfTask : listOfTasks) {
+            if(task.getUuid().equals(listOfTask.getUuid())) {
+                listOfTask.setTask(newName);
+            }
+        }
+        System.out.println(task);
+        return task.getTask();
+    }
+
     public void removeTasks(Tasks task) {
         listOfTasks.removeIf(listOfTask -> listOfTask.equals(task));
     }
 
-    public String changeStatusOfTask(Tasks task) {
+    public boolean changeStatusOfTaskByID(Tasks task) {
 
         for (Tasks listOfTask : listOfTasks) {
-            if(task.equals(listOfTask)) {
+            if(task.getUuid().equals(listOfTask.getUuid())) {
                 if(!listOfTask.isStatusForTask()) {
                     listOfTask.setStatusForTask(true);
                 } else listOfTask.setStatusForTask(false);
             }
-            }
+        }
 
-        return task.toString();
+        return task.isStatusForTask();
+    }
+
+    public String showDateAndTimeOfATask(Tasks task) {
+        String result = "";
+        for (Tasks listOfTask : listOfTasks) {
+            System.out.println(task.getNow());
+            result += listOfTask.getNow().truncatedTo(ChronoUnit.SECONDS).toString();
+        }
+            return result;
+
     }
 
     public String alphAscending(ArrayList<Tasks> tasks) {
         listOfTasks.sort((task1, task2) -> task1.getTask().compareToIgnoreCase(task2.getTask()));
-        
+
         return tasks.toString();
     }
 
