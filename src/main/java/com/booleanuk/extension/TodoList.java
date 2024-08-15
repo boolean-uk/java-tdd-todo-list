@@ -1,5 +1,7 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -16,6 +18,12 @@ public class TodoList {
             if (t.getTaskName().equals(task.getTaskName())) return false;
             System.out.println("Task already exists, not added");
         }
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        LocalDateTime now = LocalDateTime.now();
+
+        task.setId(this.tasks.size() + 1);
+        task.setDateAndTimeCreated(dtf.format(now));
 
         this.tasks.add(task);
         System.out.println("Task added.");
@@ -91,6 +99,35 @@ public class TodoList {
         Collections.sort(toReturn, new TaskAlphabetAscSort());
         Collections.reverse(toReturn);
         return toReturn;
+    }
+
+    public Task getTaskById(int id) {
+        Task toReturn = null;
+        for (Task t : this.tasks) {
+            if (t.getId() == id) toReturn = t;
+        }
+        return toReturn;
+    }
+
+    public boolean updateTask(int id, String newTaskName) {
+        for (Task t : this.tasks) {
+            if (t.getId() == id) {
+                t.setTaskName(newTaskName);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean updateTaskStatus(int id, boolean status) {
+        for (Task t : this.tasks) {
+            if (t.getId() == id) {
+                if (status) t.setComplete();
+                else t.setIncomplete();
+                return true;
+            }
+        }
+        return false;
     }
 
 }

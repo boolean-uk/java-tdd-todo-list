@@ -1,16 +1,16 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDateTime;
 
-class TodoListTest {
+class TodoListTestExtension {
 
-    public TodoListTest() {
+    public TodoListTestExtension() {
 
     }
 
@@ -187,6 +187,56 @@ class TodoListTest {
         }
 
         Assertions.assertTrue(bol);
+    }
+
+    @Test
+    public void testGetTaskById() {
+        TodoList tl = new TodoList();
+
+        tl.add(new Task("Do the dishes"));
+        tl.add(new Task("Vacuum"));
+
+        Assertions.assertEquals("Do the dishes", tl.getTaskById(1).getTaskName());
+        Assertions.assertEquals("Vacuum", tl.getTaskById(2).getTaskName());
+    }
+
+    @Test
+    public void testUpdateTaskByGivingId() {
+        TodoList tl = new TodoList();
+
+        tl.add(new Task("Do the dishes"));
+        tl.add(new Task("Vacuum"));
+
+        tl.updateTask(2, "Vacuum, again...");
+
+        Assertions.assertEquals(tl.getTaskById(1).getTaskName(), "Do the dishes");
+        Assertions.assertEquals(tl.getTaskById(2).getTaskName(), "Vacuum, again...");
+    }
+
+    @Test
+    public void testGetDateAndTimeFromCreatedTask() {
+        TodoList tl = new TodoList();
+
+        tl.add(new Task("Do the dishes"));
+        tl.add(new Task("Vacuum"));
+
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+        LocalDateTime now = LocalDateTime.now();
+
+        Assertions.assertEquals(tl.getTask(new Task("Do the dishes")).getCreated(), dtf.format(now));
+    }
+
+    @Test
+    public void testUpdateTaskStatusByGivingId() {
+        TodoList tl = new TodoList();
+
+        tl.add(new Task("Do the dishes", false));
+        tl.add(new Task("Vacuum", true));
+
+        tl.updateTaskStatus(1, false);
+
+        Assertions.assertFalse(tl.getTaskById(1).getStatus());
+        Assertions.assertTrue(tl.getTaskById(2).getStatus());
     }
 
 }
