@@ -1,5 +1,6 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class TodoList {
@@ -123,6 +124,37 @@ public class TodoList {
         return result;
     }
 
+    public Task getTaskById(String id){
+        for(Task task : tasks){
+            if(task.getId().equals(id)){
+                return task;
+            }
+        }
+        return null;
+    }
 
+    public String setNameById(String id, String newName){
+        Task task = getTaskById(id);
+        task.setName(newName);
+        return task.getName();
+    }
+
+    public Boolean changeStatusById(String id){
+        return changeStatus(getTaskById(id));
+        //return null;
+    }
+
+    public String seeDates(){
+        String result = "";
+        for(Task task : tasks){
+            result += task.getName() + " " + task.getDate().truncatedTo(ChronoUnit.SECONDS).toString();
+
+            if(tasks.getLast() != task){
+                result += " ";
+            }
+        }
+        System.out.println(result);
+        return result;
+    }
 
 }

@@ -1,9 +1,12 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class TodoListTest {
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+
+public class TodoListTestExtension {
     @Test
     public void exampleTest() {
         String hello = "Hello";
@@ -107,4 +110,34 @@ class TodoListTest {
         Assertions.assertEquals("taskC taskB taskA", todoList.seeTasksDescending());
     }
 
+    @Test
+    public void testGetTaskById(){
+        Task taskA = new Task("taskA");
+        todoList.add(taskA);
+        Assertions.assertEquals(taskA, todoList.getTaskById(taskA.getId()));
+    }
+
+    @Test
+    public void testSetNameById(){
+        Task taskA = new Task("taskA");
+        todoList.add(taskA);
+        Assertions.assertEquals("newName", todoList.setNameById(taskA.getId(), "newName"));
+    }
+
+    @Test
+    public void testChangeStatusById(){
+        Task taskA = new Task("taskA");
+        todoList.add(taskA);
+        Assertions.assertTrue(todoList.changeStatusById(taskA.getId()));
+    }
+
+    @Test
+    public void testSeeDates(){
+        Task taskA = new Task("taskA");
+        Task taskB = new Task("taskB");
+        todoList.add(taskA);
+        todoList.add(taskB);
+        Assertions.assertEquals("taskA " + LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS).toString() +
+                " taskB " + LocalDateTime.now().truncatedTo(ChronoUnit.SECONDS).toString(), todoList.seeDates());
+    }
 }
