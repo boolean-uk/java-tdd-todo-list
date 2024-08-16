@@ -1,7 +1,9 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import com.booleanuk.extension.Task;
+
+import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -21,36 +23,74 @@ public class TodoList {
             return false;
         }
     }
+
     public int listSize(){
         return this.taskList.size();
     }
 
 
+    public Task getTaskByID(Integer id){
+        for (Task t : this.taskList) {
+            if (Objects.equals(t.getID(), id)){
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public void updateTask(Integer id, String newName) {
+        for (Task t : taskList){
+            if (Objects.equals(t.getID(), id)){
+                t.setTaskName(newName);
+            }
+        }
+    }
+
+    public void updateStatus(Integer id) {
+        for (Task t : taskList) {
+            if (Objects.equals(t.getID(), id)){
+                t.changeTaskStatus();
+            }
+        }
+    }
+
+    public LocalDateTime getDateTime(int id){
+        for (Task t : taskList) {
+            if (Objects.equals(t.getID(), id)) {
+                return t.getDateTime();
+            }
+        }
+        return null;
+    }
+
     public void viewTasks(){
         switch(this.taskFilter){
             case 0: {
-                for (Task t : this.taskList) {
+                for (com.booleanuk.extension.Task t : this.taskList) {
                     String taskName = t.getTaskName();
-                    System.out.println(taskName);
+                    LocalDateTime dt = t.getDateTime();
+                    System.out.println("Task: " + taskName + ". Created: " + dt);
                 }
                 break;
             }
 
             case 1: {
-                for (Task t : this.taskList) {
+                for (com.booleanuk.extension.Task t : this.taskList) {
                     if (!t.getIsCompleted()) {
                         String taskName = t.getTaskName();
-                        System.out.println(taskName);
+                        LocalDateTime dt = t.getDateTime();
+                        System.out.println("Task: " + taskName + ". Created: " + dt);
                     }
                 }
                 break;
             }
 
             case 2: {
-                for (Task t : this.taskList) {
+                for (com.booleanuk.extension.Task t : this.taskList) {
                     if (t.getIsCompleted()) {
                         String taskName = t.getTaskName();
-                        System.out.println(taskName);
+                        LocalDateTime dt = t.getDateTime();
+                        System.out.println("Task: " + taskName + ". Created: " + dt);
                     }
                 }
                 break;
@@ -65,7 +105,7 @@ public class TodoList {
     }
 
     public String searchTask(String task){
-        for (Task t : this.taskList) {
+        for (com.booleanuk.extension.Task t : this.taskList) {
             if (Objects.equals(t.getTaskName(), task)){
                 return "Task was found in your list";
             }
@@ -75,7 +115,7 @@ public class TodoList {
 
 
     public String removeTask(String task){
-        for (Task t : this.taskList){
+        for (com.booleanuk.extension.Task t : this.taskList){
             if (Objects.equals(t.getTaskName(), task)){
                 this.taskList.remove(t);
                 return "Task removed";
@@ -87,7 +127,7 @@ public class TodoList {
 
     public void setSorting(Integer sortingChoice){
         // 0 for ascending, 1 for descending.
-        ArrayList<Task> sorted = new ArrayList<>();
+        ArrayList<com.booleanuk.core.Task> sorted = new ArrayList<>();
 
         if (sortingChoice == 0){
             this.taskList = this.taskList.stream()
