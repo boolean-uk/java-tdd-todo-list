@@ -1,4 +1,4 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -63,5 +63,20 @@ public class TodoList {
 
     public boolean removeTask(int id) {
         return tasks.removeIf(task -> task.getId() == id);
+    }
+
+
+    public boolean updateTaskName(int id, String updatedName) {
+        Task task = getById(id);
+        task.setName(updatedName);
+        return task.getName().equals(updatedName);
+    }
+
+    public List<Task> getTasksByDate() {
+        List<Task> sortedTasks = new ArrayList<>(tasks);
+
+        sortedTasks.sort(Comparator.comparing(Task::getCreateTime));
+
+        return sortedTasks;
     }
 }
