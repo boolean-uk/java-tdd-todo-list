@@ -1,21 +1,20 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
-import java.awt.*;
-import java.lang.reflect.Array;
+import com.booleanuk.core.Task;
+
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 
-public class TodoList {
+public class TodoListExtension {
 
-    ArrayList<Task> listOfTasks;
+    ArrayList<TaskExtension> listOfTasks;
 
-    public TodoList() {
+    public TodoListExtension() {
         this.listOfTasks = new ArrayList<>();
     }
 
-    public boolean addTask(Task task) {
+    public boolean addTask(TaskExtension task) {
         try {
             this.listOfTasks.add(task);
         } catch (Exception e) {
@@ -24,9 +23,9 @@ public class TodoList {
         return true;
     }
 
-    public ArrayList<Task> retrieveTasks () {
+    public ArrayList<TaskExtension> retrieveTasks () {
         try {
-            for(Task task : this.listOfTasks) {
+            for(TaskExtension task : this.listOfTasks) {
                 System.out.println(task.name);
             }
         } catch (Exception e) {
@@ -36,10 +35,10 @@ public class TodoList {
         return this.listOfTasks;
     }
 
-    public ArrayList<Task> getCompleteTasks() {
-        ArrayList<Task> completedTasks = new ArrayList<>();
+    public ArrayList<TaskExtension> getCompleteTasks() {
+        ArrayList<TaskExtension> completedTasks = new ArrayList<>();
         try {
-            for(Task task : this.listOfTasks) {
+            for(TaskExtension task : this.listOfTasks) {
                 if (task.status) {
                     System.out.println(task.name);
                     completedTasks.add(task);
@@ -52,10 +51,10 @@ public class TodoList {
         return completedTasks;
     }
 
-    public ArrayList<Task> getIncompleteTasks() {
-            ArrayList<Task> incompleteTasks = new ArrayList<>();
+    public ArrayList<TaskExtension> getIncompleteTasks() {
+            ArrayList<TaskExtension> incompleteTasks = new ArrayList<>();
             try {
-                for(Task task : this.listOfTasks) {
+                for(TaskExtension task : this.listOfTasks) {
                     if (!task.status) {
                         System.out.println(task.name);
                         incompleteTasks.add(task);
@@ -68,22 +67,22 @@ public class TodoList {
             return incompleteTasks;
         }
 
-     public Task searchTask(Task task) {
+     public TaskExtension searchTask(TaskExtension task) {
         try {
-            for (Task t : this.listOfTasks) {
+            for (TaskExtension t : this.listOfTasks) {
                 if (t.name == task.name) {
                     return task;
                 }
             }
         } catch (Exception e) {
             System.out.println("ERror, returning naked task");
-            return new Task("");
+            return new TaskExtension("");
         }
          System.out.println("Task does not exist, thus not found");
          return task;
      }
 
-     public void removeTask(Task task) {
+     public void removeTask(TaskExtension task) {
         if (this.listOfTasks.contains(task)) {
             this.listOfTasks.remove(this.listOfTasks.indexOf(task));
             System.out.println("Task: " + task.name + " was successfully removed");
@@ -103,36 +102,68 @@ public class TodoList {
         }
      }
 
-     public ArrayList<Task> showTasksAscending() {
-        Collections.sort(this.listOfTasks, Comparator.comparing(Task::getName));
+     public ArrayList<TaskExtension> showTasksAscending() {
+        Collections.sort(this.listOfTasks, Comparator.comparing(TaskExtension::getName));
          System.out.print("Tasks: ");
-         for(Task task : this.listOfTasks) {
+         for(TaskExtension task : this.listOfTasks) {
              System.out.print(task.name + " ");
          }
          System.out.println();
         return this.listOfTasks;
     }
 
-    public ArrayList<Task> showTasksDescending() {
-        Collections.sort(this.listOfTasks, Comparator.comparing(Task::getName, Comparator.reverseOrder()));
+    public ArrayList<TaskExtension> showTasksDescending() {
+        Collections.sort(this.listOfTasks, Comparator.comparing(TaskExtension::getName, Comparator.reverseOrder()));
         System.out.print("Tasks: ");
-        for(Task task : this.listOfTasks) {
+        for(TaskExtension task : this.listOfTasks) {
             System.out.print(task.name + " ");
         }
         System.out.println();
         return this.listOfTasks;
     }
 
+    public TaskExtension getTaskByID(int ID) {
+        for(TaskExtension task : this.listOfTasks) {
+            if (task.ID == ID) {
+                return task;
+            }
+        }
+        return new TaskExtension("");
+    }
+
+    public void setNameByID(int ID, String name) {
+        for(TaskExtension task : this.listOfTasks) {
+            if (task.ID == ID) {
+                task.setName(name);
+                System.out.println("Name changed successfully");
+                return;
+            }
+        }
+        System.out.println("Name has not been changed");
+    }
+
+    public void changeStatusByID(int ID) {
+        getTaskByID(ID).status = !getTaskByID(ID).status;
+    }
+
+    public void showDateTimeForTasks() {
+        for(TaskExtension task : this.listOfTasks) {
+            System.out.println("Task: " + task.name + " created at: " + task.dateTime);
+        }
+    }
+
     public static void main(String[] args) {
-        TodoList lst = new TodoList();
-        Task task_1 = new Task("CV");
-        Task task_2 = new Task("Sleep");
-        Task task_3 = new Task("Abefest");
-        Task task_4 = new Task("Zoo");
+        TodoListExtension lst = new TodoListExtension();
+        TaskExtension task_1 = new TaskExtension("CV");
+        TaskExtension task_2 = new TaskExtension("Sleep");
+        TaskExtension task_3 = new TaskExtension("Abefest");
+        TaskExtension task_4 = new TaskExtension("Zoo");
         lst.addTask(task_1);
         lst.addTask(task_2);
         lst.addTask(task_3);
         lst.addTask(task_4);
+
+        lst.showDateTimeForTasks();
 
         lst.showTasksAscending();
         lst.showTasksDescending();
