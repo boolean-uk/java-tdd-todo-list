@@ -1,21 +1,72 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 
-public class TodoList {
+public class TodoListExtension {
     ArrayList<String> toDoList;
     ArrayList<Boolean> taskComplete;
+    HashMap<String, String> mapIDtoTask;
+    HashMap<String, String> mapTaskToTime;
+    DateTimeFormatter dtf;
 
-    public TodoList() {
+    public TodoListExtension() {
         toDoList = new ArrayList<>();
         taskComplete = new ArrayList<>();
+        mapIDtoTask = new HashMap<>();
+        mapTaskToTime = new HashMap<>();
+        dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
     }
 
-    public boolean addTask(String task) {
-        if (!toDoList.contains(task)) {
+    public boolean addTaskID(String task, String ID) {
+        if (!toDoList.contains(task) && !mapIDtoTask.containsKey(ID)) {
             toDoList.add(task);
             taskComplete.add(false);
+            mapIDtoTask.put(ID, task);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean addTaskIDTime(String task, String ID) {
+        if (!toDoList.contains(task) && !mapIDtoTask.containsKey(ID)) {
+            toDoList.add(task);
+            taskComplete.add(false);
+            mapIDtoTask.put(ID, task);
+            LocalDateTime now = LocalDateTime.now();
+            mapTaskToTime.put(ID, dtf.format(now));
+
+            return true;
+        }
+        return false;
+    }
+
+    public String getTaskTime(String ID) {
+        String time = "";
+        if (mapTaskToTime.containsKey(ID)) {
+            time = mapTaskToTime.get(ID);
+        }
+        return time;
+    }
+
+    public String getTask(String ID) {
+        String result = "";
+        if (mapIDtoTask.containsKey(ID)) {
+            result = mapIDtoTask.get(ID);
+        }
+        return result;
+    }
+
+
+
+    public boolean newTaskName(String ID, String newName) {
+        if (mapIDtoTask.containsKey(ID)) {
+            int index = toDoList.indexOf(mapIDtoTask.get(ID));
+            toDoList.set(index, newName);
+            mapIDtoTask.replace(ID, newName);
             return true;
         }
         return false;
@@ -34,6 +85,16 @@ public class TodoList {
 
     public boolean taskStatus(String task, boolean status) {
         if (toDoList.contains(task)) {
+            int idx = toDoList.indexOf(task);
+            taskComplete.set(idx, status);
+            return taskComplete.get(idx);
+        }
+        return false;
+    }
+
+    public boolean taskStatusID(String ID, boolean status) {
+        if (mapIDtoTask.containsKey(ID) ) {
+            String task = mapIDtoTask.get(ID);
             int idx = toDoList.indexOf(task);
             taskComplete.set(idx, status);
             return taskComplete.get(idx);
