@@ -32,7 +32,7 @@ It may be beneficial to work in groups during the design phase of this exercise.
 
 ## Extension Requirements
 
-Work on these only after you have completed the core requirements. You may need to make changes to your domain model to complete these.
+Work on these only after you have completed the core requirements. You may need to make changes to your domain model to complete these..
 
 Create new classes and tests for these requirements in the `./src/main/java/com.booleanuk/extension/` and `.src/test/java/com.booleanuk/extension/` directories respectively. **Do not continue working in the same classes you used during the core requirements above.**
 
