@@ -3,7 +3,7 @@
 ## Learning Objectives
 - Use user stories to create a domain model
 - Use the Red Green Refactor approach to create source code from tests
-
+  
 ## Set up instructions
 - Fork this repository and clone the forked version to your machine
 - Open the root directory of the project in IntelliJ
