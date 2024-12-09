@@ -1,7 +1,6 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class TodoList {
     List<Task> tasks = new ArrayList<>();
@@ -60,5 +59,21 @@ public class TodoList {
             }
         });
         return tasks;
+    }
+
+    public Optional<Task> getTask(String id) {
+       return tasks.stream().filter(t -> t.ID.equals(id)).findFirst();
+    }
+
+    public void updateTask(String id, String newDescription){
+        if(tasks.stream().anyMatch(t -> t.ID.equals(id))){
+            tasks.stream().filter(t -> t.ID.equals(id)).findFirst().get().description = newDescription;
+        }
+    }
+
+    public void changeStatus(String id) {
+        if (tasks.stream().anyMatch(t -> t.ID.equals(id))) {
+            tasks.stream().filter(t -> t.ID.equals(id)).findFirst().get().changeStatus();
+        }
     }
 }
