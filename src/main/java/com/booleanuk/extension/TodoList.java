@@ -1,7 +1,7 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.UUID;
 
 public class TodoList {
     ArrayList<Task> tasks = new ArrayList<>();
@@ -46,6 +46,7 @@ public class TodoList {
         } return null;
     }
 
+
     public boolean removeTask(String taskName) {
         for(Task task : this.tasks) {
             if(task.taskName.equals(taskName)) {
@@ -74,5 +75,29 @@ public class TodoList {
             System.out.println(task.taskName + " : " + task.isCompeted);
         }
         System.out.println();
+    }
+
+    public Task getTaskByID(UUID id) {
+        for(Task task : this.tasks) {
+            if(task.id == id) return task;
+        } return null;
+    }
+
+    public boolean updateTaskNameByID(UUID id, String newTaskName) {
+        for(Task task : this.tasks) {
+            if(task.id == id) {
+                task.taskName = newTaskName; // should have a setter-function
+                return true;
+            }
+        } return false;
+    }
+
+    public boolean updateTaskStatusByID(UUID id, boolean status) {
+        for(Task task : this.tasks) {
+            if(task.id == id) {
+                task.isCompeted = status; // should have a setter-function
+                return true;
+            }
+        } return false;
     }
 }

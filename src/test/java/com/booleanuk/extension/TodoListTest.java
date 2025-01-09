@@ -1,4 +1,4 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -107,5 +107,40 @@ class TodoListTest {
         todoList.addTask(new Task("running", false));
         todoList.addTask(new Task("buy groceries", false));
         Assertions.assertFalse(todoList.removeTask("fishing"));
+    }
+
+    @Test
+    public void getCorrectTaskByIdTest() {
+        TodoList todoList = new TodoList();
+        Task task = new Task("laundry", true);
+        todoList.addTask(task);
+        Assertions.assertEquals(task, todoList.getTaskByID(task.id));
+    }
+
+    @Test
+    public void getIncorrectTaskByIdTest() {
+        TodoList todoList = new TodoList();
+        Task task = new Task("laundry", true);
+        Task task2 = new Task("fishing", false);
+        todoList.addTask(task);
+        Assertions.assertNull(todoList.getTaskByID(task2.id));
+    }
+
+    @Test
+    public void setTaskNameSuccessfullyByIdTest() {
+        TodoList todoList = new TodoList();
+        Task task = new Task("laundry", true);
+        todoList.addTask(task);
+        todoList.updateTaskNameByID(task.id, "Rowing");
+        Assertions.assertEquals("Rowing", task.taskName);
+    }
+
+    @Test
+    public void setStatusSuccessfullyByIdTest() {
+        TodoList todoList = new TodoList();
+        Task task = new Task("laundry", true);
+        todoList.addTask(task);
+        todoList.updateTaskStatusByID(task.id, false);
+        Assertions.assertFalse(task.isCompeted);
     }
 }
