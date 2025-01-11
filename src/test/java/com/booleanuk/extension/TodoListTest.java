@@ -1,4 +1,4 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -136,5 +136,70 @@ class TodoListTest {
         Assertions.assertFalse(tasks.contains("Sleep"));
         Assertions.assertTrue(tasks.contains("Study"));
         Assertions.assertTrue(tasks.contains("Cook"));
+    }
+
+    @Test
+    public void firstTaskIdShouldBeValid() {
+        TodoList todo = new TodoList();
+        todo.add("Drink coffee");
+        Assertions.assertTrue(-1 < todo.getTaskId("Drink coffee"));
+    }
+
+    @Test
+    public void sndTaskIdShouldBeGtr() {
+        TodoList todo = new TodoList();
+        todo.add("Drink coffee");
+        todo.add("Start working");
+        Assertions.assertTrue(
+                todo.getTaskId("Drink coffee")
+                < todo.getTaskId("Start working"));
+    }
+
+    @Test
+    public void getByIdReturnsRightTask() {
+        TodoList todo = new TodoList();
+        todo.add("Study");
+        todo.add("Cook");
+        todo.add("Sleep");
+        Assertions.assertEquals("Study", todo.getTaskById(todo.getTaskId("Study")).getName());
+    }
+
+    @Test
+    public void getNonexistentTaskByIdShouldBeNull() {
+        TodoList todo = new TodoList();
+        todo.add("Study");
+        todo.add("Cook");
+        todo.add("Sleep");
+        Assertions.assertNull(todo.getTaskById(todo.getTaskId("Walk")));
+    }
+
+    @Test
+    public void updateNonexistentTaskName() {
+        TodoList todo = new TodoList();
+        Assertions.assertFalse(todo.updateTaskName(0, "Say hi"));
+    }
+
+    @Test
+    public void verifyUpdatedTaskName() {
+        TodoList todo = new TodoList();
+        todo.add("Say hi");
+        int id = todo.getTaskId("Say hi");
+        todo.updateTaskName(id,"Say bye");
+        Assertions.assertEquals("Say bye", todo.getTaskById(id).getName());
+    }
+
+    @Test
+    public void updateNonexistentTaskStatus() {
+        TodoList todo = new TodoList();
+        Assertions.assertFalse(todo.updateTaskStatusById(0, true));
+    }
+
+    @Test
+    public void verifyUpdatedTaskStatus() {
+        TodoList todo = new TodoList();
+        todo.add("Write a todo list");
+        int id = todo.getTaskId("Write a todo list");
+        todo.updateTaskStatusById(id,true);
+        Assertions.assertTrue((todo.getTaskById(id).isCompleted()));
     }
 }
