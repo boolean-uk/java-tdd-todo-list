@@ -35,7 +35,6 @@ public class TaskTestExt {
     @Test
     public void testGetCreationTime(){
         TaskExt task = new TaskExt("Test");
-
-        Assertions.assertnotn
+        Assertions.assertNotNull(task.getCreationTime());
     }
 }
