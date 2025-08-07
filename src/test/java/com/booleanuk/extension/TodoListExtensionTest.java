@@ -1,9 +1,13 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class TodoListTest {
+import java.lang.invoke.TypeDescriptor;
+
+public class TodoListExtensionTest {
+
+
     @Test
     public void exampleTest() {
         String hello = "Hello";
@@ -13,21 +17,21 @@ class TodoListTest {
 
     @Test
     public void addTaskCorrect() {
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertTrue(list.addTask("do dishes"));
     }
 
     @Test
     public void addTaskIncorrect() {
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertFalse(list.addTask(""));
         list.addTask("dishes");
         Assertions.assertFalse(list.addTask("dishes"));
     }
 
     @Test
-    public void getTodoList(){
-        TodoList list = new TodoList();
+    public void getTodoListExtension(){
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertEquals(0, list.getTodoList().size());
         list.addTask("dishes");
         Assertions.assertEquals(1, list.getTodoList().size());
@@ -36,7 +40,7 @@ class TodoListTest {
 
     @Test
     public void setDone() {
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertFalse(list.setDone("dishes"));
         list.addTask("dishes");
         Assertions.assertTrue(list.setDone("dishes"));
@@ -44,8 +48,17 @@ class TodoListTest {
     }
 
     @Test
+    public void setDoneId() {
+        TodoListExtension list = new TodoListExtension();
+        Assertions.assertFalse(list.setDone(0));
+        list.addTask("dishes");
+        Assertions.assertTrue(list.setDone(0));
+        Assertions.assertTrue(list.setDone(0));
+    }
+//
+    @Test
     public void getCompletedTasks(){
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         list.addTask("dishes");
         Assertions.assertEquals(0, list.getCompletedTasks().size());
         list.setDone("dishes");
@@ -57,7 +70,7 @@ class TodoListTest {
 
     @Test
     public void getIncompletedTasks(){
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertEquals(0, list.getIncompletedTasks().size());
         list.addTask("dishes");
         Assertions.assertEquals(1, list.getIncompletedTasks().size());
@@ -70,7 +83,7 @@ class TodoListTest {
 
     @Test
     public void findTask() {
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertEquals("Task not found", list.findTask("dishes"));
         list.addTask("dishes");
         list.addTask("work");
@@ -82,7 +95,7 @@ class TodoListTest {
 
     @Test
     public void removeTask() {
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertFalse(list.removeTask("sepuku"));
         list.addTask("dishes");
         Assertions.assertTrue(list.removeTask("dishes"));
@@ -90,34 +103,39 @@ class TodoListTest {
 
     @Test
     public void getSortedTasksAsc() {
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertEquals(0, list.getSortedTasks(true).size());
         list.addTask("apple");
         list.addTask("coconut");
         list.addTask("beach day");
         var returnedList = list.getSortedTasks(true);
         Assertions.assertEquals(3, returnedList.size());
-        Assertions.assertEquals("apple", returnedList.getFirst().getKey());
-        Assertions.assertEquals("beach day", returnedList.get(1).getKey());
-        Assertions.assertEquals("coconut", returnedList.get(2).getKey());
+        Assertions.assertEquals("apple", returnedList.getFirst().getTaskName());
+        Assertions.assertEquals("beach day", returnedList.get(1).getTaskName());
+        Assertions.assertEquals("coconut", returnedList.get(2).getTaskName());
     }
 
     @Test
     public void getSortedTasksDsc() {
-        TodoList list = new TodoList();
+        TodoListExtension list = new TodoListExtension();
         Assertions.assertEquals(0, list.getSortedTasks(false).size());
         list.addTask("apple");
         list.addTask("coconut");
         list.addTask("beach day");
         var returnedList = list.getSortedTasks(false);
         Assertions.assertEquals(3, returnedList.size());
-        Assertions.assertEquals("apple", returnedList.get(2).getKey());
-        Assertions.assertEquals("beach day", returnedList.get(1).getKey());
-        Assertions.assertEquals("coconut", returnedList.get(0).getKey());
+        Assertions.assertEquals("apple", returnedList.get(2).getTaskName());
+        Assertions.assertEquals("beach day", returnedList.get(1).getTaskName());
+        Assertions.assertEquals("coconut", returnedList.get(0).getTaskName());
     }
 
+    @Test
+    public void updateTaskName() {
+        TodoListExtension list = new TodoListExtension();
+        Assertions.assertFalse(list.updateName(0, "banana"));
+        list.addTask("dishes");
+        Assertions.assertTrue(list.updateName(0, "banana"));
+        Assertions.assertEquals("banana",list.getTodoList().getFirst().getTaskName());
 
-
-
-
+    }
 }
