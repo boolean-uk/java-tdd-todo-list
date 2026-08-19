@@ -1,4 +1,4 @@
-package com.booleanuk.core;
+package com.booleanuk.extension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,13 +6,15 @@ import java.util.List;
 public class TodoList {
 
     private List<Task> tasks;
+    private int nextId = 1;
 
     public TodoList() {
         this.tasks = new ArrayList<>();
     }
 
     public void add(String name) {
-        this.tasks.add(new Task(name));
+        this.tasks.add(new Task(name, nextId));
+        this.nextId++;
     }
 
     public List<Task> getTasks() {
@@ -107,5 +109,31 @@ public class TodoList {
         }
         return sorted;
     }
+
+    public Task getTaskById(int id) {
+        for (Task task : this.tasks) {
+            if (task.getId() == id) {
+                return task;
+            }
+        }
+        return null;
+
+    }
+
+    public void changeNameById(int id, String newName) {
+        Task task = getTaskById(id);
+
+        if (task != null) {
+            task.setName(newName);
+        }
+    }
+
+    public void changeStatus(int id) {
+        Task task = getTaskById(id);
+        if (task != null) {
+            task.setStatus(!task.isStatus());
+        }
+    }
+
 
 }
